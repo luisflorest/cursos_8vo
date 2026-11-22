@@ -750,100 +750,53 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
     background:var(--model-accent);
   }
 }
-body[data-subject="c"] {
-  --paper:#eff5f4; --quiet:#f6faf9; --line:#c9ddda; --control-line:#748e8a;
-  --ink:#1b3231; --muted:#385957; --deep:#163f42; --accent:#246269; --wash:#e3f0ee;
-  --selection-line:#a2cfc8; --shadow:0 10px 30px #163f420a;
+.study-resource { background:var(--surface); color:var(--ink); border-color:var(--line); }
+.study-resource summary { justify-content:flex-start; }
+.resource-body { display:grid; gap:9px; padding:4px 12px 12px; font-size:.93rem; line-height:1.48; }
+.resource-body h4 { margin:0; font-size:1rem; color:var(--deep); }
+.resource-body figure { margin:0; }
+.resource-body img { display:block; width:100%; max-height:380px; object-fit:contain; height:auto; background:var(--quiet); border-radius:8px; }
+.resource-body a { color:var(--accent); font-weight:680; text-underline-offset:3px; }
+.resource-credit { color:var(--muted); font-size:.8rem; }
+.resource-question { border-inline-start:3px solid var(--accent); padding:5px 9px; background:var(--wash); border-radius:0 6px 6px 0; }
+.study-options { display:grid; gap:6px; }
+.study-options button { justify-content:flex-start; text-align:start; }
+.study-options button[aria-pressed=true] { border-color:var(--accent); color:var(--deep); background:var(--wash); box-shadow:inset 3px 0 var(--accent); }
+.resource-feedback:not(:empty) { padding:7px 10px; background:var(--hint-bg); border-inline-start:3px solid var(--hint); color:var(--hint); }
+.resource-feedback[data-correct=true] { background:var(--success-bg); border-inline-start-color:var(--success); color:var(--success); }
+.history-videos .resource-credit a { display:inline; min-height:auto; font-size:inherit; }
+.study-graphic {
+  display:grid; gap:7px; margin:0; padding:11px;
+  border:1px solid var(--line); border-radius:9px; background:var(--quiet);
 }
-body[data-subject="l"] {
-  --paper:#f1f4fa; --quiet:#f7f9fd; --line:#ced7e9; --control-line:#7c8fb0;
-  --ink:#242d42; --muted:#465676; --deep:#263d6b; --accent:#3c568e; --wash:#e8eef9;
-  --selection-line:#bacbf0; --shadow:0 10px 30px #263d6b0a;
+.study-graphic figcaption { font-size:.83rem; color:var(--muted); }
+.study-graphic .entry-label { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 10px; font-size:.88rem; font-weight:690; }
+.metric-track { height:13px; border-radius:4px; background:var(--wash); overflow:hidden; }
+.metric-fill { display:block; height:100%; background:var(--accent); }
+.zone-grid {
+  position:relative; max-width:490px; width:100%; height:140px; margin:auto;
+  background-color:#fff; background-image:linear-gradient(#e6dce6 1px,transparent 1px),linear-gradient(90deg,#e6dce6 1px,transparent 1px);
+  background-size:20px 20px;
+  border:1px solid var(--line); border-radius:8px;
 }
-body[data-subject="m"] {
-  --paper:#f7f2ee; --quiet:#fcf9f6; --line:#e1d0c4; --control-line:#a48976;
-  --ink:#332822; --muted:#605044; --deep:#663921; --accent:#80492c; --wash:#f4e8df;
-  --selection-line:#e6bd9b; --shadow:0 10px 30px #6639210a;
+.zone-area { position:absolute; border:2px solid var(--accent); border-radius:9px; background:#a978af34; }
+.zone-marker {
+  position:absolute; left:50%; top:60%; transform:translate(-50%,-50%);
+  padding:2px 6px; border-radius:5px; background:var(--accent); color:#fff; font-size:.85rem; font-weight:730;
 }
-.hero::after {
-  border-color:color-mix(in srgb,var(--accent) 25%,transparent);
-  box-shadow:0 0 0 27px color-mix(in srgb,var(--accent) 7%,transparent),
-    0 0 0 58px color-mix(in srgb,var(--accent) 4%,transparent);
+.dot-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+.dot-plot { display:grid; justify-items:center; gap:5px; text-align:center; font-size:.85rem; }
+.dot-grid {
+  width:min(100%,108px); aspect-ratio:1; display:grid;
+  grid-template:repeat(6,minmax(0,1fr))/repeat(6,minmax(0,1fr));
+  padding:4px; border:1px solid var(--line); border-radius:6px; background:var(--surface);
 }
-.mode-tab[aria-pressed=true] { box-shadow:inset 0 -3px 0 var(--selection-line,#d4a9d6); }
-.study-model.history-explorer {
-  --model-ink:var(--ink); --model-muted:var(--muted); --model-line:var(--line);
-  --model-accent:var(--accent); --model-light:var(--wash);
-  background:var(--quiet);
-}
-.study-model summary:hover { background:var(--wash); }
-.study-model #controls:not(:empty) {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,126px),1fr));
-}
-.study-model #controls:empty { display:none; }
-.study-model #controls .pill[aria-pressed=true] {
-  box-shadow:inset 0 -3px 0 var(--selection-line,#d4a9d6);
-}
-.study-board {
-  min-width:0;
-  display:grid;
-  place-items:center;
-  padding:clamp(10px,2vw,16px);
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--surface);
-}
-.study-board canvas { display:block; width:min(100%,570px); height:auto; border-radius:8px; }
-.study-board .scene { width:100%; margin:0; justify-content:center; align-items:center; }
-.study-board .tile {
-  flex:1 1 122px;
-  justify-content:center;
-  min-height:54px;
-  padding:9px 11px;
-  text-align:center;
-}
-.study-board .tile:nth-of-type(even) { background:var(--success-bg); border-color:var(--success-line); }
-.scene-arrow { flex:none; color:var(--accent); font-size:1.14rem; }
-.study-model .legend:not(:empty) {
-  padding:8px 11px;
-  border-inline-start:3px solid var(--accent);
-  border-radius:0 7px 7px 0;
-  background:var(--wash);
-  color:var(--ink);
-  font-size:.93rem;
-  line-height:1.4;
-}
-.study-model .legend:empty { display:none; }
-.range-box { width:min(100%,430px); }
-.range-box label { display:flex; justify-content:space-between; gap:6px; color:var(--deep); font-weight:710; }
-.range-box input { margin:10px 0; }
-.reading { text-align:center; margin-top:9px; color:var(--deep); font-weight:740; }
-.orbital-row { align-items:center; }
-.slots button { width:45px; padding:0; }
-.lewis {
-  display:grid;
-  grid-template:44px 44px 44px / 46px 46px 46px;
-  justify-content:center;
-  align-items:stretch;
-}
-.lewis button { padding:0; line-height:1; font-size:1.12rem; }
-.lewis strong { display:grid; place-items:center; color:var(--deep); font-size:1.35rem; }
-.lewis>:nth-child(1) { grid-area:1/2; }
-.lewis>:nth-child(2) { grid-area:2/3; }
-.lewis>:nth-child(3) { grid-area:3/2; }
-.lewis>:nth-child(4) { grid-area:2/1; }
-.lewis strong { grid-area:2/2; }
-@media(max-width:480px) {
-  .study-model #controls:not(:empty) { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .study-board .scene { flex-direction:column; align-items:stretch; }
-  .study-board .tile { flex:auto; min-height:42px; }
-  .scene-arrow { align-self:center; transform:rotate(90deg); }
-}
-@media(max-width:390px) {
-  .brand-name { flex-wrap:wrap; row-gap:2px; }
-}
-@media print { .study-model #controls { display:none!important; } }
+.dot-cell { display:grid; place-items:center; }
+.dot-cell.occupied::after { content:""; width:67%; height:67%; background:var(--accent); border-radius:50%; }
+.study-chain { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; margin:0; padding:0; }
+.study-chain li { display:grid; justify-items:start; gap:3px; min-width:0; padding:7px; background:var(--surface); border:1px solid var(--line); border-radius:7px; font-size:.87rem; overflow-wrap:anywhere; }
+.study-chain .history-icon { color:var(--accent); }
+@media(max-width:480px) { .study-chain { grid-template-columns:minmax(0,1fr); } }
 </style>
 <!--
 Material Icons by Google (https://github.com/google/material-design-icons).
@@ -1112,19 +1065,24 @@ Apache License
       <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
     </div>
   </div>
-  <details class="explorer history-explorer study-model" id="visual-details">
+  <details class="explorer history-explorer" id="visual-details">
     <summary id="visual-summary">
       <span class="history-summary-icon" aria-hidden="true"><span class="history-icon" data-icon="explore"></span></span>
       <span class="history-summary-label">
         <strong>Explora el modelo visual</strong>
-        <span id="visual-intro"></span>
+        <span id="visual-question"></span>
       </span>
       <span class="history-chevron" aria-hidden="true"></span>
     </summary>
     <div class="history-model">
-      <div class="controls" id="controls" role="group" aria-label="Opciones del modelo visual"></div>
-      <div class="study-board board" id="board"></div>
-      <p class="legend" id="legend" aria-live="polite"></p>
+      <p class="history-instruction" id="visual-intro"></p>
+      <div class="history-choices" id="controls" role="group" aria-label="Vistas del modelo" aria-describedby="visual-intro"></div>
+      <section class="history-board" id="board" aria-live="polite" aria-atomic="true" aria-labelledby="visual-panel-title"></section>
+      <div id="study-resources"></div>
+      <section class="history-videos" aria-labelledby="visual-video-title">
+        <h3 id="visual-video-title"><span class="history-icon" data-icon="video" aria-hidden="true"></span> Videos para repasar</h3>
+        <ul id="visual-videos"></ul>
+      </section>
     </div>
   </details>
   <section class="worked" id="worked">
@@ -1230,36 +1188,103 @@ const units = [
         },
         "intro": "Elige una vista para comparar las ideas del tema.",
         "visual": {
-          "kind": "scenes",
-          "choices": [
-            [
-              "Física",
-              [
-                "Relieve",
-                "Clima",
-                "Aguas"
+          "kind": "comparison",
+          "question": "¿Qué partes del paisaje son naturales y cómo las transformamos?",
+          "instruction": "Observa un mismo paisaje de Santiago con tres preguntas. Abre la fotografía para buscar evidencias.",
+          "views": [
+            {
+              "label": "Elementos naturales",
+              "icon": "world",
+              "title": "¿Qué estudiarías desde la geografía física?",
+              "cards": [
+                "En el paisaje",
+                "Pregunta de geografía física"
               ],
-              "Estudia fenómenos naturales."
+              "facts": [
+                [
+                  "Cordillera de los Andes",
+                  "El relieve forma una barrera natural visible al fondo."
+                ],
+                [
+                  "Forma del terreno",
+                  "¿En qué sector hay pendientes más fuertes y dónde se extiende la parte más plana?"
+                ]
+              ],
+              "key": "La geografía física estudia relieve, clima, aguas y otros elementos naturales."
+            },
+            {
+              "label": "Elementos humanos",
+              "icon": "people",
+              "title": "¿Qué estudiarías desde la geografía humana?",
+              "cards": [
+                "En el paisaje",
+                "Pregunta de geografía humana"
+              ],
+              "facts": [
+                [
+                  "Edificios y calles",
+                  "Las construcciones muestran cómo las personas ocupan y organizan ese espacio."
+                ],
+                [
+                  "Organización de la ciudad",
+                  "¿Dónde se concentra la construcción y cómo se conecta con el resto del territorio?"
+                ]
+              ],
+              "key": "La geografía humana estudia la población, sus actividades y su organización."
+            },
+            {
+              "label": "Interacción",
+              "icon": "layers",
+              "title": "¿Cómo se relacionan los dos elementos?",
+              "cards": [
+                "Influencia del medio",
+                "Transformación del espacio"
+              ],
+              "facts": [
+                [
+                  "El terreno condiciona la ocupación",
+                  "Las pendientes influyen en dónde resulta más sencillo construir y conectar barrios."
+                ],
+                [
+                  "La ciudad cambia el terreno",
+                  "Al construir calles, viviendas y parques, las personas modifican la superficie y sus usos."
+                ]
+              ],
+              "key": "El espacio geográfico resulta de la interacción entre la sociedad y el medio."
+            }
+          ],
+          "videos": [
+            {
+              "title": "Ubicación en el espacio",
+              "source": "educarchile",
+              "id": "-OCENXr3Y-I",
+              "prompt": "Elige una herramienta geográfica del video y di qué te ayudaría a observar en Santiago."
+            }
+          ],
+          "source": {
+            "title": "Observa el paisaje de Santiago",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Santiago_Chile_Andes.jpg",
+            "width": 1172,
+            "height": 645,
+            "alt": "Fotografía de Santiago con edificios en primer plano y la cordillera de los Andes al fondo.",
+            "text": "El paisaje permite ver construcciones y relieve en una misma imagen.",
+            "prompt": "Ubica primero la cordillera y después las construcciones. ¿Qué pregunta podrías hacer sobre la relación entre ambas?",
+            "credit": "Luciano Luck, Santiago Chile Andes · Wikimedia Commons",
+            "href": "https://commons.wikimedia.org/wiki/File:Santiago_Chile_Andes.jpg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "check": {
+            "prompt": "Un equipo estudia cómo la pendiente del terreno influye en dónde se construyen los barrios. ¿Qué está analizando?",
+            "choices": [
+              "Solo una característica natural",
+              "La interacción entre el medio y la población",
+              "Solo una división política"
             ],
-            [
-              "Humana",
-              [
-                "Ciudades",
-                "Migración",
-                "Economía"
-              ],
-              "Estudia la población y cómo transforma su entorno."
-            ],
-            [
-              "Relación",
-              [
-                "Río",
-                "→",
-                "Embalse y cultivos"
-              ],
-              "Una sociedad aprovecha y transforma el medio."
-            ]
-          ]
+            "correct": 1,
+            "help": "Identifica qué parte es natural y qué parte es una acción humana.",
+            "answer": "La pendiente es un elemento natural y la construcción de barrios es una actividad humana. Estudiar su relación explica cómo se forma el espacio geográfico."
+          }
         },
         "exercises": [
           {
@@ -1403,36 +1428,160 @@ const units = [
         },
         "intro": "Elige una vista para comparar las ideas del tema.",
         "visual": {
-          "kind": "scenes",
-          "choices": [
-            [
-              "Administrativa",
-              [
-                "Los Lagos",
-                "→",
-                "Límites de gobierno"
+          "kind": "comparison",
+          "question": "¿Cómo puede Temuco estar en varias regiones a la vez?",
+          "instruction": "El punto fijo es Temuco. Cambia el criterio para ver cómo cambia el área que estamos observando.",
+          "views": [
+            {
+              "label": "Político-administrativa",
+              "icon": "power",
+              "title": "¿Qué límites sirven para administrar?",
+              "cards": [
+                "Criterio",
+                "Temuco según este criterio"
               ],
-              "El límite político permite administrar servicios."
-            ],
-            [
+              "facts": [
+                [
+                  "Decisión política",
+                  "Los límites se establecen para administrar el territorio."
+                ],
+                [
+                  "Región de La Araucanía",
+                  "Temuco es su capital regional."
+                ]
+              ],
+              "key": "Busca una división formal cuando la pregunta trata de administración.",
+              "diagram": {
+                "kind": "zone",
+                "area": "Región de La Araucanía",
+                "box": [
+                  22,
+                  47,
+                  56,
+                  29
+                ]
+              }
+            },
+            {
+              "label": "Natural",
+              "icon": "world",
+              "title": "¿Qué paisajes tienen rasgos físicos en común?",
+              "cards": [
+                "Criterio",
+                "Temuco según este criterio"
+              ],
+              "facts": [
+                [
+                  "Clima, relieve y vegetación",
+                  "Se agrupan territorios con rasgos naturales parecidos."
+                ],
+                [
+                  "Zona Sur",
+                  "Temuco se ubica en una zona natural que abarca una extensión diferente a los límites administrativos."
+                ]
+              ],
+              "key": "Una región natural puede cruzar varias regiones administrativas.",
+              "diagram": {
+                "kind": "zone",
+                "area": "Zona Sur",
+                "box": [
+                  17,
+                  36,
+                  67,
+                  58
+                ]
+              }
+            },
+            {
+              "label": "Histórica y cultural",
+              "icon": "people",
+              "title": "¿Qué territorio se reconoce por una historia o cultura compartida?",
+              "cards": [
+                "Criterio",
+                "Temuco según este criterio"
+              ],
+              "facts": [
+                [
+                  "Vínculos culturales e históricos",
+                  "Se consideran trayectorias, prácticas y vínculos con el territorio."
+                ],
+                [
+                  "Presencia histórica mapuche",
+                  "Temuco se emplaza en un territorio con presencia histórica mapuche que se extiende más allá del límite administrativo de La Araucanía."
+                ]
+              ],
+              "key": "Los vínculos culturales no siempre forman fronteras precisas.",
+              "diagram": {
+                "kind": "zone",
+                "area": "Territorio histórico y cultural",
+                "box": [
+                  7,
+                  40,
+                  83,
+                  45
+                ],
+                "dashed": true
+              }
+            },
+            {
+              "label": "Económica",
+              "icon": "trade",
+              "title": "¿Hasta dónde llegan los viajes por trabajo o comercio?",
+              "cards": [
+                "Criterio",
+                "Ejemplo de cómo se dibujaría"
+              ],
+              "facts": [
+                [
+                  "Intercambio y actividades",
+                  "Los movimientos de personas, bienes y servicios permiten agrupar lugares."
+                ],
+                [
+                  "Área de influencia comercial",
+                  "Podríamos estudiar qué comunas viajan hacia Temuco para comprar o usar servicios. Para trazar sus límites necesitaríamos datos."
+                ]
+              ],
+              "key": "La región económica depende de la actividad y de los datos que usemos.",
+              "diagram": {
+                "kind": "zone",
+                "area": "Área de influencia comercial · ejemplo",
+                "box": [
+                  28,
+                  45,
+                  43,
+                  36
+                ],
+                "dashed": true
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Concepto de región",
+              "source": "Aprendo en Línea · Mineduc, 8.º básico",
+              "id": "CJu3WxnyxZ4",
+              "prompt": "Elige dos tipos de región. Explica qué dato usarías para dibujar cada una.",
+              "href": "https://aprendoenlinea.mineduc.gob.cl/recursos/concepto-region"
+            }
+          ],
+          "source": {
+            "title": "Consulta las regiones de Chile",
+            "text": "El INE ofrece una actividad de 8.º básico para comparar regiones políticas y naturales de Chile con datos e información geográfica.",
+            "prompt": "Localiza La Araucanía. Luego vuelve al esquema y explica por qué el límite regional y el de la Zona Sur responden a preguntas distintas.",
+            "credit": "INE Educa · Chile, Geografía y Estadísticas",
+            "href": "https://www.ine.gob.cl/ine-educa/cursos/chile-geografia-y-estadisticas"
+          },
+          "check": {
+            "prompt": "Un mapa agrupa lugares por clima, vegetación y suelo, incluso si están en distintas regiones administrativas. ¿Qué criterio usa?",
+            "choices": [
               "Natural",
-              [
-                "Zona Sur",
-                "→",
-                "Relieve, clima y vegetación"
-              ],
-              "Se reconoce por rasgos naturales comunes."
+              "Político-administrativo",
+              "Económico"
             ],
-            [
-              "Económica",
-              [
-                "Zona salmonera",
-                "→",
-                "Actividad predominante"
-              ],
-              "Un mismo lugar puede estar en las tres regiones."
-            ]
-          ]
+            "correct": 0,
+            "help": "Pregúntate si los datos describen naturaleza, autoridades o actividades de producción.",
+            "answer": "Clima, vegetación y suelo son rasgos físicos. El mapa organiza una región natural."
+          }
         },
         "exercises": [
           {
@@ -1707,35 +1856,140 @@ const units = [
         },
         "intro": "Elige una vista para comparar las ideas del tema.",
         "visual": {
-          "kind": "scenes",
-          "choices": [
-            [
-              "PIB",
-              [
-                "Producción total",
-                "→",
-                "Bienes y servicios finales"
+          "kind": "comparison",
+          "question": "¿La región que más produce tiene mayor PIB por habitante?",
+          "instruction": "Compara Río y Valle, dos regiones ficticias. Cambia el indicador para ver qué puedes concluir.",
+          "views": [
+            {
+              "label": "PIB total",
+              "icon": "trade",
+              "title": "Río produce más en total",
+              "cards": [
+                "Región Río",
+                "Región Valle"
               ],
-              "Mide cuánto se produce en un período."
+              "facts": [
+                [
+                  "$3.000 millones",
+                  "Valor de lo producido durante el año. La región tiene 300.000 habitantes."
+                ],
+                [
+                  "$2.000 millones",
+                  "Valor de lo producido durante el mismo año. La región tiene 100.000 habitantes."
+                ]
+              ],
+              "key": "El PIB total suma el valor de los bienes y servicios finales producidos en el período.",
+              "diagram": {
+                "kind": "bars",
+                "label": "PIB total · ejemplo ficticio",
+                "unit": "millones de pesos",
+                "entries": [
+                  [
+                    "Río",
+                    3000
+                  ],
+                  [
+                    "Valle",
+                    2000
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "PIB por habitante",
+              "icon": "people",
+              "title": "Valle tiene mayor PIB por habitante",
+              "cards": [
+                "Región Río",
+                "Región Valle"
+              ],
+              "facts": [
+                [
+                  "$10.000 por habitante",
+                  "$3.000 millones ÷ 300.000 habitantes."
+                ],
+                [
+                  "$20.000 por habitante",
+                  "$2.000 millones ÷ 100.000 habitantes."
+                ]
+              ],
+              "key": "El promedio cambia al dividir por la población. No indica cuánto dinero recibe cada persona.",
+              "diagram": {
+                "kind": "bars",
+                "label": "PIB por habitante · ejemplo ficticio",
+                "unit": "pesos por habitante",
+                "entries": [
+                  [
+                    "Río",
+                    10000
+                  ],
+                  [
+                    "Valle",
+                    20000
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "IDH e IDERE",
+              "icon": "layers",
+              "title": "¿Qué falta para hablar de bienestar?",
+              "cards": [
+                "IDH",
+                "IDERE"
+              ],
+              "facts": [
+                [
+                  "Tres dimensiones",
+                  "El IDH combina salud, educación e ingreso."
+                ],
+                [
+                  "Mirada regional",
+                  "El IDERE incorpora dimensiones como conectividad y seguridad, según la pauta de la unidad."
+                ]
+              ],
+              "key": "Para hablar de oportunidades y calidad de vida, mira varias dimensiones además de cuánto se produce."
+            },
+            {
+              "label": "Ventaja comparativa",
+              "icon": "ideas",
+              "title": "¿Dónde cuesta menos renunciar a otro producto?",
+              "cards": [
+                "Valle",
+                "Costa"
+              ],
+              "facts": [
+                [
+                  "12 cajas de fruta o 6 de pescado",
+                  "Con los mismos recursos, hacer 1 caja de fruta cuesta renunciar a ½ caja de pescado."
+                ],
+                [
+                  "8 cajas de fruta u 8 de pescado",
+                  "Hacer 1 caja de fruta cuesta renunciar a 1 caja de pescado."
+                ]
+              ],
+              "key": "En este ejemplo ficticio, Valle tiene ventaja comparativa en fruta porque renuncia a menos pescado."
+            }
+          ],
+          "videos": [
+            {
+              "title": "La esperanza del desarrollo",
+              "source": "Ministerio de Educación de Chile · 8.º básico",
+              "id": "ztENY0Z09CU",
+              "prompt": "Anota una condición de salud o educación que el PIB total no puede revelar por sí solo."
+            }
+          ],
+          "check": {
+            "prompt": "Valle tiene un PIB por habitante de $20.000 y Río de $10.000 en el ejemplo. ¿Qué se puede concluir?",
+            "choices": [
+              "Cada habitante de Valle cobra $20.000",
+              "Valle tiene el doble de producción por habitante",
+              "Valle tiene mejor salud, educación y seguridad"
             ],
-            [
-              "PIB por persona",
-              [
-                "Producción",
-                "÷ habitantes"
-              ],
-              "Es un promedio. Las personas pueden tener ingresos distintos."
-            ],
-            [
-              "Desarrollo",
-              [
-                "Salud",
-                "Educación",
-                "Ingresos"
-              ],
-              "Son dimensiones centrales del IDH."
-            ]
-          ]
+            "correct": 1,
+            "help": "Observa qué operación se hizo y qué variables quedaron fuera.",
+            "answer": "El cociente representa producción por habitante. Los ingresos personales y las condiciones de vida requieren otros datos."
+          }
         },
         "exercises": [
           {
@@ -1939,33 +2193,128 @@ const units = [
         },
         "intro": "Elige una vista para comparar las ideas del tema.",
         "visual": {
-          "kind": "scenes",
-          "choices": [
-            [
-              "Primario",
-              [
-                "Extraer",
-                "Recursos naturales"
+          "kind": "comparison",
+          "question": "¿Cómo se distribuye la población y qué actividades realiza?",
+          "instruction": "Prueba dos formas de mirar la población y sigue el recorrido del trigo hasta que se vende el pan.",
+          "views": [
+            {
+              "label": "Densidad",
+              "icon": "people",
+              "title": "Con igual población, cambia la densidad si cambia la superficie",
+              "cards": [
+                "Territorio amplio",
+                "Territorio pequeño"
               ],
-              "Agricultura, pesca o minería."
+              "facts": [
+                [
+                  "20 hab/km²",
+                  "300.000 habitantes ÷ 15.000 km²."
+                ],
+                [
+                  "60 hab/km²",
+                  "300.000 habitantes ÷ 5.000 km²."
+                ]
+              ],
+              "key": "Divide población por superficie. Si la población es igual, el territorio más pequeño es más denso.",
+              "diagram": {
+                "kind": "bars",
+                "label": "Densidad · ejemplo ficticio",
+                "unit": "hab/km²",
+                "entries": [
+                  [
+                    "Amplio",
+                    20
+                  ],
+                  [
+                    "Pequeño",
+                    60
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "Distribución",
+              "icon": "world",
+              "title": "La misma densidad puede esconder mapas distintos",
+              "cards": [
+                "Población concentrada",
+                "Población dispersa"
+              ],
+              "facts": [
+                [
+                  "Cerca de un centro",
+                  "Una parte pequeña del territorio concentra a la población."
+                ],
+                [
+                  "Repartida en el territorio",
+                  "Las personas se ubican en distintos sectores."
+                ]
+              ],
+              "key": "La densidad es un promedio. Para saber dónde vive la gente, observa cómo se reparte la población.",
+              "diagram": {
+                "kind": "dots"
+              }
+            },
+            {
+              "label": "Sectores económicos",
+              "icon": "trade",
+              "title": "Un producto conecta tres sectores",
+              "cards": [
+                "Obtención del recurso",
+                "Transformación y servicios"
+              ],
+              "facts": [
+                [
+                  "Trigo",
+                  "Cultivarlo y cosecharlo pertenece al sector primario."
+                ],
+                [
+                  "Pan",
+                  "Elaborarlo pertenece al sector secundario. Transportarlo o venderlo pertenece al terciario."
+                ]
+              ],
+              "key": "Clasifica cada trabajo por lo que hace, aunque todos participen en la misma cadena.",
+              "diagram": {
+                "kind": "chain",
+                "entries": [
+                  [
+                    "Primario",
+                    "Cultivar trigo",
+                    "world"
+                  ],
+                  [
+                    "Secundario",
+                    "Elaborar pan",
+                    "ideas"
+                  ],
+                  [
+                    "Terciario",
+                    "Transportar y vender",
+                    "trade"
+                  ]
+                ]
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Sectores económicos y productos en Chile",
+              "source": "Colegio Francisco Bilbao · 8.º básico",
+              "id": "wMi8KfIkZZE",
+              "prompt": "Elige un producto del video y sigue qué trabajo lo obtiene, cuál lo transforma y cuál lo vende."
+            }
+          ],
+          "check": {
+            "prompt": "Una localidad tiene 300.000 habitantes en 5.000 km². ¿Cuál es su densidad media?",
+            "choices": [
+              "15 hab/km²",
+              "60 hab/km²",
+              "1.500 hab/km²"
             ],
-            [
-              "Secundario",
-              [
-                "Transformar",
-                "Materias primas"
-              ],
-              "Fabricar vino, refinar cobre."
-            ],
-            [
-              "Terciario",
-              [
-                "Prestar servicios",
-                "Atender o comerciar"
-              ],
-              "Turismo, banca y transporte."
-            ]
-          ]
+            "correct": 1,
+            "help": "Divide los habitantes por los kilómetros cuadrados.",
+            "answer": "300.000 ÷ 5.000 = 60 habitantes por km². Es un promedio de toda la localidad."
+          }
         },
         "exercises": [
           {
@@ -2527,30 +2876,215 @@ function showMolecules() {
   });
 }
 
-function showVisual(visual) {
-  byId("controls").replaceChildren();
-  byId("board").replaceChildren();
-  byId("legend").textContent = "";
-  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules};
-  if (visual.kind === "scenes") {
-    switcher(visual.choices.map(choice => choice[0]), active => {
-      const [, cells, note] = visual.choices[active];
-      const scene = document.createElement("div");
-      scene.className = "scene";
-      for (const cell of cells) {
-        const tile = document.createElement("div");
-        tile.className = cell === "→" ? "scene-arrow" : "tile";
-        tile.textContent = cell;
-        scene.append(tile);
-      }
-      byId("board").replaceChildren(scene);
-      byId("legend").textContent = note;
-    });
-  } else {
-    const renderVisual = renderers[visual.kind];
-    if (renderVisual) renderVisual();
-    else showMathVisual(visual);
+function historyElement(tag, className, value) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (value) element.textContent = value;
+  return element;
+}
+
+function historyIcon(name) {
+  const icon = historyElement("span", "history-icon");
+  icon.dataset.icon = name;
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function renderStudyGraphic(diagram) {
+  const figure = historyElement("figure", "study-graphic");
+  const caption = historyElement("figcaption");
+  if (diagram.kind === "bars") {
+    caption.textContent = diagram.label + " · " + diagram.unit;
+    const max = Math.max(...diagram.entries.map(([, value]) => value));
+    const formatter = new Intl.NumberFormat("es-CL");
+    for (const [name, value] of diagram.entries) {
+      const label = historyElement("div", "entry-label");
+      label.append(historyElement("span", "", name), historyElement("span", "", formatter.format(value)));
+      const track = historyElement("div", "metric-track");
+      const fill = historyElement("span", "metric-fill");
+      fill.style.width = (value / max * 100) + "%";
+      track.setAttribute("aria-hidden", "true");
+      track.append(fill);
+      figure.append(label, track);
+    }
+  } else if (diagram.kind === "zone") {
+    caption.textContent = "Esquema de superposición, sin escala ni límites reales.";
+    const grid = historyElement("div", "zone-grid");
+    grid.setAttribute("role", "img");
+    grid.setAttribute("aria-label", "Temuco dentro de " + diagram.area + ", según el criterio elegido.");
+    const area = historyElement("span", "zone-area");
+    const [left, top, width, height] = diagram.box;
+    Object.assign(area.style, {left:left+"%",top:top+"%",width:width+"%",height:height+"%"});
+    if (diagram.dashed) area.style.borderStyle = "dashed";
+    grid.append(area, historyElement("span", "zone-marker", "Temuco"));
+    figure.append(historyElement("strong", "", diagram.area), grid);
+  } else if (diagram.kind === "dots") {
+    caption.textContent = "Dos áreas del mismo tamaño con 12 puntos cada una. Cada punto representa la misma cantidad de personas.";
+    const comparison = historyElement("div", "dot-comparison");
+    const positions = [
+      ["Concentrada", [7,8,9,10,13,14,15,16,19,20,21,22]],
+      ["Dispersa", [0,3,5,8,12,16,19,21,25,29,31,34]]
+    ];
+    for (const [name, occupied] of positions) {
+      const plot = historyElement("div", "dot-plot");
+      const grid = historyElement("div", "dot-grid");
+      grid.setAttribute("aria-hidden", "true");
+      for (let i = 0; i < 36; i++) grid.append(historyElement("span", occupied.includes(i) ? "dot-cell occupied" : "dot-cell"));
+      plot.append(historyElement("strong", "", name), grid);
+      comparison.append(plot);
+    }
+    figure.append(comparison);
+  } else if (diagram.kind === "chain") {
+    caption.textContent = "Secuencia de actividades para un mismo producto.";
+    const chain = historyElement("ol", "study-chain");
+    for (const [name, description, icon] of diagram.entries) {
+      const step = historyElement("li");
+      step.append(historyIcon(icon), historyElement("strong", "", name), historyElement("span", "", description));
+      chain.append(step);
+    }
+    figure.append(chain);
   }
+  figure.append(caption);
+  return figure;
+}
+
+function studyLink(label, url) {
+  const link = historyElement("a", "", label);
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
+}
+
+function studyDetails(label) {
+  const panel = historyElement("details", "study-resource");
+  const summary = historyElement("summary");
+  const icon = historyElement("span", "history-chevron");
+  icon.setAttribute("aria-hidden", "true");
+  summary.append(icon, historyElement("span", "", label));
+  const body = historyElement("div", "resource-body");
+  panel.append(summary, body);
+  return {panel, body};
+}
+
+function showStudyResources(model) {
+  const resources = byId("study-resources");
+  resources.replaceChildren();
+  if (model.source) {
+    const source = model.source;
+    const {panel, body} = studyDetails(source.title);
+    if (source.image) {
+      const figure = historyElement("figure");
+      const image = historyElement("img");
+      image.alt = source.alt;
+      image.width = source.width;
+      image.height = source.height;
+      image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      const fallback = historyElement("p", "", source.alt + " Puedes abrir la fuente al final de esta sección.");
+      fallback.hidden = true;
+      image.addEventListener("error", () => { image.hidden = true; fallback.hidden = false; });
+      image.src = source.image;
+      figure.append(image, fallback);
+      body.append(figure);
+    }
+    body.append(historyElement("p", "", source.text), historyElement("p", "resource-question", source.prompt));
+    const credit = historyElement("p", "resource-credit");
+    credit.append(source.href ? studyLink(source.credit, source.href) : document.createTextNode(source.credit));
+    if (source.license) credit.append(document.createTextNode(" · "), studyLink(source.license, source.licenseUrl));
+    body.append(credit);
+    resources.append(panel);
+  }
+  const quiz = model.check;
+  if (quiz) {
+    const {panel, body} = studyDetails("Prueba lo que entendiste");
+    const question = historyElement("h4", "", quiz.prompt);
+    question.id = "transfer-question";
+    const options = historyElement("div", "study-options");
+    options.setAttribute("role", "group");
+    options.setAttribute("aria-labelledby", question.id);
+    const feedback = historyElement("p", "resource-feedback");
+    feedback.setAttribute("role", "status");
+    const buttons = quiz.choices.map((label, i) => {
+      const choice = button(label, "nav-button");
+      choice.setAttribute("aria-pressed", "false");
+      choice.addEventListener("click", () => {
+        buttons.forEach((item, index) => item.setAttribute("aria-pressed", String(i === index)));
+        const correct = i === quiz.correct;
+        feedback.dataset.correct = String(correct);
+        feedback.textContent = (correct ? "Bien. " : "Prueba otra vez. ") + (correct ? quiz.answer : quiz.help);
+      });
+      return choice;
+    });
+    options.append(...buttons);
+    body.append(question, options, feedback);
+    resources.append(panel);
+  }
+}
+
+function showHistoryModel(model) {
+  text("visual-question", model.question);
+  showStudyResources(model);
+  text("visual-intro", model.instruction);
+
+  const controls = byId("controls");
+  controls.dataset.model = model.kind;
+  const buttons = model.views.map((view, index) => {
+    const choice = button(view.label, "history-choice");
+    choice.setAttribute("aria-controls", "board");
+    if (model.kind === "comparison") choice.prepend(historyIcon(view.icon));
+    if (view.caption) choice.append(historyElement("span", "", view.caption));
+    choice.addEventListener("click", () => select(index));
+    return choice;
+  });
+  controls.replaceChildren(...buttons);
+
+  function select(index) {
+    buttons.forEach((choice, i) => choice.setAttribute("aria-pressed", String(i === index)));
+    const view = model.views[index];
+    const heading = historyElement("div", "history-panel-heading");
+    const title = historyElement("h3", "", view.title);
+    title.id = "visual-panel-title";
+    heading.append(historyIcon(view.icon), title);
+
+    const labels = view.cards || model.labels;
+    const facts = view.facts.map(([name, description], i) => {
+      const card = historyElement("div", "history-fact");
+      const explanation = historyElement("p");
+      explanation.append(historyElement("strong", "", name), document.createTextNode(description));
+      card.append(historyElement("h4", "", labels[i]), explanation);
+      return card;
+    });
+    const cards = historyElement("div", "history-cards");
+    cards.append(facts[0], historyIcon("arrow"), facts[1]);
+
+    const takeaway = historyElement("p", "history-takeaway");
+    takeaway.append(historyElement("strong", "", "Idea clave"), historyElement("span", "", view.key));
+    byId("board").replaceChildren(heading, ...view.diagram ? [renderStudyGraphic(view.diagram)] : [], cards, takeaway);
+  }
+  select(0);
+
+  const videos = model.videos.map(video => {
+    const item = historyElement("li");
+    const link = historyElement("a");
+    const url = new URL("https://www.youtube.com/watch");
+    url.searchParams.set("v", video.id);
+    if (video.start) url.searchParams.set("t", String(video.start) + "s");
+    link.href = url.href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", video.title + " (YouTube, nueva pestaña)");
+    link.append(historyElement("span", "", video.title), historyIcon("external"));
+    item.append(link, historyElement("p", "history-video-source", video.source),
+      historyElement("p", "history-video-prompt", video.prompt));
+    if (video.href) {
+      const alternate = historyElement("p", "resource-credit");
+      alternate.append(studyLink("Abrir ficha del video en Mineduc", video.href));
+      item.append(alternate);
+    }
+    return item;
+  });
+  byId("visual-videos").replaceChildren(...videos);
 }
 
 
@@ -2907,8 +3441,7 @@ function showStep(lesson, study) {
 function showLearning(lesson, study) {
   showStep(lesson,study);
   byId("visual-details").open = false;
-  text("visual-intro",lesson.intro);
-  showVisual(lesson.visual);
+  showHistoryModel(lesson.visual);
   text("worked-prompt",lesson.worked.prompt);
   list("worked-steps",lesson.worked.steps,"li");
   text("worked-result",lesson.worked.result);

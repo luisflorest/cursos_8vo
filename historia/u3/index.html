@@ -750,6 +750,53 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
     background:var(--model-accent);
   }
 }
+.study-resource { background:var(--surface); color:var(--ink); border-color:var(--line); }
+.study-resource summary { justify-content:flex-start; }
+.resource-body { display:grid; gap:9px; padding:4px 12px 12px; font-size:.93rem; line-height:1.48; }
+.resource-body h4 { margin:0; font-size:1rem; color:var(--deep); }
+.resource-body figure { margin:0; }
+.resource-body img { display:block; width:100%; max-height:380px; object-fit:contain; height:auto; background:var(--quiet); border-radius:8px; }
+.resource-body a { color:var(--accent); font-weight:680; text-underline-offset:3px; }
+.resource-credit { color:var(--muted); font-size:.8rem; }
+.resource-question { border-inline-start:3px solid var(--accent); padding:5px 9px; background:var(--wash); border-radius:0 6px 6px 0; }
+.study-options { display:grid; gap:6px; }
+.study-options button { justify-content:flex-start; text-align:start; }
+.study-options button[aria-pressed=true] { border-color:var(--accent); color:var(--deep); background:var(--wash); box-shadow:inset 3px 0 var(--accent); }
+.resource-feedback:not(:empty) { padding:7px 10px; background:var(--hint-bg); border-inline-start:3px solid var(--hint); color:var(--hint); }
+.resource-feedback[data-correct=true] { background:var(--success-bg); border-inline-start-color:var(--success); color:var(--success); }
+.history-videos .resource-credit a { display:inline; min-height:auto; font-size:inherit; }
+.study-graphic {
+  display:grid; gap:7px; margin:0; padding:11px;
+  border:1px solid var(--line); border-radius:9px; background:var(--quiet);
+}
+.study-graphic figcaption { font-size:.83rem; color:var(--muted); }
+.study-graphic .entry-label { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 10px; font-size:.88rem; font-weight:690; }
+.metric-track { height:13px; border-radius:4px; background:var(--wash); overflow:hidden; }
+.metric-fill { display:block; height:100%; background:var(--accent); }
+.zone-grid {
+  position:relative; max-width:490px; width:100%; height:140px; margin:auto;
+  background-color:#fff; background-image:linear-gradient(#e6dce6 1px,transparent 1px),linear-gradient(90deg,#e6dce6 1px,transparent 1px);
+  background-size:20px 20px;
+  border:1px solid var(--line); border-radius:8px;
+}
+.zone-area { position:absolute; border:2px solid var(--accent); border-radius:9px; background:#a978af34; }
+.zone-marker {
+  position:absolute; left:50%; top:60%; transform:translate(-50%,-50%);
+  padding:2px 6px; border-radius:5px; background:var(--accent); color:#fff; font-size:.85rem; font-weight:730;
+}
+.dot-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+.dot-plot { display:grid; justify-items:center; gap:5px; text-align:center; font-size:.85rem; }
+.dot-grid {
+  width:min(100%,108px); aspect-ratio:1; display:grid;
+  grid-template:repeat(6,minmax(0,1fr))/repeat(6,minmax(0,1fr));
+  padding:4px; border:1px solid var(--line); border-radius:6px; background:var(--surface);
+}
+.dot-cell { display:grid; place-items:center; }
+.dot-cell.occupied::after { content:""; width:67%; height:67%; background:var(--accent); border-radius:50%; }
+.study-chain { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; margin:0; padding:0; }
+.study-chain li { display:grid; justify-items:start; gap:3px; min-width:0; padding:7px; background:var(--surface); border:1px solid var(--line); border-radius:7px; font-size:.87rem; overflow-wrap:anywhere; }
+.study-chain .history-icon { color:var(--accent); }
+@media(max-width:480px) { .study-chain { grid-template-columns:minmax(0,1fr); } }
 </style>
 <!--
 Material Icons by Google (https://github.com/google/material-design-icons).
@@ -1031,6 +1078,7 @@ Apache License
       <p class="history-instruction" id="visual-intro"></p>
       <div class="history-choices" id="controls" role="group" aria-label="Vistas del modelo" aria-describedby="visual-intro"></div>
       <section class="history-board" id="board" aria-live="polite" aria-atomic="true" aria-labelledby="visual-panel-title"></section>
+      <div id="study-resources"></div>
       <section class="history-videos" aria-labelledby="visual-video-title">
         <h3 id="visual-video-title"><span class="history-icon" data-icon="video" aria-hidden="true"></span> Videos para repasar</h3>
         <ul id="visual-videos"></ul>
@@ -1232,7 +1280,24 @@ const units = [
               "id": "ZwVatWYBIVQ",
               "prompt": "Fíjate en qué problema querían resolver Montesquieu, Rousseau y Voltaire."
             }
-          ]
+          ],
+          "check": {
+            "prompt": "Un rey puede hacer las leyes y decidir qué pena se aplica a quien las infringe. ¿Qué propuesta limita esa concentración?",
+            "choices": [
+              "Separar las funciones del Estado",
+              "Dar privilegios por nacimiento",
+              "Controlar el comercio"
+            ],
+            "correct": 0,
+            "help": "Fíjate en que una persona decide la regla y también juzga su cumplimiento.",
+            "answer": "Montesquieu propone que legislar, gobernar y juzgar correspondan a poderes distintos."
+          },
+          "source": {
+            "title": "Compara dos formas de justificar el poder",
+            "text": "En el Antiguo Régimen, Luis XV sostenía que el poder legislativo le pertenecía. Montesquieu defendía que el poder debía frenar al poder.",
+            "prompt": "¿Qué actor fija límites en cada forma de pensar? Busca en la vista Poder quién toma las decisiones.",
+            "credit": "Paráfrasis basada en el apunte de la Unidad 3."
+          }
         },
         "exercises": [
           {
@@ -1655,6 +1720,27 @@ const units = [
                 ]
               ],
               "key": "La toma fue un acontecimiento de la Revolución. Las tensiones que la explican venían de antes."
+            },
+            {
+              "label": "Cómo se combinaron",
+              "caption": "Multicausalidad",
+              "icon": "layers",
+              "title": "Dos efectos de la independencia de Estados Unidos",
+              "cards": [
+                "Ejemplo político",
+                "Presión económica"
+              ],
+              "facts": [
+                [
+                  "Una república con Constitución",
+                  "Mostró que las ideas de limitar el poder podían ponerse en práctica."
+                ],
+                [
+                  "Mayor deuda francesa",
+                  "El apoyo militar a las colonias aumentó la deuda de la Corona francesa."
+                ]
+              ],
+              "key": "Un mismo hecho puede actuar por vías diferentes. Distingue el ejemplo político del gasto militar."
             }
           ],
           "videos": [
@@ -1665,7 +1751,29 @@ const units = [
               "start": 41,
               "prompt": "Elige una causa social y una económica. ¿Cómo pudieron agravar juntas el descontento?"
             }
-          ]
+          ],
+          "check": {
+            "prompt": "Antes de 1789 el tercer estado llevaba años pagando buena parte de los impuestos. Además, una mala cosecha encareció el pan. ¿Cómo se relacionan estos datos?",
+            "choices": [
+              "La crisis del pan agravó una desigualdad de largo plazo",
+              "Ambos ocurrieron solo el día de la toma de la Bastilla",
+              "Los dos describen una propuesta ilustrada"
+            ],
+            "correct": 0,
+            "help": "Separa lo que duró años de lo que empeoró en los meses previos.",
+            "answer": "La desigualdad era estructural. El alza del pan fue coyuntural y aumentó la presión."
+          },
+          "source": {
+            "title": "Observa la toma de la Bastilla",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/archive/4/4e/20110910020114%21Prise_de_la_Bastille.jpg",
+            "width": 630,
+            "height": 472,
+            "alt": "Acuarela de una multitud frente a la fortaleza de la Bastilla. Hay humo y personas en movimiento.",
+            "text": "La acuarela muestra una acción colectiva frente a un símbolo del poder real. Fue realizada en 1789.",
+            "prompt": "Señala dónde ves a la multitud y la fortaleza. ¿Cuál de las causas de largo plazo tendrías que buscar en otra fuente?",
+            "credit": "Jean-Pierre Houël, Prise de la Bastille, 1789 · Gallica / Wikimedia Commons · dominio público",
+            "href": "https://commons.wikimedia.org/wiki/File:Prise_de_la_Bastille.jpg"
+          }
         },
         "exercises": [
           {
@@ -2027,7 +2135,25 @@ const units = [
               "id": "ttdq818TGD0",
               "prompt": "Pausa al llegar a la república. ¿Qué diferencia a ese gobierno del que existía en 1791?"
             }
-          ]
+          ],
+          "check": {
+            "prompt": "En un año Francia tiene rey limitado por una Constitución. Al siguiente, la Convención abole la monarquía. ¿Cuál es el cambio?",
+            "choices": [
+              "De monarquía absoluta a monarquía constitucional",
+              "De monarquía constitucional a república",
+              "De república a Directorio"
+            ],
+            "correct": 1,
+            "help": "Busca en el modelo cuándo desapareció el cargo de rey.",
+            "answer": "En 1791 aún había rey. En 1792 se abolió la monarquía y se proclamó una república."
+          },
+          "source": {
+            "title": "¿Quiénes podían ejercer los derechos?",
+            "text": "La Declaración de 1789 proclamó principios de libertad e igualdad. En 1791, Olympe de Gouges usó el mismo formato para reclamar que las mujeres ejercieran derechos políticos como el voto.",
+            "prompt": "¿Qué diferencia hay entre proclamar la igualdad y permitir que las mujeres participen políticamente?",
+            "credit": "Fuente · Asamblea Nacional de Francia",
+            "href": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/declaration-des-droits-de-la-femme-et-de-la-citoyenne-olympe-de-gouges"
+          }
         },
         "exercises": [
           {
@@ -2349,7 +2475,29 @@ const units = [
               "id": "YZ7fc9TD51g",
               "prompt": "Al terminar, di qué pasó en 1810. Después abre 1818 en la línea de tiempo y compáralos."
             }
-          ]
+          ],
+          "check": {
+            "prompt": "Un afiche dice «Chile proclamó su Independencia el 18 de septiembre de 1810». ¿Qué corrección harías?",
+            "choices": [
+              "En 1810 se instaló la Primera Junta. La proclamación fue en 1818",
+              "La Reconquista comenzó en 1818",
+              "En 1810 se produjo la batalla de Maipú"
+            ],
+            "correct": 0,
+            "help": "Consulta las vistas 1810 y 1818. En una se organiza un gobierno local y en la otra se proclama la independencia.",
+            "answer": "La Primera Junta abrió la Patria Vieja en 1810. La proclamación pública ocurrió el 12 de febrero de 1818."
+          },
+          "source": {
+            "title": "Lee una pintura de la Primera Junta",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/PrimeraJuntaNacionalDeGobierno%28Chile%29.jpg",
+            "width": 668,
+            "height": 400,
+            "alt": "Pintura de una reunión en un salón. Una figura de pie se dirige a los asistentes.",
+            "text": "Nicolás Guzmán pintó en 1889 su interpretación de la reunión de 1810. La fecha de la obra ayuda a distinguir una representación posterior del acontecimiento.",
+            "prompt": "Fíjate en quién está de pie y quiénes aparecen sentados. ¿Qué podrías afirmar con la imagen y qué tendrías que contrastar con un acta?",
+            "credit": "Nicolás Guzmán Bustamante, Primera Junta Nacional de Gobierno, 1889 · Museo Histórico Nacional / Wikimedia Commons · dominio público",
+            "href": "https://commons.wikimedia.org/wiki/File:PrimeraJuntaNacionalDeGobierno(Chile).jpg"
+          }
         },
         "exercises": [
           {
@@ -2949,8 +3097,141 @@ function historyIcon(name) {
   return icon;
 }
 
+function renderStudyGraphic(diagram) {
+  const figure = historyElement("figure", "study-graphic");
+  const caption = historyElement("figcaption");
+  if (diagram.kind === "bars") {
+    caption.textContent = diagram.label + " · " + diagram.unit;
+    const max = Math.max(...diagram.entries.map(([, value]) => value));
+    const formatter = new Intl.NumberFormat("es-CL");
+    for (const [name, value] of diagram.entries) {
+      const label = historyElement("div", "entry-label");
+      label.append(historyElement("span", "", name), historyElement("span", "", formatter.format(value)));
+      const track = historyElement("div", "metric-track");
+      const fill = historyElement("span", "metric-fill");
+      fill.style.width = (value / max * 100) + "%";
+      track.setAttribute("aria-hidden", "true");
+      track.append(fill);
+      figure.append(label, track);
+    }
+  } else if (diagram.kind === "zone") {
+    caption.textContent = "Esquema de superposición, sin escala ni límites reales.";
+    const grid = historyElement("div", "zone-grid");
+    grid.setAttribute("role", "img");
+    grid.setAttribute("aria-label", "Temuco dentro de " + diagram.area + ", según el criterio elegido.");
+    const area = historyElement("span", "zone-area");
+    const [left, top, width, height] = diagram.box;
+    Object.assign(area.style, {left:left+"%",top:top+"%",width:width+"%",height:height+"%"});
+    if (diagram.dashed) area.style.borderStyle = "dashed";
+    grid.append(area, historyElement("span", "zone-marker", "Temuco"));
+    figure.append(historyElement("strong", "", diagram.area), grid);
+  } else if (diagram.kind === "dots") {
+    caption.textContent = "Dos áreas del mismo tamaño con 12 puntos cada una. Cada punto representa la misma cantidad de personas.";
+    const comparison = historyElement("div", "dot-comparison");
+    const positions = [
+      ["Concentrada", [7,8,9,10,13,14,15,16,19,20,21,22]],
+      ["Dispersa", [0,3,5,8,12,16,19,21,25,29,31,34]]
+    ];
+    for (const [name, occupied] of positions) {
+      const plot = historyElement("div", "dot-plot");
+      const grid = historyElement("div", "dot-grid");
+      grid.setAttribute("aria-hidden", "true");
+      for (let i = 0; i < 36; i++) grid.append(historyElement("span", occupied.includes(i) ? "dot-cell occupied" : "dot-cell"));
+      plot.append(historyElement("strong", "", name), grid);
+      comparison.append(plot);
+    }
+    figure.append(comparison);
+  } else if (diagram.kind === "chain") {
+    caption.textContent = "Secuencia de actividades para un mismo producto.";
+    const chain = historyElement("ol", "study-chain");
+    for (const [name, description, icon] of diagram.entries) {
+      const step = historyElement("li");
+      step.append(historyIcon(icon), historyElement("strong", "", name), historyElement("span", "", description));
+      chain.append(step);
+    }
+    figure.append(chain);
+  }
+  figure.append(caption);
+  return figure;
+}
+
+function studyLink(label, url) {
+  const link = historyElement("a", "", label);
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
+}
+
+function studyDetails(label) {
+  const panel = historyElement("details", "study-resource");
+  const summary = historyElement("summary");
+  const icon = historyElement("span", "history-chevron");
+  icon.setAttribute("aria-hidden", "true");
+  summary.append(icon, historyElement("span", "", label));
+  const body = historyElement("div", "resource-body");
+  panel.append(summary, body);
+  return {panel, body};
+}
+
+function showStudyResources(model) {
+  const resources = byId("study-resources");
+  resources.replaceChildren();
+  if (model.source) {
+    const source = model.source;
+    const {panel, body} = studyDetails(source.title);
+    if (source.image) {
+      const figure = historyElement("figure");
+      const image = historyElement("img");
+      image.alt = source.alt;
+      image.width = source.width;
+      image.height = source.height;
+      image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      const fallback = historyElement("p", "", source.alt + " Puedes abrir la fuente al final de esta sección.");
+      fallback.hidden = true;
+      image.addEventListener("error", () => { image.hidden = true; fallback.hidden = false; });
+      image.src = source.image;
+      figure.append(image, fallback);
+      body.append(figure);
+    }
+    body.append(historyElement("p", "", source.text), historyElement("p", "resource-question", source.prompt));
+    const credit = historyElement("p", "resource-credit");
+    credit.append(source.href ? studyLink(source.credit, source.href) : document.createTextNode(source.credit));
+    if (source.license) credit.append(document.createTextNode(" · "), studyLink(source.license, source.licenseUrl));
+    body.append(credit);
+    resources.append(panel);
+  }
+  const quiz = model.check;
+  if (quiz) {
+    const {panel, body} = studyDetails("Prueba lo que entendiste");
+    const question = historyElement("h4", "", quiz.prompt);
+    question.id = "transfer-question";
+    const options = historyElement("div", "study-options");
+    options.setAttribute("role", "group");
+    options.setAttribute("aria-labelledby", question.id);
+    const feedback = historyElement("p", "resource-feedback");
+    feedback.setAttribute("role", "status");
+    const buttons = quiz.choices.map((label, i) => {
+      const choice = button(label, "nav-button");
+      choice.setAttribute("aria-pressed", "false");
+      choice.addEventListener("click", () => {
+        buttons.forEach((item, index) => item.setAttribute("aria-pressed", String(i === index)));
+        const correct = i === quiz.correct;
+        feedback.dataset.correct = String(correct);
+        feedback.textContent = (correct ? "Bien. " : "Prueba otra vez. ") + (correct ? quiz.answer : quiz.help);
+      });
+      return choice;
+    });
+    options.append(...buttons);
+    body.append(question, options, feedback);
+    resources.append(panel);
+  }
+}
+
 function showHistoryModel(model) {
   text("visual-question", model.question);
+  showStudyResources(model);
   text("visual-intro", model.instruction);
 
   const controls = byId("controls");
@@ -2986,7 +3267,7 @@ function showHistoryModel(model) {
 
     const takeaway = historyElement("p", "history-takeaway");
     takeaway.append(historyElement("strong", "", "Idea clave"), historyElement("span", "", view.key));
-    byId("board").replaceChildren(heading, cards, takeaway);
+    byId("board").replaceChildren(heading, ...view.diagram ? [renderStudyGraphic(view.diagram)] : [], cards, takeaway);
   }
   select(0);
 
@@ -3003,6 +3284,11 @@ function showHistoryModel(model) {
     link.append(historyElement("span", "", video.title), historyIcon("external"));
     item.append(link, historyElement("p", "history-video-source", video.source),
       historyElement("p", "history-video-prompt", video.prompt));
+    if (video.href) {
+      const alternate = historyElement("p", "resource-credit");
+      alternate.append(studyLink("Abrir ficha del video en Mineduc", video.href));
+      item.append(alternate);
+    }
     return item;
   });
   byId("visual-videos").replaceChildren(...videos);

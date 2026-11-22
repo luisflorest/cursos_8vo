@@ -844,6 +844,67 @@ body[data-subject="m"] {
   .brand-name { flex-wrap:wrap; row-gap:2px; }
 }
 @media print { .study-model #controls { display:none!important; } }
+.study-resource { background:var(--surface); color:var(--ink); border-color:var(--line); }
+.study-resource summary { justify-content:flex-start; }
+.resource-body { display:grid; gap:9px; padding:4px 12px 12px; font-size:.93rem; line-height:1.48; }
+.resource-body h4 { margin:0; font-size:1rem; color:var(--deep); }
+.resource-body figure { margin:0; }
+.resource-body img { display:block; width:100%; max-height:380px; object-fit:contain; height:auto; background:var(--quiet); border-radius:8px; }
+.resource-body a { color:var(--accent); font-weight:680; text-underline-offset:3px; }
+.resource-credit { color:var(--muted); font-size:.8rem; }
+.resource-question { border-inline-start:3px solid var(--accent); padding:5px 9px; background:var(--wash); border-radius:0 6px 6px 0; }
+.study-options { display:grid; gap:6px; }
+.study-options button { justify-content:flex-start; text-align:start; }
+.study-options button[aria-pressed=true] { border-color:var(--accent); color:var(--deep); background:var(--wash); box-shadow:inset 3px 0 var(--accent); }
+.resource-feedback:not(:empty) { padding:7px 10px; background:var(--hint-bg); border-inline-start:3px solid var(--hint); color:var(--hint); }
+.resource-feedback[data-correct=true] { background:var(--success-bg); border-inline-start-color:var(--success); color:var(--success); }
+.history-videos .resource-credit a { display:inline; min-height:auto; font-size:inherit; }
+.science-lab .history-model { padding-top:3px; }
+.science-lab .history-choice { color:var(--deep); border-color:var(--control-line); }
+.science-lab .history-choice[aria-pressed=true] { color:white; background:var(--accent); border-color:var(--accent); }
+.science-lab .history-videos h3,.science-lab .history-videos a { color:var(--deep); }
+.science-lab .history-videos li { border-color:var(--line); }
+.science-lab .history-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.science-lab .history-fact { background:var(--quiet); border-color:var(--line); }
+.science-lab .history-fact:not(:last-child) h4 { color:var(--deep); }
+.science-lab .lab-tip { display:grid; gap:2px; border-inline-start:3px solid var(--accent); padding:6px 9px; margin:0; background:var(--wash); border-radius:0 6px 6px 0; }
+.science-graphic { width:100%; margin:0; display:grid; gap:8px; padding:10px; border:1px solid var(--line); background:var(--quiet); border-radius:8px; }
+.science-graphic figcaption { font-size:.84rem; color:var(--muted); }
+.particle-row { display:grid; grid-template-columns:minmax(112px,1fr) minmax(0,2fr); align-items:center; gap:6px 10px; }
+.particle-dots { display:flex; flex-wrap:wrap; gap:4px; }
+.particle-dots span { width:12px; height:12px; border:1px solid #235a62; border-radius:50%; background:#6eb1af; }
+.particle-row[data-part="1"] .particle-dots span { background:#cfdadd; border-color:#52626b; }
+.particle-row[data-part="2"] .particle-dots span { background:#ede6f3; border-color:#694982; }
+.science-orbital { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+.science-orbital strong { min-width:30px; }
+.science-orbital span { min-width:39px; padding:4px; text-align:center; border:1px solid var(--control-line); background:var(--surface); border-radius:5px; }
+.lewis-picture { display:grid; justify-self:center; grid-template:repeat(3,32px)/repeat(3,38px); align-items:center; text-align:center; color:var(--deep); font-size:1.45rem; line-height:1; }
+.lewis-picture strong { grid-area:2/2; font-size:1.7rem; }
+.periodic-slice { width:100%; border-collapse:separate; border-spacing:3px; text-align:center; font-size:.86rem; }
+.periodic-slice th,.periodic-slice td { padding:3px; min-width:25px; }
+.periodic-slice td { background:var(--surface); border:1px solid var(--line); border-radius:5px; }
+.periodic-slice td.is-lit { font-weight:760; border-color:var(--accent); background:var(--wash); color:var(--deep); }
+.periodic-slice td:empty { background:transparent; border-color:transparent; }
+.bond-picture { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; }
+.bond-picture span,.bond-picture strong { border:1px solid var(--line); padding:7px 9px; border-radius:8px; background:var(--surface); color:var(--deep); font-weight:710; }
+.bond-picture span { border-style:dashed; }
+.lab-control { max-width:530px; width:100%; display:grid; gap:5px; margin:0 auto; }
+.lab-control label { display:flex; justify-content:space-between; gap:10px; font-weight:700; }
+.lab-control input { width:100%; margin:0; min-height:26px; accent-color:var(--accent); }
+.lab-reading { margin:3px 0 0; padding:8px 10px; background:var(--wash); border-radius:7px; font-weight:750; color:var(--deep); }
+.temp-row { display:grid; gap:5px; }
+.temp-row strong { font-size:.88rem; }
+.temp-track { height:10px; background:#e0ebea; border-radius:5px; overflow:hidden; }
+.temp-fill { display:block; height:100%; border-radius:5px; background:var(--accent); }
+.temp-row:first-child .temp-fill { background:#a35d32; }
+
+@media(max-width:480px) {
+  .science-lab .history-cards { grid-template-columns:minmax(0,1fr); }
+  .particle-row { grid-template-columns:minmax(0,1fr); }
+  .periodic-slice { font-size:.79rem; border-spacing:2px; }
+}
+.science-screen-reader { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+
 </style>
 <!--
 Material Icons by Google (https://github.com/google/material-design-icons).
@@ -1112,7 +1173,7 @@ Apache License
       <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
     </div>
   </div>
-  <details class="explorer history-explorer study-model" id="visual-details">
+  <details class="explorer history-explorer study-model science-lab" id="visual-details">
     <summary id="visual-summary">
       <span class="history-summary-icon" aria-hidden="true"><span class="history-icon" data-icon="explore"></span></span>
       <span class="history-summary-label">
@@ -1122,9 +1183,15 @@ Apache License
       <span class="history-chevron" aria-hidden="true"></span>
     </summary>
     <div class="history-model">
+      <p class="history-instruction" id="lab-instruction"></p>
       <div class="controls" id="controls" role="group" aria-label="Opciones del modelo visual"></div>
       <div class="study-board board" id="board"></div>
       <p class="legend" id="legend" aria-live="polite"></p>
+      <div id="study-resources"></div>
+      <section class="history-videos" aria-labelledby="science-video-title">
+        <h3 id="science-video-title"><span class="history-icon" data-icon="video" aria-hidden="true"></span> Videos para repasar</h3>
+        <ul id="science-video-list"></ul>
+      </section>
     </div>
   </details>
   <section class="worked" id="worked">
@@ -1598,7 +1665,140 @@ const units = [
             ]
           ]
         },
-        "intro": "Cambia la carga y observa qué partículas se mantienen."
+        "intro": "Cambia la carga y observa qué partículas se mantienen.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Qué cambia cuando un átomo gana o pierde un electrón?",
+          "instruction": "Compara primero sodio neutro y Na⁺. Después mira qué ocurre al pasar de cloro neutro a Cl⁻.",
+          "views": [
+            {
+              "label": "Na neutro",
+              "heading": "Sodio neutro",
+              "rows": [
+                [
+                  "Identidad",
+                  "Z = 11",
+                  "Los 11 protones identifican al sodio."
+                ],
+                [
+                  "Carga",
+                  "11 − 11 = 0",
+                  "Tiene igual cantidad de protones y electrones."
+                ]
+              ],
+              "key": "La carga es protones menos electrones.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  11,
+                  12,
+                  11
+                ]
+              }
+            },
+            {
+              "label": "Na⁺",
+              "heading": "El sodio pierde un electrón",
+              "rows": [
+                [
+                  "Identidad",
+                  "Z = 11",
+                  "El núcleo conserva sus 11 protones."
+                ],
+                [
+                  "Carga",
+                  "11 − 10 = +1",
+                  "Tiene un electrón menos que el átomo neutro."
+                ]
+              ],
+              "key": "Perder un electrón produce un ion positivo.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  11,
+                  12,
+                  10
+                ]
+              }
+            },
+            {
+              "label": "Cl neutro",
+              "heading": "Cloro neutro",
+              "rows": [
+                [
+                  "Identidad",
+                  "Z = 17",
+                  "El cloro tiene 17 protones."
+                ],
+                [
+                  "Carga",
+                  "17 − 17 = 0",
+                  "Tiene 17 electrones en el estado neutro."
+                ]
+              ],
+              "key": "Compara sus electrones con los del Cl⁻.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  17,
+                  18,
+                  17
+                ]
+              }
+            },
+            {
+              "label": "Cl⁻",
+              "heading": "El cloro gana un electrón",
+              "rows": [
+                [
+                  "Identidad",
+                  "Z = 17",
+                  "Sigue siendo cloro."
+                ],
+                [
+                  "Carga",
+                  "17 − 18 = −1",
+                  "Ahora hay un electrón más."
+                ]
+              ],
+              "key": "Ganar un electrón produce un ion negativo.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  17,
+                  18,
+                  18
+                ]
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Calcular protones, neutrones y electrones",
+              "source": "Susi Profe",
+              "id": "u-00Q_rTCdY",
+              "prompt": "En un ejemplo con carga, identifica el número que da la identidad y la cuenta que cambia al formar un ion."
+            }
+          ],
+          "source": {
+            "title": "Construye un átomo",
+            "text": "Cambia protones o electrones por separado.",
+            "prompt": "Conserva los protones y añade un electrón. Mira si cambia el nombre del elemento o solo su carga.",
+            "credit": "PhET · Universidad de Colorado Boulder",
+            "href": "https://phet.colorado.edu/es/simulations/build-an-atom"
+          },
+          "check": {
+            "prompt": "Un átomo de oxígeno tiene 8 protones y gana 2 electrones. ¿Qué queda?",
+            "choices": [
+              "7 protones y carga +2",
+              "8 protones, 10 electrones y carga −2",
+              "10 protones, 8 electrones y carga +2"
+            ],
+            "correct": 1,
+            "help": "Ganar electrones cambia la carga, mientras el núcleo se mantiene.",
+            "answer": "Con 8 protones conserva su identidad. Como tiene 10 electrones, su carga es 8 − 10 = −2."
+          }
+        }
       },
       {
         "title": "Número másico e isótopos",
@@ -1783,7 +1983,98 @@ const units = [
             ]
           ]
         },
-        "intro": "Compara los núcleos de dos isótopos del carbono."
+        "intro": "Compara los núcleos de dos isótopos del carbono.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Por qué carbono-12 y carbono-14 siguen siendo carbono?",
+          "instruction": "Cambia de núcleo. Localiza qué partícula se mantiene y cuál cambia.",
+          "views": [
+            {
+              "label": "Carbono-12",
+              "heading": "Carbono-12 · ¹²₆C",
+              "rows": [
+                [
+                  "Número atómico",
+                  "Z = 6",
+                  "Cuenta los protones."
+                ],
+                [
+                  "Número másico",
+                  "A = 6 + 6 = 12",
+                  "Cuenta protones y neutrones en este núcleo."
+                ]
+              ],
+              "key": "El número másico es un conteo entero de un isótopo concreto.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  6,
+                  6
+                ]
+              }
+            },
+            {
+              "label": "Carbono-14",
+              "heading": "Carbono-14 · ¹⁴₆C",
+              "rows": [
+                [
+                  "Número atómico",
+                  "Z = 6",
+                  "Tiene los mismos protones que carbono-12."
+                ],
+                [
+                  "Número másico",
+                  "A = 6 + 8 = 14",
+                  "Los dos neutrones adicionales cambian A."
+                ]
+              ],
+              "key": "Los isótopos de un elemento tienen el mismo Z y distinto número de neutrones.",
+              "graphic": {
+                "type": "particles",
+                "values": [
+                  6,
+                  8
+                ]
+              }
+            },
+            {
+              "label": "Dato de la tabla",
+              "heading": "La masa atómica de la tabla resume una mezcla",
+              "rows": [
+                [
+                  "Isótopo",
+                  "A es un conteo",
+                  "Para carbono-12, A vale 12."
+                ],
+                [
+                  "Elemento en la tabla",
+                  "Masa atómica promedio",
+                  "Refleja las masas de los isótopos y sus abundancias relativas. Puede ser decimal."
+                ]
+              ],
+              "key": "A describe un núcleo concreto. El promedio de la tabla caracteriza al elemento en una mezcla."
+            }
+          ],
+          "videos": [
+            {
+              "title": "Isótopos",
+              "source": "Educación de Excelencia · Sebastián Carli",
+              "id": "c138snoKB-4",
+              "prompt": "Cuenta los neutrones de carbono-12 y carbono-14 usando A − Z."
+            }
+          ],
+          "check": {
+            "prompt": "Dos átomos tienen 6 protones. Uno tiene 6 neutrones y el otro 7. ¿Qué relación tienen?",
+            "choices": [
+              "Son elementos distintos",
+              "Son isótopos de carbono",
+              "Son el mismo isótopo"
+            ],
+            "correct": 1,
+            "help": "Compara primero Z y luego A.",
+            "answer": "Son carbono porque comparten Z = 6. Son isótopos diferentes porque sus números de neutrones son 6 y 7."
+          }
+        }
       },
       {
         "title": "Configuración electrónica",
@@ -2216,7 +2507,88 @@ const units = [
             ]
           ]
         },
-        "intro": "Compara las tres formas de representar los mismos ocho electrones del oxígeno."
+        "intro": "Compara las tres formas de representar los mismos ocho electrones del oxígeno.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Dónde están los ocho electrones del oxígeno en cada representación?",
+          "instruction": "Cambia de representación. Verifica que la suma siga siendo ocho y compara qué información se ve en cada una.",
+          "views": [
+            {
+              "label": "Extendida",
+              "heading": "Escribe todos los subniveles ocupados",
+              "rows": [
+                [
+                  "Oxígeno",
+                  "1s² 2s² 2p⁴",
+                  "El número grande identifica el nivel. La letra indica el subnivel."
+                ],
+                [
+                  "Verificación",
+                  "2 + 2 + 4 = 8",
+                  "Los exponentes indican cuántos electrones hay en cada subnivel."
+                ]
+              ],
+              "key": "Sumar los exponentes permite revisar el total de electrones."
+            },
+            {
+              "label": "Abreviada",
+              "heading": "Sustituye el primer tramo por el gas noble anterior",
+              "rows": [
+                [
+                  "Oxígeno",
+                  "[He] 2s² 2p⁴",
+                  "[He] representa la configuración 1s²."
+                ],
+                [
+                  "Verificación",
+                  "2 + 2 + 4 = 8",
+                  "Los dos primeros electrones están incluidos en [He]."
+                ]
+              ],
+              "key": "Abreviar cambia la escritura. Los ocho electrones siguen representados."
+            },
+            {
+              "label": "Por orbitales",
+              "heading": "Cada flecha cuenta como un electrón",
+              "rows": [
+                [
+                  "Subnivel 2p",
+                  "Tres casilleros",
+                  "Primero se ocupa cada orbital 2p con un electrón."
+                ],
+                [
+                  "Cuarto electrón 2p",
+                  "Se forma un par",
+                  "El cuarto electrón de 2p se empareja en uno de los casilleros."
+                ]
+              ],
+              "key": "Cada casillero puede alojar hasta dos electrones con espines opuestos.",
+              "graphic": {
+                "type": "orbitals"
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Configuración electrónica externa",
+              "source": "Profe Arantxa · ejemplo del oxígeno",
+              "id": "LVUW8cmAjDE",
+              "prompt": "Desde el ejemplo de oxígeno, compara la escritura por subniveles con los casilleros.",
+              "start": 400
+            }
+          ],
+          "check": {
+            "prompt": "¿Cómo quedan los tres casilleros del subnivel 2p cuando hay cuatro electrones?",
+            "choices": [
+              "[↑↓] [↑] [↑]",
+              "[↑↓] [↑↓] [ ]",
+              "[↑] [↑] [↑]"
+            ],
+            "correct": 0,
+            "help": "Ocupa los tres casilleros con uno antes de formar un par.",
+            "answer": "Al colocar cuatro electrones en 2p quedan un casillero con dos y dos con uno."
+          }
+        }
       },
       {
         "title": "Electrones de valencia y símbolos de Lewis",
@@ -2481,7 +2853,99 @@ const units = [
             ]
           ]
         },
-        "intro": "Mira el nivel externo y cuenta cuántos puntos representa el símbolo de Lewis."
+        "intro": "Mira el nivel externo y cuenta cuántos puntos representa el símbolo de Lewis.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Cuáles electrones se dibujan en el símbolo de Lewis?",
+          "instruction": "Elige un elemento. Encuentra el nivel externo y cuenta sus electrones para verificar los puntos alrededor del símbolo.",
+          "views": [
+            {
+              "label": "Litio",
+              "heading": "Litio · Li",
+              "rows": [
+                [
+                  "Configuración",
+                  "1s² 2s¹",
+                  "El nivel externo es 2."
+                ],
+                [
+                  "Valencia",
+                  "1 electrón externo",
+                  "Solo cuenta 2s¹."
+                ]
+              ],
+              "key": "El símbolo de Lewis muestra los electrones de valencia.",
+              "graphic": {
+                "type": "lewis",
+                "symbol": "Li",
+                "count": 1
+              }
+            },
+            {
+              "label": "Carbono",
+              "heading": "Carbono · C",
+              "rows": [
+                [
+                  "Configuración",
+                  "1s² 2s² 2p²",
+                  "Los electrones de 2s y 2p están en el mismo nivel externo."
+                ],
+                [
+                  "Valencia",
+                  "2 + 2 = 4",
+                  "Dibuja un punto por lado antes de emparejar."
+                ]
+              ],
+              "key": "En el carbono, el mismo nivel externo incluye dos subniveles.",
+              "graphic": {
+                "type": "lewis",
+                "symbol": "C",
+                "count": 4
+              }
+            },
+            {
+              "label": "Nitrógeno",
+              "heading": "Nitrógeno · N",
+              "rows": [
+                [
+                  "Configuración",
+                  "1s² 2s² 2p³",
+                  "El nivel 2 aporta cinco electrones."
+                ],
+                [
+                  "Valencia",
+                  "2 + 3 = 5",
+                  "Se ven tres puntos solos y un par."
+                ]
+              ],
+              "key": "El símbolo puede rotarse conservando la cantidad de puntos y pares.",
+              "graphic": {
+                "type": "lewis",
+                "symbol": "N",
+                "count": 5
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Cuatro claves sobre electrones de valencia",
+              "source": "Al fin entendí",
+              "id": "XRvWLim2v2g",
+              "prompt": "Elige un ejemplo y explica qué electrones se cuentan como externos."
+            }
+          ],
+          "check": {
+            "prompt": "El oxígeno tiene configuración 1s² 2s² 2p⁴. ¿Cuántos puntos van en su símbolo de Lewis?",
+            "choices": [
+              "2",
+              "4",
+              "6"
+            ],
+            "correct": 2,
+            "help": "Suma los exponentes de todos los subniveles que comienzan con 2.",
+            "answer": "En el nivel externo hay 2 electrones en 2s y 4 en 2p. El símbolo lleva 6 puntos."
+          }
+        }
       },
       {
         "title": "Períodos y grupos",
@@ -2771,7 +3235,82 @@ const units = [
             ]
           ]
         },
-        "intro": "Compara qué coincide al mirar una fila y una columna."
+        "intro": "Compara qué coincide al mirar una fila y una columna.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Qué tienen en común los elementos de una fila y de una columna?",
+          "instruction": "Alterna entre fila y columna. Usa este recorte de la tabla para seguir la configuración externa.",
+          "views": [
+            {
+              "label": "Fila · período 2",
+              "heading": "Litio, carbono y oxígeno están en la misma fila",
+              "rows": [
+                [
+                  "Configuraciones externas",
+                  "Li 2s¹ · C 2s² 2p² · O 2s² 2p⁴",
+                  "El nivel ocupado más externo es 2 para los tres."
+                ],
+                [
+                  "Ubicación",
+                  "Período 2",
+                  "Los tres ocupan diferentes columnas."
+                ]
+              ],
+              "key": "En estos átomos, el mayor nivel ocupado indica el período.",
+              "graphic": {
+                "type": "periodic",
+                "mode": "row"
+              }
+            },
+            {
+              "label": "Columna · grupo 1",
+              "heading": "Litio, sodio y potasio están en la misma columna",
+              "rows": [
+                [
+                  "Configuraciones externas",
+                  "Li 2s¹ · Na 3s¹ · K 4s¹",
+                  "Cada uno tiene un electrón en el nivel externo."
+                ],
+                [
+                  "Ubicación",
+                  "Grupo 1",
+                  "Comparten un patrón de valencia y ocupan distintas filas."
+                ]
+              ],
+              "key": "En estos elementos del grupo 1, la configuración externa termina en s¹.",
+              "graphic": {
+                "type": "periodic",
+                "mode": "column"
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Grupos y períodos en la tabla periódica",
+              "source": "ChemEng IQA",
+              "id": "gFgJluwoOYU",
+              "prompt": "Pausa en la tabla y señala una fila y una columna. Encuentra un ejemplo de cada una."
+            }
+          ],
+          "source": {
+            "title": "Consulta la tabla periódica",
+            "text": "Usa el recurso interactivo para buscar litio, sodio y potasio.",
+            "prompt": "Comprueba que estos tres elementos comparten columna y que el número de período aumenta hacia abajo.",
+            "credit": "Currículum Nacional · Ministerio de Educación de Chile",
+            "href": "https://www.curriculumnacional.cl/estudiantes/Educacion-General/Ciencias-Naturales-8-basico/CN08-OA-14/131630%3ALa-tabla-periodica"
+          },
+          "check": {
+            "prompt": "Sodio termina en 3s¹ y potasio en 4s¹. ¿Dónde coinciden?",
+            "choices": [
+              "En la misma fila",
+              "En el grupo 1",
+              "En el mismo número atómico"
+            ],
+            "correct": 1,
+            "help": "El nivel cambia de 3 a 4. Fíjate en el patrón s¹.",
+            "answer": "Ambos están en el grupo 1. Ocupan los períodos 3 y 4, respectivamente."
+          }
+        }
       },
       {
         "title": "Enlaces y electronegatividad",
@@ -3093,7 +3632,111 @@ const units = [
             ]
           ]
         },
-        "intro": "Elige una pareja y compara cuánto atrae electrones cada átomo."
+        "intro": "Elige una pareja y compara cuánto atrae electrones cada átomo.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿El electrón se transfiere o el par se comparte?",
+          "instruction": "Compara tres pares. Sigue la flecha o el par de electrones y relaciona el esquema con la diferencia de electronegatividad.",
+          "views": [
+            {
+              "label": "Na y Cl",
+              "heading": "Iónico · el modelo muestra transferencia",
+              "rows": [
+                [
+                  "Antes",
+                  "Na atrae menos que Cl",
+                  "Diferencia aproximada: 3,0 − 0,9 = 2,1."
+                ],
+                [
+                  "Después",
+                  "Na⁺ y Cl⁻ se atraen",
+                  "El modelo representa un electrón transferido de Na a Cl."
+                ]
+              ],
+              "key": "En el NaCl sólido, los iones forman una red.",
+              "graphic": {
+                "type": "bond",
+                "sides": [
+                  "Na",
+                  "Cl"
+                ],
+                "mark": "e⁻ →",
+                "description": "Transferencia de un electrón de Na hacia Cl."
+              }
+            },
+            {
+              "label": "O y H",
+              "heading": "Covalente polar · el par se comparte de forma desigual",
+              "rows": [
+                [
+                  "Comparación",
+                  "O atrae más que H",
+                  "Diferencia aproximada: 3,5 − 2,1 = 1,4."
+                ],
+                [
+                  "Par compartido",
+                  "Más cerca de O",
+                  "O queda con carga parcial negativa y H con carga parcial positiva."
+                ]
+              ],
+              "key": "Un enlace polar comparte electrones con atracción desigual.",
+              "graphic": {
+                "type": "bond",
+                "sides": [
+                  "H δ⁺",
+                  "O δ⁻"
+                ],
+                "mark": "••  →",
+                "description": "El par compartido se desplaza hacia el oxígeno."
+              }
+            },
+            {
+              "label": "Cl y Cl",
+              "heading": "Covalente apolar · el par se comparte de forma equivalente",
+              "rows": [
+                [
+                  "Comparación",
+                  "Cl y Cl atraen por igual",
+                  "Diferencia: 3,0 − 3,0 = 0."
+                ],
+                [
+                  "Par compartido",
+                  "Atracción equilibrada",
+                  "Ambos átomos son del mismo elemento."
+                ]
+              ],
+              "key": "El par compartido no se desplaza hacia un extremo.",
+              "graphic": {
+                "type": "bond",
+                "sides": [
+                  "Cl",
+                  "Cl"
+                ],
+                "mark": "••",
+                "description": "Par de electrones compartido con atracción equivalente."
+              }
+            }
+          ],
+          "videos": [
+            {
+              "title": "Enlace iónico, covalente, polar y apolar",
+              "source": "Prof. Daniel Salas",
+              "id": "Ty9qzrxDjyM",
+              "prompt": "En los tres ejemplos, marca cuándo se representa una transferencia y cuándo se representa un par compartido."
+            }
+          ],
+          "check": {
+            "prompt": "En un enlace O–H, ¿hacia qué átomo se desplaza el par compartido?",
+            "choices": [
+              "H, porque es más pequeño",
+              "O, porque en este par es más electronegativo",
+              "H y O lo atraen por igual"
+            ],
+            "correct": 1,
+            "help": "Compara 3,5 para O y 2,1 para H.",
+            "answer": "O atrae más el par compartido y queda con carga parcial negativa. El enlace es covalente polar."
+          }
+        }
       },
       {
         "title": "Moléculas con barras y esferas",
@@ -3423,7 +4066,38 @@ const units = [
         "visual": {
           "kind": "molecule"
         },
-        "intro": "Cambia de molécula. Cuenta las esferas y mira cuántas barras unen cada par."
+        "intro": "Cambia de molécula. Cuenta las esferas y mira cuántas barras unen cada par.",
+        "lab": {
+          "question": "¿Cómo se lee la fórmula y qué significa cada barra?",
+          "instruction": "Empieza por H₂O y CO₂. Cuenta los átomos a partir de la fórmula y las barras entre cada par. Compara también la forma.",
+          "videos": [
+            {
+              "title": "Geometría molecular · agua y dióxido de carbono",
+              "source": "QuimiMundoClases · desde H₂O",
+              "id": "TD2yrRx_oL4",
+              "prompt": "Del minuto 1:04 al 3:04, comprueba qué molécula es angular y cuál es lineal.",
+              "start": 64
+            }
+          ],
+          "source": {
+            "title": "Gira los modelos de moléculas",
+            "text": "Revisa agua y CO₂ en la sección de moléculas reales del simulador.",
+            "prompt": "Gira ambos modelos y verifica si los tres átomos quedan alineados.",
+            "credit": "PhET · Universidad de Colorado Boulder",
+            "href": "https://phet.colorado.edu/es/simulations/molecule-shapes"
+          },
+          "check": {
+            "prompt": "En CO₂ se ven dos barras entre C y cada O. ¿Cómo se interpreta?",
+            "choices": [
+              "Cuatro átomos de oxígeno",
+              "Tres átomos y dos enlaces dobles",
+              "Tres átomos y un enlace triple"
+            ],
+            "correct": 1,
+            "help": "Cuenta primero las esferas y después los pares de átomos unidos.",
+            "answer": "CO₂ tiene un carbono y dos oxígenos. Cada par C–O está unido por un enlace doble."
+          }
+        }
       },
       {
         "title": "Autoevaluación",
@@ -3782,6 +4456,293 @@ function showMolecules() {
       }
     });
   });
+}
+
+function historyElement(tag, className, value) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (value) element.textContent = value;
+  return element;
+}
+
+function historyIcon(name) {
+  const icon = historyElement("span", "history-icon");
+  icon.dataset.icon = name;
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function studyLink(label, url) {
+  const link = historyElement("a", "", label);
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
+}
+
+function studyDetails(label) {
+  const panel = historyElement("details", "study-resource");
+  const summary = historyElement("summary");
+  const icon = historyElement("span", "history-chevron");
+  icon.setAttribute("aria-hidden", "true");
+  summary.append(icon, historyElement("span", "", label));
+  const body = historyElement("div", "resource-body");
+  panel.append(summary, body);
+  return {panel, body};
+}
+
+function showStudyResources(model) {
+  const resources = byId("study-resources");
+  resources.replaceChildren();
+  if (model.source) {
+    const source = model.source;
+    const {panel, body} = studyDetails(source.title);
+    if (source.image) {
+      const figure = historyElement("figure");
+      const image = historyElement("img");
+      image.alt = source.alt;
+      image.width = source.width;
+      image.height = source.height;
+      image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      const fallback = historyElement("p", "", source.alt + " Puedes abrir la fuente al final de esta sección.");
+      fallback.hidden = true;
+      image.addEventListener("error", () => { image.hidden = true; fallback.hidden = false; });
+      image.src = source.image;
+      figure.append(image, fallback);
+      body.append(figure);
+    }
+    body.append(historyElement("p", "", source.text), historyElement("p", "resource-question", source.prompt));
+    const credit = historyElement("p", "resource-credit");
+    credit.append(source.href ? studyLink(source.credit, source.href) : document.createTextNode(source.credit));
+    if (source.license) credit.append(document.createTextNode(" · "), studyLink(source.license, source.licenseUrl));
+    body.append(credit);
+    resources.append(panel);
+  }
+  const quiz = model.check;
+  if (quiz) {
+    const {panel, body} = studyDetails("Prueba lo que entendiste");
+    const question = historyElement("h4", "", quiz.prompt);
+    question.id = "transfer-question";
+    const options = historyElement("div", "study-options");
+    options.setAttribute("role", "group");
+    options.setAttribute("aria-labelledby", question.id);
+    const feedback = historyElement("p", "resource-feedback");
+    feedback.setAttribute("role", "status");
+    const buttons = quiz.choices.map((label, i) => {
+      const choice = button(label, "nav-button");
+      choice.setAttribute("aria-pressed", "false");
+      choice.addEventListener("click", () => {
+        buttons.forEach((item, index) => item.setAttribute("aria-pressed", String(i === index)));
+        const correct = i === quiz.correct;
+        feedback.dataset.correct = String(correct);
+        feedback.textContent = (correct ? "Bien. " : "Prueba otra vez. ") + (correct ? quiz.answer : quiz.help);
+      });
+      return choice;
+    });
+    options.append(...buttons);
+    body.append(question, options, feedback);
+    resources.append(panel);
+  }
+}
+
+
+function renderScienceGraphic(graphic) {
+  const figure = historyElement("figure", "science-graphic");
+  const caption = historyElement("figcaption");
+  if (graphic.type === "particles") {
+    caption.textContent = "Cada punto representa una partícula. El dibujo muestra cantidades.";
+    graphic.values.forEach((value, index) => {
+      const row = historyElement("div", "particle-row");
+      row.dataset.part = index;
+      const dots = historyElement("span", "particle-dots");
+      dots.setAttribute("aria-hidden", "true");
+      for (let i = 0; i < value; i++) dots.append(historyElement("span"));
+      row.append(historyElement("strong", "", value + " " + ["protones","neutrones","electrones"][index]), dots);
+      figure.append(row);
+    });
+  } else if (graphic.type === "orbitals") {
+    caption.textContent = "Ocho electrones en total. Cada casillero representa un orbital.";
+    for (const [name, ...slots] of [["1s","↑↓"],["2s","↑↓"],["2p","↑↓","↑","↑"]]) {
+      const row = historyElement("div", "science-orbital");
+      row.append(historyElement("strong", "", name));
+      for (const arrows of slots) {
+        const cell = historyElement("span", "", arrows);
+        cell.setAttribute("role", "img");
+        cell.setAttribute("aria-label", arrows.length + (arrows.length === 1 ? " electrón" : " electrones con espines opuestos"));
+        row.append(cell);
+      }
+      figure.append(row);
+    }
+  } else if (graphic.type === "lewis") {
+    caption.textContent = graphic.symbol + " · " + graphic.count + (graphic.count === 1 ? " electrón de valencia" : " electrones de valencia");
+    const picture = historyElement("div", "lewis-picture");
+    picture.setAttribute("aria-hidden", "true");
+    picture.append(historyElement("strong", "", graphic.symbol));
+    ["1/2","2/3","3/2","2/1"].forEach((location, index) => {
+      const count = Number(graphic.count > index) + Number(graphic.count > index + 4);
+      const points = historyElement("span", "", "•".repeat(count));
+      points.style.gridArea = location;
+      picture.append(points);
+    });
+    figure.append(picture);
+  } else if (graphic.type === "periodic") {
+    const table = historyElement("table", "periodic-slice");
+    const tableCaption = historyElement("caption", "", "Recorte · períodos 2 a 4 y grupos seleccionados");
+    const groups = ["Período","G1","G14","G15","G16"];
+    const head = table.createTHead().insertRow();
+    groups.forEach(group => {
+      const cell = historyElement("th", "", group);
+      cell.scope = "col";
+      head.append(cell);
+    });
+    const body = table.createTBody();
+    [[2,"Li","C","N","O"],[3,"Na","Si","P","S"],[4,"K","Ge","As","Se"]].forEach(([period,...symbols]) => {
+      const row = body.insertRow();
+      const heading = historyElement("th", "", String(period));
+      heading.scope = "row";
+      row.append(heading);
+      symbols.forEach((symbol, index) => {
+        const cell = row.insertCell();
+        const selected = graphic.mode === "row" ? period === 2 : index === 0;
+        cell.textContent = symbol;
+        if (selected) {
+          cell.className = "is-lit";
+          cell.setAttribute("aria-label", symbol + ", destacado");
+        }
+      });
+    });
+    table.prepend(tableCaption);
+    figure.append(table);
+    caption.textContent = graphic.mode === "row" ? "Fila resaltada: período 2." : "Columna resaltada: grupo 1.";
+  } else if (graphic.type === "bond") {
+    const picture = historyElement("div", "bond-picture");
+    picture.setAttribute("aria-hidden","true");
+    picture.append(historyElement("strong", "", graphic.sides[0]), historyElement("span", "", graphic.mark),
+      historyElement("strong", "", graphic.sides[1]));
+    figure.append(picture);
+    caption.textContent = graphic.description;
+  }
+  figure.append(caption);
+  return figure;
+}
+
+function showScienceCards(lab) {
+  switcher(lab.views.map(view => view.label), index => {
+    const view = lab.views[index];
+    const panel = historyElement("div", "history-board");
+    const title = historyElement("h3", "", view.heading);
+    const heading = historyElement("div", "history-panel-heading");
+    heading.append(historyIcon("explore"), title);
+    panel.append(heading);
+    if (view.graphic) panel.append(renderScienceGraphic(view.graphic));
+    const factList = historyElement("div", "history-cards");
+    for (const [label, value, description] of view.rows) {
+      const fact = historyElement("div", "history-fact");
+      const detail = historyElement("p");
+      detail.append(historyElement("strong", "", value), document.createTextNode(description));
+      fact.append(historyElement("h4", "", label), detail);
+      factList.append(fact);
+    }
+    const takeaway = historyElement("p", "lab-tip");
+    takeaway.append(historyElement("strong", "", "Idea clave"), historyElement("span", "", view.key));
+    panel.append(factList, takeaway);
+    byId("board").replaceChildren(panel);
+    byId("legend").textContent = view.heading + ". " + view.key;
+  });
+}
+
+function scienceSlider(name, id, initial, min, max, suffix) {
+  const root = historyElement("div", "lab-control");
+  const input = historyElement("input");
+  Object.assign(input,{type:"range",id,min,max,value:initial});
+  const value = historyElement("output", "", initial + suffix);
+  value.htmlFor = id;
+  const label = historyElement("label", "", name);
+  label.htmlFor = id;
+  label.append(value);
+  input.addEventListener("input", () => {
+    value.textContent = input.value + suffix;
+    input.setAttribute("aria-valuetext", value.textContent);
+  });
+  root.append(label, input);
+  return {root, input};
+}
+
+function showScienceOhm() {
+  const voltage = scienceSlider("Voltaje", "lab-voltage", 12, 0, 24, " V");
+  const resistance = scienceSlider("Resistencia", "lab-resistance", 3, 1, 12, " Ω");
+  const formula = historyElement("p", "lab-reading");
+  formula.setAttribute("aria-live","polite");
+  const layout = historyElement("div", "science-graphic");
+  layout.append(voltage.root, resistance.root, formula);
+  byId("board").append(layout);
+  const update = () => {
+    const v = Number(voltage.input.value);
+    const r = Number(resistance.input.value);
+    const reading = (v/r).toLocaleString("es-CL",{maximumFractionDigits:2});
+    formula.textContent = "I = " + v + " V ÷ " + r + " Ω = " + reading + " A";
+  };
+  for (const slider of [voltage,resistance]) slider.input.addEventListener("input",update);
+  update();
+  byId("legend").textContent = "Fija R para comparar voltajes. Fija V para comparar resistencias. Modelo de un resistor ideal.";
+}
+
+function showScienceThermal() {
+  const stages = [
+    ["Al comienzo",80,20,"El agua A está más caliente. Se transfiere energía de A a B."],
+    ["Durante el intercambio",65,35,"A baja y B sube. Aún hay diferencia de temperatura."],
+    ["En equilibrio",50,50,"Las dos temperaturas son iguales. La transferencia neta de calor entre ellas es cero."]
+  ];
+  switcher(stages.map(stage=>stage[0]), index=>{
+    const [, hot, cold, note] = stages[index];
+    const figure = historyElement("figure", "science-graphic");
+    for (const [name,temp] of [["Recipiente A",hot],["Recipiente B",cold]]) {
+      const row = historyElement("div","temp-row");
+      const track = historyElement("div","temp-track");
+      const fill = historyElement("span","temp-fill");
+      track.setAttribute("aria-hidden","true");
+      fill.style.width = temp + "%";
+      track.append(fill);
+      row.append(historyElement("strong","",name + " · " + temp + " °C"),track);
+      figure.append(row);
+    }
+    figure.append(historyElement("figcaption","","Esquema de 0 a 100 °C. Se supone igual masa de agua y no hay pérdidas al ambiente."));
+    byId("board").replaceChildren(figure);
+    byId("legend").textContent = note;
+  });
+}
+
+function showScienceVideoLinks(lab) {
+  byId("science-video-list").replaceChildren(...lab.videos.map(video=>{
+    const url = new URL("https://www.youtube.com/watch");
+    url.searchParams.set("v",video.id);
+    if (video.start) url.searchParams.set("t",video.start+"s");
+    const item = historyElement("li");
+    const anchor = studyLink(video.title,url.href);
+    anchor.setAttribute("aria-label",video.title+" (YouTube, nueva pestaña)");
+    anchor.append(historyIcon("external"));
+    item.append(anchor,historyElement("p","history-video-source",video.source),
+      historyElement("p","history-video-prompt",video.prompt));
+    return item;
+  }));
+}
+
+function showScienceLab(lesson) {
+  const lab = lesson.lab;
+  text("visual-intro",lab.question);
+  text("lab-instruction",lab.instruction);
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  text("legend","");
+  byId("legend").className = lab.kind === "cards" ? "science-screen-reader" : "legend";
+  byId("board").className = lab.kind === "cards" ? "board" : "study-board board";
+  if (lab.kind === "cards") showScienceCards(lab);
+  else if (lab.kind === "ohm") showScienceOhm();
+  else if (lab.kind === "thermal") showScienceThermal();
+  else showVisual(lesson.visual);
+  showStudyResources(lab);
+  showScienceVideoLinks(lab);
 }
 
 function showVisual(visual) {
@@ -4164,8 +5125,7 @@ function showStep(lesson, study) {
 function showLearning(lesson, study) {
   showStep(lesson,study);
   byId("visual-details").open = false;
-  text("visual-intro",lesson.intro);
-  showVisual(lesson.visual);
+  showScienceLab(lesson);
   text("worked-prompt",lesson.worked.prompt);
   list("worked-steps",lesson.worked.steps,"li");
   text("worked-result",lesson.worked.result);

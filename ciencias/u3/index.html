@@ -844,6 +844,67 @@ body[data-subject="m"] {
   .brand-name { flex-wrap:wrap; row-gap:2px; }
 }
 @media print { .study-model #controls { display:none!important; } }
+.study-resource { background:var(--surface); color:var(--ink); border-color:var(--line); }
+.study-resource summary { justify-content:flex-start; }
+.resource-body { display:grid; gap:9px; padding:4px 12px 12px; font-size:.93rem; line-height:1.48; }
+.resource-body h4 { margin:0; font-size:1rem; color:var(--deep); }
+.resource-body figure { margin:0; }
+.resource-body img { display:block; width:100%; max-height:380px; object-fit:contain; height:auto; background:var(--quiet); border-radius:8px; }
+.resource-body a { color:var(--accent); font-weight:680; text-underline-offset:3px; }
+.resource-credit { color:var(--muted); font-size:.8rem; }
+.resource-question { border-inline-start:3px solid var(--accent); padding:5px 9px; background:var(--wash); border-radius:0 6px 6px 0; }
+.study-options { display:grid; gap:6px; }
+.study-options button { justify-content:flex-start; text-align:start; }
+.study-options button[aria-pressed=true] { border-color:var(--accent); color:var(--deep); background:var(--wash); box-shadow:inset 3px 0 var(--accent); }
+.resource-feedback:not(:empty) { padding:7px 10px; background:var(--hint-bg); border-inline-start:3px solid var(--hint); color:var(--hint); }
+.resource-feedback[data-correct=true] { background:var(--success-bg); border-inline-start-color:var(--success); color:var(--success); }
+.history-videos .resource-credit a { display:inline; min-height:auto; font-size:inherit; }
+.science-lab .history-model { padding-top:3px; }
+.science-lab .history-choice { color:var(--deep); border-color:var(--control-line); }
+.science-lab .history-choice[aria-pressed=true] { color:white; background:var(--accent); border-color:var(--accent); }
+.science-lab .history-videos h3,.science-lab .history-videos a { color:var(--deep); }
+.science-lab .history-videos li { border-color:var(--line); }
+.science-lab .history-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.science-lab .history-fact { background:var(--quiet); border-color:var(--line); }
+.science-lab .history-fact:not(:last-child) h4 { color:var(--deep); }
+.science-lab .lab-tip { display:grid; gap:2px; border-inline-start:3px solid var(--accent); padding:6px 9px; margin:0; background:var(--wash); border-radius:0 6px 6px 0; }
+.science-graphic { width:100%; margin:0; display:grid; gap:8px; padding:10px; border:1px solid var(--line); background:var(--quiet); border-radius:8px; }
+.science-graphic figcaption { font-size:.84rem; color:var(--muted); }
+.particle-row { display:grid; grid-template-columns:minmax(112px,1fr) minmax(0,2fr); align-items:center; gap:6px 10px; }
+.particle-dots { display:flex; flex-wrap:wrap; gap:4px; }
+.particle-dots span { width:12px; height:12px; border:1px solid #235a62; border-radius:50%; background:#6eb1af; }
+.particle-row[data-part="1"] .particle-dots span { background:#cfdadd; border-color:#52626b; }
+.particle-row[data-part="2"] .particle-dots span { background:#ede6f3; border-color:#694982; }
+.science-orbital { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+.science-orbital strong { min-width:30px; }
+.science-orbital span { min-width:39px; padding:4px; text-align:center; border:1px solid var(--control-line); background:var(--surface); border-radius:5px; }
+.lewis-picture { display:grid; justify-self:center; grid-template:repeat(3,32px)/repeat(3,38px); align-items:center; text-align:center; color:var(--deep); font-size:1.45rem; line-height:1; }
+.lewis-picture strong { grid-area:2/2; font-size:1.7rem; }
+.periodic-slice { width:100%; border-collapse:separate; border-spacing:3px; text-align:center; font-size:.86rem; }
+.periodic-slice th,.periodic-slice td { padding:3px; min-width:25px; }
+.periodic-slice td { background:var(--surface); border:1px solid var(--line); border-radius:5px; }
+.periodic-slice td.is-lit { font-weight:760; border-color:var(--accent); background:var(--wash); color:var(--deep); }
+.periodic-slice td:empty { background:transparent; border-color:transparent; }
+.bond-picture { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; }
+.bond-picture span,.bond-picture strong { border:1px solid var(--line); padding:7px 9px; border-radius:8px; background:var(--surface); color:var(--deep); font-weight:710; }
+.bond-picture span { border-style:dashed; }
+.lab-control { max-width:530px; width:100%; display:grid; gap:5px; margin:0 auto; }
+.lab-control label { display:flex; justify-content:space-between; gap:10px; font-weight:700; }
+.lab-control input { width:100%; margin:0; min-height:26px; accent-color:var(--accent); }
+.lab-reading { margin:3px 0 0; padding:8px 10px; background:var(--wash); border-radius:7px; font-weight:750; color:var(--deep); }
+.temp-row { display:grid; gap:5px; }
+.temp-row strong { font-size:.88rem; }
+.temp-track { height:10px; background:#e0ebea; border-radius:5px; overflow:hidden; }
+.temp-fill { display:block; height:100%; border-radius:5px; background:var(--accent); }
+.temp-row:first-child .temp-fill { background:#a35d32; }
+
+@media(max-width:480px) {
+  .science-lab .history-cards { grid-template-columns:minmax(0,1fr); }
+  .particle-row { grid-template-columns:minmax(0,1fr); }
+  .periodic-slice { font-size:.79rem; border-spacing:2px; }
+}
+.science-screen-reader { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+
 </style>
 <!--
 Material Icons by Google (https://github.com/google/material-design-icons).
@@ -1112,7 +1173,7 @@ Apache License
       <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
     </div>
   </div>
-  <details class="explorer history-explorer study-model" id="visual-details">
+  <details class="explorer history-explorer study-model science-lab" id="visual-details">
     <summary id="visual-summary">
       <span class="history-summary-icon" aria-hidden="true"><span class="history-icon" data-icon="explore"></span></span>
       <span class="history-summary-label">
@@ -1122,9 +1183,15 @@ Apache License
       <span class="history-chevron" aria-hidden="true"></span>
     </summary>
     <div class="history-model">
+      <p class="history-instruction" id="lab-instruction"></p>
       <div class="controls" id="controls" role="group" aria-label="Opciones del modelo visual"></div>
       <div class="study-board board" id="board"></div>
       <p class="legend" id="legend" aria-live="polite"></p>
+      <div id="study-resources"></div>
+      <section class="history-videos" aria-labelledby="science-video-title">
+        <h3 id="science-video-title"><span class="history-icon" data-icon="video" aria-hidden="true"></span> Videos para repasar</h3>
+        <ul id="science-video-list"></ul>
+      </section>
     </div>
   </details>
   <section class="worked" id="worked">
@@ -1443,7 +1510,37 @@ const units = [
         "visual": {
           "kind": "circuit"
         },
-        "intro": "Prueba qué ocurre cuando se abre el camino de una ampolleta."
+        "intro": "Prueba qué ocurre cuando se abre el camino de una ampolleta.",
+        "lab": {
+          "question": "¿Qué ampolleta queda encendida si se abre el interruptor?",
+          "instruction": "Predice qué ocurrirá. Luego abre el interruptor en serie y en paralelo. Fíjate si todavía existe un camino cerrado desde la pila hasta B.",
+          "videos": [
+            {
+              "title": "La corriente circula",
+              "source": "Ministerio de Educación de Chile · 8.º básico",
+              "id": "YmNH1rRKhL0",
+              "prompt": "Fíjate en cómo cambia el circuito cuando falla una luz. Compáralo con lo que muestra el modelo."
+            }
+          ],
+          "source": {
+            "title": "Construye tus propios circuitos",
+            "text": "Arma dos circuitos virtuales con dos ampolletas y una pila.",
+            "prompt": "Abre una rama del circuito en paralelo. Explica cómo sigue circulando corriente por la otra.",
+            "credit": "PhET · Universidad de Colorado Boulder",
+            "href": "https://phet.colorado.edu/es/simulations/circuit-construction-kit-dc"
+          },
+          "check": {
+            "prompt": "A y B están en paralelo. Se abre el interruptor de la rama de A. ¿Qué ocurre?",
+            "choices": [
+              "Las dos se apagan",
+              "A se apaga y B sigue encendida",
+              "B se apaga y A sigue encendida"
+            ],
+            "correct": 1,
+            "help": "Sigue el camino desde la pila hasta B y de vuelta.",
+            "answer": "La rama de B conserva un camino cerrado. En serie, un corte interrumpe el único camino disponible."
+          }
+        }
       },
       {
         "title": "Voltaje, corriente y resistencia",
@@ -1789,7 +1886,38 @@ const units = [
         "visual": {
           "kind": "range"
         },
-        "intro": "Mueve la resistencia con el voltaje fijo y observa qué ocurre con la corriente."
+        "intro": "Mueve la resistencia con el voltaje fijo y observa qué ocurre con la corriente.",
+        "lab": {
+          "kind": "ohm",
+          "question": "¿Qué cambia si mueves el voltaje o la resistencia?",
+          "instruction": "Mantén un control fijo y mueve el otro. Parte de 12 V y 3 Ω. Prueba subir primero la resistencia a 6 Ω.",
+          "videos": [
+            {
+              "title": "Ley de Ohm",
+              "source": "Seletube",
+              "id": "wHQrMuJAjak",
+              "prompt": "Pausa antes de la primera sustitución. Decide qué dato falta y qué operación usa I = V ÷ R."
+            }
+          ],
+          "source": {
+            "title": "Explora la ley de Ohm",
+            "text": "Mueve el voltaje y la resistencia en el simulador.",
+            "prompt": "Deja fija la resistencia y duplica el voltaje. Compara la corriente antes y después.",
+            "credit": "PhET · Universidad de Colorado Boulder",
+            "href": "https://phet.colorado.edu/es/simulations/ohms-law"
+          },
+          "check": {
+            "prompt": "A 12 V, si la resistencia pasa de 3 Ω a 6 Ω, ¿qué le ocurre a la corriente?",
+            "choices": [
+              "Se duplica a 8 A",
+              "Se mantiene en 4 A",
+              "Baja a 2 A"
+            ],
+            "correct": 2,
+            "help": "El voltaje sigue en 12 V. Divide 12 entre la nueva resistencia.",
+            "answer": "12 ÷ 6 = 2 A. Con voltaje constante, al duplicar la resistencia se reduce la corriente a la mitad."
+          }
+        }
       },
       {
         "title": "Calor, temperatura y equilibrio",
@@ -2029,7 +2157,31 @@ const units = [
             ]
           ]
         },
-        "intro": "Observa qué pasa cuando dos cuerpos de distinta temperatura se ponen en contacto."
+        "intro": "Observa qué pasa cuando dos cuerpos de distinta temperatura se ponen en contacto.",
+        "lab": {
+          "kind": "thermal",
+          "question": "¿Hacia dónde se transfiere energía cuando dos cuerpos se tocan?",
+          "instruction": "Coloca dos recipientes con igual cantidad de agua en contacto térmico dentro de un sistema aislado ideal. Elige un momento y compara sus temperaturas.",
+          "videos": [
+            {
+              "title": "Calor y temperatura",
+              "source": "Ciencias Naturales · 8.º básico",
+              "id": "Aq3DJAHSvlk",
+              "prompt": "Explica con el ejemplo qué mide la temperatura y qué se transfiere al poner los cuerpos en contacto."
+            }
+          ],
+          "check": {
+            "prompt": "Dos cuerpos a 45 °C están en contacto. ¿Cuál es la transferencia neta de calor entre ellos?",
+            "choices": [
+              "Del cuerpo más grande al más pequeño",
+              "Cero, porque tienen la misma temperatura",
+              "De ambos cuerpos hacia uno solo"
+            ],
+            "correct": 1,
+            "help": "La dirección depende de la diferencia de temperatura.",
+            "answer": "Cuando las temperaturas son iguales hay equilibrio térmico y no existe transferencia neta de calor entre los cuerpos."
+          }
+        }
       },
       {
         "title": "Dilatación y cambios de estado",
@@ -2277,7 +2429,37 @@ const units = [
         "visual": {
           "kind": "curve"
         },
-        "intro": "Selecciona un tramo de la curva de calentamiento del agua a presión atmosférica normal."
+        "intro": "Selecciona un tramo de la curva de calentamiento del agua a presión atmosférica normal.",
+        "lab": {
+          "question": "¿Por qué hay tramos planos si seguimos entregando energía?",
+          "instruction": "Compara un tramo inclinado con uno plano. Durante la fusión y la ebullición, observa primero la temperatura y luego el estado de la materia.",
+          "videos": [
+            {
+              "title": "Calor latente y cambio de estado",
+              "source": "Puntaje Nacional Chile · 8.º básico",
+              "id": "-PzTt47JeIk",
+              "prompt": "Compara una etapa de calentamiento con una de cambio de estado. ¿Cuándo usarías Q = m·c·ΔT y cuándo Q = m·L?"
+            }
+          ],
+          "source": {
+            "title": "Observa las partículas al cambiar de estado",
+            "text": "En el simulador, calienta o enfría una muestra de agua.",
+            "prompt": "Compara la separación y movilidad de las partículas en sólido, líquido y gas.",
+            "credit": "PhET · Universidad de Colorado Boulder",
+            "href": "https://phet.colorado.edu/es/simulations/states-of-matter-basics"
+          },
+          "check": {
+            "prompt": "El agua pura hierve a presión atmosférica normal. Mientras quedan líquido y vapor, ¿qué cambia al seguir calentando?",
+            "choices": [
+              "Sube de inmediato la temperatura del líquido",
+              "Aumenta la proporción de vapor a temperatura prácticamente constante",
+              "El líquido pasa a sólido"
+            ],
+            "correct": 1,
+            "help": "Busca el tramo horizontal cerca de 100 °C.",
+            "answer": "La energía agregada sostiene la vaporización. La temperatura se mantiene cerca de 100 °C mientras las dos fases coexisten a esa presión."
+          }
+        }
       },
       {
         "title": "Protección frente al calor y al frío",
@@ -2440,7 +2622,101 @@ const units = [
             ]
           ]
         },
-        "intro": "Elige una situación y fíjate en qué hace la medida de protección."
+        "intro": "Elige una situación y fíjate en qué hace la medida de protección.",
+        "lab": {
+          "kind": "cards",
+          "question": "¿Qué cambia cuando ponemos sombra, abrigo o aislamiento?",
+          "instruction": "Elige una situación. Sigue el proceso que quieres reducir o el cambio que necesitas permitir.",
+          "views": [
+            {
+              "label": "Sol intenso",
+              "heading": "La sombra reduce la radiación solar directa",
+              "rows": [
+                [
+                  "Situación",
+                  "Radiación solar",
+                  "La energía del Sol puede llegar sin contacto entre los cuerpos."
+                ],
+                [
+                  "Medida",
+                  "Ubicarse a la sombra",
+                  "Una barrera bloquea parte de la radiación que llegaría directamente a la persona."
+                ]
+              ],
+              "key": "La sombra reduce una vía de ganancia de energía."
+            },
+            {
+              "label": "Frío exterior",
+              "heading": "La ropa en capas retrasa la pérdida de energía",
+              "rows": [
+                [
+                  "Situación",
+                  "Cuerpo más caliente que el ambiente",
+                  "Se transfiere energía del cuerpo hacia su entorno."
+                ],
+                [
+                  "Medida",
+                  "Vestir capas secas",
+                  "Entre las capas queda aire poco móvil. Eso ayuda a reducir la transferencia de calor."
+                ]
+              ],
+              "key": "El abrigo reduce la pérdida de calor corporal."
+            },
+            {
+              "label": "Cañería en helada",
+              "heading": "El aislante retrasa el enfriamiento de la cañería",
+              "rows": [
+                [
+                  "Situación",
+                  "Agua y tubería pierden energía",
+                  "El entorno frío recibe energía del sistema."
+                ],
+                [
+                  "Medida",
+                  "Cubrir la tubería con aislante",
+                  "La cubierta dificulta la transferencia hacia el exterior y retrasa la congelación."
+                ]
+              ],
+              "key": "Aislar significa reducir la rapidez de transferencia."
+            },
+            {
+              "label": "Puente",
+              "heading": "La junta deja espacio para la dilatación",
+              "rows": [
+                [
+                  "Situación",
+                  "El metal aumenta de longitud al calentarse",
+                  "Sus piezas necesitan espacio para moverse."
+                ],
+                [
+                  "Medida",
+                  "Dejar una junta de expansión",
+                  "La separación admite la dilatación y la contracción."
+                ]
+              ],
+              "key": "Aquí la medida permite un cambio de tamaño."
+            }
+          ],
+          "videos": [
+            {
+              "title": "Conducción, convección y radiación",
+              "source": "Ensamble de Ideas",
+              "id": "7vBF3J1yX1M",
+              "prompt": "Elige un ejemplo del video y explica por qué una barrera podría reducir la transferencia de energía."
+            }
+          ],
+          "check": {
+            "prompt": "Si un puente metálico se calienta, ¿para qué sirve su junta de expansión?",
+            "choices": [
+              "Para darle espacio al metal al dilatarse",
+              "Para impedir que llegue radiación solar",
+              "Para mantener el metal a temperatura constante"
+            ],
+            "correct": 0,
+            "help": "Piensa en qué puede cambiar aunque el metal siga siendo sólido.",
+            "answer": "Con calor el metal puede aumentar su longitud. La junta permite el movimiento sin forzar la estructura."
+          }
+        }
       },
       {
         "title": "Autoevaluación",
@@ -2799,6 +3075,293 @@ function showMolecules() {
       }
     });
   });
+}
+
+function historyElement(tag, className, value) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (value) element.textContent = value;
+  return element;
+}
+
+function historyIcon(name) {
+  const icon = historyElement("span", "history-icon");
+  icon.dataset.icon = name;
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function studyLink(label, url) {
+  const link = historyElement("a", "", label);
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
+}
+
+function studyDetails(label) {
+  const panel = historyElement("details", "study-resource");
+  const summary = historyElement("summary");
+  const icon = historyElement("span", "history-chevron");
+  icon.setAttribute("aria-hidden", "true");
+  summary.append(icon, historyElement("span", "", label));
+  const body = historyElement("div", "resource-body");
+  panel.append(summary, body);
+  return {panel, body};
+}
+
+function showStudyResources(model) {
+  const resources = byId("study-resources");
+  resources.replaceChildren();
+  if (model.source) {
+    const source = model.source;
+    const {panel, body} = studyDetails(source.title);
+    if (source.image) {
+      const figure = historyElement("figure");
+      const image = historyElement("img");
+      image.alt = source.alt;
+      image.width = source.width;
+      image.height = source.height;
+      image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      const fallback = historyElement("p", "", source.alt + " Puedes abrir la fuente al final de esta sección.");
+      fallback.hidden = true;
+      image.addEventListener("error", () => { image.hidden = true; fallback.hidden = false; });
+      image.src = source.image;
+      figure.append(image, fallback);
+      body.append(figure);
+    }
+    body.append(historyElement("p", "", source.text), historyElement("p", "resource-question", source.prompt));
+    const credit = historyElement("p", "resource-credit");
+    credit.append(source.href ? studyLink(source.credit, source.href) : document.createTextNode(source.credit));
+    if (source.license) credit.append(document.createTextNode(" · "), studyLink(source.license, source.licenseUrl));
+    body.append(credit);
+    resources.append(panel);
+  }
+  const quiz = model.check;
+  if (quiz) {
+    const {panel, body} = studyDetails("Prueba lo que entendiste");
+    const question = historyElement("h4", "", quiz.prompt);
+    question.id = "transfer-question";
+    const options = historyElement("div", "study-options");
+    options.setAttribute("role", "group");
+    options.setAttribute("aria-labelledby", question.id);
+    const feedback = historyElement("p", "resource-feedback");
+    feedback.setAttribute("role", "status");
+    const buttons = quiz.choices.map((label, i) => {
+      const choice = button(label, "nav-button");
+      choice.setAttribute("aria-pressed", "false");
+      choice.addEventListener("click", () => {
+        buttons.forEach((item, index) => item.setAttribute("aria-pressed", String(i === index)));
+        const correct = i === quiz.correct;
+        feedback.dataset.correct = String(correct);
+        feedback.textContent = (correct ? "Bien. " : "Prueba otra vez. ") + (correct ? quiz.answer : quiz.help);
+      });
+      return choice;
+    });
+    options.append(...buttons);
+    body.append(question, options, feedback);
+    resources.append(panel);
+  }
+}
+
+
+function renderScienceGraphic(graphic) {
+  const figure = historyElement("figure", "science-graphic");
+  const caption = historyElement("figcaption");
+  if (graphic.type === "particles") {
+    caption.textContent = "Cada punto representa una partícula. El dibujo muestra cantidades.";
+    graphic.values.forEach((value, index) => {
+      const row = historyElement("div", "particle-row");
+      row.dataset.part = index;
+      const dots = historyElement("span", "particle-dots");
+      dots.setAttribute("aria-hidden", "true");
+      for (let i = 0; i < value; i++) dots.append(historyElement("span"));
+      row.append(historyElement("strong", "", value + " " + ["protones","neutrones","electrones"][index]), dots);
+      figure.append(row);
+    });
+  } else if (graphic.type === "orbitals") {
+    caption.textContent = "Ocho electrones en total. Cada casillero representa un orbital.";
+    for (const [name, ...slots] of [["1s","↑↓"],["2s","↑↓"],["2p","↑↓","↑","↑"]]) {
+      const row = historyElement("div", "science-orbital");
+      row.append(historyElement("strong", "", name));
+      for (const arrows of slots) {
+        const cell = historyElement("span", "", arrows);
+        cell.setAttribute("role", "img");
+        cell.setAttribute("aria-label", arrows.length + (arrows.length === 1 ? " electrón" : " electrones con espines opuestos"));
+        row.append(cell);
+      }
+      figure.append(row);
+    }
+  } else if (graphic.type === "lewis") {
+    caption.textContent = graphic.symbol + " · " + graphic.count + (graphic.count === 1 ? " electrón de valencia" : " electrones de valencia");
+    const picture = historyElement("div", "lewis-picture");
+    picture.setAttribute("aria-hidden", "true");
+    picture.append(historyElement("strong", "", graphic.symbol));
+    ["1/2","2/3","3/2","2/1"].forEach((location, index) => {
+      const count = Number(graphic.count > index) + Number(graphic.count > index + 4);
+      const points = historyElement("span", "", "•".repeat(count));
+      points.style.gridArea = location;
+      picture.append(points);
+    });
+    figure.append(picture);
+  } else if (graphic.type === "periodic") {
+    const table = historyElement("table", "periodic-slice");
+    const tableCaption = historyElement("caption", "", "Recorte · períodos 2 a 4 y grupos seleccionados");
+    const groups = ["Período","G1","G14","G15","G16"];
+    const head = table.createTHead().insertRow();
+    groups.forEach(group => {
+      const cell = historyElement("th", "", group);
+      cell.scope = "col";
+      head.append(cell);
+    });
+    const body = table.createTBody();
+    [[2,"Li","C","N","O"],[3,"Na","Si","P","S"],[4,"K","Ge","As","Se"]].forEach(([period,...symbols]) => {
+      const row = body.insertRow();
+      const heading = historyElement("th", "", String(period));
+      heading.scope = "row";
+      row.append(heading);
+      symbols.forEach((symbol, index) => {
+        const cell = row.insertCell();
+        const selected = graphic.mode === "row" ? period === 2 : index === 0;
+        cell.textContent = symbol;
+        if (selected) {
+          cell.className = "is-lit";
+          cell.setAttribute("aria-label", symbol + ", destacado");
+        }
+      });
+    });
+    table.prepend(tableCaption);
+    figure.append(table);
+    caption.textContent = graphic.mode === "row" ? "Fila resaltada: período 2." : "Columna resaltada: grupo 1.";
+  } else if (graphic.type === "bond") {
+    const picture = historyElement("div", "bond-picture");
+    picture.setAttribute("aria-hidden","true");
+    picture.append(historyElement("strong", "", graphic.sides[0]), historyElement("span", "", graphic.mark),
+      historyElement("strong", "", graphic.sides[1]));
+    figure.append(picture);
+    caption.textContent = graphic.description;
+  }
+  figure.append(caption);
+  return figure;
+}
+
+function showScienceCards(lab) {
+  switcher(lab.views.map(view => view.label), index => {
+    const view = lab.views[index];
+    const panel = historyElement("div", "history-board");
+    const title = historyElement("h3", "", view.heading);
+    const heading = historyElement("div", "history-panel-heading");
+    heading.append(historyIcon("explore"), title);
+    panel.append(heading);
+    if (view.graphic) panel.append(renderScienceGraphic(view.graphic));
+    const factList = historyElement("div", "history-cards");
+    for (const [label, value, description] of view.rows) {
+      const fact = historyElement("div", "history-fact");
+      const detail = historyElement("p");
+      detail.append(historyElement("strong", "", value), document.createTextNode(description));
+      fact.append(historyElement("h4", "", label), detail);
+      factList.append(fact);
+    }
+    const takeaway = historyElement("p", "lab-tip");
+    takeaway.append(historyElement("strong", "", "Idea clave"), historyElement("span", "", view.key));
+    panel.append(factList, takeaway);
+    byId("board").replaceChildren(panel);
+    byId("legend").textContent = view.heading + ". " + view.key;
+  });
+}
+
+function scienceSlider(name, id, initial, min, max, suffix) {
+  const root = historyElement("div", "lab-control");
+  const input = historyElement("input");
+  Object.assign(input,{type:"range",id,min,max,value:initial});
+  const value = historyElement("output", "", initial + suffix);
+  value.htmlFor = id;
+  const label = historyElement("label", "", name);
+  label.htmlFor = id;
+  label.append(value);
+  input.addEventListener("input", () => {
+    value.textContent = input.value + suffix;
+    input.setAttribute("aria-valuetext", value.textContent);
+  });
+  root.append(label, input);
+  return {root, input};
+}
+
+function showScienceOhm() {
+  const voltage = scienceSlider("Voltaje", "lab-voltage", 12, 0, 24, " V");
+  const resistance = scienceSlider("Resistencia", "lab-resistance", 3, 1, 12, " Ω");
+  const formula = historyElement("p", "lab-reading");
+  formula.setAttribute("aria-live","polite");
+  const layout = historyElement("div", "science-graphic");
+  layout.append(voltage.root, resistance.root, formula);
+  byId("board").append(layout);
+  const update = () => {
+    const v = Number(voltage.input.value);
+    const r = Number(resistance.input.value);
+    const reading = (v/r).toLocaleString("es-CL",{maximumFractionDigits:2});
+    formula.textContent = "I = " + v + " V ÷ " + r + " Ω = " + reading + " A";
+  };
+  for (const slider of [voltage,resistance]) slider.input.addEventListener("input",update);
+  update();
+  byId("legend").textContent = "Fija R para comparar voltajes. Fija V para comparar resistencias. Modelo de un resistor ideal.";
+}
+
+function showScienceThermal() {
+  const stages = [
+    ["Al comienzo",80,20,"El agua A está más caliente. Se transfiere energía de A a B."],
+    ["Durante el intercambio",65,35,"A baja y B sube. Aún hay diferencia de temperatura."],
+    ["En equilibrio",50,50,"Las dos temperaturas son iguales. La transferencia neta de calor entre ellas es cero."]
+  ];
+  switcher(stages.map(stage=>stage[0]), index=>{
+    const [, hot, cold, note] = stages[index];
+    const figure = historyElement("figure", "science-graphic");
+    for (const [name,temp] of [["Recipiente A",hot],["Recipiente B",cold]]) {
+      const row = historyElement("div","temp-row");
+      const track = historyElement("div","temp-track");
+      const fill = historyElement("span","temp-fill");
+      track.setAttribute("aria-hidden","true");
+      fill.style.width = temp + "%";
+      track.append(fill);
+      row.append(historyElement("strong","",name + " · " + temp + " °C"),track);
+      figure.append(row);
+    }
+    figure.append(historyElement("figcaption","","Esquema de 0 a 100 °C. Se supone igual masa de agua y no hay pérdidas al ambiente."));
+    byId("board").replaceChildren(figure);
+    byId("legend").textContent = note;
+  });
+}
+
+function showScienceVideoLinks(lab) {
+  byId("science-video-list").replaceChildren(...lab.videos.map(video=>{
+    const url = new URL("https://www.youtube.com/watch");
+    url.searchParams.set("v",video.id);
+    if (video.start) url.searchParams.set("t",video.start+"s");
+    const item = historyElement("li");
+    const anchor = studyLink(video.title,url.href);
+    anchor.setAttribute("aria-label",video.title+" (YouTube, nueva pestaña)");
+    anchor.append(historyIcon("external"));
+    item.append(anchor,historyElement("p","history-video-source",video.source),
+      historyElement("p","history-video-prompt",video.prompt));
+    return item;
+  }));
+}
+
+function showScienceLab(lesson) {
+  const lab = lesson.lab;
+  text("visual-intro",lab.question);
+  text("lab-instruction",lab.instruction);
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  text("legend","");
+  byId("legend").className = lab.kind === "cards" ? "science-screen-reader" : "legend";
+  byId("board").className = lab.kind === "cards" ? "board" : "study-board board";
+  if (lab.kind === "cards") showScienceCards(lab);
+  else if (lab.kind === "ohm") showScienceOhm();
+  else if (lab.kind === "thermal") showScienceThermal();
+  else showVisual(lesson.visual);
+  showStudyResources(lab);
+  showScienceVideoLinks(lab);
 }
 
 function showVisual(visual) {
@@ -3181,8 +3744,7 @@ function showStep(lesson, study) {
 function showLearning(lesson, study) {
   showStep(lesson,study);
   byId("visual-details").open = false;
-  text("visual-intro",lesson.intro);
-  showVisual(lesson.visual);
+  showScienceLab(lesson);
   text("worked-prompt",lesson.worked.prompt);
   list("worked-steps",lesson.worked.steps,"li");
   text("worked-result",lesson.worked.result);
