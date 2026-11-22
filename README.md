@@ -8,7 +8,6 @@ Cuadernillos de estudio de 8° básico 2026 para las pruebas de síntesis del se
 | --- | --- |
 | `index.html` | Portal con los 4 ramos y las 8 unidades |
 | `ciencias/`, `historia/`, `lenguaje/`, `matematica/` | Un cuadernillo interactivo por unidad (`u3/`, `u4/`), versión v2 |
-| `cuaderno-visual/` | Repaso rápido de todos los ramos |
 | `descargas/` | Apuntes y guías con solucionario en Word |
 | `proyecto/` | Copia completa del proyecto de estudio: temarios por unidad, bitácora, instrucciones del tutor y versiones anteriores de los cuadernillos. No se publica en el sitio (`.vercelignore`). |
 
