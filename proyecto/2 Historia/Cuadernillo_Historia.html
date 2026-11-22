@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f4ee">
+<title>Historia · Cuadernillo de Emilio</title>
+<style>
+:root{color-scheme:light;--paper:#f5f4ee;--white:#fff;--ink:#192c2a;--muted:#47615b;--line:#d9e0d8;--deep:#123d35;--mint:#dcece0;--accent:#25624e;--wash:#eaf2e9;--amber:#75511a;--amber-bg:#fff0d8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-80px;z-index:2;background:#fff;color:var(--deep);padding:10px}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:#fcfbf6}
+.top{max-width:1170px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--deep);color:#dcece0;font-weight:800}
+.brand strong,.brand small{display:block;line-height:1.25}
+.brand small{color:var(--muted);font-size:.78rem;margin-top:4px}
+.plain,.pill,.nav-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px}
+.plain[aria-pressed=true],.pill[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+main{max-width:1170px;margin:auto;padding:22px 24px 44px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:end;gap:22px;background:var(--deep);color:#fff;padding:24px 28px;border-radius:19px}
+.hero::after{content:"";position:absolute;width:310px;height:310px;right:-95px;top:-151px;border:1px solid #ffffff32;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 59px #ffffff07;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.kicker{color:#d3e9d8;font-size:.78rem;font-weight:700;letter-spacing:.045em}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.13;margin:5px 0 8px;letter-spacing:-.035em}
+.hero p{color:#e3eee7}
+.track{width:170px;flex:none}
+.track label{display:block;font-size:.8rem;color:#e3eee7;margin-bottom:4px}
+progress{display:block;width:100%;height:9px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#ffffff2e}
+progress::-webkit-progress-bar{background:#ffffff2e}
+progress::-webkit-progress-value{background:#b6e6a5}
+progress::-moz-progress-bar{background:#b6e6a5}
+.grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+aside,.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+aside{padding:15px}
+aside h2{font-size:.95rem;margin:0 0 8px}
+.units,.items{display:grid;gap:6px}
+.units{margin-bottom:17px}
+.unit,.item{width:100%;text-align:left;border:1px solid transparent;background:#fff;border-radius:9px;color:var(--ink);padding:8px 9px}
+.unit{border-color:var(--line);font-size:.88rem}
+.unit strong,.unit span{display:block}
+.unit span{color:var(--muted);font-size:.78rem}
+.unit[aria-current=true],.item[aria-current=true]{background:var(--wash);border-color:#a5c4af;color:var(--deep)}
+.item{display:grid;grid-template-columns:24px 1fr;gap:7px;font-size:.86rem;line-height:1.32;align-items:start}
+.item:hover,.unit:hover,.plain:hover,.pill:hover,.nav-button:hover{filter:brightness(.97)}
+.index{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:700;background:#edf0ec;color:var(--deep);font-size:.75rem}
+.item.done .index{background:#cde9c8}
+.card{padding:clamp(15px,3vw,25px);min-width:0}
+.lesson-count{color:var(--accent);font-weight:700;font-size:.8rem}
+h2#lesson-title{font-size:clamp(1.35rem,3.5vw,1.88rem);line-height:1.2;letter-spacing:-.025em;margin:4px 0 5px}
+.intro{color:var(--muted)}
+.explore{margin-top:14px;padding:13px;border:1px solid #dce7dc;background:#f3f7f2;border-radius:13px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls button{padding:6px 9px;font-size:.83rem}
+.board{display:grid;min-height:106px;place-items:center;margin:9px 0 3px}
+.board canvas{display:block;width:min(100%,570px);height:auto;border-radius:10px}
+.scene{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:9px 0}
+.tile{display:grid;place-items:center;max-width:100%;min-height:53px;padding:8px 13px;text-align:center;background:#fff;border:1px solid #d0ddd2;border-radius:10px;font-weight:700;overflow-wrap:anywhere}
+.tile:nth-child(2n){background:#e2eee4}
+.legend{font-size:.89rem;color:var(--muted);text-align:center;max-width:62ch;margin:auto}
+.range-box{width:min(100%,430px);padding:10px 0}
+.range-box label{display:flex;justify-content:space-between;font-weight:650}
+.range-box input{display:block;width:100%;accent-color:var(--accent)}
+.reading{font-weight:700;text-align:center;margin-top:7px;color:var(--deep)}
+.study{display:grid;gap:8px;margin-top:15px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+summary{font-weight:700;cursor:pointer}
+details ul{margin:7px 0 2px;padding-left:22px}
+details li+li{margin-top:6px}
+.quiz{margin-top:16px;padding:12px 13px;background:#f8f8f4;border:1px solid #e3e5dd;border-radius:12px}
+.quiz h3{font-size:1rem;margin-bottom:5px}
+.question{font-weight:600;margin-bottom:8px}
+.answers{display:grid;gap:6px}
+.answer{text-align:left;background:#fff;border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:7px 10px}
+.answer:not(:disabled):hover{background:#eef4eb;border-color:#a5c4af}
+.answer:disabled{cursor:default}
+.answer.good{background:#e0efdd;border-color:#7ea97c;color:#1a4d31;font-weight:700}
+.answer.retry{background:var(--amber-bg);border-color:#d8b77f;color:var(--amber)}
+.feedback{font-size:.9rem;font-weight:650;margin-top:7px;color:var(--accent)}
+.feedback:empty{display:none}
+.feedback.retry{color:var(--amber)}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.next{background:var(--deep);color:#fff;border-color:var(--deep)}
+.nav-button:disabled{opacity:.53;cursor:default}
+.focus-mode aside{display:none}
+.focus-mode .grid{grid-template-columns:minmax(0,1fr);max-width:740px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){
+  .top,main{padding-left:13px;padding-right:13px}
+  main{padding-top:14px}.hero{align-items:stretch;flex-direction:column;padding:18px;gap:12px}
+  .track{width:min(100%,210px)}.grid{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}.card{order:1}
+}
+@media print{header,aside,.controls,.navigation{display:none!important}.hero{background:#fff;color:#000;border:1px solid #999}.hero p,.kicker,.track label{color:#333}.grid{display:block}.hero::after{display:none}.card{margin-top:12px;break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#lesson-title">Ir al bloque</a>
+<header><div class="top">
+<div class="brand"><span class="mark" aria-hidden="true">E</span><div><strong>Historia</strong><small>Cuadernillo de Emilio · Síntesis 2S 2026</small></div></div>
+<button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div></header>
+<main>
+<section class="hero" aria-labelledby="unit-title">
+<div><div class="kicker" id="unit-type"></div><h1 id="unit-title"></h1><p id="unit-description"></p></div>
+<div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+</section>
+<div class="grid">
+<aside><h2>Unidades</h2><nav class="units" id="units" aria-label="Unidades del ramo"></nav><h2>Bloques</h2><nav class="items" id="lesson-list" aria-label="Bloques de esta unidad"></nav></aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div><h2 id="lesson-title" tabindex="-1"></h2><p class="intro" id="lesson-intro"></p>
+<section class="explore" aria-label="Exploración visual"><div class="controls" id="controls"></div><div class="board" id="board"></div><p class="legend" id="legend" aria-live="polite"></p></section>
+<div class="study">
+<details id="ideas"><summary>Lo esencial para la prueba</summary><ul id="idea-list"></ul></details>
+<details id="practice"><summary>Practica en tu cuaderno</summary><ul id="practice-list"></ul></details>
+</div>
+<section class="quiz" aria-labelledby="check-title"><h3 id="check-title">Comprueba lo que entendiste</h3><p class="question" id="question"></p><div class="answers" id="answers"></div><p class="feedback" id="feedback" role="status"></p></section>
+<div class="navigation"><button class="nav-button" id="previous" type="button">‹ Anterior</button><button class="nav-button next" id="next" type="button">Siguiente ›</button></div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "h3",
+    "unit": "Unidad 3",
+    "title": "Causas de la Revolución Francesa",
+    "tag": "Actividad de muestra",
+    "description": "Ordena las causas según cuánto tiempo se fueron formando.",
+    "lessons": [
+      {
+        "title": "Estructura, coyuntura y acontecimiento",
+        "intro": "Elige una escala de tiempo para mirar el mismo proceso.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Largo plazo",
+              [
+                "Estructura",
+                "→",
+                "Privilegios del Antiguo Régimen"
+              ],
+              "Una condición social y política que se mantuvo por largo tiempo."
+            ],
+            [
+              "Años previos",
+              [
+                "Coyuntura",
+                "→",
+                "Crisis fiscal"
+              ],
+              "La crisis de las finanzas de la monarquía agudizó las tensiones."
+            ],
+            [
+              "Un día",
+              [
+                "Acontecimiento",
+                "→",
+                "Toma de la Bastilla"
+              ],
+              "Ocurrió el 14 de julio de 1789, en medio del proceso revolucionario."
+            ]
+          ]
+        },
+        "ideas": [
+          "Un proceso histórico reúne causas que pueden actuar a lo largo de tiempos distintos.",
+          "Para explicarlo, conecta dos hechos y di qué relación tienen. Por ejemplo, una crisis fiscal puede agravar un conflicto por los impuestos y los privilegios."
+        ],
+        "try": [
+          "Cuenta en voz alta cómo una causa de largo plazo y una crisis de corto plazo pueden actuar juntas."
+        ],
+        "q": "¿Qué ejemplo corresponde a un acontecimiento?",
+        "a": [
+          "Los privilegios de la nobleza",
+          "La toma de la Bastilla",
+          "La crisis fiscal acumulada"
+        ],
+        "correct": 1,
+        "why": "La toma de la Bastilla fue un hecho puntual que ocurrió el 14 de julio de 1789.",
+        "hint": "Busca el hecho al que puedes asignar un día."
+      }
+    ]
+  },
+  {
+    "id": "h4",
+    "unit": "Unidad 4",
+    "title": "Regiones y población",
+    "tag": "Actividad de muestra",
+    "description": "Compara dos territorios mediante su densidad poblacional.",
+    "lessons": [
+      {
+        "title": "¿Dónde vive más gente por km²?",
+        "intro": "Compara territorios imaginarios con la misma población.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Valle",
+              [
+                "1.000 habitantes",
+                "÷ 10 km²",
+                "100 hab./km²"
+              ],
+              "El mismo grupo vive en un territorio más pequeño."
+            ],
+            [
+              "Cordillera",
+              [
+                "1.000 habitantes",
+                "÷ 50 km²",
+                "20 hab./km²"
+              ],
+              "El territorio es más extenso y la densidad es menor."
+            ]
+          ]
+        },
+        "ideas": [
+          "La geografía física estudia rasgos del medio natural, como el relieve. La geografía humana estudia fenómenos como la ocupación del territorio.",
+          "La densidad resulta de dividir los habitantes por la superficie. Indica el promedio de habitantes por unidad de área."
+        ],
+        "try": [
+          "Calcula la densidad de un territorio con 1.200 habitantes en 40 km²."
+        ],
+        "q": "¿Qué territorio tiene mayor densidad: 800 habitantes en 10 km² o 1.000 en 50 km²?",
+        "a": [
+          "El de 800 habitantes",
+          "El de 1.000 habitantes",
+          "Tienen la misma densidad"
+        ],
+        "correct": 0,
+        "why": "80 hab./km² es mayor que 20 hab./km².",
+        "hint": "Divide la población por la superficie de cada territorio."
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+switcher(visual.choices.map(choice => choice[0]), active => {
+    const [, cells, note] = visual.choices[active];
+    const scene = document.createElement("div");
+    scene.className = "scene";
+    for (const cell of cells) {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.textContent = cell;
+      scene.append(tile);
+    }
+    byId("board").replaceChildren(scene);
+    byId("legend").textContent = note;
+    });
+}
+
+
+const byId = id => document.getElementById(id);
+const storageKey = "cuadernillo-emilio-2s-2026-historia-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const state = {
+  unit: units.some(unit => unit.id === saved.unit) ? saved.unit : units[0].id,
+  positions: saved.positions && typeof saved.positions === "object" ? saved.positions : {},
+  done: saved.done && typeof saved.done === "object" ? saved.done : {},
+  focus: saved.focus === true
+};
+
+function save() {
+  try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
+}
+function activeUnit() { return units.find(unit => unit.id === state.unit); }
+function position(unit) {
+  const value = state.positions[unit.id];
+  return Number.isInteger(value) && value >= 0 && value < unit.lessons.length ? value : 0;
+}
+function completed(unit, index) { return state.done[unit.id + ":" + index] === true; }
+function button(title, className) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.className = className;
+  el.textContent = title;
+  return el;
+}
+function current(el, yes) {
+  if (yes) el.setAttribute("aria-current", "true");
+}
+function textList(id, items) {
+  byId(id).replaceChildren(...items.map(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    return li;
+  }));
+}
+
+function navigate(unit, index = position(unit)) {
+  state.unit = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  byId("lesson-title").focus();
+}
+function updateFocus() {
+  document.body.classList.toggle("focus-mode", state.focus);
+  const focus = byId("focus");
+  focus.setAttribute("aria-pressed", String(state.focus));
+  focus.textContent = state.focus ? "Salir de enfoque" : "Modo enfoque";
+}
+byId("focus").addEventListener("click", () => {
+  state.focus = !state.focus;
+  save();
+  updateFocus();
+});
+
+function renderMenus(unit) {
+  byId("units").replaceChildren(...units.map(item => {
+    const el = button("", "unit");
+    const title = document.createElement("strong");
+    const label = document.createElement("span");
+    title.textContent = item.title;
+    label.textContent = item.unit;
+    el.append(title, label);
+    current(el, item.id === unit.id);
+    el.onclick = () => navigate(item);
+    return el;
+  }));
+  renderProgress(unit);
+}
+
+function renderProgress(unit) {
+  const index = position(unit);
+  const count = unit.lessons.reduce((sum, _, i) => sum + Number(completed(unit,i)), 0);
+  byId("progress-label").textContent = count + " de " + unit.lessons.length + " bloques comprobados";
+  const progress = byId("progress");
+  progress.max = unit.lessons.length;
+  progress.value = count;
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,i) => {
+    const done = completed(unit,i);
+    const el = button("", "item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : String(i + 1);
+    badge.setAttribute("aria-hidden","true");
+    el.append(badge, document.createTextNode(lesson.title));
+    if (done) el.setAttribute("aria-label", lesson.title + ", comprobado");
+    current(el, i === index);
+    el.onclick = () => navigate(unit, i);
+    return el;
+  }));
+}
+
+function showQuiz(unit,index,lesson) {
+  byId("question").textContent = lesson.q;
+  const feedback = byId("feedback");
+  feedback.textContent = "";
+  feedback.classList.remove("retry");
+  const answers = lesson.a.map((text, n) => {
+    const el = button(text, "answer");
+    el.onclick = () => respond(n);
+    return el;
+  });
+  byId("answers").replaceChildren(...answers);
+  if (completed(unit,index)) showCorrect();
+  function respond(n) {
+    answers.forEach(el => el.classList.remove("retry"));
+    if (n === lesson.correct) {
+      state.done[unit.id + ":" + index] = true;
+      save();
+      showCorrect();
+      renderProgress(unit);
+      return;
+    }
+    answers[n].classList.add("retry");
+    feedback.classList.add("retry");
+    feedback.textContent = "Pista. " + lesson.hint + " Puedes probar otra vez.";
+  }
+  function showCorrect() {
+    answers.forEach(el => { el.disabled = true; });
+    answers[lesson.correct].classList.add("good");
+    feedback.classList.remove("retry");
+    feedback.textContent = "Correcto. " + lesson.why;
+  }
+}
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = unit.lessons[index];
+  byId("unit-type").textContent = [unit.unit, unit.tag].join(" · ");
+  byId("unit-title").textContent = unit.title;
+  byId("unit-description").textContent = unit.description;
+  renderMenus(unit);
+  byId("lesson-count").textContent = "Bloque " + (index + 1) + " de " + unit.lessons.length;
+  byId("lesson-title").textContent = lesson.title;
+  byId("lesson-intro").textContent = lesson.intro;
+  byId("ideas").open = false;
+  byId("practice").open = false;
+  textList("idea-list", lesson.ideas);
+  textList("practice-list", lesson.try);
+  showVisual(lesson.visual);
+  showQuiz(unit,index,lesson);
+  const unitIndex = units.indexOf(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0 && unitIndex === 0;
+  previous.textContent = index === 0 && unitIndex > 0 ? "‹ Unidad anterior" : "‹ Anterior";
+  previous.onclick = () => {
+    if (index > 0) navigate(unit,index-1);
+    else if (unitIndex > 0) navigate(units[unitIndex-1],units[unitIndex-1].lessons.length-1);
+  };
+  const lastBlock = index === unit.lessons.length-1;
+  const nextUnit = units[unitIndex+1];
+  next.disabled = lastBlock && !nextUnit;
+  next.textContent = lastBlock ? (nextUnit ? "Siguiente unidad ›" : "Fin del recorrido") : "Siguiente ›";
+  next.onclick = () => {
+    if (!lastBlock) navigate(unit,index+1);
+    else if (nextUnit) navigate(nextUnit,0);
+  };
+}
+updateFocus();
+render();
+</script>
+</body>
+</html>
+

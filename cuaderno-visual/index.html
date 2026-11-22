@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f4ee">
+<title>Cuaderno visual de Emilio · Síntesis 2S 2026</title>
+<style>
+:root{color-scheme:light;--paper:#f5f4ee;--white:#fff;--ink:#192c2a;--muted:#47615b;--line:#d9e0d8;--deep:#123d35;--mint:#dcece0;--accent:#25624e;--wash:#eaf2e9;--amber:#75511a;--amber-bg:#fff0d8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-80px;z-index:2;background:#fff;color:var(--deep);padding:10px}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:#fcfbf6}
+.top{max-width:1170px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--deep);color:#dcece0;font-weight:800}
+.brand strong,.brand small{display:block;line-height:1.25}
+.brand small{color:var(--muted);font-size:.78rem;margin-top:4px}
+.plain,.pill,.nav-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px}
+.plain[aria-pressed=true],.pill[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+main{max-width:1170px;margin:auto;padding:22px 24px 44px}
+.subjects{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:end;gap:22px;background:var(--deep);color:#fff;padding:24px 28px;border-radius:19px}
+.hero::after{content:"";position:absolute;width:310px;height:310px;right:-95px;top:-151px;border:1px solid #ffffff32;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 59px #ffffff07;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.kicker{color:#d3e9d8;font-size:.78rem;font-weight:700;letter-spacing:.045em}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.13;margin:5px 0 8px;letter-spacing:-.035em}
+.hero p{color:#e3eee7}
+.track{width:170px;flex:none}
+.track label{display:block;font-size:.8rem;color:#e3eee7;margin-bottom:4px}
+progress{display:block;width:100%;height:9px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#ffffff2e}
+progress::-webkit-progress-bar{background:#ffffff2e}
+progress::-webkit-progress-value{background:#b6e6a5}
+progress::-moz-progress-bar{background:#b6e6a5}
+.grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+aside,.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+aside{padding:15px}
+aside h2{font-size:.95rem;margin:0 0 8px}
+.units,.items{display:grid;gap:6px}
+.units{margin-bottom:17px}
+.unit,.item{width:100%;text-align:left;border:1px solid transparent;background:#fff;border-radius:9px;color:var(--ink);padding:8px 9px}
+.unit{border-color:var(--line);font-size:.88rem}
+.unit strong,.unit span{display:block}
+.unit span{color:var(--muted);font-size:.78rem}
+.unit[aria-current=true],.item[aria-current=true]{background:var(--wash);border-color:#a5c4af;color:var(--deep)}
+.item{display:grid;grid-template-columns:24px 1fr;gap:7px;font-size:.86rem;line-height:1.32;align-items:start}
+.item:hover,.unit:hover,.plain:hover,.pill:hover,.nav-button:hover{filter:brightness(.97)}
+.index{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:700;background:#edf0ec;color:var(--deep);font-size:.75rem}
+.item.done .index{background:#cde9c8}
+.card{padding:clamp(15px,3vw,25px);min-width:0}
+.lesson-count{color:var(--accent);font-weight:700;font-size:.8rem}
+h2#lesson-title{font-size:clamp(1.35rem,3.5vw,1.88rem);line-height:1.2;letter-spacing:-.025em;margin:4px 0 5px}
+.intro{color:var(--muted)}
+.explore{margin-top:14px;padding:13px;border:1px solid #dce7dc;background:#f3f7f2;border-radius:13px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls button{padding:6px 9px;font-size:.83rem}
+.board{display:grid;min-height:106px;place-items:center;margin:9px 0 3px}
+.board canvas{display:block;width:min(100%,570px);height:auto;border-radius:10px}
+.scene{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:9px 0}
+.tile{display:grid;place-items:center;max-width:100%;min-height:53px;padding:8px 13px;text-align:center;background:#fff;border:1px solid #d0ddd2;border-radius:10px;font-weight:700;overflow-wrap:anywhere}
+.tile:nth-child(2n){background:#e2eee4}
+.legend{font-size:.89rem;color:var(--muted);text-align:center;max-width:62ch;margin:auto}
+.range-box{width:min(100%,430px);padding:10px 0}
+.range-box label{display:flex;justify-content:space-between;font-weight:650}
+.range-box input{display:block;width:100%;accent-color:var(--accent)}
+.reading{font-weight:700;text-align:center;margin-top:7px;color:var(--deep)}
+.study{display:grid;gap:8px;margin-top:15px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+summary{font-weight:700;cursor:pointer}
+details ul{margin:7px 0 2px;padding-left:22px}
+details li+li{margin-top:6px}
+.quiz{margin-top:16px;padding:12px 13px;background:#f8f8f4;border:1px solid #e3e5dd;border-radius:12px}
+.quiz h3{font-size:1rem;margin-bottom:5px}
+.question{font-weight:600;margin-bottom:8px}
+.answers{display:grid;gap:6px}
+.answer{text-align:left;background:#fff;border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:7px 10px}
+.answer:not(:disabled):hover{background:#eef4eb;border-color:#a5c4af}
+.answer:disabled{cursor:default}
+.answer.good{background:#e0efdd;border-color:#7ea97c;color:#1a4d31;font-weight:700}
+.answer.retry{background:var(--amber-bg);border-color:#d8b77f;color:var(--amber)}
+.feedback{font-size:.9rem;font-weight:650;margin-top:7px;color:var(--accent)}
+.feedback:empty{display:none}
+.feedback.retry{color:var(--amber)}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.next{background:var(--deep);color:#fff;border-color:var(--deep)}
+.nav-button:disabled{opacity:.53;cursor:default}
+.focus-mode .subjects,.focus-mode aside{display:none}
+.focus-mode .grid{grid-template-columns:minmax(0,1fr);max-width:740px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){
+  .top,main{padding-left:13px;padding-right:13px}
+  main{padding-top:14px}.hero{align-items:stretch;flex-direction:column;padding:18px;gap:12px}
+  .track{width:min(100%,210px)}.grid{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}.card{order:1}.subjects{gap:6px}.subjects .pill{padding:5px 8px;font-size:.85rem}
+}
+@media print{header,.subjects,aside,.controls,.navigation{display:none!important}.hero{background:#fff;color:#000;border:1px solid #999}.hero p,.kicker,.track label{color:#333}.grid{display:block}.hero::after{display:none}.card{margin-top:12px;break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#lesson-title">Ir al bloque</a>
+<header><div class="top">
+<div class="brand"><span class="mark" aria-hidden="true">E</span><div><strong>Cuaderno visual de Emilio</strong><small>8.º básico · Síntesis 2S 2026</small></div></div>
+<button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div></header>
+<main>
+<nav class="subjects" id="subjects" aria-label="Ramos"></nav>
+<section class="hero" aria-labelledby="unit-title">
+<div><div class="kicker" id="unit-type"></div><h1 id="unit-title"></h1><p id="unit-description"></p></div>
+<div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+</section>
+<div class="grid">
+<aside><h2>Unidades</h2><nav class="units" id="units" aria-label="Unidades del ramo"></nav><h2>Bloques</h2><nav class="items" id="lesson-list" aria-label="Bloques de esta unidad"></nav></aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div><h2 id="lesson-title" tabindex="-1"></h2><p class="intro" id="lesson-intro"></p>
+<section class="explore" aria-label="Exploración visual"><div class="controls" id="controls"></div><div class="board" id="board"></div><p class="legend" id="legend" aria-live="polite"></p></section>
+<div class="study">
+<details id="ideas"><summary>Lo esencial para la prueba</summary><ul id="idea-list"></ul></details>
+<details id="practice"><summary>Practica en tu cuaderno</summary><ul id="practice-list"></ul></details>
+</div>
+<section class="quiz" aria-labelledby="check-title"><h3 id="check-title">Comprueba lo que entendiste</h3><p class="question" id="question"></p><div class="answers" id="answers"></div><p class="feedback" id="feedback" role="status"></p></section>
+<div class="navigation"><button class="nav-button" id="previous" type="button">‹ Anterior</button><button class="nav-button next" id="next" type="button">Siguiente ›</button></div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "c3",
+    "subject": "Ciencias",
+    "unit": "Unidad 3",
+    "title": "Electricidad y calor",
+    "tag": "Recorrido completo",
+    "description": "Conecta circuitos, mueve el calor y explica qué cambia.",
+    "lessons": [
+      {
+        "title": "Circuitos en serie y en paralelo",
+        "intro": "Prueba qué ocurre cuando se abre el camino de una ampolleta.",
+        "visual": {
+          "kind": "circuit"
+        },
+        "ideas": [
+          "La pila mantiene una diferencia de potencial, los cables conducen, el interruptor abre o cierra el camino y la ampolleta transforma la energía eléctrica en luz y calor.",
+          "En serie hay un solo camino y la corriente es la misma en todos los componentes. En paralelo hay varias ramas, todas con el mismo voltaje y la corriente total es la suma de las corrientes de cada rama.",
+          "En los cables metálicos, la corriente convencional va del polo + al − por el circuito exterior. Los electrones se desplazan en el sentido opuesto."
+        ],
+        "try": [
+          "Dibuja un circuito de cada tipo. Usa dos rayas para la pila (la larga es +), un círculo con X para la ampolleta y una línea interrumpida para el interruptor.",
+          "Marca con flechas el sentido convencional de la corriente en un circuito cerrado."
+        ],
+        "q": "En paralelo se quema una ampolleta de una rama. ¿Qué pasa con la otra rama?",
+        "a": [
+          "También se abre",
+          "Puede seguir funcionando",
+          "Sus cables pierden todo el voltaje"
+        ],
+        "correct": 1,
+        "why": "La otra rama conserva un camino cerrado conectado a la pila.",
+        "hint": "Sigue con el dedo el recorrido de la otra rama."
+      },
+      {
+        "title": "Voltaje, corriente y resistencia",
+        "intro": "Mueve la resistencia con el voltaje fijo y observa qué ocurre con la corriente.",
+        "visual": {
+          "kind": "range"
+        },
+        "ideas": [
+          "La intensidad I indica cuánta carga pasa por segundo (I = Q/t). Se mide en amperes (A) con un amperímetro en serie. El voltaje V se mide en volts (V) con un voltímetro conectado en paralelo al elemento. La resistencia R se mide en ohms (Ω) con un óhmetro.",
+          "Ley de Ohm: V = I × R. En serie se suman las resistencias: Rₑq = R₁ + R₂. En paralelo se suman sus inversos: 1/Rₑq = 1/R₁ + 1/R₂.",
+          "En serie, V₁ = I × R₁ y las caídas de voltaje suman el de la fuente. En paralelo, I₁ = V/R₁ y las corrientes por rama suman la total."
+        ],
+        "try": [
+          "Serie, 12 V con 2 Ω y 4 Ω. Rₑq = 6 Ω, I = 2 A. Las caídas son 4 V y 8 V.",
+          "Paralelo, 12 V con 6 Ω y 3 Ω. Rₑq = 2 Ω. Las corrientes por rama son 2 A y 4 A. La corriente total es 6 A."
+        ],
+        "q": "Con una pila de 12 V y dos resistencias en serie de 1 Ω y 5 Ω, ¿cuánto vale la corriente?",
+        "a": [
+          "12 A",
+          "2 A",
+          "6 A"
+        ],
+        "correct": 1,
+        "why": "La resistencia equivalente es 6 Ω. Divide 12 V por 6 Ω y obtienes 2 A.",
+        "hint": "Suma las resistencias y usa I = V/Rₑq."
+      },
+      {
+        "title": "Calor y temperatura",
+        "intro": "Observa qué pasa cuando dos cuerpos de distinta temperatura se ponen en contacto.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Al comienzo",
+              [
+                "Café · 85 °C",
+                "Calor →",
+                "Refresco · 5 °C"
+              ],
+              "El café cede energía y el refresco la recibe."
+            ],
+            [
+              "Mientras se acercan",
+              [
+                "Café ↓",
+                "Calor →",
+                "Refresco ↑"
+              ],
+              "El café se enfría y el refresco se calienta."
+            ],
+            [
+              "En equilibrio",
+              [
+                "Misma temperatura",
+                "↔",
+                "Misma temperatura"
+              ],
+              "Cuando ambos alcanzan la misma temperatura, cesa el flujo neto de calor."
+            ]
+          ]
+        },
+        "ideas": [
+          "La temperatura refleja la energía cinética promedio de las partículas. A mayor temperatura, se mueven más. Se mide con termómetro en °C o K.",
+          "El calor es energía transferida debido a una diferencia de temperatura. Fluye espontáneamente desde el cuerpo más caliente hacia el más frío. Se mide en joules o calorías.",
+          "El calor se transfiere por conducción (una cuchara caliente), convección (el aire que circula al calentarse) o radiación (la energía que llega desde el Sol)."
+        ],
+        "try": [
+          "Si mezclas masas iguales de agua a 80 °C y 20 °C, el equilibrio queda cerca de 50 °C, suponiendo que la mezcla intercambia poco calor con el ambiente."
+        ],
+        "q": "Mezclas 1 litro de agua a 80 °C con 3 litros a 20 °C. En un recipiente aislado, ¿dónde queda la temperatura final?",
+        "a": [
+          "Cerca de 35 °C",
+          "Cerca de 65 °C",
+          "En 80 °C"
+        ],
+        "correct": 0,
+        "why": "Predomina el agua fría. La mezcla queda a (80 + 3 × 20)/4 = 35 °C.",
+        "hint": "Hay tres veces más agua fría. El equilibrio queda más cerca de 20 °C."
+      },
+      {
+        "title": "Dilatación y cambios de estado",
+        "intro": "Selecciona un tramo de la curva de calentamiento del agua a presión atmosférica normal.",
+        "visual": {
+          "kind": "curve"
+        },
+        "ideas": [
+          "Al calentar muchos sólidos, sus partículas vibran más y aumenta su separación promedio. El sólido se dilata. Las juntas de un puente o de un riel dejan espacio para ese cambio.",
+          "Calor sensible: cambia la temperatura. Calcula Q = m × c × ΔT. Calor latente: cambia el estado. Calcula Q = m × L. Si el proceso tiene varios tramos, calcula cada uno y súmalos.",
+          "En el gráfico de una sustancia pura a presión constante, los tramos inclinados indican cambios de temperatura y las mesetas indican cambios de estado."
+        ],
+        "try": [
+          "Para 100 g de hielo a 0 °C, fundirlo requiere 100 × 80 = 8.000 cal. Calentar luego el agua de 0 °C a 20 °C requiere 100 × 1 × 20 = 2.000 cal. Total: 10.000 cal."
+        ],
+        "q": "Mientras el hielo se funde a 0 °C, ¿en qué se emplea el calor que recibe?",
+        "a": [
+          "En cambiar de estado",
+          "En subir de inmediato a 100 °C",
+          "En enfriar el agua"
+        ],
+        "correct": 0,
+        "why": "El calor de fusión transforma el hielo en agua a la misma temperatura mientras dura el cambio de estado.",
+        "hint": "Busca la primera meseta del gráfico."
+      },
+      {
+        "title": "Protección frente al calor y al frío",
+        "intro": "Elige una situación y fíjate en qué hace la medida de protección.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Ola de calor",
+              [
+                "Sol",
+                "→",
+                "Sombra"
+              ],
+              "La sombra reduce la radiación solar directa. Hidratarse ayuda a reponer agua."
+            ],
+            [
+              "Frío exterior",
+              [
+                "Cuerpo",
+                "→",
+                "Ropa en capas"
+              ],
+              "Las capas retienen aire, reducen la transferencia de calor al exterior y ayudan a conservar la temperatura corporal."
+            ],
+            [
+              "Helada",
+              [
+                "Agua en cañería",
+                "→",
+                "Aislante"
+              ],
+              "Un aislante reduce la pérdida de calor del agua y retrasa su congelación."
+            ],
+            [
+              "Puente",
+              [
+                "Metal caliente",
+                "↔",
+                "Junta"
+              ],
+              "La junta deja espacio para la dilatación y la contracción del material."
+            ]
+          ]
+        },
+        "ideas": [
+          "Se puede reducir la transferencia de calor con materiales aislantes. Ejemplos: plumavit, lana y aire atrapado entre dos vidrios.",
+          "La medida depende de lo que quieres proteger. Una persona puede abrigarse o buscar sombra. En una construcción se pueden aislar cañerías y dejar juntas de dilatación.",
+          "La refrigeración permite mantener bajas temperaturas en alimentos o productos que necesitan cadena de frío."
+        ],
+        "try": [
+          "Piensa en una botella fría en una mochila. Explica hacia dónde fluye el calor y cómo una funda aislante cambia la rapidez con que se calienta."
+        ],
+        "q": "¿Por qué una chaqueta abrigada sirve en un día frío?",
+        "a": [
+          "Produce calor eléctrico",
+          "Detiene toda circulación del aire en la calle",
+          "Reduce la pérdida de calor corporal hacia el exterior"
+        ],
+        "correct": 2,
+        "why": "El aire retenido entre las capas y el material aislante dificultan la transferencia de calor.",
+        "hint": "Compara la temperatura del cuerpo con la del aire exterior."
+      }
+    ]
+  },
+  {
+    "id": "c4",
+    "subject": "Ciencias",
+    "unit": "Unidad 4",
+    "title": "Tabla periódica y enlaces",
+    "tag": "Recorrido completo",
+    "description": "Cuenta partículas, ordena electrones y arma moléculas.",
+    "lessons": [
+      {
+        "title": "Número atómico e iones",
+
+        "intro": "Cambia la carga y observa qué partículas se mantienen.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Sodio neutro",
+              [
+                "11 protones",
+                "12 neutrones",
+                "11 electrones"
+              ],
+              "Z = 11 y carga 0."
+            ],
+            [
+              "Ion sodio Na⁺",
+              [
+                "11 protones",
+                "12 neutrones",
+                "10 electrones"
+              ],
+              "Perdió 1 electrón. Z se mantiene en 11."
+            ],
+            [
+              "Ion cloruro Cl⁻",
+              [
+                "17 protones",
+                "18 neutrones",
+                "18 electrones"
+              ],
+              "Ganó 1 electrón respecto del cloro neutro. Z = 17."
+            ]
+          ]
+        },
+        "ideas": [
+          "El número atómico Z cuenta los protones e identifica al elemento. En la tabla periódica los elementos se ordenan por Z.",
+          "En un átomo neutro hay la misma cantidad de protones que de electrones. Un catión perdió electrones y queda positivo. Un anión ganó electrones y queda negativo.",
+          "Para calcular electrones, usa e⁻ = Z − carga del ion, incluido el signo. En O²⁻ da 8 − (−2) = 10."
+        ],
+        "try": [
+          "El calcio tiene Z = 20. Si forma Ca²⁺, pierde dos electrones. Se mantienen sus 20 protones y le quedan 18 electrones."
+        ],
+        "q": "El aluminio tiene Z = 13. ¿Cuántos electrones tiene Al³⁺?",
+        "a": [
+          "13",
+          "16",
+          "10"
+        ],
+        "correct": 2,
+        "why": "Al³⁺ perdió 3 electrones: 13 − 3 = 10.",
+        "hint": "Una carga positiva indica pérdida de electrones."
+      },
+      {
+        "title": "Número másico e isótopos",
+        "intro": "Compara los núcleos de dos isótopos del carbono.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Carbono-12",
+              [
+                "6 protones",
+                "+ 6 neutrones",
+                "A = 12"
+              ],
+              "Notación ¹²₆C."
+            ],
+            [
+              "Carbono-14",
+              [
+                "6 protones",
+                "+ 8 neutrones",
+                "A = 14"
+              ],
+              "Notación ¹⁴₆C. Sigue siendo carbono porque Z = 6."
+            ]
+          ]
+        },
+        "ideas": [
+          "El número másico A es la suma de protones y neutrones de un núcleo. Para obtener los neutrones, resta n = A − Z.",
+          "Los isótopos de un elemento tienen el mismo Z y distinto número de neutrones. Ganar o perder electrones cambia la carga y deja intactos A y Z.",
+          "La tabla periódica muestra una masa atómica promedio. Redondearla puede ser una aproximación pedida en algunos ejercicios escolares. Con la notación isotópica puedes leer el A del isótopo específico."
+        ],
+        "try": [
+          "En ³⁵₁₇Cl⁻, Z = 17 y A = 35. Tiene 17 protones, 18 neutrones y 18 electrones."
+        ],
+        "q": "¿Cuántos neutrones tiene ²⁷₁₃Al³⁺?",
+        "a": [
+          "14",
+          "10",
+          "27"
+        ],
+        "correct": 0,
+        "why": "A − Z = 27 − 13 = 14. La carga del ion afecta el número de electrones.",
+        "hint": "Resta el número atómico al número másico."
+      },
+      {
+        "title": "Configuración electrónica",
+        "intro": "Compara las tres formas de representar los mismos ocho electrones del oxígeno.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Extendida",
+              [
+                "1s²",
+                "2s²",
+                "2p⁴"
+              ],
+              "Suma los exponentes: 2 + 2 + 4 = 8 electrones."
+            ],
+            [
+              "Abreviada",
+              [
+                "[He]",
+                "2s²",
+                "2p⁴"
+              ],
+              "[He] representa los dos electrones iniciales."
+            ],
+            [
+              "Por orbitales",
+              [
+                "1s [↑↓]",
+                "2s [↑↓]",
+                "2p [↑↓] [↑] [↑]"
+              ],
+              "Los tres casilleros 2p se ocupan de a uno antes de emparejar."
+            ]
+          ]
+        },
+        "ideas": [
+          "El modelo cuántico usa orbitales, que representan regiones donde es probable encontrar al electrón. El apunte también presenta los modelos de Rutherford y Bohr como contexto.",
+          "Orden de llenado para estos ejemplos: 1s, 2s, 2p, 3s, 3p, 4s, 3d y 4p. Cada casillero admite hasta 2 electrones con espines opuestos. Los subniveles s, p, d y f tienen 1, 3, 5 y 7 casilleros.",
+          "Según la regla de Hund, en casilleros de igual energía se ubica primero un electrón en cada uno. En la abreviada se usa el gas noble anterior como punto de partida."
+        ],
+        "try": [
+          "Para Na neutro (Z = 11), la extendida es 1s² 2s² 2p⁶ 3s¹ y la abreviada [Ne] 3s¹. Para Na⁺ queda 1s² 2s² 2p⁶."
+        ],
+        "q": "El subnivel 2p del carbono tiene dos electrones. ¿Cómo se ubican?",
+        "a": [
+          "Ambos en el mismo casillero",
+          "Uno en cada uno de dos casilleros",
+          "Uno en cada uno de los tres casilleros"
+        ],
+        "correct": 1,
+        "why": "Primero se ocupan casilleros distintos de igual energía. Con dos electrones, quedan dos ocupados y uno vacío.",
+        "hint": "Aplica la regla de Hund antes de formar pares."
+      },
+      {
+        "title": "Valencia y símbolos de Lewis",
+        "intro": "Mira el nivel externo y cuenta cuántos puntos representa el símbolo de Lewis.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Litio",
+              [
+                "1s² 2s¹",
+                "Nivel 2",
+                "Li ·"
+              ],
+              "Un electrón de valencia: 2s¹."
+            ],
+            [
+              "Carbono",
+              [
+                "1s² 2s² 2p²",
+                "Nivel 2",
+                "C · · · ·"
+              ],
+              "Cuatro electrones de valencia: 2 de 2s y 2 de 2p."
+            ],
+            [
+              "Nitrógeno",
+              [
+                "1s² 2s² 2p³",
+                "Nivel 2",
+                "N · · · · ·"
+              ],
+              "Cinco electrones de valencia: 2 de 2s y 3 de 2p."
+            ]
+          ]
+        },
+        "ideas": [
+          "En estos elementos representativos, los electrones de valencia son los del nivel más externo. Forma el total sumando los electrones de los subniveles de ese nivel.",
+          "Un símbolo de Lewis representa el elemento y un punto por cada electrón de valencia. En la pantalla los puntos aparecen en fila para que puedas contarlos. Para distribuirlos alrededor del símbolo en el cuaderno, sigue el formato usado en clase.",
+          "Para el Ca²⁺, el apunte señala que se suelen escribir el símbolo y la carga sin los dos puntos del calcio neutro. Confirma el formato de iones con el cuaderno."
+        ],
+        "try": [
+          "El aluminio termina en 3s² 3p¹. Su nivel externo es el 3 y tiene tres electrones de valencia."
+        ],
+        "q": "Un átomo representativo termina en 3s² 3p⁴. ¿Cuántos electrones de valencia tiene?",
+        "a": [
+          "2",
+          "4",
+          "6"
+        ],
+        "correct": 2,
+        "why": "Ambos subniveles pertenecen al nivel 3. Suma 2 + 4 = 6.",
+        "hint": "Suma los exponentes de los subniveles con el mismo nivel externo."
+      },
+      {
+        "title": "Períodos y grupos",
+        "intro": "Compara qué coincide al mirar una fila y una columna.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Mismo período",
+              [
+                "Li · 2s¹",
+                "C · 2s² 2p²",
+                "O · 2s² 2p⁴"
+              ],
+              "Los tres tienen como nivel externo el 2. Están en la misma fila."
+            ],
+            [
+              "Mismo grupo",
+              [
+                "Li · 2s¹",
+                "Na · 3s¹",
+                "K · 4s¹"
+              ],
+              "Los tres tienen un electrón de valencia. Están en el grupo 1."
+            ]
+          ]
+        },
+        "ideas": [
+          "El período es la fila. En estos ejemplos, el nivel de energía ocupado más alto de un átomo neutro coincide con su período.",
+          "El grupo es la columna. Para los elementos representativos de estos ejemplos, pertenecer a un grupo suele coincidir con tener la misma cantidad de electrones de valencia."
+        ],
+        "try": [
+          "El cloro termina en 3s² 3p⁵. Está en el período 3, tiene siete electrones de valencia y pertenece al grupo 17."
+        ],
+        "q": "¿Qué tienen en común Na (3s¹) y K (4s¹)?",
+        "a": [
+          "El nivel externo es 3 en ambos",
+          "Tienen 1 electrón de valencia y están en el grupo 1",
+          "Están en el período 4"
+        ],
+        "correct": 1,
+        "why": "Los dos tienen un electrón en su nivel externo, por eso pertenecen al grupo 1.",
+        "hint": "Compara los exponentes y después los niveles."
+      },
+      {
+        "title": "Enlaces y electronegatividad",
+        "intro": "Elige una pareja y compara cuánto atrae electrones cada átomo.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+
+            [
+              "Na y Cl",
+              [
+                "Na · 0,9",
+                "ΔEN = 2,1",
+                "Cl · 3,0"
+              ],
+              "Iónico en este ejemplo: el sodio cede un electrón al cloro."
+            ],
+            [
+              "O y H",
+              [
+                "O · 3,5",
+                "ΔEN = 1,4",
+                "H · 2,1"
+              ],
+              "Covalente polar: el oxígeno atrae más el par compartido."
+            ],
+            [
+              "Cl y Cl",
+              [
+                "Cl · 3,0",
+                "ΔEN = 0",
+                "Cl · 3,0"
+              ],
+              "Covalente apolar: ambos átomos atraen por igual el par compartido."
+            ]
+          ]
+        },
+        "ideas": [
+          "La electronegatividad mide la capacidad de atraer los electrones de un enlace. En los ejemplos, la diferencia ΔEN es la mayor menos la menor.",
+          "En los ejemplos iónicos se forman cationes y aniones por transferencia de electrones. En los covalentes los átomos comparten pares, de forma desigual si el enlace es polar.",
+          "El apunte usa 1,7 como corte escolar orientativo entre covalente e iónico y 0,4 entre covalente polar y apolar. Algunos materiales usan 2,0 para el primero. Usa el criterio del profesor en la prueba.",
+          "Un enlace simple comparte un par de electrones, uno doble comparte dos y uno triple comparte tres."
+        ],
+        "try": [
+          "Con H = 2,1 y Cl = 3,0, ΔEN = 0,9. Según el criterio del apunte, es covalente polar."
+        ],
+        "q": "El O₂ se representa O=O. ¿Cuántos pares comparten los dos oxígenos?",
+        "a": [
+          "Uno",
+          "Dos",
+          "Tres"
+        ],
+        "correct": 1,
+        "why": "El signo = representa un enlace doble, es decir, dos pares compartidos.",
+        "hint": "Cada línea representa un par compartido."
+      },
+      {
+        "title": "Modelos de barras y esferas",
+        "intro": "Cambia de molécula. Cuenta las esferas y mira cuántas barras unen cada par.",
+        "visual": {
+          "kind": "molecule"
+        },
+        "ideas": [
+          "Cada esfera representa un átomo y cada barra representa un par compartido. Dos barras entre los mismos átomos muestran un enlace doble y tres barras un enlace triple.",
+          "Colores usuales para estos ejemplos: carbono negro, hidrógeno blanco, oxígeno rojo y nitrógeno azul. El agua tiene forma angular, el CO₂ es lineal y el CH₄ es tetraédrico.",
+          "El modelo espacial compacto resalta el tamaño y la forma aproximada de la molécula. El de barras y esferas permite contar los enlaces."
+        ],
+        "try": [
+          "Selecciona CO₂. Cuenta 3 átomos, 2 enlaces dobles y 4 barras en total. Selecciona N₂ y comprueba que un solo enlace triple tiene 3 barras."
+        ],
+        "q": "El agua tiene 1 oxígeno y 2 hidrógenos, con un enlace simple O–H a cada lado. ¿Qué dibujas?",
+        "a": [
+          "3 esferas y 2 barras",
+          "2 esferas y 3 barras",
+          "3 esferas y 4 barras"
+        ],
+        "correct": 0,
+        "why": "Hay una esfera por átomo y una barra por cada enlace simple O–H.",
+        "hint": "Cuenta átomos primero y después enlaces."
+      }
+    ]
+  },
+  {
+    "id": "h3",
+    "subject": "Historia",
+    "unit": "Unidad 3",
+    "title": "Causas de la Revolución Francesa",
+    "tag": "Actividad de muestra",
+    "description": "Ordena las causas según cuánto tiempo se fueron formando.",
+    "lessons": [
+      {
+        "title": "Estructura, coyuntura y acontecimiento",
+        "intro": "Elige una escala de tiempo para mirar el mismo proceso.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Largo plazo",
+              [
+                "Estructura",
+                "→",
+                "Privilegios del Antiguo Régimen"
+              ],
+              "Una condición social y política que se mantuvo por largo tiempo."
+            ],
+            [
+              "Años previos",
+              [
+                "Coyuntura",
+                "→",
+                "Crisis fiscal"
+              ],
+              "La crisis de las finanzas de la monarquía agudizó las tensiones."
+            ],
+            [
+              "Un día",
+              [
+                "Acontecimiento",
+                "→",
+                "Toma de la Bastilla"
+              ],
+              "Ocurrió el 14 de julio de 1789, en medio del proceso revolucionario."
+            ]
+          ]
+        },
+        "ideas": [
+          "Un proceso histórico reúne causas que pueden actuar a lo largo de tiempos distintos.",
+          "Para explicarlo, conecta dos hechos y di qué relación tienen. Por ejemplo, una crisis fiscal puede agravar un conflicto por los impuestos y los privilegios."
+        ],
+        "try": [
+          "Cuenta en voz alta cómo una causa de largo plazo y una crisis de corto plazo pueden actuar juntas."
+        ],
+        "q": "¿Qué ejemplo corresponde a un acontecimiento?",
+        "a": [
+          "Los privilegios de la nobleza",
+          "La toma de la Bastilla",
+          "La crisis fiscal acumulada"
+        ],
+        "correct": 1,
+        "why": "La toma de la Bastilla fue un hecho puntual que ocurrió el 14 de julio de 1789.",
+        "hint": "Busca el hecho al que puedes asignar un día."
+      }
+    ]
+  },
+  {
+    "id": "h4",
+    "subject": "Historia",
+    "unit": "Unidad 4",
+    "title": "Regiones y población",
+    "tag": "Actividad de muestra",
+    "description": "Compara dos territorios mediante su densidad poblacional.",
+    "lessons": [
+      {
+        "title": "¿Dónde vive más gente por km²?",
+        "intro": "Compara territorios imaginarios con la misma población.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Valle",
+              [
+                "1.000 habitantes",
+                "÷ 10 km²",
+                "100 hab./km²"
+              ],
+              "El mismo grupo vive en un territorio más pequeño."
+            ],
+            [
+              "Cordillera",
+              [
+                "1.000 habitantes",
+                "÷ 50 km²",
+                "20 hab./km²"
+              ],
+              "El territorio es más extenso y la densidad es menor."
+            ]
+          ]
+        },
+        "ideas": [
+          "La geografía física estudia rasgos del medio natural, como el relieve. La geografía humana estudia fenómenos como la ocupación del territorio.",
+          "La densidad resulta de dividir los habitantes por la superficie. Indica el promedio de habitantes por unidad de área."
+        ],
+        "try": [
+          "Calcula la densidad de un territorio con 1.200 habitantes en 40 km²."
+        ],
+        "q": "¿Qué territorio tiene mayor densidad: 800 habitantes en 10 km² o 1.000 en 50 km²?",
+        "a": [
+          "El de 800 habitantes",
+          "El de 1.000 habitantes",
+          "Tienen la misma densidad"
+        ],
+        "correct": 0,
+        "why": "80 hab./km² es mayor que 20 hab./km².",
+        "hint": "Divide la población por la superficie de cada territorio."
+      }
+    ]
+  },
+  {
+    "id": "l3",
+    "subject": "Lenguaje",
+    "unit": "Unidad 3",
+    "title": "Relatos de misterio",
+    "tag": "Actividad de muestra",
+    "description": "Sigue una pista y distingue qué se observa de lo que se supone.",
+    "lessons": [
+      {
+        "title": "¿Pista o hipótesis?",
+        "intro": "Caso breve. La ventana estaba abierta y había barro bajo el marco.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Hecho",
+              [
+                "Observación",
+                "→",
+                "Hay barro bajo el marco"
+              ],
+              "Se puede comprobar mirando el lugar."
+            ],
+            [
+              "Hipótesis",
+              [
+                "Explicación",
+                "→",
+                "Alguien entró por la ventana"
+              ],
+              "Es una posibilidad que se puede poner a prueba con nuevas evidencias."
+            ],
+            [
+              "Opinión",
+              [
+                "Valoración",
+                "→",
+                "Es el caso más raro del año"
+              ],
+              "Expresa una apreciación de quien habla."
+            ]
+          ]
+        },
+        "ideas": [
+          "Una evidencia ayuda a evaluar una hipótesis. Una sola pista puede admitir varias explicaciones.",
+          "El detective relaciona observaciones para construir una explicación y busca más indicios para comprobarla."
+        ],
+        "try": [
+          "Propón otra explicación para el barro. Di qué evidencia te ayudaría a decidir entre ambas."
+        ],
+        "q": "¿Cuál de las siguientes frases propone una hipótesis?",
+        "a": [
+          "La detective encontró barro",
+          "El caso es aburrido",
+          "Quizás alguien abrió la ventana desde afuera"
+        ],
+        "correct": 2,
+        "why": "Plantea una explicación tentativa que se puede contrastar con evidencias.",
+        "hint": "Busca la frase que propone qué pudo haber pasado."
+      }
+    ]
+  },
+  {
+    "id": "l4",
+    "subject": "Lenguaje",
+    "unit": "Unidad 4",
+    "title": "Teatro y comedia",
+    "tag": "Actividad de muestra",
+    "description": "Lee un fragmento breve como si tuvieras que montarlo en escena.",
+    "lessons": [
+      {
+
+        "title": "Del texto al escenario",
+        "intro": "Escena inventada. Dos amigos buscan las llaves que uno de ellos tiene en el bolsillo.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Acotación",
+              [
+                "(Elena revisa su chaqueta.)"
+              ],
+              "Indica una acción que se representa en escena."
+            ],
+            [
+              "Diálogo",
+              [
+                "Elena: ¿Perdiste las llaves otra vez?"
+              ],
+              "Son las palabras que dice el personaje."
+            ],
+            [
+              "Conflicto",
+              [
+                "Salir a tiempo",
+                "↔",
+                "Encontrar las llaves"
+              ],
+              "Un objetivo y un obstáculo ponen en marcha la acción."
+            ]
+          ]
+        },
+        "ideas": [
+          "La obra dramática es el texto. La obra teatral es su puesta en escena con actuación, espacio y otros recursos.",
+          "La estructura externa puede dividirse en actos, cuadros y escenas. La estructura interna sigue el desarrollo del conflicto."
+        ],
+        "try": [
+          "Imagina el desenlace. Escribe una acotación que el público pueda ver y una frase que el personaje pueda decir."
+        ],
+        "q": "En «(Martín encuentra las llaves en su bolsillo)», ¿qué estás leyendo?",
+        "a": [
+          "Una acotación",
+          "Un diálogo",
+          "El título de un acto"
+        ],
+        "correct": 0,
+        "why": "El texto indica lo que Martín hace. Sus palabras irían en un diálogo.",
+        "hint": "Pregúntate si Martín dice esas palabras o hace la acción."
+      }
+    ]
+  },
+  {
+    "id": "m3",
+    "subject": "Matemática",
+    "unit": "Unidad 3",
+    "title": "Medidas de posición",
+    "tag": "Actividad de muestra",
+    "description": "Explora cómo un diagrama de cajón resume los datos.",
+    "lessons": [
+      {
+        "title": "Leer un diagrama de cajón",
+        "intro": "Ubica mínimo, cuartiles y máximo en la misma escala.",
+        "visual": {
+          "kind": "box"
+        },
+        "ideas": [
+          "El segundo cuartil Q₂ coincide con la mediana y divide los datos ordenados en dos mitades.",
+          "La caja va de Q₁ a Q₃. Su ancho representa el rango intercuartílico: Q₃ − Q₁."
+        ],
+        "try": [
+          "En este ejemplo, calcula el rango intercuartílico con Q₁ = 4 y Q₃ = 10."
+        ],
+        "q": "¿Qué número corresponde a la mediana en este diagrama?",
+        "a": [
+          "4",
+          "7",
+          "10"
+        ],
+        "correct": 1,
+        "why": "La línea al interior de la caja marca Q₂ = 7, la mediana.",
+        "hint": "Mira la línea dentro de la caja."
+      }
+    ]
+  },
+  {
+    "id": "m4",
+    "subject": "Matemática",
+    "unit": "Unidad 4",
+    "title": "Pitágoras e isometrías",
+    "tag": "Actividad de muestra",
+    "description": "Mueve un triángulo y comprueba qué medidas se conservan.",
+    "lessons": [
+      {
+        "title": "Mover el triángulo sin deformarlo",
+        "intro": "Elige una transformación y observa la posición de los vértices.",
+        "visual": {
+          "kind": "triangle"
+        },
+        "ideas": [
+          "La traslación desplaza todos los puntos del mismo modo. La reflexión los refleja respecto de un eje y la rotación los gira alrededor de un centro.",
+          "Las isometrías conservan distancias y ángulos. El triángulo de la pantalla tiene catetos de 3 y 4 unidades, e hipotenusa de 5 porque 3² + 4² = 5²."
+        ],
+        "try": [
+          "Predice qué vértices se mantienen en su lugar al reflejar el triángulo respecto del eje y."
+        ],
+        "q": "¿Cuánto mide la hipotenusa después de girar el triángulo 90°?",
+        "a": [
+          "3 unidades",
+          "4 unidades",
+          "5 unidades"
+        ],
+        "correct": 2,
+        "why": "La rotación conserva las longitudes. La hipotenusa sigue midiendo 5.",
+        "hint": "Una isometría cambia la posición de los puntos y conserva las distancias."
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function diagram(label, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", label);
+  byId("board").replaceChildren(canvas);
+  const ctx = canvas.getContext("2d");
+  ctx.scale(2, 2);
+  ctx.fillStyle = "#fbfdf9";
+  ctx.fillRect(0, 0, 570, 195);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  draw(ctx);
+}
+
+function line(ctx, points, color = "#35594e", width = 3) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  points.forEach(([x, y], index) => index ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.stroke();
+}
+
+function dot(ctx, x, y, radius, fill, stroke = "#35594e", width = 2) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
+function label(ctx, text, x, y, color = "#24453d") {
+  ctx.fillStyle = color;
+  ctx.font = "650 16px system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, x, y);
+}
+
+function showCircuit() {
+  let parallel = false;
+  let open = false;
+  const seriesButton = button("En serie", "pill");
+  const parallelButton = button("En paralelo", "pill");
+  const toggle = button("Abrir el interruptor", "pill");
+  byId("controls").append(seriesButton, parallelButton, toggle);
+  seriesButton.onclick = () => { parallel = false; draw(); };
+  parallelButton.onclick = () => { parallel = true; draw(); };
+  toggle.onclick = () => { open = !open; draw(); };
+  draw();
+
+  function draw() {
+    seriesButton.setAttribute("aria-pressed", String(!parallel));
+    parallelButton.setAttribute("aria-pressed", String(parallel));
+    toggle.textContent = open ? "Cerrar el interruptor" : "Abrir el interruptor";
+    const lamp1 = !open;
+    const lamp2 = parallel || !open;
+    const message = open ? (parallel
+      ? "La rama de A queda abierta. B sigue encendida porque mantiene un camino cerrado."
+      : "El interruptor corta el único camino. Las dos ampolletas se apagan.")
+      : (parallel ? "A y B están en ramas distintas. Las dos reciben el voltaje de la pila."
+      : "A y B comparten el mismo camino. La corriente que pasa por ambas es igual.");
+    byId("legend").textContent = message;
+    diagram("Circuito " + (parallel ? "en paralelo. " : "en serie. ") + message, ctx => {
+      const wire = "#52746a";
+      const live = "#257052";
+      const top = 46;
+      const bottom = 143;
+      line(ctx, [[95,top],[95,bottom],[263,bottom]], wire, 4);
+      line(ctx, [[301,bottom],[475,bottom],[475,top],[209,top]], wire, 4);
+      line(ctx, [[95,top],[159,top]], wire, 4);
+      line(ctx, [[263,bottom],[275,bottom]], wire, 4);
+      line(ctx, [[289,bottom],[301,bottom]], wire, 4);
+      line(ctx, [[275,126],[275,160]], wire, 4);
+      line(ctx, [[289,133],[289,153]], wire, 4);
+      label(ctx, "+", 258, 164);
+      label(ctx, "−", 305, 164);
+      label(ctx, "Pila", 282, 179);
+      line(ctx, [[159,top],[open ? 195 : 209,open ? 25 : top]], open ? "#9a6425" : live, 4);
+      dot(ctx,159,top,4,"#fff",wire);
+      dot(ctx,209,top,4,"#fff",wire);
+      lamp(ctx, parallel ? 340 : 309, top, "A", lamp1);
+      if (parallel) {
+        line(ctx, [[95,93],[475,93]], live, 4);
+        dot(ctx,95,93,4,live,live);
+        dot(ctx,475,93,4,live,live);
+        lamp(ctx,340,93,"B",lamp2);
+      } else {
+        lamp(ctx,416,top,"B",lamp2);
+      }
+      label(ctx, "Interruptor", 185, 70);
+    });
+  }
+  function lamp(ctx,x,y,name,on) {
+    dot(ctx,x,y,15,on ? "#ffe1a0" : "#eeefeb",on ? "#9b6c2b" : "#627670",2.5);
+    const color = on ? "#6b4616" : "#627670";
+    line(ctx,[[x-6,y-6],[x+6,y+6]],color,2);
+    line(ctx,[[x-6,y+6],[x+6,y-6]],color,2);
+    label(ctx,name,x,y+25,color);
+  }
+}
+
+function showRange() {
+  const box = document.createElement("div");
+  box.className = "range-box";
+  const title = document.createElement("label");
+  title.htmlFor = "resistance";
+  title.textContent = "Resistencia";
+  const value = document.createElement("output");
+  value.setAttribute("for","resistance");
+  title.append(value);
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = "resistance";
+  slider.min = "1";
+  slider.max = "12";
+  slider.value = "3";
+  const reading = document.createElement("p");
+  reading.className = "reading";
+  box.append(title, slider, reading);
+  byId("board").append(box);
+  byId("legend").textContent = "Con el voltaje fijo, si duplicas la resistencia, la corriente queda en la mitad.";
+  slider.addEventListener("input", update);
+  update();
+  function update() {
+    value.textContent = slider.value + " Ω";
+    reading.textContent = "I = 12 V ÷ " + slider.value + " Ω = " + (12 / Number(slider.value)).toLocaleString("es-CL", {maximumFractionDigits: 2}) + " A";
+    slider.setAttribute("aria-valuetext", value.textContent);
+  }
+}
+
+function showCurve() {
+  const names = ["Calentar hielo","Fundir","Calentar agua","Hervir","Calentar vapor"];
+  const notes = [
+    "Calor sensible: el hielo se calienta hasta 0 °C.",
+    "Calor latente de fusión: el hielo pasa a líquido a 0 °C.",
+    "Calor sensible: el agua líquida se calienta de 0 °C a 100 °C.",
+    "Calor latente de vaporización: el agua hierve a 100 °C.",
+    "Calor sensible: el vapor aumenta su temperatura."
+  ];
+  const points = [[89,149],[140,123],[222,123],[307,61],[445,61],[500,28]];
+  switcher(names, active => {
+    byId("legend").textContent = notes[active] + " Esquema sin escala.";
+    diagram("Curva de calentamiento del agua. " + notes[active], ctx => {
+      line(ctx,[[73,19],[73,160],[526,160]],"#67837a",1.5);
+      for (const [y,temp] of [[123,"0 °C"],[61,"100 °C"]]) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[[73,y],[515,y]],"#a8bdb4",1);
+        ctx.setLineDash([]);
+        label(ctx,temp,43,y);
+      }
+      label(ctx,"Calor agregado →",302,180);
+      line(ctx,points,"#a3b9ae",3.5);
+      line(ctx,[points[active],points[active+1]],"#219167",7);
+    });
+  });
+}
+
+function showMolecules() {
+  const models = [
+    ["H₂O", [["O",285,67],["H",211,120],["H",359,120]],[[0,1,1],[0,2,1]],"Agua: 3 átomos, 2 enlaces simples. Forma angular."],
+    ["CO₂", [["C",285,97],["O",169,97],["O",401,97]],[[0,1,2],[0,2,2]],"Dióxido de carbono: 3 átomos, 2 enlaces dobles. Forma lineal."],
+    ["CH₄", [["C",285,97],["H",223,139],["H",345,139],["H",286,33],["H",347,63]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],"Metano: 5 átomos y 4 enlaces simples. Proyección del modelo tetraédrico."],
+    ["O₂", [["O",226,97],["O",344,97]],[[0,1,2]],"Oxígeno: 2 átomos, 1 enlace doble."],
+    ["N₂", [["N",226,97],["N",344,97]],[[0,1,3]],"Nitrógeno: 2 átomos, 1 enlace triple."]
+  ];
+  const atomColor = {O:"#ac3039", C:"#233231", N:"#254f89", H:"#fff"};
+  switcher(models.map(model => model[0]), index => {
+    const [name, atoms, bonds, note] = models[index];
+    byId("legend").textContent = note;
+    diagram(name + ". " + note, ctx => {
+      for (const [i,j,count] of bonds) {
+        const [,ax,ay] = atoms[i];
+        const [,bx,by] = atoms[j];
+        const distance = Math.hypot(bx-ax,by-ay);
+        for (let k = 0; k < count; k++) {
+          const offset = (k - (count - 1)/2) * 8;
+          const dx = (ay-by)/distance*offset;
+          const dy = (bx-ax)/distance*offset;
+          line(ctx,[[ax+dx,ay+dy],[bx+dx,by+dy]],"#759284",4);
+        }
+      }
+      for (const [atom,x,y] of atoms) {
+        dot(ctx,x,y,atom === "H" ? 18 : 23,atomColor[atom],"#35594e",2);
+        label(ctx,atom,x,y,atom === "H" ? "#143931" : "#fff");
+      }
+    });
+  });
+}
+
+function showBox() {
+  const names = ["Mínimo","Q₁","Q₂","Q₃","Máximo"];
+  const numbers = [1,4,7,10,12];
+  const x = value => 80 + value * 32;
+  switcher(names, active => {
+    byId("legend").textContent = names[active] + " = " + numbers[active] + (active === 2 ? ". Es la mediana." : ".");
+    diagram("Diagrama de cajón. Mínimo 1, primer cuartil 4, mediana 7, tercer cuartil 10 y máximo 12.", ctx => {
+      line(ctx,[[x(1),95],[x(12),95]],"#35594e",3);
+      ctx.fillStyle = "#dcece0";
+      ctx.fillRect(x(4),65,x(10)-x(4),60);
+      ctx.strokeStyle = "#35594e";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x(4),65,x(10)-x(4),60);
+      line(ctx,[[x(7),65],[x(7),125]],"#35594e",3);
+      for (const n of [1,12]) line(ctx,[[x(n),83],[x(n),107]],"#35594e",3);
+      for (const n of numbers) {
+        dot(ctx,x(n),143,n === numbers[active] ? 6 : 3,"#25624e","#25624e",1);
+        label(ctx,String(n),x(n),167);
+      }
+    });
+  });
+}
+
+function showTriangle() {
+  const triangle = [[0,1],[4,1],[0,4]];
+  const transforms = [
+    ["Original",(x,y) => [x,y],"A (0, 1), B (4, 1), C (0, 4)."],
+    ["Traslación",(x,y) => [x-3,y-4],"Todos los puntos avanzan 3 a la izquierda y 4 hacia abajo."],
+    ["Reflexión",(x,y) => [-x,y],"Se refleja respecto del eje y. A y C están sobre el eje y conservan su posición."],
+    ["Rotación",(x,y) => [-y,x],"Gira 90° en sentido antihorario alrededor del origen."]
+  ];
+  const screen = ([x,y]) => [285 + x * 17, 98 - y * 17];
+
+  switcher(transforms.map(item => item[0]), active => {
+    const [title,transform,note] = transforms[active];
+    byId("legend").textContent = note;
+    diagram("Triángulo de lados 3, 4 y 5. " + title + ". " + note, ctx => {
+      for (let i = -5; i <= 5; i++) {
+        line(ctx,[screen([i,-5]),screen([i,5])],"#e1eae1",1);
+        line(ctx,[screen([-5,i]),screen([5,i])],"#e1eae1",1);
+      }
+      line(ctx,[screen([-5,0]),screen([5,0])],"#77988b",1.5);
+      line(ctx,[screen([0,-5]),screen([0,5])],"#77988b",1.5);
+      label(ctx,"x",392,98);
+      label(ctx,"y",285,10);
+      const original=triangle.map(screen);
+      if(active) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[...original,original[0]],"#889a90",2);
+        ctx.setLineDash([]);
+      }
+      const moved=triangle.map(point => screen(transform(...point)));
+      line(ctx,[...moved,moved[0]],"#25624e",3.5);
+      moved.forEach(([x,y], index) => {
+        dot(ctx,x,y,4,"#25624e","#25624e",1);
+        label(ctx,"ABC"[index] + (active ? "′" : ""),x+(index===1?10:-12),y-9);
+      });
+    });
+  });
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules,box:showBox,triangle:showTriangle};
+  if (visual.kind === "scenes") {
+    switcher(visual.choices.map(choice => choice[0]), active => {
+      const [, cells, note] = visual.choices[active];
+      const scene = document.createElement("div");
+      scene.className = "scene";
+      for (const cell of cells) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.textContent = cell;
+        scene.append(tile);
+      }
+      byId("board").replaceChildren(scene);
+      byId("legend").textContent = note;
+    });
+  } else {
+    renderers[visual.kind]();
+  }
+}
+
+
+const byId = id => document.getElementById(id);
+const topics = [...new Set(units.map(unit => unit.subject))];
+const storageKey = "cuaderno-visual-emilio-2s-2026-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const state = {
+  unit: units.some(unit => unit.id === saved.unit) ? saved.unit : units[0].id,
+  positions: saved.positions && typeof saved.positions === "object" ? saved.positions : {},
+  done: saved.done && typeof saved.done === "object" ? saved.done : {},
+  subjects: saved.subjects && typeof saved.subjects === "object" ? saved.subjects : {},
+  focus: saved.focus === true
+};
+
+function save() {
+  try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
+}
+function activeUnit() { return units.find(unit => unit.id === state.unit); }
+function position(unit) {
+  const value = state.positions[unit.id];
+  return Number.isInteger(value) && value >= 0 && value < unit.lessons.length ? value : 0;
+}
+function completed(unit, index) { return state.done[unit.id + ":" + index] === true; }
+function button(title, className) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.className = className;
+  el.textContent = title;
+  return el;
+}
+function current(el, yes) {
+  if (yes) el.setAttribute("aria-current", "true");
+}
+function textList(id, items) {
+  byId(id).replaceChildren(...items.map(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    return li;
+  }));
+}
+
+function navigate(unit, index = position(unit)) {
+  state.unit = unit.id;
+  state.subjects[unit.subject] = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  byId("lesson-title").focus();
+}
+function updateFocus() {
+  document.body.classList.toggle("focus-mode", state.focus);
+  const focus = byId("focus");
+  focus.setAttribute("aria-pressed", String(state.focus));
+  focus.textContent = state.focus ? "Salir de enfoque" : "Modo enfoque";
+}
+byId("focus").addEventListener("click", () => {
+  state.focus = !state.focus;
+  save();
+  updateFocus();
+});
+
+function renderMenus(unit) {
+  byId("subjects").replaceChildren(...topics.map(subject => {
+    const el = button(subject, "pill");
+    el.setAttribute("aria-pressed", String(subject === unit.subject));
+    el.onclick = () => {
+      if (subject === unit.subject) return;
+      const group = units.filter(item => item.subject === subject);
+      const destination = group.find(item => item.id === state.subjects[subject]) || group[0];
+      navigate(destination);
+    };
+    return el;
+  }));
+  byId("units").replaceChildren(...units.filter(item => item.subject === unit.subject).map(item => {
+    const el = button("", "unit");
+    const title = document.createElement("strong");
+    const label = document.createElement("span");
+    title.textContent = item.title;
+    label.textContent = item.unit;
+    el.append(title, label);
+    current(el, item.id === unit.id);
+    el.onclick = () => navigate(item);
+    return el;
+  }));
+  renderProgress(unit);
+}
+
+function renderProgress(unit) {
+  const index = position(unit);
+  const count = unit.lessons.reduce((sum, _, i) => sum + Number(completed(unit,i)), 0);
+  byId("progress-label").textContent = count + " de " + unit.lessons.length + " bloques comprobados";
+  const progress = byId("progress");
+  progress.max = unit.lessons.length;
+  progress.value = count;
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,i) => {
+    const done = completed(unit,i);
+    const el = button("", "item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : String(i + 1);
+    badge.setAttribute("aria-hidden","true");
+    el.append(badge, document.createTextNode(lesson.title));
+    if (done) el.setAttribute("aria-label", lesson.title + ", comprobado");
+    current(el, i === index);
+    el.onclick = () => navigate(unit, i);
+    return el;
+  }));
+}
+
+function showQuiz(unit,index,lesson) {
+  byId("question").textContent = lesson.q;
+  const feedback = byId("feedback");
+  feedback.textContent = "";
+  feedback.classList.remove("retry");
+  const answers = lesson.a.map((text, n) => {
+    const el = button(text, "answer");
+    el.onclick = () => respond(n);
+    return el;
+  });
+  byId("answers").replaceChildren(...answers);
+  if (completed(unit,index)) showCorrect();
+  function respond(n) {
+    answers.forEach(el => el.classList.remove("retry"));
+    if (n === lesson.correct) {
+      state.done[unit.id + ":" + index] = true;
+      save();
+      showCorrect();
+      renderProgress(unit);
+      return;
+    }
+    answers[n].classList.add("retry");
+    feedback.classList.add("retry");
+    feedback.textContent = "Pista. " + lesson.hint + " Puedes probar otra vez.";
+  }
+  function showCorrect() {
+    answers.forEach(el => { el.disabled = true; });
+    answers[lesson.correct].classList.add("good");
+    feedback.classList.remove("retry");
+    feedback.textContent = "Correcto. " + lesson.why;
+  }
+}
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = unit.lessons[index];
+  byId("unit-type").textContent = [unit.subject, unit.unit, unit.tag].join(" · ");
+  byId("unit-title").textContent = unit.title;
+  byId("unit-description").textContent = unit.description;
+  renderMenus(unit);
+  byId("lesson-count").textContent = "Bloque " + (index + 1) + " de " + unit.lessons.length;
+  byId("lesson-title").textContent = lesson.title;
+  byId("lesson-intro").textContent = lesson.intro;
+  byId("ideas").open = false;
+  byId("practice").open = false;
+  textList("idea-list", lesson.ideas);
+  textList("practice-list", lesson.try);
+  showVisual(lesson.visual);
+  showQuiz(unit,index,lesson);
+  const adjacent = units.filter(item => item.subject === unit.subject);
+  const unitIndex = adjacent.indexOf(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0 && unitIndex === 0;
+  previous.textContent = index === 0 && unitIndex > 0 ? "‹ Unidad anterior" : "‹ Anterior";
+  previous.onclick = () => {
+    if (index > 0) navigate(unit,index-1);
+    else if (unitIndex > 0) navigate(adjacent[unitIndex-1],adjacent[unitIndex-1].lessons.length-1);
+  };
+  const lastBlock = index === unit.lessons.length-1;
+  const nextUnit = adjacent[unitIndex+1];
+  next.disabled = lastBlock && !nextUnit;
+  next.textContent = lastBlock ? (nextUnit ? "Siguiente unidad ›" : "Fin del recorrido") : "Siguiente ›";
+  next.onclick = () => {
+    if (!lastBlock) navigate(unit,index+1);
+    else if (nextUnit) navigate(nextUnit,0);
+  };
+}
+updateFocus();
+render();
+</script>
+</body>
+</html>
+

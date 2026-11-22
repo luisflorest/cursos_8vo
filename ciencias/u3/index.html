@@ -1,0 +1,3714 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eff5f4">
+<title>Ciencias Naturales · Unidad 3 · Electricidad y calor · V2</title>
+<style>
+:root {
+  color-scheme:light;
+  --paper:#f6f1f6;
+  --surface:#fff;
+  --quiet:#fcf9fc;
+  --ink:#282032;
+  --muted:#584965;
+  --line:#d8ccda;
+  --control-line:#9983a0;
+  --deep:#48254f;
+  --accent:#5a2b66;
+  --wash:#f2e8f3;
+  --focus:#8b531d;
+  --success:#295746;
+  --success-bg:#edf4ef;
+  --success-line:#bbd2c3;
+  --hint:#644513;
+  --hint-bg:#fff4df;
+  --hint-line:#ddc39b;
+  --shadow:0 10px 30px #48254f0a;
+  --sticky-offset:86px;
+}
+*,*::before,*::after { box-sizing:border-box; }
+[hidden] { display:none!important; }
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:16px/1.56 "Segoe UI",system-ui,sans-serif;
+}
+h1,h2,h3,p { margin:0; }
+button,input,select,textarea { font:inherit; }
+button,summary { cursor:pointer; }
+:where(button,a,summary,input,select,textarea):focus-visible {
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+:where(h2,h3,strong)[tabindex="-1"] { scroll-margin-top:var(--sticky-offset); }
+.skip {
+  position:fixed;
+  top:8px;
+  left:12px;
+  transform:translateY(-160%);
+  z-index:10;
+  padding:10px 14px;
+  background:var(--surface);
+  border-radius:8px;
+  color:var(--accent);
+  font-weight:700;
+}
+.skip:focus { transform:none; }
+.study-header {
+  position:sticky;
+  top:0;
+  z-index:4;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.top {
+  max-width:1224px;
+  min-height:65px;
+  margin:auto;
+  padding:9px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.brand { display:flex; align-items:center; min-width:0; gap:10px; }
+.mark,.panel-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:42px;
+  height:42px;
+  border-radius:11px;
+  background:var(--accent);
+  color:#fff;
+}
+.mark .history-icon,.panel-icon .history-icon { width:21px; height:21px; }
+.brand-name { display:flex; gap:7px; align-items:center; line-height:1.2; }
+.brand-name strong { color:var(--deep); font-weight:780; }
+.version {
+  background:var(--wash);
+  color:var(--accent);
+  border-radius:5px;
+  padding:2px 5px;
+  font-size:.68rem;
+  font-weight:760;
+  letter-spacing:.02em;
+}
+.brand small { display:block; color:var(--muted); font-size:.77rem; margin-top:3px; }
+.header-tools { display:flex; align-items:center; gap:7px; }
+.plain,.nav-button,.pill,.mode-tab {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:44px;
+  min-width:0;
+  padding:7px 11px;
+  border:1px solid var(--control-line);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--accent);
+  font-weight:690;
+  text-align:center;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+.plain:hover,.nav-button:hover,.pill:hover,.mode-tab:hover { background:var(--wash); }
+.plain[aria-pressed=true] {
+  border-color:var(--accent);
+  background:var(--wash);
+  box-shadow:inset 0 -2px 0 var(--accent);
+}
+.next,.pill[aria-pressed=true],.mode-tab[aria-pressed=true] {
+  border-color:var(--accent);
+  background:var(--accent);
+  color:#fff;
+}
+.next:hover,.pill[aria-pressed=true]:hover,.mode-tab[aria-pressed=true]:hover { background:var(--deep); }
+.nav-button:disabled,.pill:disabled { cursor:default; }
+.nav-button:disabled {
+  border-color:var(--line);
+  background:var(--quiet);
+  color:var(--muted);
+}
+#topics-open { display:none; }
+.focus-mode #topics-open { display:inline-flex; }
+main { max-width:1224px; margin:auto; padding:24px 24px 40px; }
+.hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:grid;
+  align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(245px,.47fr);
+  gap:clamp(18px,5vw,70px);
+  padding:clamp(21px,3vw,38px);
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:var(--wash);
+}
+.hero::after {
+  position:absolute;
+  z-index:-1;
+  inset:-67% -80px auto auto;
+  width:330px;
+  aspect-ratio:1;
+  border:1px solid #bca0c080;
+  border-radius:50%;
+  box-shadow:0 0 0 27px #bca0c022,0 0 0 58px #bca0c015;
+  pointer-events:none;
+  content:"";
+}
+.hero-copy { min-width:0; }
+.kicker {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--accent);
+  font-size:.83rem;
+  font-weight:760;
+  letter-spacing:.025em;
+}
+.kicker .history-icon { width:17px; height:17px; }
+.hero h1 {
+  max-width:19ch;
+  margin:7px 0 9px;
+  color:var(--deep);
+  font:700 clamp(2rem,4vw,3.15rem)/1.07 Georgia,"Times New Roman",serif;
+  letter-spacing:-.025em;
+  overflow-wrap:anywhere;
+}
+#unit-description { max-width:53ch; color:var(--muted); }
+.resume-panel {
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+.track label { display:block; margin-bottom:6px; color:var(--deep); font-weight:730; font-size:.91rem; }
+progress {
+  display:block;
+  width:100%;
+  height:8px;
+  overflow:hidden;
+  appearance:none;
+  border:0;
+  border-radius:100px;
+  background:var(--wash);
+  color:var(--accent);
+}
+progress::-webkit-progress-bar { background:var(--wash); }
+progress::-webkit-progress-value { background:var(--accent); border-radius:100px; }
+progress::-moz-progress-bar { background:var(--accent); border-radius:100px; }
+#resume-context {
+  margin:11px 0 10px;
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+#resume { width:100%; }
+.grid {
+  display:grid;
+  grid-template-columns:minmax(214px,.28fr) minmax(0,1fr);
+  align-items:start;
+  gap:18px;
+  margin-top:18px;
+}
+.focus-mode .grid { grid-template-columns:minmax(0,1fr); max-width:850px; margin-inline:auto; }
+.focus-mode .study-topics { display:none; }
+.study-topics,.card {
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+.study-topics {
+  position:sticky;
+  top:var(--sticky-offset);
+  padding:13px;
+}
+.topics-heading {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin:1px 3px 9px;
+  color:var(--accent);
+  font-size:.94rem;
+  font-weight:760;
+}
+.topics-heading .history-icon { width:17px; height:17px; }
+.items { display:grid; gap:5px; }
+.item {
+  display:grid;
+  grid-template-columns:26px minmax(0,1fr);
+  align-items:center;
+  gap:9px;
+  width:100%;
+  min-height:47px;
+  padding:7px 8px;
+  border:1px solid transparent;
+  border-inline-start-width:3px;
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--ink);
+  text-align:left;
+  font-size:.9rem;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+.item:hover { background:var(--quiet); }
+.item[aria-current=true] {
+  border-color:var(--line);
+  border-inline-start-color:var(--accent);
+  background:var(--wash);
+  color:var(--deep);
+  font-weight:740;
+}
+.index {
+  display:grid;
+  place-items:center;
+  width:25px;
+  height:25px;
+  border-radius:7px;
+  background:var(--wash);
+  color:var(--accent);
+  font-size:.78rem;
+  font-weight:740;
+}
+.item[aria-current=true] .index { background:var(--accent); color:#fff; }
+.item.done .index { background:var(--success-bg); color:var(--success); }
+.card { padding:clamp(15px,2.5vw,28px); }
+.lesson-count,.eyebrow {
+  color:var(--accent);
+  font-size:.84rem;
+  font-weight:750;
+  line-height:1.4;
+}
+#lesson-title {
+  margin:3px 0 5px;
+  color:var(--deep);
+  font:700 clamp(1.5rem,2.9vw,2.12rem)/1.16 Georgia,"Times New Roman",serif;
+  overflow-wrap:anywhere;
+}
+#lesson-goal { color:var(--muted); max-width:65ch; }
+.topic-progress { color:var(--accent); margin-top:7px; font-size:.86rem; font-weight:690; }
+.mode-tabs {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin:17px 0 14px;
+  padding:5px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--quiet);
+}
+.mode-tab { min-height:45px; font-size:.92rem; }
+.mode-tab[aria-pressed=true] { box-shadow:inset 0 -3px 0 #d4a9d6; }
+.mode-tab:only-child,#learn-tab[hidden] + #practice-tab { grid-column:1/-1; }
+.guided,.worked,.exercise {
+  min-width:0;
+  padding:clamp(13px,2.3vw,20px);
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.guided { background:var(--quiet); }
+.panel-heading {
+  display:flex;
+  align-items:center;
+  min-width:0;
+  gap:10px;
+  margin:0 0 10px;
+}
+.panel-heading .panel-icon { width:39px; height:39px; border-radius:10px; }
+.panel-heading .panel-icon .history-icon { width:19px; height:19px; }
+.panel-heading h3 {
+  margin:2px 0 0;
+  color:var(--ink);
+  font-size:clamp(1.12rem,2.2vw,1.33rem);
+  line-height:1.22;
+  overflow-wrap:anywhere;
+}
+.teaching,.exercise-prompt,.worked > p,.worked ol,.passage blockquote { max-width:66ch; }
+.teaching p+p { margin-top:9px; }
+.scene:not(:empty) { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.tile {
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  padding:6px 9px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:var(--wash);
+  color:var(--deep);
+  font-size:.87rem;
+  font-weight:680;
+  overflow-wrap:anywhere;
+}
+.navigation {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+}
+.navigation .nav-button { font-size:.88rem; }
+.step-navigation { padding-top:10px; border-top:1px solid var(--line); }
+.chapter-nav { border-top:1px solid var(--line); padding-top:14px; }
+.explorer,.worked { margin-top:12px; }
+.worked { border-color:var(--success-line); background:var(--success-bg); }
+.worked .panel-icon { background:var(--success); }
+.worked ol { margin:9px 0; padding-inline-start:24px; }
+.worked ol li { padding-inline-start:2px; }
+.worked ol li + li { margin-top:4px; }
+.worked ol li::marker { color:var(--success); font-weight:750; }
+.worked-result { margin-top:9px; color:var(--success); font-weight:750; }
+.practice-cta { margin-top:13px; }
+.exercise { background:var(--quiet); }
+.exercise-prompt { margin-bottom:10px; }
+.case-nav {
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 44px;
+  align-items:center;
+  gap:9px;
+  padding:8px;
+  margin:9px 0;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface);
+  text-align:center;
+  line-height:1.35;
+}
+.case-nav span { display:block; color:var(--muted); font-size:.82rem; }
+.case-nav .nav-button { padding:0; font-size:1.2rem; }
+.exercise-fields { display:grid; gap:10px; margin:10px 0; }
+.field { display:grid; gap:4px; font-size:.94rem; font-weight:690; }
+.field input,.field select,.field textarea {
+  width:100%;
+  min-width:0;
+  max-width:650px;
+  min-height:44px;
+  padding:8px 10px;
+  border:1px solid var(--control-line);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--ink);
+  font-weight:500;
+}
+.field textarea { min-height:104px; resize:vertical; }
+.field [aria-invalid=true] { border-color:#986218; background:var(--hint-bg); }
+.field [data-checked=true] { border-color:#548369; background:var(--success-bg); }
+.actions { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:12px; }
+.feedback:not(:empty),.rubric,.topic-finished,.unit-finished {
+  margin-top:11px;
+  padding:9px 11px;
+  border:1px solid var(--success-line);
+  border-inline-start:3px solid var(--success);
+  border-radius:8px;
+  color:var(--success);
+  background:var(--success-bg);
+}
+.feedback { font-size:.92rem; font-weight:690; }
+.feedback:empty { display:none; }
+.feedback.retry:not(:empty) { border-color:var(--hint-line); border-inline-start-color:var(--hint); color:var(--hint); background:var(--hint-bg); }
+.rubric { display:flex; align-items:start; gap:8px; font-size:.91rem; }
+.rubric input { flex:none; margin-top:5px; accent-color:var(--success); }
+.topic-finished strong,.unit-finished strong { display:block; }
+.topic-finished p,.unit-finished p { font-size:.91rem; }
+.unit-finished { margin-top:15px; }
+.controls { display:flex; flex-wrap:wrap; gap:6px; }
+.controls .pill { font-size:.89rem; }
+.sequence { margin:10px 0; padding-inline-start:26px; color:var(--deep); }
+.sequence li::marker { font-weight:740; color:var(--accent); }
+.sequence li + li { margin-top:4px; }
+details:not(.history-explorer) {
+  margin-top:10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--surface);
+}
+details:not(.history-explorer) > summary {
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 11px;
+  border-radius:9px;
+  color:var(--accent);
+  font-weight:730;
+  list-style:none;
+}
+details:not(.history-explorer) > summary::-webkit-details-marker { display:none; }
+details:not(.history-explorer) > summary:hover { background:var(--wash); }
+details:not(.history-explorer) > summary .history-chevron { --model-accent:var(--accent); flex:none; margin-inline:4px 2px; }
+details[open]:not(.history-explorer) > summary .history-chevron { transform:translateY(2px) rotate(225deg); }
+.passage,.reference { margin-bottom:10px; }
+.passage blockquote,.reference p { margin:0 11px 11px; }
+.passage blockquote { white-space:pre-line; padding-inline-start:10px; border-inline-start:3px solid var(--line); }
+.solution-body { max-width:68ch; padding:3px 11px 11px; }
+.solution-steps { margin:0 0 9px; padding-inline-start:23px; }
+.solution-steps li + li { margin-top:6px; }
+.solution-steps li::marker { color:var(--accent); font-weight:750; }
+.solution-result {
+  padding:8px 11px;
+  border-inline-start:3px solid var(--success);
+  border-radius:0 8px 8px 0;
+  color:var(--success);
+  background:var(--success-bg);
+}
+.solution-result p { margin-top:3px; overflow-wrap:anywhere; }
+.data-table { width:min(100%,440px); margin:10px 0; }
+.data-table table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.data-table td,.data-table th { border:1px solid var(--line); padding:5px 8px; text-align:left; }
+.data-table th { background:var(--wash); }
+.topic-dialog {
+  width:min(460px,calc(100% - 28px));
+  max-height:min(79dvh,640px);
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:var(--surface);
+  color:var(--ink);
+  box-shadow:0 18px 38px #28192d35;
+}
+.topic-dialog::backdrop { background:#28192d72; }
+.topic-dialog > div { padding:14px; }
+.dialog-title { display:flex; justify-content:space-between; align-items:center; gap:9px; margin-bottom:7px; }
+.dialog-title h2 { margin:0; font-size:1.02rem; }
+.builder { margin:8px 0; padding:8px; border:1px solid var(--line); border-radius:11px; background:var(--surface); }
+.builder canvas,.board canvas { display:block; width:min(100%,570px); height:auto; margin:auto; }
+.builder-count,.legend { color:var(--muted); font-size:.87rem; }
+.orbital-row { display:grid; grid-template-columns:42px 1fr; gap:7px; margin:6px 0; }
+.slots,.lewis { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+.range-box input { display:block; width:100%; accent-color:var(--accent); }
+@media (max-width:760px) {
+  :root { --sticky-offset:73px; }
+  main { padding:13px 13px 30px; }
+  .top { min-height:60px; padding:8px 13px; }
+  #topics-open { display:inline-flex; }
+  .study-topics { display:none; }
+  .grid { grid-template-columns:minmax(0,1fr); margin-top:13px; }
+  .hero { grid-template-columns:minmax(0,1fr); gap:13px; padding:16px; }
+  .hero h1 { max-width:22ch; }
+  .hero::after { width:200px; right:-70px; top:-145px; }
+}
+@media (max-width:470px) {
+  .brand { gap:6px; }
+  .mark { width:33px; height:33px; border-radius:8px; }
+  .mark .history-icon { width:18px; height:18px; }
+  .brand small { display:none; }
+  .brand-name { gap:4px; font-size:.88rem; }
+  .header-tools { gap:5px; }
+  .header-tools .plain { padding:6px 8px; font-size:.82rem; }
+  .mode-tab,.navigation .nav-button,.actions .nav-button { font-size:.85rem; padding-inline:7px; }
+  .card { padding:13px; }
+}
+@media (forced-colors:active) {
+  .mode-tab[aria-pressed=true],.plain[aria-pressed=true],.item[aria-current=true] {
+    outline:2px solid Highlight;
+    outline-offset:-4px;
+  }
+}
+@media print {
+  .study-header,.study-topics,.topic-dialog,.skip,.mode-tabs,.navigation,.history-choices,.actions,#resume,.practice-cta { display:none!important; }
+  main { max-width:none; padding:0; }
+  .grid { display:block; max-width:none!important; }
+  .hero,.card { color:#000; background:#fff; box-shadow:none; }
+  .hero::after { content:none; }
+}
+
+.history-explorer {
+  --model-ink:#282032;
+  --model-muted:#584965;
+  --model-line:#d8ccda;
+  --model-accent:#5a2b66;
+  --model-light:#f2e8f3;
+  border:1px solid var(--model-line);
+  border-radius:15px;
+  background:#fcf9fc;
+  color:var(--model-ink);
+}
+.history-explorer summary {
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 12px;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border-radius:14px;
+  cursor:pointer;
+  list-style:none;
+}
+.history-explorer summary::-webkit-details-marker { display:none; }
+.history-explorer summary:hover { background:#f5edf5; }
+.history-summary-icon {
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:var(--model-accent);
+  color:#fff;
+}
+.history-summary-icon .history-icon { width:23px; height:23px; }
+.history-summary-label { display:grid; gap:2px; line-height:1.35; }
+.history-summary-label strong { font-size:1.05rem; }
+.history-summary-label > span { font-size:.875rem; color:var(--model-muted); font-weight:500; }
+.history-chevron {
+  width:9px;
+  height:9px;
+  border:solid var(--model-accent);
+  border-width:0 2px 2px 0;
+  transform:translateY(-2px) rotate(45deg);
+}
+.history-explorer[open] .history-chevron { transform:translateY(2px) rotate(225deg); }
+.history-model {
+  display:grid;
+  gap:12px;
+  padding:0 clamp(12px,2.4vw,20px) clamp(12px,2.4vw,20px);
+}
+.history-instruction { color:var(--model-muted); }
+.history-choices {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,104px),1fr));
+  gap:7px;
+}
+.history-choice {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:46px;
+  min-width:0;
+  border:1px solid #9983a0;
+  border-radius:8px;
+  padding:6px;
+  background:#fff;
+  color:var(--model-accent);
+  font-weight:700;
+  line-height:1.22;
+  overflow-wrap:anywhere;
+}
+.history-choice:hover { background:var(--model-light); }
+.history-choice[aria-pressed=true] {
+  color:#fff;
+  background:var(--model-accent);
+  border-color:var(--model-accent);
+  box-shadow:inset 0 -3px 0 #d4a9d6;
+}
+.history-choices[data-model=timeline] .history-choice,
+.history-choices[data-model=causes] .history-choice {
+  flex-direction:column;
+  min-height:64px;
+  gap:2px;
+  text-align:center;
+}
+.history-choice span:not(.history-icon) { font-size:.78rem; font-weight:550; }
+.history-board {
+  display:grid;
+  gap:12px;
+  border:1px solid var(--model-line);
+  border-radius:12px;
+  background:#fff;
+  padding:clamp(12px,2.3vw,18px);
+}
+.history-panel-heading { display:flex; align-items:center; gap:8px; }
+.history-panel-heading .history-icon { color:var(--model-accent); width:22px; height:22px; }
+.history-panel-heading h3 { color:var(--model-ink); font-size:1.12rem; line-height:1.25; }
+.history-cards {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);
+  gap:8px;
+  align-items:stretch;
+}
+.history-cards > .history-icon { align-self:center; justify-self:center; color:var(--model-accent); }
+.history-fact {
+  padding:11px 12px;
+  border:1px solid #e4d9e5;
+  border-radius:9px;
+  background:#f8f3f8;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.history-fact:last-child { background:#edf4ef; border-color:#d4e2d8; }
+.history-fact h4 {
+  margin:0 0 5px;
+  color:var(--model-muted);
+  font-size:.79rem;
+  line-height:1.3;
+  font-weight:700;
+}
+.history-fact:last-child h4 { color:#295746; }
+.history-fact p { margin:0; line-height:1.43; }
+.history-fact strong { display:block; margin-bottom:2px; }
+.history-takeaway {
+  display:grid;
+  gap:2px;
+  border-inline-start:3px solid var(--model-accent);
+  padding:6px 10px;
+  background:var(--model-light);
+  border-radius:0 7px 7px 0;
+  font-size:.93rem;
+  line-height:1.42;
+}
+.history-takeaway strong { color:var(--model-accent); }
+.history-videos {
+  border-top:1px solid var(--model-line);
+  padding-top:11px;
+}
+.history-videos h3 {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:1rem;
+  color:var(--model-accent);
+}
+.history-videos ul { list-style:none; margin:7px 0 0; padding:0; display:grid; gap:7px; }
+.history-videos li {
+  border:1px solid var(--model-line);
+  border-radius:9px;
+  background:#fff;
+  padding:8px 11px;
+}
+.history-videos a {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:32px;
+  color:var(--model-accent);
+  font-weight:720;
+  line-height:1.3;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+.history-videos a:hover { text-decoration-thickness:2px; }
+.history-videos a:focus-visible { outline:3px solid #8b531d; outline-offset:3px; }
+.history-videos .history-icon[data-icon=external] { width:14px; height:14px; }
+.history-video-source { font-size:.81rem; color:var(--model-muted); margin-top:1px; }
+.history-video-prompt { font-size:.9rem; line-height:1.4; margin-top:3px; }
+.history-icon {
+  display:inline-block;
+  flex:none;
+  width:18px;
+  height:18px;
+  background:currentColor;
+  mask:var(--history-icon) center / contain no-repeat;
+}
+@media (max-width:480px) {
+  .history-explorer summary { padding:11px; gap:9px; }
+  .history-choices { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .history-cards { grid-template-columns:minmax(0,1fr); gap:6px; }
+  .history-cards > .history-icon { transform:rotate(90deg); }
+}
+@media (forced-colors:active) {
+  .history-choice[aria-pressed=true] { outline:2px solid Highlight; outline-offset:-4px; }
+  .history-icon { forced-color-adjust:none; background:CanvasText; }
+  .history-summary-icon .history-icon,.history-choice[aria-pressed=true] .history-icon { background:CanvasText; }
+}
+.history-icon[data-icon=explore] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAB80lEQVRYw+2XPU7DQBCFP34KaEMTFDhB6shHgBMQ5QxQIxfQIejcOXUO4IafmgPQICV9iiBRxHRpohReCuLgeHfWa6MYITFTZfP2TTK782YW/u0v2BYePhFD3lEo3hkS4eOx9XPyFne8oQR/445WdfIGIXORPPU5IY0q9Gd8FJKn/sFZOfJd+s7kqffZdaXf57E0vULxyL7br3+qRK9QPLn8i35l+q9EFVi3AmnCPZerT10b/QFxSfIFA9rAw2ol5kAOEJYinxFwBECbJLMeylU7dyafcpUpr0Gu9ITqvnUkH3PBXmbfMYsc4tZEv83EgfyVHju5nYGGmrCtB/AKyZ85NSrWzID1dKBvJX+hI5zctRHv68DIGqAjysrUiI906MianNSaNNd2nQs7RnoAW4mdLDE3KBQ3Gd0aCztiPcDccnO+7HBZTgmHy5WepQ2VCNATA7yWCRCLZfUtwespOrEkNXY/5PM1VPaQny0BRq7XdCp2qY71WkeuhXYt0r9YA/huUjEzDiSn1uSIUmESuyCH2aFnuTkFYqfL9YLjzLd7XIhlpVzkWm84g4xiXgmaY66BlkvLTGgDcERgFGTZQ7em/wC0GWjdqsitTT87tlxyv9bKXb37y4NXDaPjxoffGsb3Gh4gtTyhangE1vKM/bfN2ydlkh9F7DJLMAAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=power] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAZklEQVRYhe3RMQ7AIAxDUR+Nm3M0WEBiaIEEV1SKnRHpvwEg1hIyMtJ38dKOjoxxOvIUpyGz+DGyE3cjlrgZ8cS3kZP4EmHEpwgr3k+AHdD+s/eP8rwIECBAQFRAu7dCPgERAe3WKh9pUNqXI0KvAAAAAElFTkSuQmCC"); }
+.history-icon[data-icon=people] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAA/UlEQVRYw+2UPQ4BURRGTwTRiRbb0NqEWqGRKKjFFvQ6C2ATCgWNn1ZDQk1BtK7mkcGY+0Yy/vLOLc98353MzBtwOBz/TJIGIw4cGFEnGdor5JgjnpmRDeXVu7+NC8KEhLVXqT/EBaFm7VXGvgVDa6+y9y3YWvvPL4j8EUX+kiP/TCM/aG/4VTg+S4oiLXpMWSMIa6b0aFEkdXdlhVOgfyBOiT5H32MkCEf6lIh7EmVOgd5DjCrLp9XeWVIlds21FW/IM7Aqv8yAvEkm2AR6ANIsQtULwoK0STcVD3RD1wtCx6QLigd2Ly1YmXRG8fBSvSBq3i34ogUOh+O3OQPxR4Dyt36IAwAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=trade] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABOklEQVR4Ae3UAUQDURzH8WqkjAhoThAgMBFABBQABCEUAEQCFBAEAAUUDgSIASACYhAIms0Gm1GxMPXrC3Ji6Pb+7+7xvnwA/vx4dzOxWOw3TfAY9gBgK/QBjdAHfKOOoHqASqCDHfy7Xagk2shVEyqBV+RqDyqBU+SqgheoQC0sIHeHUIH2MVXz6EAFeMIspu4YKsA2nFRFH/LoHk47gzwZYx1OW8Y75ME1TLqEjH1gBSbV8AkZOodpV5CRHqowbQ1jyMARzFvCEHLsGRWYdwE5NsImzFvFCHLkDQ1swEs3UEYbiwiiOr6gjAME0x2U0cQcgmkIZZwgqLqQNwaloQ9IMIA8MSlBih5krPhipk8ISJGY3DOohj70xwCJwT3n3UITpAb3nNeCJuja34sD/D6h+BGH8RuNxWI/dGv2EDGR9roAAAAASUVORK5CYII="); }
+.history-icon[data-icon=ideas] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABTklEQVRYw+2XOwrCQBCGp8glfF3DxsZebXyDeoFgK6hHSecBrMS7iI3gBcQIEoyisz7ig+xmZl3BYv9p8pj9v2R2M0kArIzoLAkLsAALMAbISAEZE/Z12EgBGzz7pfpwktqLOGHGF2ok2N8QDV37rKI474XK6gEmJHsREx37HBzJgCNmszUg24sY8AFzFmBOf1IfWrMAa6VX7ME9C7DnA3wWwOcDFizAQg34+STHyWUBXJ1GEZLtQ71m4ZEBnl4vSsOWZL/FTE1VSO268scvnNtd+IrHS/Pqi+C87KVwEsOYlePhmaccyFPt29jfp28IsWhdmMESdhhL3HI/FqaDIwIoUexb96v9RKgk7MWYAMpJqc2oGAcoMEr6ePsFSbMyiipcZc1aJ0IMk1LHV/sae2F0r4gxJXUk/dJRt+EejjT0Efzzv00LkGp1DyuTugDJ+JXsBMCIMwAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=layers] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAB0UlEQVR4Ae3YA4wdARRG4dq2bZtRbcesjZi1Ebt2G6t2o9ptnNpre/fuiTd3NboPyfzJl0z8eAY1woULZ7YGOAVwHGfrgdcQCF6jB+Jis5EMUZIxGzG7WtiFYkglirELtRBTa4WbEIduohViYqPwFeLSV4xCVLcKuRCPcrEqmomUIEQ6tTqRgbBPrUqkAcPUqkQasEutSqQ9lVqLRNpTqbVIpD2V2nh+AzlYGa8/oS8YCV9rhVuQCLuOlkFmdHeEMlqEHaiJwDcHyRAjSZgZr5cSL9EtXi/mTqA+TFYXg4xSm4MVqGjDUA++1gVPkYe1XlPrIZHbUIBn6AJPm4r/kDLOomEAqb2BltBrgquQMv5jKlxvH0ogylv08pjaYuxELej1xyeIUoJ98LRFSIMoKZjnMrVJVVzrL0M6REnDIvhaH7yHKMXYi1oOUvsK3aFXB8cg0N6jDwJZI1yEQLuD1h4eLbbHYwi0i2iEwLcR+RDlO8bA6SbjN0TJx0aYbgJ+QhSdWj2dSFF+YgIisra4DwEcpFYlUrmPtojoauNgVal1mMiDqA2jeU9tKuZZJ1LPIrXmibRPrX0i7VNrn0jb1Non0jC14DhOVxsIFy5cuEpWCpaPmumsofhQAAAAAElFTkSuQmCC"); }
+.history-icon[data-icon=crisis] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABNElEQVR4Ae3XIYgCQRyF8UO4YrEZrWY7duzBDtuDHexhO2wP22E7bMd81WizGAzuuy8vnOOevtlZmA9+MPUfJryvnLVcbgdMs2/8ALwn2AECeE+sJa4QhCuWmEwV1FNhEm3wgHoe2CD5WugPLZJuDwXskWRznKGAM+ZIriP0oiOSaoUb9KIbVkimGhqoRhJt0UEDddhi1GY4Qf90wgyjVUBvKjBKC1ygN12wQPRK6Il+eqJE1Na4f/CAO9aIVgMNPSCgiTkTZThA2EWZicYD7PPzANkOAA7emeg/wDY/K8h+AFD5Z6KTYX62UGStfyb67f0z0euMuWEmej9xz9EwEw0HGOZnDSVwgFB7Z6L/gA7bWDMxzDw/CyhRhX8megXnZwklrgzPxFQF5mcDTUSDBMrlcrlfgbkRCHOiHXMAAAAASUVORK5CYII="); }
+.history-icon[data-icon=event] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAi0lEQVRYw+3XOxKAIAwE0D2Henpn9Fw2WOEF/MVGHQsRBVLIbNKSfRUMAfIt2TvVOQJvY0u06M+hr92jQfkUX8AGhx9tn4g6Ol4gaNxAlwQwbmBMAgiBCGDKBlB7gf8PzAQIXEPuLpYXWAjkD6wEfgFEPRVCwDdvtD+/rfb3vcKgu4AAle4KxWKF1Ab0ExmyhbzMCwAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=flag] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAASUlEQVRYhe3NUQ0AIAzE0NmYp3mapxkEAyOBhOODtBXwzIiob2zsaiDUQKqBUgOrAQAAAAD+A/pKDaQaCDXgauBCAAAADwCikya8bJiznQMlkgAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=world] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAACI0lEQVRYw+2XzU5TQRTHfxASvowLWGACsoEXMNHcGEPc+gT0HQziwoTUhd5deYLyBl1oujChhqdwAwvjCmyhhpSlSlMWdTMzvdNhZs602sSEM6t7ztz//97zMecM3Mn/IFNklKlzTJs+fdocU6dMxtT44Kvs06LvWS32WR0dfIkqXS+4Xl2qLI0Cv81VFFyvK7bTwGc4EIPrdcCMFH6eQyHoK84LT4fMy76+IYS/AGZ5T89oGpK/kDunpt54zFnBUREpJQR2kKBrfDX6Ugh+mY4IvE1tKP9XTLV0WPYTVCPAIXnCtdpV9VdtdwwCeGdKz1PdlahrwjLHqdpXuc08TXNMAnip9jWZdo1ZFL4ZJbjPT7U3c43lCHyLF4Iy/ah2l11TXZm+JLrFll31Vt01nSjTM/IxCLSjT1yTLrEHYFGkyUNTbo7oGpgDiyJNFkwteAkW1XM+UtDv+Qm0izaMJh8hbTf9LhoEGTGFK1v+IOs03bG0eSLBjj9NdaF9HtLnSQRH/kLTGfzL6ay5mGDRHNlZ6LDbdWxSgtehw25wXJ+rWkglWOBH6LguNpy3Q5aLQBw6fGBT1nAGLbPHU0tfi6TrJRtscRNrmcWmf8aK9W+xMfLI/GWw6RfHlm+sWxQ1NbzHVkk+eH3nkTDYffngZY+OPSrMJhA0ZAOwPfye8sbM/2F44fB72/j+m0/s8fxvje8TuIBM5Ao1gUvgRK6xd/Lv5Q/ce0n+yWUwZAAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=video] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABL0lEQVRYw+1XMRKCMBBcHRsttfQHfoCfaOk3eAG+AFo/QKcvEV8gMzRYWqTTQ4cqklxg7hxn2G0YkuzCwSV3wIh/wAQRYuS4oMKTWNFVTnciGhmMNQ4o37LfWNLour/4EilMp3hLQ7OWfeS3uHvFW95pdhBmyNjiLTNaxcQcp2D5hidayXr6cy/5hmfOW2S95T+B8mA3SL7hziW/Qj3YoCaVTqSD5Rum3VnrSqs9HkwD05XdiXMZsMGVaZF8k5/i5jEAFjiyDG6kZiHyLGrBC1VkG8RMA16oYtsgZxtwQpXbBkWAgT9UhW1QBxq4Q1Xb002wgStU5gcG4iES/8jiv6l4oolvFeKbnfh2rXDgiB+ZCoe+eNmiUHgplI7ixa9C+a7QgKi0UApNoEobO0IeLxMFdlOln6oVAAAAAElFTkSuQmCC"); }
+.history-icon[data-icon=arrow] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAa0lEQVRYw+2WsQ2AMBDEbqgQVqP7jYENnoYBQMghgfP3dhNFJxlj7hIKVp9KLrEoz4MSRSuf2OjE5EQ3idoisdOJ+a+JfHBBBy4lug7EcO9obH2l9ehnN1n/mr7Qenh44dMRH78N5rsx3+QAyRMJKNqTa7MAAAAASUVORK5CYII="); }
+.history-icon[data-icon=external] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAx0lEQVR4Ae2ZsRGDMBTFuKyRDMIiDJgCNoMqmYACfu/KqBDcPd291kgFjT3cmhBC+NSW2lY7Lq2Fn9Mh/wcf1AMWLu8GrI8O6D6AM9V2PwDK3yoAyO9+AJOf/AAmP/gBQN4PAPJ+AJAXA7i8GMDl7QAuDwABXF4N4PJ+AJf3A7i88RNzeT+Ay/sBXN4P4PJ+wMjk/YBX7QvktYAmAshbAU3ECGTNAEACEgBIALjcFbby63V3M3/g8ParvYUnJrytNnfIhxCCwAnGmUVXQgo6RQAAAABJRU5ErkJggg=="); }
+.history-icon[data-icon=document] { --history-icon:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAo0lEQVRYhe3RuxGDUAxE0W3DA66VWggetOUECMAN8LNDk0krAWMGrfJ7AgGxf1yGhBYf4Qpr/oFejLuIUpk3Ey9V2EGMCgAeQgc4CC1gJvSAkZgIwERwgIFgAZrgAZKwAFviIOBHiJsVAIsHcHdAGg0sAbDA7k++PrCeDUgL4Hhg9yf78rcAGle+kYHKBSQZyPE25wdkMgA8UaOj4y2SLh87e1/xyuwNNQEEDAAAAABJRU5ErkJggg=="); }
+.history-model { container-type:inline-size; }
+@container (min-width:560px) {
+  .history-choices[data-model=timeline] {
+    position:relative;
+    padding-bottom:15px;
+  }
+  .history-choices[data-model=timeline]::before {
+    content:"";
+    position:absolute;
+    inset:auto 7% 4px;
+    border-top:2px solid var(--model-line);
+  }
+  .history-choices[data-model=timeline] .history-choice { position:relative; }
+  .history-choices[data-model=timeline] .history-choice::after {
+    content:"";
+    position:absolute;
+    bottom:-15px;
+    width:9px;
+    height:9px;
+    border:2px solid var(--model-accent);
+    border-radius:50%;
+    background:#fff;
+  }
+  .history-choices[data-model=timeline] .history-choice[aria-pressed=true]::after {
+    background:var(--model-accent);
+  }
+}
+body[data-subject="c"] {
+  --paper:#eff5f4; --quiet:#f6faf9; --line:#c9ddda; --control-line:#748e8a;
+  --ink:#1b3231; --muted:#385957; --deep:#163f42; --accent:#246269; --wash:#e3f0ee;
+  --selection-line:#a2cfc8; --shadow:0 10px 30px #163f420a;
+}
+body[data-subject="l"] {
+  --paper:#f1f4fa; --quiet:#f7f9fd; --line:#ced7e9; --control-line:#7c8fb0;
+  --ink:#242d42; --muted:#465676; --deep:#263d6b; --accent:#3c568e; --wash:#e8eef9;
+  --selection-line:#bacbf0; --shadow:0 10px 30px #263d6b0a;
+}
+body[data-subject="m"] {
+  --paper:#f7f2ee; --quiet:#fcf9f6; --line:#e1d0c4; --control-line:#a48976;
+  --ink:#332822; --muted:#605044; --deep:#663921; --accent:#80492c; --wash:#f4e8df;
+  --selection-line:#e6bd9b; --shadow:0 10px 30px #6639210a;
+}
+.hero::after {
+  border-color:color-mix(in srgb,var(--accent) 25%,transparent);
+  box-shadow:0 0 0 27px color-mix(in srgb,var(--accent) 7%,transparent),
+    0 0 0 58px color-mix(in srgb,var(--accent) 4%,transparent);
+}
+.mode-tab[aria-pressed=true] { box-shadow:inset 0 -3px 0 var(--selection-line,#d4a9d6); }
+.study-model.history-explorer {
+  --model-ink:var(--ink); --model-muted:var(--muted); --model-line:var(--line);
+  --model-accent:var(--accent); --model-light:var(--wash);
+  background:var(--quiet);
+}
+.study-model summary:hover { background:var(--wash); }
+.study-model #controls:not(:empty) {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,126px),1fr));
+}
+.study-model #controls:empty { display:none; }
+.study-model #controls .pill[aria-pressed=true] {
+  box-shadow:inset 0 -3px 0 var(--selection-line,#d4a9d6);
+}
+.study-board {
+  min-width:0;
+  display:grid;
+  place-items:center;
+  padding:clamp(10px,2vw,16px);
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+}
+.study-board canvas { display:block; width:min(100%,570px); height:auto; border-radius:8px; }
+.study-board .scene { width:100%; margin:0; justify-content:center; align-items:center; }
+.study-board .tile {
+  flex:1 1 122px;
+  justify-content:center;
+  min-height:54px;
+  padding:9px 11px;
+  text-align:center;
+}
+.study-board .tile:nth-of-type(even) { background:var(--success-bg); border-color:var(--success-line); }
+.scene-arrow { flex:none; color:var(--accent); font-size:1.14rem; }
+.study-model .legend:not(:empty) {
+  padding:8px 11px;
+  border-inline-start:3px solid var(--accent);
+  border-radius:0 7px 7px 0;
+  background:var(--wash);
+  color:var(--ink);
+  font-size:.93rem;
+  line-height:1.4;
+}
+.study-model .legend:empty { display:none; }
+.range-box { width:min(100%,430px); }
+.range-box label { display:flex; justify-content:space-between; gap:6px; color:var(--deep); font-weight:710; }
+.range-box input { margin:10px 0; }
+.reading { text-align:center; margin-top:9px; color:var(--deep); font-weight:740; }
+.orbital-row { align-items:center; }
+.slots button { width:45px; padding:0; }
+.lewis {
+  display:grid;
+  grid-template:44px 44px 44px / 46px 46px 46px;
+  justify-content:center;
+  align-items:stretch;
+}
+.lewis button { padding:0; line-height:1; font-size:1.12rem; }
+.lewis strong { display:grid; place-items:center; color:var(--deep); font-size:1.35rem; }
+.lewis>:nth-child(1) { grid-area:1/2; }
+.lewis>:nth-child(2) { grid-area:2/3; }
+.lewis>:nth-child(3) { grid-area:3/2; }
+.lewis>:nth-child(4) { grid-area:2/1; }
+.lewis strong { grid-area:2/2; }
+@media(max-width:480px) {
+  .study-model #controls:not(:empty) { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .study-board .scene { flex-direction:column; align-items:stretch; }
+  .study-board .tile { flex:auto; min-height:42px; }
+  .scene-arrow { align-self:center; transform:rotate(90deg); }
+}
+@media(max-width:390px) {
+  .brand-name { flex-wrap:wrap; row-gap:2px; }
+}
+@media print { .study-model #controls { display:none!important; } }
+</style>
+<!--
+Material Icons by Google (https://github.com/google/material-design-icons).
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+</head>
+<body data-subject="c">
+<a class="skip" href="#lesson-title">Ir al tema actual</a>
+<header class="study-header"><div class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"><span class="history-icon" data-icon="ideas" aria-hidden="true"></span></span>
+    <div>
+      <div class="brand-name"><strong>Ciencias Naturales</strong><span class="version" aria-label="Versión 2">V2</span></div>
+      <small>Cuadernillo de Emilio · Síntesis 2S 2026</small>
+    </div>
+  </div>
+<div class="header-tools">
+  <button class="plain" id="topics-open" type="button" aria-haspopup="dialog" aria-controls="topics-dialog">Temas</button>
+  <button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div>
+</div></header>
+<dialog class="topic-dialog" id="topics-dialog" aria-labelledby="topics-title">
+  <div>
+    <div class="dialog-title"><h2 id="topics-title" class="topics-heading"><span class="history-icon" data-icon="layers" aria-hidden="true"></span> Temas de la unidad</h2><button class="nav-button" id="topics-close" type="button">Cerrar</button></div>
+    <nav id="dialog-lessons" class="items" aria-label="Elegir tema"></nav>
+  </div>
+</dialog>
+<main>
+<section class="hero" aria-labelledby="unit-title">
+  <div class="hero-copy">
+    <div class="kicker"><span class="history-icon" data-icon="document" aria-hidden="true"></span><span id="unit-type"></span></div>
+    <h1 id="unit-title"></h1>
+    <p id="unit-description"></p>
+  </div>
+  <div class="resume-panel">
+    <div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+    <p id="resume-context"></p>
+    <button id="resume" type="button" class="nav-button next" aria-describedby="resume-context">Empezar el cuadernillo</button>
+  </div>
+</section>
+<section class="unit-finished" id="unit-finished" role="status" hidden><strong>¡Unidad completada!</strong><p id="finish-message"></p></section>
+<div class="grid">
+<aside class="study-topics">
+  <h2 class="topics-heading"><span class="history-icon" data-icon="layers" aria-hidden="true"></span> Temas de la unidad</h2>
+  <nav class="items" id="lesson-list" aria-label="Temas de esta unidad"></nav>
+</aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div>
+<h2 id="lesson-title" tabindex="-1"></h2>
+<p class="intro" id="lesson-goal"></p>
+<p class="topic-progress" id="topic-progress"></p>
+<nav class="mode-tabs" aria-label="Forma de estudiar">
+  <button class="mode-tab" id="learn-tab" type="button" aria-controls="learn-panel"><span class="history-icon" data-icon="document" aria-hidden="true"></span><span>1. Aprende paso a paso</span></button>
+  <button class="mode-tab" id="practice-tab" type="button" aria-controls="practice-panel"><span class="history-icon" data-icon="flag" aria-hidden="true"></span><span>2. Practica</span></button>
+</nav>
+<section id="learn-panel" aria-labelledby="learn-tab">
+  <div class="guided">
+    <div class="panel-heading">
+      <span class="panel-icon" aria-hidden="true"><span class="history-icon" data-icon="document" aria-hidden="true"></span></span>
+      <div><div class="eyebrow" id="step-count"></div><h3 id="step-title" tabindex="-1"></h3></div>
+    </div>
+    <div id="step-text" class="teaching"></div>
+    <div id="step-flow" class="scene"></div>
+    <div class="navigation step-navigation">
+      <button class="nav-button" type="button" id="previous-step">‹ Paso anterior</button>
+      <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
+    </div>
+  </div>
+  <details class="explorer history-explorer study-model" id="visual-details">
+    <summary id="visual-summary">
+      <span class="history-summary-icon" aria-hidden="true"><span class="history-icon" data-icon="explore"></span></span>
+      <span class="history-summary-label">
+        <strong>Explora el modelo visual</strong>
+        <span id="visual-intro"></span>
+      </span>
+      <span class="history-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="history-model">
+      <div class="controls" id="controls" role="group" aria-label="Opciones del modelo visual"></div>
+      <div class="study-board board" id="board"></div>
+      <p class="legend" id="legend" aria-live="polite"></p>
+    </div>
+  </details>
+  <section class="worked" id="worked">
+    <div class="panel-heading"><span class="panel-icon" aria-hidden="true"><span class="history-icon" data-icon="ideas" aria-hidden="true"></span></span><h3 id="worked-title">Ejemplo resuelto</h3></div>
+    <p id="worked-prompt"></p>
+    <ol id="worked-steps"></ol>
+    <p class="worked-result" id="worked-result"></p>
+  </section>
+  <button class="nav-button next practice-cta" type="button" id="go-practice">Ir a la práctica ›</button>
+</section>
+<section id="practice-panel" aria-labelledby="practice-tab" hidden>
+  <div class="exercise">
+    <div class="panel-heading">
+      <span class="panel-icon" aria-hidden="true"><span class="history-icon" data-icon="flag" aria-hidden="true"></span></span>
+      <div><div class="eyebrow" id="exercise-position"></div><h3 id="exercise-title" tabindex="-1"></h3></div>
+    </div>
+    <details class="passage" id="reading" hidden><summary><span class="history-chevron" aria-hidden="true"></span><span>Fragmento para analizar</span></summary><blockquote id="excerpt"></blockquote></details>
+    <p id="exercise-prompt" class="exercise-prompt"></p>
+    <div class="data-table" id="data-table" hidden></div>
+    <details id="reference" class="reference" hidden><summary><span class="history-chevron" aria-hidden="true"></span><span>Tabla o regla de apoyo</span></summary><p id="reference-text"></p></details>
+    <div class="case-nav" id="case-nav" hidden>
+      <button class="nav-button" id="previous-case" type="button" aria-label="Caso anterior">‹</button>
+      <div><span id="case-count"></span><strong id="case-label" tabindex="-1"></strong></div>
+      <button class="nav-button" id="next-case" type="button" aria-label="Caso siguiente">›</button>
+    </div>
+    <form id="exercise-form" novalidate>
+      <div id="exercise-inputs"></div>
+      <div class="actions">
+        <button class="nav-button next" type="submit" id="check">Corregir</button>
+        <button class="nav-button" type="button" id="hint">Ver pista</button>
+        <button class="nav-button next" type="button" id="next-case-action" hidden>Siguiente caso ›</button>
+      </div>
+    </form>
+    <p class="feedback" id="exercise-feedback" role="status"></p>
+    <div class="topic-finished" id="topic-finished" role="status" hidden><strong>Terminaste este tema</strong><p id="topic-finish-message"></p></div>
+    <details class="solution" id="solution">
+      <summary><span class="history-chevron" aria-hidden="true"></span><span>Ver solución explicada</span></summary>
+      <div class="solution-body">
+        <ol id="solution-steps" class="solution-steps" aria-label="Pasos de la solución"></ol>
+        <div class="solution-result">
+          <strong id="solution-result-label">Respuesta</strong>
+          <p id="solution-text"></p>
+        </div>
+      </div>
+    </details>
+  </div>
+  <div class="navigation exercise-nav">
+    <button class="nav-button" id="previous-exercise" type="button">‹ Ejercicio anterior</button>
+    <button class="nav-button" id="next-exercise" type="button">Siguiente ejercicio ›</button>
+  </div>
+</section>
+<div class="navigation chapter-nav">
+  <button class="nav-button" id="previous" type="button">‹ Tema anterior</button>
+  <button class="nav-button" id="next" type="button">Siguiente tema ›</button>
+</div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "c3",
+    "title": "Electricidad y calor",
+    "unit": "Unidad 3",
+    "description": "Comprende los circuitos y qué ocurre cuando la materia gana o pierde calor.",
+    "lessons": [
+      {
+        "title": "Circuitos en serie y en paralelo",
+        "goal": "Identificar los componentes, seguir el camino de la corriente y distinguir serie de paralelo.",
+        "steps": [
+          {
+            "title": "1. Para que algo se encienda",
+            "text": [
+              "Imagina una linterna. La pila tiene dos extremos marcados + y −, llamados polos. Entre ellos hay una diferencia eléctrica que llamamos voltaje. Esa diferencia puede impulsar el movimiento de cargas, como una diferencia de altura puede hacer que el agua se mueva.",
+              "En el metal hay electrones que se pueden mover. Cuando existe un camino completo entre los polos, su movimiento ordenado produce corriente y enciende la ampolleta. Si abres el interruptor, sus contactos se separan y la corriente se detiene."
+            ],
+            "flow": [
+              "Pila",
+              "→ cable →",
+              "Ampolleta",
+              "→ vuelve a la pila"
+            ]
+          },
+          {
+            "title": "2. Leer los símbolos del dibujo",
+            "text": [
+              "La pila se dibuja como dos rayas, la larga es el polo positivo. Una línea representa un cable. Un círculo con una X representa una ampolleta.",
+              "El interruptor se dibuja como una palanca entre dos contactos. Si los toca, está cerrado. Una resistencia se representa con un zigzag o rectángulo y dificulta el paso de corriente."
+            ],
+            "flow": [
+              "Pila · + y −",
+              "Ampolleta · ⊗",
+              "Resistencia · R"
+            ]
+          },
+          {
+            "title": "3. Distinguir serie y paralelo",
+            "text": [
+              "En serie, la corriente dispone de un solo camino. Pasa por la primera ampolleta y después por la segunda. Si se corta el camino en cualquier punto, las dos se apagan.",
+              "En paralelo, los caminos se separan en ramas y se vuelven a unir. Si se abre una rama, las otras pueden seguir funcionando porque aún conectan ambos polos."
+            ],
+            "flow": [
+              "Serie · 1 camino",
+              "Paralelo · varias ramas"
+            ]
+          },
+          {
+            "title": "4. Leer el sentido de la corriente",
+            "text": [
+              "Para dibujar la corriente convencional en el circuito exterior, sigue el camino desde el polo + hacia el −.",
+              "En un cable metálico, los electrones tienen carga negativa y se mueven en sentido contrario. Sus flechas van del polo − hacia el +."
+            ],
+            "flow": [
+              "Corriente convencional · + → −",
+              "Electrones · − → +"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una pila alimenta dos ampolletas conectadas en paralelo. La ampolleta de la rama A se quema. ¿Qué le pasa a la de la rama B?",
+          "steps": [
+            "Ubica la pila y sigue el camino que va desde uno de sus polos al otro.",
+            "Identifica que A y B están en caminos separados. El camino de A queda abierto.",
+            "Sigue el camino de B. Permanece cerrado entre los polos."
+          ],
+          "result": "La ampolleta B puede seguir encendida. Explora el circuito y abre el interruptor de la rama A para comprobarlo."
+        },
+        "exercises": [
+          {
+            "id": "u3-01",
+            "title": "Componentes del circuito",
+            "prompt": "Asocia cada componente con su función.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Pila",
+                    "kind": "pick",
+                    "options": [
+                      "Conduce entre dos puntos",
+                      "Mantiene la diferencia de potencial",
+                      "Entrega luz"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Cable",
+                    "kind": "pick",
+                    "options": [
+                      "Conduce entre dos puntos",
+                      "Abre o cierra el camino",
+                      "Entrega luz"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Interruptor",
+                    "kind": "pick",
+                    "options": [
+                      "Transforma energía en luz",
+                      "Mantiene el voltaje",
+                      "Abre o cierra el camino"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Ampolleta",
+                    "kind": "pick",
+                    "options": [
+                      "Transforma energía en luz y calor",
+                      "Cierra manualmente el camino",
+                      "Conduce de un punto a otro"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Busca qué pieza aporta energía, cuál transporta la corriente, cuál corta el camino y cuál se enciende.",
+                "why": "La pila sostiene la diferencia de potencial. Los cables conducen. El interruptor abre o cierra el camino. La ampolleta transforma parte de la energía eléctrica en luz y calor.",
+                "pasosSolucion": [
+                  "Sigue un recorrido desde un borne de la pila hasta el otro. Distingue qué parte mantiene la diferencia de potencial y por dónde pasa la corriente.",
+                  "Observa qué pieza puede interrumpir el recorrido y cuál cambia la energía eléctrica en algo que puedes ver o sentir."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-02",
+            "title": "Arma un circuito en serie",
+            "prompt": "Construye un circuito con una pila, un interruptor cerrado y dos ampolletas. El dibujo se actualiza a medida que eliges piezas.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [],
+                "hint": "En serie hay un solo camino. Para que las dos ampolletas reciban corriente, el interruptor debe unir sus contactos.",
+                "why": "El esquema tiene un solo camino, una pila y un interruptor cerrado. Las dos ampolletas A y B están una después de la otra.",
+                "kind": "circuit",
+                "layout": "serie",
+                "pasosSolucion": [
+                  "Dibuja una sola vuelta desde un borne de la pila hasta el otro, sin bifurcaciones.",
+                  "Coloca las dos ampolletas una después de la otra y cierra el interruptor para que la vuelta quede completa."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-03",
+            "title": "Arma un circuito en paralelo",
+            "prompt": "Conecta tres resistencias R₁, R₂ y R₃ en ramas distintas a la misma pila.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [],
+                "hint": "Cada resistencia necesita su propia rama conectada a los mismos dos puntos de la fuente.",
+                "why": "Se usa una pila y una resistencia en cada rama. Las tres ramas se conectan a los mismos dos lados del circuito.",
+                "kind": "circuit",
+                "layout": "paralelo",
+                "pasosSolucion": [
+                  "Marca los dos bornes de la pila como los puntos comunes de conexión.",
+                  "Traza tres caminos independientes entre esos mismos puntos y ubica una resistencia en cada camino."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-04",
+            "title": "Una ampolleta deja de funcionar",
+            "prompt": "Supón que se abre el camino justo donde estaba la ampolleta quemada.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "En serie, las demás…",
+                    "kind": "pick",
+                    "options": [
+                      "Se apagan",
+                      "Siguen encendidas"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "En paralelo, las otras ramas…",
+                    "kind": "pick",
+                    "options": [
+                      "Se apagan",
+                      "Pueden seguir encendidas"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "La diferencia se explica por…",
+                    "kind": "pick",
+                    "options": [
+                      "El color de los cables",
+                      "La cantidad de caminos completos",
+                      "La carga de los electrones"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Sigue el recorrido de cada ampolleta hasta ambos polos. ¿Queda algún camino completo?",
+                "why": "En serie se interrumpe el único recorrido. En paralelo, las otras ramas conservan un recorrido cerrado.",
+                "pasosSolucion": [
+                  "Imagina que quitas una ampolleta de un circuito en serie. Sigue el único recorrido y comprueba dónde queda abierto.",
+                  "En el circuito en paralelo, sigue cada rama por separado. Una rama abierta no interrumpe el recorrido de las demás."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-05",
+            "title": "Dos sentidos para un circuito",
+            "prompt": "En un circuito metálico cerrado, elige la orientación de cada flecha.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Corriente convencional",
+                    "kind": "pick",
+                    "options": [
+                      "De − a +",
+                      "De + a −"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Electrones en los cables",
+                    "kind": "pick",
+                    "options": [
+                      "De − a +",
+                      "De + a −"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "La flecha convencional representa cómo se movería una carga positiva.",
+                "why": "Convencional de + a −. Los electrones, de carga negativa, se desplazan de − a + por el circuito exterior.",
+                "pasosSolucion": [
+                  "Ubica los bornes positivo y negativo. La flecha convencional se define como el sentido que seguiría una carga positiva por fuera de la fuente.",
+                  "Los electrones tienen carga negativa. Dibuja su flecha en sentido contrario a la convencional."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "circuit"
+        },
+        "intro": "Prueba qué ocurre cuando se abre el camino de una ampolleta."
+      },
+      {
+        "title": "Voltaje, corriente y resistencia",
+        "goal": "Entender qué miden V, I y R y calcular lo que pasa en circuitos simples.",
+        "steps": [
+          {
+            "title": "1. Tres preguntas distintas",
+            "text": [
+              "El voltaje (V) es la diferencia de energía por unidad de carga entre dos puntos. Piensa en él como la diferencia que impulsa el movimiento de las cargas.",
+              "La intensidad (I) indica cuánta carga pasa por un punto por segundo. La resistencia (R) indica cuánto se opone un componente a ese paso. Con la misma pila, más resistencia hace que pase menos corriente."
+            ],
+            "flow": [
+              "Voltaje · V",
+              "Intensidad · A",
+              "Resistencia · Ω"
+            ]
+          },
+          {
+            "title": "2. Medir y calcular",
+            "text": [
+              "El amperímetro va en serie para que lo atraviese la corriente que quieres medir. El voltímetro va en paralelo entre los dos extremos del elemento que quieres comparar. La resistencia se mide con un óhmetro.",
+              "Si conoces la carga Q en coulombs y el tiempo t en segundos, usa I = Q ÷ t. Si conoces el voltaje y la resistencia, usa la ley de Ohm: V = I × R, así que I = V ÷ R y R = V ÷ I."
+            ],
+            "flow": [
+              "Q ÷ t = I",
+              "V ÷ R = I",
+              "V ÷ I = R"
+            ]
+          },
+          {
+            "title": "3. Serie: suma resistencias",
+            "text": [
+              "En serie, las resistencias están una después de otra. Súmalas para obtener la resistencia equivalente. Usa el voltaje de la pila y esa resistencia para obtener la corriente total.",
+              "Por todas pasa la misma corriente. Para hallar el voltaje de cada resistencia, multiplica esa corriente por el valor de cada R. Al sumar los voltajes de las resistencias debe resultar el voltaje de la pila."
+            ],
+            "flow": [
+              "R₁ + R₂ = R equivalente",
+              "I igual en toda la ruta"
+            ]
+          },
+          {
+            "title": "4. Paralelo: mismas tensiones en las ramas",
+            "text": [
+              "En paralelo, todas las ramas están entre los mismos dos puntos, por eso tienen el mismo voltaje. Divide ese voltaje por la resistencia de cada rama para obtener su corriente. Las corrientes de las ramas se suman.",
+              "Para hallar la resistencia equivalente, suma 1/R₁ + 1/R₂ + … y dale la vuelta al resultado. También puedes calcularla como voltaje de la pila dividido por la corriente total. Queda por debajo de la menor resistencia de las ramas."
+            ],
+            "flow": [
+              "I total = I₁ + I₂",
+              "1/R equivalente = 1/R₁ + 1/R₂"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una pila de 12 V alimenta resistencias de 4 Ω y 12 Ω. Compara serie y paralelo.",
+          "steps": [
+            "Serie. Suma 4 + 12 = 16 Ω. Divide 12 ÷ 16 = 0,75 A. Multiplica 0,75 × 4 = 3 V y 0,75 × 12 = 9 V.",
+            "Paralelo. Cada rama tiene 12 V. En la primera pasan 12 ÷ 4 = 3 A y en la segunda 12 ÷ 12 = 1 A.",
+            "Suma 3 + 1 = 4 A. Divide 12 V ÷ 4 A para hallar 3 Ω de resistencia equivalente."
+          ],
+          "result": "En serie se reparten los 12 V. En paralelo cada rama recibe 12 V y la corriente total es la suma de las ramas."
+        },
+        "exercises": [
+          {
+            "id": "u3-06",
+            "title": "Instrumentos, unidades y conexión",
+            "prompt": "Completa las fichas de las tres magnitudes.",
+            "cases": [
+              {
+                "label": "Intensidad",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Conexión",
+                    "kind": "pick",
+                    "options": [
+                      "En paralelo",
+                      "En serie"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "El instrumento debe medir lo que pasa por el cable.",
+                "why": "La intensidad se mide en amperes con el amperímetro conectado en serie.",
+                "pasosSolucion": [
+                  "Identifica la intensidad como la cantidad de carga que pasa por segundo en una rama.",
+                  "Para que el instrumento reciba esa misma corriente, debe quedar en el recorrido de la rama. Relaciona ese montaje con la unidad A."
+                ]
+              },
+              {
+                "label": "Voltaje",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Conexión",
+                    "kind": "pick",
+                    "options": [
+                      "En paralelo",
+                      "En serie"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Se comparan los dos extremos de un mismo elemento.",
+                "why": "El voltaje se mide en volts con el voltímetro conectado en paralelo al elemento.",
+                "pasosSolucion": [
+                  "Identifica el voltaje como la diferencia de potencial entre dos puntos.",
+                  "El instrumento compara esos dos puntos, por eso se conecta a ambos extremos del elemento. Relaciona esa medición con la unidad V."
+                ]
+              },
+              {
+                "label": "Resistencia",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Su símbolo es Ω.",
+                "why": "La resistencia se mide en ohms con un óhmetro.",
+                "pasosSolucion": [
+                  "Identifica la resistencia como la oposición del elemento al paso de la corriente.",
+                  "Distingue la magnitud y su símbolo Ω de los símbolos de intensidad y voltaje. Selecciona el instrumento que mide esa magnitud."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-07",
+            "title": "Carga por segundo",
+            "prompt": "Por un conductor pasan 30 C de carga en 10 s.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Intensidad (A)",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "Divide la cantidad de carga por el tiempo.",
+                "why": "I = Q ÷ t = 30 C ÷ 10 s = 3 A.",
+                "pasosSolucion": [
+                  "Anota Q = 30 C y t = 10 s. La intensidad indica cuánta carga pasa por segundo.",
+                  "Usa I = Q ÷ t. Al dividir coulombs por segundos, expresa el resultado en amperes."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-08",
+            "title": "Ley de Ohm",
+            "prompt": "Una ampolleta de 4 Ω está conectada a 12 V.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Intensidad (A)",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "Despeja I de V = I × R.",
+                "why": "I = 12 V ÷ 4 Ω = 3 A.",
+                "pasosSolucion": [
+                  "Anota el voltaje de 12 V y la resistencia de 4 Ω. La incógnita es la corriente I.",
+                  "Parte de V = I × R. Divide ambos lados por R para despejar I y sustituye los datos."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-09",
+            "title": "Duplicar la resistencia",
+            "prompt": "El voltaje se mantiene constante y la resistencia se duplica.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Se duplica la intensidad",
+                      "La intensidad queda igual",
+                      "La intensidad baja a la mitad"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "En I = V/R, la resistencia está en el denominador.",
+                "why": "Al duplicar el número por el que divides el mismo voltaje, obtienes la mitad de la intensidad.",
+                "pasosSolucion": [
+                  "Escribe la relación I = V ÷ R. El voltaje queda fijo mientras cambia el denominador.",
+                  "Compárala con I′ = V ÷ (2R). El factor 2 divide a toda la intensidad original."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-10",
+            "title": "Resistencias en serie",
+            "prompt": "Pila de 20 V. En serie se conectan R₁ = 2 Ω, R₂ = 3 Ω y R₃ = 5 Ω.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Resistencia equivalente (Ω)",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Intensidad total (A)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Voltaje en R₁ (V)",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Voltaje en R₂ (V)",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Voltaje en R₃ (V)",
+                    "kind": "number",
+                    "answer": 10
+                  }
+                ],
+                "hint": "Suma primero las resistencias. Con la corriente total ya calculada, usa V = I × R en cada una.",
+                "why": "R equivalente = 2 + 3 + 5 = 10 Ω. I = 20 ÷ 10 = 2 A. Los voltajes son 2 × 2 = 4 V, 2 × 3 = 6 V y 2 × 5 = 10 V. Suman 20 V.",
+                "pasosSolucion": [
+                  "Suma 2 Ω, 3 Ω y 5 Ω para hallar la resistencia equivalente. Divide 20 V por ese total para hallar la corriente.",
+                  "Usa esa misma corriente en las tres resistencias y calcula cada caída con V = I × R. Comprueba que las tres caídas suman 20 V."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-11",
+            "title": "Resistencias en paralelo",
+            "prompt": "Pila de 12 V. Las ramas tienen R₁ = 6 Ω y R₂ = 3 Ω.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Resistencia equivalente (Ω)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Intensidad total (A)",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Intensidad de la rama R₁ (A)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Intensidad de la rama R₂ (A)",
+                    "kind": "number",
+                    "answer": 4
+                  }
+                ],
+                "hint": "Cada rama tiene 12 V. Puedes hallar las dos corrientes antes de obtener la resistencia equivalente.",
+                "why": "I₁ = 12 ÷ 6 = 2 A e I₂ = 12 ÷ 3 = 4 A. I total = 6 A. R equivalente = 12 ÷ 6 = 2 Ω.",
+                "pasosSolucion": [
+                  "Las ramas están conectadas a los mismos puntos y tienen 12 V cada una. Divide 12 V por 6 Ω y por 3 Ω para hallar las corrientes de rama.",
+                  "Suma las corrientes de rama. Usa el voltaje de la pila dividido por la corriente total para hallar la resistencia equivalente."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "range"
+        },
+        "intro": "Mueve la resistencia con el voltaje fijo y observa qué ocurre con la corriente."
+      },
+      {
+        "title": "Calor, temperatura y equilibrio",
+        "goal": "Explicar la diferencia entre calor y temperatura y predecir hacia dónde se transfiere la energía.",
+        "steps": [
+          {
+            "title": "1. Imagina partículas en movimiento",
+            "text": [
+              "La materia está formada por partículas. En un sólido vibran alrededor de su posición. En líquidos y gases se pueden desplazar.",
+              "La temperatura indica qué tan intensa es, en promedio, su agitación. En el mismo material, mayor temperatura significa mayor energía cinética promedio de sus partículas. Se mide con un termómetro, en °C o K."
+            ],
+            "flow": [
+              "Menor temperatura · agitación más lenta",
+              "Mayor temperatura · agitación más rápida"
+            ]
+          },
+          {
+            "title": "2. El calor va del más caliente al más frío",
+            "text": [
+              "Cuando dos cuerpos tienen temperaturas distintas y pueden intercambiar energía, el más caliente entrega energía al más frío. A esa transferencia la llamamos calor. Se mide en joules o calorías.",
+              "La energía puede pasar por contacto (conducción), por el movimiento de líquidos o gases (convección) o mediante radiación, como la del Sol."
+            ],
+            "flow": [
+              "Cuerpo caliente",
+              "→ calor →",
+              "Cuerpo frío"
+            ]
+          },
+          {
+            "title": "3. Llegar al equilibrio térmico",
+            "text": [
+              "Con el tiempo, el cuerpo caliente baja su temperatura y el frío la sube. Cuando alcanzan la misma temperatura, ya no hay transferencia neta de calor entre ellos.",
+              "Al mezclar agua caliente y fría en un recipiente que apenas intercambia calor con el aire, puedes estimar la temperatura final. Con masas iguales, queda cerca del promedio. Con más agua fría, queda más cerca de la temperatura fría."
+            ],
+            "flow": [
+              "Temperaturas distintas",
+              "→ intercambio →",
+              "Igual temperatura"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Mezclas 2 L de agua a 60 °C con 1 L de agua a 15 °C en un recipiente aislado. ¿Qué temperatura esperas?",
+          "steps": [
+            "El calor fluye desde el agua a 60 °C hacia la de 15 °C.",
+            "Da a cada litro el mismo peso: (2 × 60 + 1 × 15) ÷ (2 + 1).",
+            "Divide 135 por 3."
+          ],
+          "result": "El equilibrio queda cerca de 45 °C, más cerca de 60 °C porque había más agua caliente."
+        },
+        "exercises": [
+          {
+            "id": "u3-12",
+            "title": "Temperatura o calor",
+            "prompt": "Completa las dos definiciones usando el modelo de partículas.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "La temperatura indica…",
+                    "kind": "pick",
+                    "options": [
+                      "Cuánta energía sale por segundo",
+                      "La agitación promedio de las partículas",
+                      "Los litros del cuerpo"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "El calor es…",
+                    "kind": "pick",
+                    "options": [
+                      "Energía transferida por diferencia de temperatura",
+                      "Una sustancia que entra a los objetos",
+                      "El movimiento promedio de las partículas"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Distingue una medida de cómo está un cuerpo y la energía que pasa de uno a otro.",
+                "why": "La temperatura refleja la agitación promedio. El calor es energía que se transfiere de mayor a menor temperatura.",
+                "pasosSolucion": [
+                  "En el modelo de partículas, observa qué magnitud describe cuánto se agitan en promedio dentro de un cuerpo.",
+                  "Si dos cuerpos están a distinta temperatura, observa qué energía pasa del más caliente al más frío. Esa transferencia recibe otro nombre."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-13",
+            "title": "Café y refresco",
+            "prompt": "Un café a 85 °C y un refresco a 5 °C están en contacto térmico. Traza el recorrido del calor seleccionando la flecha.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Flecha del calor",
+                    "kind": "pick",
+                    "options": [
+                      "Refresco → café",
+                      "Café → refresco"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Mientras intercambian energía",
+                    "kind": "pick",
+                    "options": [
+                      "El café se enfría y el refresco se calienta",
+                      "Los dos se enfrían",
+                      "Los dos se calientan"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Al final, sin pérdidas al ambiente",
+                    "kind": "pick",
+                    "options": [
+                      "Quedan a la misma temperatura",
+                      "Quedan a 85 °C y 5 °C"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "La flecha sale del cuerpo a mayor temperatura.",
+                "why": "Café → refresco. Uno pierde energía y el otro la gana hasta que alcanzan el equilibrio térmico.",
+                "pasosSolucion": [
+                  "Compara 85 °C con 5 °C. La flecha debe partir en el cuerpo que cede energía por estar más caliente.",
+                  "El que cede se enfría y el que recibe se calienta. El flujo neto cesa cuando llegan a la misma temperatura."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-14",
+            "title": "Mezclar agua caliente y fría",
+            "prompt": "Supón que el recipiente está aislado y el volumen de agua es proporcional a su masa.",
+            "cases": [
+              {
+                "label": "1 litro a 80 °C + 1 litro a 20 °C",
+                "fields": [
+                  {
+                    "label": "Temperatura final (°C)",
+                    "kind": "number",
+                    "answer": 50
+                  }
+                ],
+                "hint": "Con masas iguales, promedia las temperaturas.",
+                "why": "(80 + 20) ÷ 2 = 50 °C.",
+                "pasosSolucion": [
+                  "Hay un litro de cada agua. Como tienen la misma masa, ambas temperaturas pesan lo mismo en la mezcla.",
+                  "Suma 80 y 20. Divide esa suma entre los dos litros para hallar la temperatura de equilibrio."
+                ]
+              },
+              {
+                "label": "1 litro a 80 °C + 3 litros a 20 °C",
+                "fields": [
+                  {
+                    "label": "Temperatura final (°C)",
+                    "kind": "number",
+                    "answer": 35
+                  }
+                ],
+                "hint": "Cuenta el aporte de los tres litros a 20 °C y divide por el volumen total.",
+                "why": "(80 + 3 × 20) ÷ 4 = 35 °C.",
+                "pasosSolucion": [
+                  "Hay tres litros a 20 °C por cada litro a 80 °C. La temperatura fría debe pesar tres veces más en el promedio.",
+                  "Multiplica 20 por tres, suma el aporte del litro a 80 °C y divide por el total de cuatro litros."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-15",
+            "title": "Cerrar la ventana en invierno",
+            "prompt": "La casa está más caliente que el exterior. ¿Qué efecto tiene cerrar la ventana?",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Reduce la pérdida de calor de la casa",
+                      "Encierra una sustancia llamada frío",
+                      "Hace que el calor fluya del exterior al interior"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Compara la temperatura de la casa con la temperatura exterior.",
+                "why": "El calor fluye del interior más caliente al exterior más frío. Cerrar la ventana ayuda a reducir el intercambio con el aire exterior.",
+                "pasosSolucion": [
+                  "Identifica el lado más caliente de la ventana. El calor tiende a salir de ese lado hacia el más frío.",
+                  "Al cerrar la ventana, pasa menos aire entre el interior y el exterior. Relaciona eso con el tiempo que tarda en enfriarse la casa."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Al comienzo",
+              [
+                "Café · 85 °C",
+                "Calor →",
+                "Refresco · 5 °C"
+              ],
+              "El café cede energía y el refresco la recibe."
+            ],
+            [
+              "Mientras se acercan",
+              [
+                "Café ↓",
+                "Calor →",
+                "Refresco ↑"
+              ],
+              "El café se enfría y el refresco se calienta."
+            ],
+            [
+              "En equilibrio",
+              [
+                "Misma temperatura",
+                "↔",
+                "Misma temperatura"
+              ],
+              "Cuando ambos alcanzan la misma temperatura, cesa el flujo neto de calor."
+            ]
+          ]
+        },
+        "intro": "Observa qué pasa cuando dos cuerpos de distinta temperatura se ponen en contacto."
+      },
+      {
+        "title": "Dilatación y cambios de estado",
+        "goal": "Distinguir un cambio de tamaño, uno de temperatura y uno de estado. Calcular la energía de cada tramo.",
+        "steps": [
+          {
+            "title": "1. ¿Por qué un riel deja espacio?",
+            "text": [
+              "Al calentar un sólido, sus partículas vibran más y, en muchos materiales, se separan un poco en promedio. Sus dimensiones aumentan. Eso es dilatación. Al enfriarse, suelen disminuir. Eso es contracción.",
+              "En una barra, ΔL = L₀ × α × ΔT. L₀ es el largo inicial y α es un valor del material. Para hallar el largo final, suma L₀ + ΔL. En la guía las variaciones son pequeñas, por eso importa cuidar los decimales."
+            ],
+            "flow": [
+              "Calentar metal",
+              "→ aumenta la separación media →",
+              "Se alarga"
+            ]
+          },
+          {
+            "title": "2. Calor sensible: cambia la temperatura",
+            "text": [
+              "Dentro de un mismo estado, como agua líquida, el calor que entra suele elevar la temperatura. Usa Q = m × c × ΔT.",
+              "m es la masa. c es el calor necesario por cada unidad de masa para subir 1 °C. ΔT es temperatura final menos inicial. Si m está en g y c en cal/(g·°C), Q queda en calorías."
+            ],
+            "flow": [
+              "Masa × calor específico × cambio de temperatura"
+            ]
+          },
+          {
+            "title": "3. Calor latente: cambia el estado",
+            "text": [
+              "Al fundir hielo puro, la energía se usa para pasar de sólido a líquido mientras dura el cambio. A presión atmosférica normal, esta parte ocurre a 0 °C. La ebullición ocurre a 100 °C.",
+              "Para un cambio de estado usa Q = m × L. L es la energía por gramo del cambio. En la guía se usa L de fusión = 80 cal/g y L de vaporización = 540 cal/g para el agua."
+            ],
+            "flow": [
+              "Pendiente · cambia T",
+              "Meseta · cambia el estado"
+            ]
+          },
+          {
+            "title": "4. Resolver por tramos",
+            "text": [
+              "Dibuja o lee el recorrido. Si el agua debe llegar a hervir y después transformarse en vapor, hay un tramo de subida de temperatura y un tramo de cambio de estado.",
+              "Calcula por separado lo que requiere cada tramo usando su fórmula. Luego suma todas las energías."
+            ],
+            "flow": [
+              "Identifica los tramos",
+              "Calcula cada uno",
+              "Suma las energías"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Quieres fundir 100 g de hielo a 0 °C y calentar el agua hasta 20 °C.",
+          "steps": [
+            "Fusión: el estado cambia a temperatura constante. Q = 100 × 80 = 8 000 cal.",
+            "Agua líquida: sube 20 °C. Q = 100 × 1 × 20 = 2 000 cal.",
+            "Suma los dos tramos: 8 000 + 2 000."
+          ],
+          "result": "Se requieren 10 000 cal en total."
+        },
+        "exercises": [
+          {
+            "id": "u3-16",
+            "title": "Las juntas de los rieles",
+            "prompt": "Elige la explicación que relaciona las partículas con el diseño del riel.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Al calentarse el riel se encoge",
+                      "El metal se funde al Sol",
+                      "Las partículas vibran más y el riel se alarga. La junta deja espacio"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Piensa qué le pasa al largo del metal cuando sube su temperatura.",
+                "why": "Al elevar la temperatura, aumenta la separación promedio entre partículas y el riel puede alargarse. La junta le deja espacio para dilatarse.",
+                "pasosSolucion": [
+                  "Imagina las partículas del riel cuando aumenta la temperatura. En promedio pueden quedar más separadas y el metal ocupar más longitud.",
+                  "Mira dónde termina cada riel. La holgura entre tramos deja espacio para el cambio de longitud."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-17",
+            "title": "Calentar agua líquida",
+            "prompt": "Calienta 200 g de agua de 20 °C a 50 °C. Usa c = 1 cal/(g·°C).",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Cambio de temperatura (°C)",
+                    "kind": "number",
+                    "answer": 30
+                  },
+                  {
+                    "label": "Energía (cal)",
+                    "kind": "number",
+                    "answer": 6000
+                  }
+                ],
+                "hint": "Primero calcula temperatura final menos inicial. Luego usa Q = m × c × ΔT.",
+                "why": "ΔT = 50 − 20 = 30 °C. Q = 200 × 1 × 30 = 6 000 cal.",
+                "pasosSolucion": [
+                  "Resta la temperatura inicial de la final para obtener ΔT, el aumento entre 20 °C y 50 °C.",
+                  "Como el agua sigue líquida, aplica Q = m × c × ΔT. Usa la masa en gramos y el calor específico entregado."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-18",
+            "title": "Fundir hielo",
+            "prompt": "Funde 50 g de hielo a 0 °C. El calor latente de fusión es 80 cal/g.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Energía (cal)",
+                    "kind": "number",
+                    "answer": 4000
+                  }
+                ],
+                "hint": "El hielo ya está a su temperatura de fusión. Aplica Q = m × L.",
+                "why": "Q = 50 × 80 = 4 000 cal.",
+                "pasosSolucion": [
+                  "El hielo ya está a 0 °C, la temperatura de fusión del ejercicio. El aporte de energía se destina al cambio de estado.",
+                  "Usa el calor latente con Q = m × L. Multiplica la masa por las calorías requeridas por cada gramo."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-19",
+            "title": "Lee la meseta",
+            "prompt": "En la curva de calentamiento del agua, fíjate en los tramos horizontales.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Durante una meseta, cambia…",
+                    "kind": "pick",
+                    "options": [
+                      "El estado",
+                      "La temperatura"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "La energía se usa para…",
+                    "kind": "pick",
+                    "options": [
+                      "Elevar la temperatura sin cambiar de estado",
+                      "Producir el cambio de estado"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Si el tramo es horizontal, su altura en el eje de temperatura se mantiene.",
+                "why": "En las mesetas el calor es latente. La sustancia cambia de estado mientras su temperatura se mantiene constante.",
+                "pasosSolucion": [
+                  "El eje vertical representa temperatura. Sigue el tramo horizontal y fíjate en que su altura se mantiene.",
+                  "Durante ese tramo la energía sigue entrando. Identifica qué cambia en la materia mientras se mantiene su temperatura."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-20",
+            "title": "Calentar y evaporar",
+            "prompt": "Hay 400 g de agua a 10 °C. Caliéntala hasta 100 °C y evapórala a esa temperatura. Usa c = 1 cal/(g·°C) y L de vaporización = 540 cal/g.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Calor para llegar a 100 °C (cal)",
+                    "kind": "number",
+                    "answer": 36000
+                  },
+                  {
+                    "label": "Calor para evaporar (cal)",
+                    "kind": "number",
+                    "answer": 216000
+                  },
+                  {
+                    "label": "Calor total (cal)",
+                    "kind": "number",
+                    "answer": 252000
+                  }
+                ],
+                "hint": "Separa la subida de temperatura de la ebullición. La masa de agua es la misma en ambos cálculos.",
+                "why": "Calentar: 400 × 1 × 90 = 36 000 cal. Evaporar: 400 × 540 = 216 000 cal. Total: 252 000 cal.",
+                "pasosSolucion": [
+                  "Primero calcula el calor para subir de 10 °C a 100 °C con Q = m × c × ΔT.",
+                  "Aplica Q = m × L para convertir en vapor los 400 g a 100 °C. Suma ese calor al que calculaste para calentar."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-21",
+            "title": "Dilatación de una barra",
+            "prompt": "Una barra de acero de 10 m pasa de 20 °C a 70 °C. Usa α = 1,0 × 10⁻⁵ por °C.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Aumento del largo (m)",
+                    "kind": "number",
+                    "answer": 0.005
+                  },
+                  {
+                    "label": "Largo final (m)",
+                    "kind": "number",
+                    "answer": 10.005
+                  }
+                ],
+                "hint": "Multiplica 10 m × α × el aumento de temperatura. Suma el aumento al largo inicial.",
+                "why": "ΔT = 50 °C. ΔL = 10 × 0,00001 × 50 = 0,005 m (5 mm). El largo final es 10,005 m.",
+                "pasosSolucion": [
+                  "Calcula cuánto sube la temperatura al pasar de 20 °C a 70 °C.",
+                  "Halla el aumento de largo con ΔL = L₀ × α × ΔT. Súmalo al largo inicial de 10 m y conserva la unidad en metros."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "curve"
+        },
+        "intro": "Selecciona un tramo de la curva de calentamiento del agua a presión atmosférica normal."
+      },
+      {
+        "title": "Protección frente al calor y al frío",
+        "goal": "Elegir medidas de protección y explicar cómo afectan la transferencia de calor o la dilatación.",
+        "steps": [
+          {
+            "title": "1. Las personas y el intercambio con el entorno",
+            "text": [
+              "Al Sol, la radiación puede aportar energía a tu cuerpo. Busca sombra para reducir esa radiación. Hidratarse ayuda a reponer el agua que se pierde al sudar.",
+              "En un ambiente frío, el cuerpo cede calor hacia el exterior. Una capa de abrigo que atrapa aire reduce la rapidez de esa transferencia."
+            ],
+            "flow": [
+              "Sol → persona · sombra reduce radiación",
+              "Persona → aire frío · abrigo reduce pérdida"
+            ]
+          },
+          {
+            "title": "2. Materiales y objetos",
+            "text": [
+              "La lana, el plumavit y el aire atrapado son aislantes. Un aislante dificulta la transferencia de calor en cualquiera de los dos sentidos. Por eso sirve tanto para una cañería que pierde calor como para un alimento frío que recibe calor del entorno.",
+              "Algunos objetos también necesitan espacio para cambiar de tamaño. Las juntas de un puente permiten que sus partes se dilaten y se contraigan con los cambios de temperatura."
+            ],
+            "flow": [
+              "Aislante · menos intercambio",
+              "Junta · espacio para el cambio de tamaño"
+            ]
+          },
+          {
+            "title": "3. Elegir una medida que responda al problema",
+            "text": [
+              "Identifica qué quieres proteger, dónde está la fuente de energía o hacia dónde se pierde calor y qué acción ayuda.",
+              "Por ejemplo, en una helada puedes disminuir la pérdida de calor de una cañería con un aislante. En una ola de calor, proveer sombra ayuda a reducir la radiación directa que reciben las personas y los animales."
+            ],
+            "flow": [
+              "Problema",
+              "→ mecanismo →",
+              "Medida"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una cañería pasa por un lugar donde el aire baja de 0 °C durante la noche. ¿Para qué sirve cubrirla con un aislante?",
+          "steps": [
+            "Compara la temperatura inicial del agua con la del exterior.",
+            "El agua más caliente tiende a ceder energía al entorno más frío.",
+            "El aislante reduce la rapidez de transferencia."
+          ],
+          "result": "El agua se enfría más lentamente. La protección retrasa la congelación."
+        },
+        "exercises": [
+          {
+            "id": "u3-22",
+            "title": "Elige medidas y explica su efecto",
+            "prompt": "Propón dos medidas para las personas durante una ola de calor y dos para objetos o construcciones durante el frío.",
+            "cases": [
+              {
+                "label": "Personas durante una ola de calor",
+                "fields": [
+                  {
+                    "label": "Reducir la radiación directa",
+                    "kind": "pick",
+                    "options": [
+                      "Buscar sombra",
+                      "Acercarse a una ventana al Sol",
+                      "Usar más mantas"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Reponer el agua perdida al sudar",
+                    "kind": "pick",
+                    "options": [
+                      "Usar aislante en la cañería",
+                      "Tomar agua",
+                      "Cerrar una junta de dilatación"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Una medida reduce energía recibida. La otra repone agua.",
+                "why": "Buscar sombra reduce la radiación solar directa. Beber agua ayuda a reponer la que se pierde al sudar.",
+                "pasosSolucion": [
+                  "Distingue dos efectos de la ola de calor. El Sol entrega energía al cuerpo y al sudar se pierde agua.",
+                  "Elige una medida que reduzca la radiación recibida y otra que reponga el agua perdida. Explica el efecto de cada una."
+                ]
+              },
+              {
+                "label": "Objetos o construcciones frente al frío",
+                "fields": [
+                  {
+                    "label": "Para que el agua de una cañería pierda calor más lento",
+                    "kind": "pick",
+                    "options": [
+                      "Quitar su aislante",
+                      "Cubrirla con un aislante",
+                      "Colocar la cañería al aire libre"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Para permitir que una estructura se contraiga y luego se dilate",
+                    "kind": "pick",
+                    "options": [
+                      "Prever juntas",
+                      "Cubrirla con agua",
+                      "Forzar a que todas sus uniones queden rígidas"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Distingue entre reducir la transferencia de calor y darle libertad al material para cambiar de tamaño.",
+                "why": "El aislante retrasa la pérdida de calor del agua. Una junta permite el movimiento asociado a cambios de temperatura.",
+                "pasosSolucion": [
+                  "Para un objeto con agua, piensa en cómo pierde calor hacia el ambiente. En una construcción, piensa en cómo el material se contrae o se dilata.",
+                  "Elige una medida que retrase el paso del calor y otra que deje espacio al cambio de tamaño del material."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Ola de calor",
+              [
+                "Sol",
+                "→",
+                "Sombra"
+              ],
+              "La sombra reduce la radiación solar directa. Hidratarse ayuda a reponer agua."
+            ],
+            [
+              "Frío exterior",
+              [
+                "Cuerpo",
+                "→",
+                "Ropa en capas"
+              ],
+              "Las capas retienen aire, reducen la transferencia de calor al exterior y ayudan a conservar la temperatura corporal."
+            ],
+            [
+              "Helada",
+              [
+                "Agua en cañería",
+                "→",
+                "Aislante"
+              ],
+              "Un aislante reduce la pérdida de calor del agua y retrasa su congelación."
+            ],
+            [
+              "Puente",
+              [
+                "Metal caliente",
+                "↔",
+                "Junta"
+              ],
+              "La junta deja espacio para la dilatación y la contracción del material."
+            ]
+          ]
+        },
+        "intro": "Elige una situación y fíjate en qué hace la medida de protección."
+      },
+      {
+        "title": "Autoevaluación",
+        "recap": true,
+        "goal": "Responde cinco preguntas de verdadero o falso para repasar la unidad.",
+        "exercises": [
+          {
+            "id": "u3-23",
+            "title": "Voltaje en paralelo",
+            "prompt": "En paralelo, todas las ramas conectadas a los mismos dos puntos tienen el mismo voltaje.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Compara los dos extremos de cada rama.",
+                "why": "Cada rama está conectada a los mismos dos puntos, por eso la diferencia de potencial es la misma.",
+                "pasosSolucion": [
+                  "Identifica los dos puntos donde se conecta una rama. El voltaje se mide entre sus extremos.",
+                  "Compara los extremos de las otras ramas. Si se conectan al mismo par de puntos, miden la misma diferencia de potencial."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-24",
+            "title": "Amperímetro",
+            "prompt": "El amperímetro se conecta en paralelo.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Debe atravesarlo la corriente que queremos medir.",
+                "why": "El amperímetro va en serie. El voltímetro se conecta en paralelo.",
+                "pasosSolucion": [
+                  "Para medir intensidad, el instrumento tiene que recibir la misma corriente que circula por el tramo.",
+                  "Piensa si debes intercalarlo en el camino de las cargas o conectarlo a los dos extremos del componente."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-25",
+            "title": "Qué mide la temperatura",
+            "prompt": "La temperatura de un cuerpo es la cantidad de calor que tiene.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "El calor describe una transferencia.",
+                "why": "La temperatura indica la agitación promedio de sus partículas. El calor es energía transferida por diferencia de temperatura.",
+                "pasosSolucion": [
+                  "Piensa en la agitación promedio de las partículas de un cuerpo para identificar lo que mide la temperatura.",
+                  "Reserva el concepto de calor para la energía que pasa entre cuerpos a distinta temperatura."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-26",
+            "title": "Meseta térmica",
+            "prompt": "Durante el cambio de estado de una sustancia pura a presión constante, la temperatura se mantiene constante.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Fíjate en la altura de la meseta de una curva de calentamiento.",
+                "why": "La energía empleada en la meseta produce el cambio de estado.",
+                "pasosSolucion": [
+                  "Ubica el tramo horizontal de la curva durante el cambio de estado. Su altura representa la temperatura.",
+                  "Identifica qué cambia mientras dura la meseta. La energía que se aporta permite completar el cambio de fase."
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-27",
+            "title": "Resistencias en serie",
+            "prompt": "En serie, la resistencia equivalente es menor que la resistencia más pequeña.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "La resistencia equivalente en serie es la suma.",
+                "why": "Al sumar resistencias positivas, la equivalente supera a cada resistencia individual. La equivalente en paralelo puede ser menor que la más pequeña.",
+                "pasosSolucion": [
+                  "En serie, la corriente pasa por cada resistencia en el mismo camino. Las resistencias aportan al total sumándose.",
+                  "Compara una suma de resistencias positivas con la más pequeña de las resistencias que sumaste."
+                ]
+              }
+            ],
+            "reference": ""
+          }
+        ]
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function diagram(label, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", label);
+  byId("board").replaceChildren(canvas);
+  const ctx = canvas.getContext("2d");
+  ctx.scale(2, 2);
+  ctx.fillStyle = "#fbfdf9";
+  ctx.fillRect(0, 0, 570, 195);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  draw(ctx);
+}
+
+function line(ctx, points, color = "#35594e", width = 3) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  points.forEach(([x, y], index) => index ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.stroke();
+}
+
+function dot(ctx, x, y, radius, fill, stroke = "#35594e", width = 2) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
+function label(ctx, text, x, y, color = "#24453d") {
+  ctx.fillStyle = color;
+  ctx.font = "650 16px system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, x, y);
+}
+
+function showCircuit() {
+  let parallel = false;
+  let open = false;
+  const seriesButton = button("En serie", "pill");
+  const parallelButton = button("En paralelo", "pill");
+  const toggle = button("Abrir el interruptor", "pill");
+  byId("controls").append(seriesButton, parallelButton, toggle);
+  seriesButton.onclick = () => { parallel = false; draw(); };
+  parallelButton.onclick = () => { parallel = true; draw(); };
+  toggle.onclick = () => { open = !open; draw(); };
+  draw();
+
+  function draw() {
+    seriesButton.setAttribute("aria-pressed", String(!parallel));
+    parallelButton.setAttribute("aria-pressed", String(parallel));
+    toggle.textContent = open ? "Cerrar el interruptor" : "Abrir el interruptor";
+    const lamp1 = !open;
+    const lamp2 = parallel || !open;
+    const message = open ? (parallel
+      ? "La rama de A queda abierta. B sigue encendida porque mantiene un camino cerrado."
+      : "El interruptor corta el único camino. Las dos ampolletas se apagan.")
+      : (parallel ? "A y B están en ramas distintas. Las dos reciben el voltaje de la pila."
+      : "A y B comparten el mismo camino. La corriente que pasa por ambas es igual.");
+    byId("legend").textContent = message;
+    diagram("Circuito " + (parallel ? "en paralelo. " : "en serie. ") + message, ctx => {
+      const wire = "#52746a";
+      const live = "#257052";
+      const top = 46;
+      const bottom = 143;
+      line(ctx, [[95,top],[95,bottom],[263,bottom]], wire, 4);
+      line(ctx, [[301,bottom],[475,bottom],[475,top],[209,top]], wire, 4);
+      line(ctx, [[95,top],[159,top]], wire, 4);
+      line(ctx, [[263,bottom],[275,bottom]], wire, 4);
+      line(ctx, [[289,bottom],[301,bottom]], wire, 4);
+      line(ctx, [[275,126],[275,160]], wire, 4);
+      line(ctx, [[289,133],[289,153]], wire, 4);
+      label(ctx, "+", 258, 164);
+      label(ctx, "−", 305, 164);
+      label(ctx, "Pila", 282, 179);
+      line(ctx, [[159,top],[open ? 195 : 209,open ? 25 : top]], open ? "#9a6425" : live, 4);
+      dot(ctx,159,top,4,"#fff",wire);
+      dot(ctx,209,top,4,"#fff",wire);
+      lamp(ctx, parallel ? 340 : 309, top, "A", lamp1);
+      if (parallel) {
+        line(ctx, [[95,93],[475,93]], live, 4);
+        dot(ctx,95,93,4,live,live);
+        dot(ctx,475,93,4,live,live);
+        lamp(ctx,340,93,"B",lamp2);
+      } else {
+        lamp(ctx,416,top,"B",lamp2);
+      }
+      label(ctx, "Interruptor", 185, 70);
+    });
+  }
+  function lamp(ctx,x,y,name,on) {
+    dot(ctx,x,y,15,on ? "#ffe1a0" : "#eeefeb",on ? "#9b6c2b" : "#627670",2.5);
+    const color = on ? "#6b4616" : "#627670";
+    line(ctx,[[x-6,y-6],[x+6,y+6]],color,2);
+    line(ctx,[[x-6,y+6],[x+6,y-6]],color,2);
+    label(ctx,name,x,y+25,color);
+  }
+}
+
+function showRange() {
+  const box = document.createElement("div");
+  box.className = "range-box";
+  const title = document.createElement("label");
+  title.htmlFor = "resistance";
+  title.textContent = "Resistencia";
+  const value = document.createElement("output");
+  value.setAttribute("for","resistance");
+  title.append(value);
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = "resistance";
+  slider.min = "1";
+  slider.max = "12";
+  slider.value = "3";
+  const reading = document.createElement("p");
+  reading.className = "reading";
+  box.append(title, slider, reading);
+  byId("board").append(box);
+  byId("legend").textContent = "Con el voltaje fijo, si duplicas la resistencia, la corriente queda en la mitad.";
+  slider.addEventListener("input", update);
+  update();
+  function update() {
+    value.textContent = slider.value + " Ω";
+    reading.textContent = "I = 12 V ÷ " + slider.value + " Ω = " + (12 / Number(slider.value)).toLocaleString("es-CL", {maximumFractionDigits: 2}) + " A";
+    slider.setAttribute("aria-valuetext", value.textContent);
+  }
+}
+
+function showCurve() {
+  const names = ["Calentar hielo","Fundir","Calentar agua","Hervir","Calentar vapor"];
+  const notes = [
+    "Calor sensible: el hielo se calienta hasta 0 °C.",
+    "Calor latente de fusión: el hielo pasa a líquido a 0 °C.",
+    "Calor sensible: el agua líquida se calienta de 0 °C a 100 °C.",
+    "Calor latente de vaporización: el agua hierve a 100 °C.",
+    "Calor sensible: el vapor aumenta su temperatura."
+  ];
+  const points = [[89,149],[140,123],[222,123],[307,61],[445,61],[500,28]];
+  switcher(names, active => {
+    byId("legend").textContent = notes[active] + " Esquema sin escala.";
+    diagram("Curva de calentamiento del agua. " + notes[active], ctx => {
+      line(ctx,[[73,19],[73,160],[526,160]],"#67837a",1.5);
+      for (const [y,temp] of [[123,"0 °C"],[61,"100 °C"]]) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[[73,y],[515,y]],"#a8bdb4",1);
+        ctx.setLineDash([]);
+        label(ctx,temp,43,y);
+      }
+      label(ctx,"Calor agregado →",302,180);
+      line(ctx,points,"#a3b9ae",3.5);
+      line(ctx,[points[active],points[active+1]],"#219167",7);
+    });
+  });
+}
+
+function showMolecules() {
+  const models = [
+    ["H₂O", [["O",285,67],["H",211,120],["H",359,120]],[[0,1,1],[0,2,1]],"Agua: 3 átomos, 2 enlaces simples. Forma angular."],
+    ["CO₂", [["C",285,97],["O",169,97],["O",401,97]],[[0,1,2],[0,2,2]],"Dióxido de carbono: 3 átomos, 2 enlaces dobles. Forma lineal."],
+    ["CH₄", [["C",285,97],["H",223,139],["H",345,139],["H",286,33],["H",347,63]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],"Metano: 5 átomos y 4 enlaces simples. Proyección del modelo tetraédrico."],
+    ["NH₃", [["N",285,62],["H",205,111],["H",365,111],["H",285,145]],[[0,1,1],[0,2,1],[0,3,1]],"Amoníaco: 4 átomos, 3 enlaces simples. Proyección de su forma piramidal."],
+    ["O₂", [["O",226,97],["O",344,97]],[[0,1,2]],"Oxígeno: 2 átomos, 1 enlace doble."],
+    ["N₂", [["N",226,97],["N",344,97]],[[0,1,3]],"Nitrógeno: 2 átomos, 1 enlace triple."]
+  ];
+  const atomColor = {O:"#ac3039", C:"#233231", N:"#254f89", H:"#fff"};
+  switcher(models.map(model => model[0]), index => {
+    const [name, atoms, bonds, note] = models[index];
+    byId("legend").textContent = note;
+    diagram(name + ". " + note, ctx => {
+      for (const [i,j,count] of bonds) {
+        const [,ax,ay] = atoms[i];
+        const [,bx,by] = atoms[j];
+        const distance = Math.hypot(bx-ax,by-ay);
+        for (let k = 0; k < count; k++) {
+          const offset = (k - (count - 1)/2) * 8;
+          const dx = (ay-by)/distance*offset;
+          const dy = (bx-ax)/distance*offset;
+          line(ctx,[[ax+dx,ay+dy],[bx+dx,by+dy]],"#759284",4);
+        }
+      }
+      for (const [atom,x,y] of atoms) {
+        dot(ctx,x,y,atom === "H" ? 18 : 23,atomColor[atom],"#35594e",2);
+        label(ctx,atom,x,y,atom === "H" ? "#143931" : "#fff");
+      }
+    });
+  });
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules};
+  if (visual.kind === "scenes") {
+    switcher(visual.choices.map(choice => choice[0]), active => {
+      const [, cells, note] = visual.choices[active];
+      const scene = document.createElement("div");
+      scene.className = "scene";
+      for (const cell of cells) {
+        const tile = document.createElement("div");
+        tile.className = cell === "→" ? "scene-arrow" : "tile";
+        tile.textContent = cell;
+        scene.append(tile);
+      }
+      byId("board").replaceChildren(scene);
+      byId("legend").textContent = note;
+    });
+  } else {
+    const renderVisual = renderers[visual.kind];
+    if (renderVisual) renderVisual();
+    else showMathVisual(visual);
+  }
+}
+
+
+
+
+function electronBuilder(parent, task, values) {
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  const counter = document.createElement("p");
+  counter.className = "builder-count";
+  counter.setAttribute("aria-live","polite");
+  let groupIndex = 0;
+  function addSlots(container, names, glyphs) {
+    const group = values[groupIndex] ??= names.map(() => 0);
+    groupIndex++;
+    names.forEach((name,index) => {
+      const slot = button("","nav-button");
+      function refresh() {
+        const count = group[index];
+        slot.textContent = glyphs[count];
+        slot.setAttribute("aria-label",name + ": " + count + (count === 1 ? " electrón" : " electrones"));
+      }
+      slot.onclick = () => {
+        group[index] = (group[index] + 1) % 3;
+        refresh();
+        updateCount();
+        queueSave();
+      };
+      refresh();
+      container.append(slot);
+    });
+  }
+  function updateCount() {
+    const total = values.flat().reduce((sum,current) => sum + current,0);
+    counter.textContent = "Electrones colocados: " + total;
+  }
+  function equivalent(a,b) {
+    return [...a].sort().join(",") === [...b].sort().join(",");
+  }
+  if (task.kind === "lewis") {
+    const arrangement = document.createElement("div");
+    arrangement.className = "lewis";
+    addSlots(arrangement,["Arriba","Derecha","Abajo","Izquierda"],["○","•","••"]);
+    const symbol = document.createElement("strong");
+    symbol.textContent = task.symbol;
+    arrangement.append(symbol);
+    panel.append(arrangement,counter);
+    parent.append(panel);
+    updateCount();
+    return () => ({passed:Number(task.patterns.some(pattern => equivalent(pattern,values[0]))),total:1});
+  }
+  for (const [name, occupancy] of task.groups) {
+    const row = document.createElement("div");
+    row.className = "orbital-row";
+    const heading = document.createElement("strong");
+    heading.textContent = name;
+    const slots = document.createElement("div");
+    slots.className = "slots";
+    addSlots(slots,occupancy.map((_,index) => name + ", casillero " + (index + 1)),["—","↑","↑↓"]);
+    row.append(heading,slots);
+    panel.append(row);
+  }
+  panel.append(counter);
+  parent.append(panel);
+  updateCount();
+  return () => ({
+    passed:task.groups.filter(([,occupancy], index) => equivalent(occupancy,values[index])).length,
+    total:task.groups.length
+  });
+}
+
+function circuitBuilder(parent, task, draft) {
+  const parallel = task.layout === "paralelo";
+  const parts = ["Pila","Interruptor cerrado","Interruptor abierto","Ampolleta","Resistencia","Cable"];
+  const slots = parallel ? [
+    ["Rama superior",4,293,29,"R₁"],["Rama del medio",4,293,72,"R₂"],
+    ["Rama inferior",4,293,115,"R₃"],["Alimentación",0,293,153,"Pila"]
+  ] : [
+    ["Lugar 1",1,184,51,"Interruptor"],["Lugar 2",3,302,51,"Ampolleta A"],
+    ["Lugar 3",3,420,51,"Ampolleta B"],["Alimentación",0,293,144,"Pila"]
+  ];
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  parent.append(panel);
+  const fields = slots.map(([label,answer]) => ({label,kind:"pick",options:parts,answer}));
+  const widgets = fieldGroup(parent,fields,draft);
+  widgets.forEach(widget => widget.control.addEventListener("change",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1140;
+    canvas.height = 390;
+    canvas.setAttribute("role","img");
+    canvas.setAttribute("aria-label","Esquema en " + task.layout + ". " + slots.map(([name],index) => {
+      const selected = widgets[index].control.value;
+      return name + ": " + (selected === "" ? "vacío" : parts[Number(selected)]);
+    }).join(". "));
+    panel.replaceChildren(canvas);
+    const ctx = canvas.getContext("2d");
+    ctx.scale(2,2);
+    ctx.fillStyle = "#f8fbf6";
+    ctx.fillRect(0,0,570,195);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    const upper = parallel ? 29 : 51;
+    const lower = parallel ? 153 : 144;
+    line(ctx,[[86,upper],[86,lower],[260,lower]]);
+    line(ctx,[[326,lower],[484,lower],[484,upper]]);
+    if (parallel) {
+      for (const y of [29,72,115]) {
+        line(ctx,[[86,y],[260,y]]);
+        line(ctx,[[326,y],[484,y]]);
+        if (y > upper) {
+          dot(ctx,86,y,3,"#35594e");
+          dot(ctx,484,y,3,"#35594e");
+        }
+      }
+    } else {
+      for (const [start,end] of [[86,151],[217,269],[335,387],[453,484]]) {
+        line(ctx,[[start,upper],[end,upper]]);
+      }
+    }
+    slots.forEach(([,want,x,y,name],index) => {
+      const value = widgets[index].control.value;
+      drawPart(ctx,x,y,value === "" ? -1 : Number(value),name,want);
+    });
+  }
+
+  function drawPart(ctx,x,y,part,name,want) {
+    const pink = "#a36b30";
+    if (part === -1) {
+      ctx.setLineDash([4,5]);
+      line(ctx,[[x-33,y],[x+33,y]],"#91a79a",2);
+      ctx.setLineDash([]);
+      return;
+    }
+    const width = [13,21,21,12,22,0][part];
+    line(ctx,[[x-33,y],[x-width,y]]);
+    line(ctx,[[x+width,y],[x+33,y]]);
+    if (part === 0) {
+      line(ctx,[[x-13,y],[x-6,y]]);
+      line(ctx,[[x+6,y],[x+13,y]]);
+      line(ctx,[[x-6,y-14],[x-6,y+14]]);
+      line(ctx,[[x+6,y-8],[x+6,y+8]]);
+      label(ctx,"+",x-20,y-13);
+      label(ctx,"−",x+20,y-13);
+    } else if (part === 1 || part === 2) {
+      dot(ctx,x-21,y,3,"#fff");
+      dot(ctx,x+21,y,3,"#fff");
+      line(ctx,[[x-21,y],[part===1 ? x+21 : x+13,part===1 ? y : y-13]],pink,2.5);
+    } else if (part === 3) {
+      dot(ctx,x,y,12,"#fff0cb",pink,2);
+      line(ctx,[[x-5,y-5],[x+5,y+5]],pink,2);
+      line(ctx,[[x+5,y-5],[x-5,y+5]],pink,2);
+    } else if (part === 4) {
+      line(ctx,[[x-22,y],[x-16,y-7],[x-8,y+7],[x,y-7],[x+8,y+7],[x+16,y-7],[x+22,y]],"#35594e",2);
+    }
+    const chosen = part === want ? name : parts[part];
+    label(ctx,chosen,x,y+23);
+  }
+}
+
+
+const byId = id => document.getElementById(id);
+const storageKey = "emilio-sintesis-2026-unidad-c3-v2";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const record = value => value && typeof value === "object" && !Array.isArray(value) ? value : {};
+const state = {
+  unit: units.some(item => item.id === saved.unit) ? saved.unit : units[0].id,
+  positions: record(saved.positions),
+  sessions: record(saved.sessions),
+  solved: record(saved.solved),
+  focus: saved.focus === true,
+  started: saved.started === true || Object.keys(record(saved.solved)).length > 0 ||
+    Object.values(record(saved.sessions)).some(s => s && (s.mode === "practice" || s.step > 0)) ||
+    Object.values(record(saved.positions)).some(index => index > 0),
+  drafts: Object.assign(Object.create(null),record(saved.drafts))
+};
+let checkAnswer = () => {};
+let pendingSave = 0;
+const bounded = (value, length) => Number.isInteger(value) && value >= 0 && value < length ? value : 0;
+const text = (id, value) => { byId(id).textContent = value; };
+const activeUnit = () => units.find(item => item.id === state.unit);
+const position = unit => bounded(state.positions[unit.id], unit.lessons.length);
+const activeLesson = unit => unit.lessons[position(unit)];
+const caseSolved = (exercise, index) => state.solved[exercise.id + ":" + index] === true;
+const exerciseSolved = exercise => exercise.cases.every((_, index) => caseSolved(exercise, index));
+const chapterSolved = lesson => lesson.exercises.every(exerciseSolved);
+
+function save() {
+  clearTimeout(pendingSave);
+  pendingSave = 0;
+  try { localStorage.setItem(storageKey,JSON.stringify(state)); } catch {}
+}
+function queueSave() {
+  if (!pendingSave) pendingSave = setTimeout(save,200);
+}
+window.addEventListener("pagehide",()=>{if(pendingSave) save();});
+function session(unit) {
+  const key = unit.id + ":" + position(unit);
+  const existing = state.sessions[key];
+  if (existing && existing.cases && typeof existing.cases === "object") return existing;
+  const created = {mode:"learn",step:0,exercise:0,cases:{}};
+  state.sessions[key] = created;
+  return created;
+}
+function button(label, className) {
+  const element = document.createElement("button");
+  element.type = "button";
+  element.className = className;
+  element.textContent = label;
+  return element;
+}
+function list(id, items, tag) {
+  byId(id).replaceChildren(...items.map(item => {
+    const element = document.createElement(tag);
+    element.textContent = item;
+    return element;
+  }));
+}
+function focusHeading(id,block="nearest") {
+  byId(id).focus({preventScroll:true});
+  byId(id).scrollIntoView({block});
+}
+function navigate(unit, index = position(unit)) {
+  state.started = true;
+  state.unit = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  focusHeading("lesson-title");
+}
+function toggleFocus() {
+  document.body.classList.toggle("focus-mode",state.focus);
+  byId("focus").setAttribute("aria-pressed",String(state.focus));
+  text("focus",state.focus ? "Salir de enfoque" : "Modo enfoque");
+}
+byId("focus").onclick = () => {
+  state.focus = !state.focus;
+  toggleFocus();
+  save();
+};
+
+function renderProgress(unit) {
+  const exercises = unit.lessons.flatMap(lesson => lesson.exercises);
+  const completed = exercises.filter(exerciseSolved).length;
+  const progress = byId("progress");
+  progress.max = exercises.length;
+  progress.value = completed;
+  text("progress-label",completed + " de " + exercises.length + " actividades terminadas");
+  const current = activeLesson(unit);
+  const topicDone = current.exercises.filter(exerciseSolved).length;
+  text("topic-progress",topicDone === current.exercises.length ? "✓ Tema completado" : topicDone + " de " + current.exercises.length + " actividades de este tema");
+  byId("unit-finished").hidden = completed !== exercises.length;
+  text("finish-message","Terminaste las " + exercises.length + " actividades de " + unit.unit.toLowerCase() + ". Puedes repasar cualquier tema cuando quieras.");
+  byId("topic-finished").hidden = topicDone !== current.exercises.length;
+  text("topic-finish-message","Completaste "+current.exercises.length+(current.exercises.length===1?" actividad.":" actividades."));
+  renderTopicMenu(unit);
+}
+
+
+const topicsDialog = byId("topics-dialog");
+byId("topics-open").onclick = () => {
+  topicsDialog.showModal();
+  topicsDialog.querySelector('[aria-current="true"]')?.focus();
+};
+function dismissTopics() {
+  topicsDialog.close();
+  byId("topics-open").focus();
+}
+byId("topics-close").onclick = dismissTopics;
+topicsDialog.addEventListener("cancel",event=>{
+  event.preventDefault();
+  dismissTopics();
+});
+
+function renderTopicMenu(unit) {
+  function topicButton(lesson,index,inDialog) {
+    const done = chapterSolved(lesson);
+    const current = index === position(unit);
+    const element = button("","item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : lesson.recap ? "↺" : String(index+1);
+    badge.setAttribute("aria-hidden","true");
+    element.append(badge,document.createTextNode(lesson.title));
+    if (done) element.setAttribute("aria-label",lesson.title + ", tema completado");
+    if (current) element.setAttribute("aria-current","true");
+    element.onclick = () => {
+      if (inDialog) topicsDialog.close();
+      navigate(unit,index);
+    };
+    return element;
+  }
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,false)));
+  byId("dialog-lessons").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,true)));
+}
+function renderBookmark() {
+  const unit=activeUnit();
+  const lesson=activeLesson(unit);
+  const study=session(unit);
+  const inPractice=lesson.recap || study.mode==="practice";
+  const item=inPractice?bounded(study.exercise,lesson.exercises.length)+1:bounded(study.step,lesson.steps.length)+1;
+  let description=inPractice?"Ejercicio "+item+" de "+lesson.exercises.length:"Paso "+item+" de "+lesson.steps.length;
+  if (inPractice) {
+    const exercise=lesson.exercises[item-1];
+    if (exercise.cases.length>1) {
+      const current=bounded(study.cases[exercise.id],exercise.cases.length)+1;
+      description+=" · Caso "+current+" de "+exercise.cases.length;
+    }
+  }
+  text("resume-context",lesson.title+" · "+description);
+  text("resume",state.started?"Continuar donde quedé":"Empezar el cuadernillo");
+}
+byId("resume").onclick=()=>{
+  state.started=true;
+  save();
+  renderBookmark();
+  focusHeading(byId("practice-panel").hidden?"step-title":"exercise-title","start");
+};
+
+function showStep(lesson, study) {
+  const index = bounded(study.step,lesson.steps.length);
+  const step = lesson.steps[index];
+  text("step-count","Paso " + (index + 1) + " de " + lesson.steps.length);
+  text("step-title",step.title.replace(/^\d+\.\s*/,""));
+  list("step-text",step.text,"p");
+  byId("step-flow").replaceChildren(...step.flow.map(piece => {
+    const tile = document.createElement("span");
+    tile.className = "tile";
+    tile.textContent = piece;
+    return tile;
+  }));
+  const previous = byId("previous-step");
+  const next = byId("next-step");
+  previous.disabled = index === 0;
+  next.disabled = index === lesson.steps.length - 1;
+  next.hidden = next.disabled;
+  byId("go-practice").hidden = !next.disabled;
+  renderBookmark();
+  function change(newIndex) {
+    state.started = true;
+    study.step = newIndex;
+    save();
+    showStep(lesson,study);
+    focusHeading("step-title");
+  }
+  previous.onclick = () => change(index - 1);
+  next.onclick = () => change(index + 1);
+}
+function showLearning(lesson, study) {
+  showStep(lesson,study);
+  byId("visual-details").open = false;
+  text("visual-intro",lesson.intro);
+  showVisual(lesson.visual);
+  text("worked-prompt",lesson.worked.prompt);
+  list("worked-steps",lesson.worked.steps,"li");
+  text("worked-result",lesson.worked.result);
+}
+function openMode(unit, mode, moveFocus = true) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const selected = lesson.recap || mode === "practice" ? "practice" : "learn";
+  if (study.mode === selected && !byId(selected + "-panel").hidden) return;
+  state.started = true;
+  study.mode = selected;
+  save();
+  renderMode(unit);
+  if (moveFocus) focusHeading(study.mode === "learn" ? "step-title" : "exercise-title");
+}
+function renderMode(unit) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const learning = !lesson.recap && study.mode !== "practice";
+  byId("learn-panel").hidden = !learning;
+  byId("practice-panel").hidden = learning;
+  byId("learn-tab").hidden = Boolean(lesson.recap);
+  byId("learn-tab").setAttribute("aria-pressed",String(learning));
+  byId("practice-tab").setAttribute("aria-pressed",String(!learning));
+  byId("learn-tab").onclick = () => openMode(unit,"learn");
+  byId("practice-tab").onclick = () => openMode(unit,"practice");
+  byId("go-practice").onclick = () => openMode(unit,"practice");
+  if (learning) showLearning(lesson,study);
+  else showExercise(unit,lesson,study);
+}
+
+function normalizeConfiguration(value) {
+  const superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+  let remaining = value.trim().toLowerCase()
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, digit => String(superscript.indexOf(digit)))
+    .replace(/[\s^,]+/g,"");
+  const noble = remaining.match(/^\[(he|ne|ar|kr)\]/)?.[0] || "";
+  remaining = remaining.slice(noble.length);
+  const tokens = [];
+  const seen = new Set();
+  while (remaining) {
+    const token = remaining.match(/^([1-7][spdf])(10|11|12|13|14|[1-9])(?=[1-7][spdf]|$)/);
+    if (!token || seen.has(token[1])) return null;
+    seen.add(token[1]);
+    tokens.push(token[0]);
+    remaining = remaining.slice(token[0].length);
+  }
+  if (!tokens.length && !noble) return null;
+  return noble + tokens.sort().join(" ");
+}
+
+function matchesNumber(value, expected, tolerance = 1e-7) {
+  const input = value.trim().replace(/\u2212/g,"-");
+  const candidates = [];
+  if (/^[+-]?\d+(?:[.,]\d+)?$/.test(input)) candidates.push(Number(input.replace(",",".")));
+  if (/^[+-]?\d{1,3}(?:[.\u00a0 ]\d{3})+(?:,\d+)?$/.test(input)) {
+    candidates.push(Number(input.replace(/[.\u00a0 ]/g,"").replace(",",".")));
+  }
+  return candidates.some(candidate => Math.abs(candidate - expected) < tolerance);
+}
+function fieldWidget(specification) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = specification.label;
+  let control;
+  if (specification.kind === "pick") {
+    control = document.createElement("select");
+    const blank = new Option("Selecciona…","");
+    blank.disabled = true;
+    control.add(blank);
+    specification.options.forEach((option,index) => control.add(new Option(option,index)));
+    control.value = "";
+  } else {
+    control = document.createElement("input");
+    control.type = "text";
+    control.inputMode = specification.kind === "number" ? "decimal" : "text";
+    control.autocomplete = "off";
+    control.spellcheck = false;
+    if (specification.kind === "config") control.placeholder = "Ejemplo: 1s2 2s1";
+  }
+  wrapper.append(name,control);
+  control.addEventListener("input",() => {
+    control.removeAttribute("aria-invalid");
+    delete control.dataset.checked;
+  });
+  function check() {
+    let correct;
+    if (specification.kind === "pick") correct = control.value === String(specification.answer);
+    else if (specification.kind === "number") correct = matchesNumber(control.value,specification.answer,specification.tolerance);
+    else correct = normalizeConfiguration(control.value) === normalizeConfiguration(specification.answer);
+    control.setAttribute("aria-invalid",String(!correct));
+    control.dataset.checked = String(correct);
+    return correct;
+  }
+  return {wrapper,control,check};
+}
+function fieldGroup(parent, fields, draft) {
+  const container = document.createElement("div");
+  container.className = "exercise-fields";
+  const widgets = fields.map((field,index) => {
+    const widget = fieldWidget(field);
+    if (draft[index] !== undefined) widget.control.value = draft[index];
+    const remember = () => { draft[index] = widget.control.value; queueSave(); };
+    widget.control.addEventListener("input",remember);
+    widget.control.addEventListener("change",remember);
+    return widget;
+  });
+  container.append(...widgets.map(widget => widget.wrapper));
+  parent.append(container);
+  return widgets;
+}
+function checkFields(widgets) {
+  const passed = widgets.map(widget => widget.check()).filter(Boolean).length;
+  return {passed,total:widgets.length};
+}
+
+function showExercise(unit,lesson,study) {
+  const exerciseIndex = bounded(study.exercise,lesson.exercises.length);
+  const exercise = lesson.exercises[exerciseIndex];
+  const caseIndex = bounded(study.cases[exercise.id],exercise.cases.length);
+  const task = exercise.cases[caseIndex];
+  const multiple = exercise.cases.length > 1;
+  text("exercise-position","Ejercicio " + (exerciseIndex + 1) + " de " + lesson.exercises.length);
+  text("exercise-title",exercise.title);
+  text("exercise-prompt",exercise.prompt);
+  byId("reading").hidden = !exercise.excerpt;
+  byId("reading").open = Boolean(exercise.excerpt);
+  textBlock("excerpt",exercise.excerpt);
+  renderExerciseTable(exercise.table);
+  text("check",task.kind === "written" ? "Comparar mi respuesta" : "Corregir");
+  text("reference-text",exercise.reference);
+  byId("reference").hidden = !exercise.reference;
+  byId("reference").open = false;
+  byId("case-nav").hidden = !multiple;
+  text("case-count","Caso " + (caseIndex + 1) + " de " + exercise.cases.length);
+  text("case-label",task.label);
+  list("solution-steps",task.pasosSolucion,"li");
+  text("solution-result-label",task.kind === "written" ? "Respuesta modelo" : "Respuesta");
+  const item = task.fields[0];
+  const truth = task.fields.length === 1 && item.options?.join("|") === "Verdadero|Falso";
+  const answer = task.why.replace(/\bElige una respuesta:\s*/g,"");
+  text("solution-text",truth ? item.options[item.answer] + ". " + answer : answer);
+  byId("solution").open = false;
+  const inputs = byId("exercise-inputs");
+  inputs.replaceChildren();
+  setFeedback(caseSolved(exercise,caseIndex) ? "Ya resolviste este caso. Puedes volver a intentarlo." : "");
+  const key = exercise.id + ":" + caseIndex;
+  if (!Array.isArray(state.drafts[key])) state.drafts[key] = [];
+  const draft = state.drafts[key];
+  let check;
+  if (task.kind === "written") check = writtenBuilder(inputs,task,draft);
+  else if (task.kind === "order") check = orderBuilder(inputs,task,draft);
+  else if (task.kind === "boxBuild" || task.kind === "pointBuild") check = graphBuilder(inputs,task,draft);
+  else if (task.kind === "circuit") check = circuitBuilder(inputs,task,draft);
+  else if (task.kind === "orbital" || task.kind === "lewis") check = electronBuilder(inputs,task,draft);
+  else {
+    if (task.diagram) {
+      const panel = document.createElement("div");
+      panel.className = "builder";
+      inputs.append(panel);
+      boxPlot(panel,task.diagram);
+    }
+    const widgets = fieldGroup(inputs,task.fields,draft);
+    check = () => checkFields(widgets);
+  }
+
+  function moveCase(index) {
+    study.cases[exercise.id] = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("case-label");
+  }
+  function moveExercise(index) {
+    study.exercise = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("exercise-title");
+  }
+  const previousCase = byId("previous-case");
+  const nextCase = byId("next-case");
+  previousCase.disabled = caseIndex === 0;
+  nextCase.disabled = caseIndex === exercise.cases.length - 1;
+  previousCase.onclick = () => moveCase(caseIndex - 1);
+  nextCase.onclick = () => moveCase(caseIndex + 1);
+  const nextCaseAction = byId("next-case-action");
+  nextCaseAction.hidden = true;
+  const previousExercise = byId("previous-exercise");
+  const nextExercise = byId("next-exercise");
+  previousExercise.disabled = exerciseIndex === 0;
+  nextExercise.disabled = exerciseIndex === lesson.exercises.length - 1;
+  previousExercise.onclick = () => moveExercise(exerciseIndex - 1);
+  nextExercise.onclick = () => moveExercise(exerciseIndex + 1);
+  function updateAction() {
+    const caseDone = caseSolved(exercise,caseIndex);
+    let following;
+    if (caseDone && !nextCase.disabled) following = ["Siguiente caso ›",nextCase.onclick];
+    else if (caseDone) {
+      const unfinishedCase = exercise.cases.findIndex((_,index)=>!caseSolved(exercise,index));
+      const unfinishedExercise = lesson.exercises.findIndex(item=>!exerciseSolved(item));
+      if (unfinishedCase >= 0) following = ["Ir al caso pendiente ›",()=>moveCase(unfinishedCase)];
+      else if (!nextExercise.disabled) following = ["Siguiente ejercicio ›",nextExercise.onclick];
+      else if (unfinishedExercise >= 0) following = ["Ir al ejercicio pendiente ›",()=>moveExercise(unfinishedExercise)];
+      else if (position(unit) < unit.lessons.length-1) {
+        const nextTitle=unit.lessons[position(unit)+1].recap?"Ir a autoevaluación ›":"Siguiente tema ›";
+        following = [nextTitle,()=>navigate(unit,position(unit)+1)];
+      }
+    }
+    nextCaseAction.hidden = !following;
+    byId("check").classList.toggle("next",!caseDone);
+    if (following) {
+      nextCaseAction.textContent=following[0];
+      nextCaseAction.onclick=following[1];
+    }
+  }
+  updateAction();
+  renderBookmark();
+  byId("hint").onclick = () => setFeedback("Pista. " + task.hint,true);
+  checkAnswer = () => {
+    const {passed,total,message} = check();
+    if (message) {setFeedback(message,true);return;}
+    if (passed === total) {
+      state.solved[exercise.id + ":" + caseIndex] = true;
+      save();
+      renderProgress(unit);
+      setFeedback(task.kind === "written" ? "Respuesta revisada. Puedes avanzar." : "Correcto. Puedes revisar el razonamiento en la solución explicada.");
+      updateAction();
+    } else {
+      const count = total > 1 ? passed + " de " + total + " partes correctas. " : "Revisa tu respuesta. ";
+      setFeedback(count + task.hint,true);
+    }
+  };
+}
+function setFeedback(message, hint = false) {
+  const feedback = byId("exercise-feedback");
+  feedback.classList.toggle("retry",hint);
+  feedback.textContent = message;
+}
+byId("exercise-form").addEventListener("submit",event => {
+  event.preventDefault();
+  checkAnswer();
+});
+
+
+function textBlock(id, content) {
+  const item = byId(id);
+  item.hidden = !content;
+  item.textContent = content || "";
+}
+function renderExerciseTable(rows) {
+  const area = byId("data-table");
+  area.hidden = !rows;
+  area.replaceChildren();
+  if (!rows) return;
+  const table = document.createElement("table");
+  const header = table.createTHead().insertRow();
+  rows[0].forEach(value => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = value;
+    header.append(th);
+  });
+  const body = table.createTBody();
+  rows.slice(1).forEach(values => {
+    const row = body.insertRow();
+    values.forEach(value => { row.insertCell().textContent = value; });
+  });
+  area.append(table);
+}
+function writtenBuilder(parent,task,draft) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = "Tu respuesta";
+  const response = document.createElement("textarea");
+  response.rows = 4;
+  response.value = draft[0] || "";
+  response.addEventListener("input",() => { draft[0] = response.value; queueSave(); });
+  wrapper.append(name,response);
+
+  const rubric = document.createElement("label");
+  rubric.className = "rubric";
+  rubric.hidden = true;
+  const reviewed = document.createElement("input");
+  reviewed.type = "checkbox";
+  rubric.append(reviewed,document.createTextNode(task.rubric));
+  parent.append(wrapper,rubric);
+  return () => {
+    if (!response.value.trim()) {
+      response.focus();
+      return {message:"Escribe tu respuesta y luego compárala con la pauta."};
+    }
+    if (rubric.hidden) {
+      byId("solution").open = true;
+      text("check","Marcar como revisada");
+      rubric.hidden = false;
+      return {message:"Compara tu texto con el modelo y revisa el criterio. Puedes corregir tu respuesta antes de marcarla."};
+    }
+    if (!reviewed.checked) return {message:"Marca el criterio cuando tu respuesta lo cumpla."};
+    return {passed:1,total:1};
+  };
+}
+
+function orderBuilder(parent,task,draft) {
+  const options = document.createElement("div");
+  options.className = "controls";
+  options.setAttribute("aria-label","Elementos para ordenar");
+  const sequence = document.createElement("ol");
+  sequence.className = "sequence";
+  sequence.setAttribute("aria-live","polite");
+  const undo = button("Quitar el último","nav-button");
+  undo.onclick = () => {draft.pop();draw();queueSave();};
+  const controls = task.items.map((value,index)=>{
+    const item=button(value,"pill");
+    item.onclick=()=>{draft.push(index);draw();queueSave();};
+    options.append(item);
+    return item;
+  });
+  parent.append(options,sequence,undo);
+  draw();
+  function draw(){
+    controls.forEach((item,index)=>{
+      item.disabled=draft.includes(index);
+      item.setAttribute("aria-pressed",String(item.disabled));
+    });
+    sequence.replaceChildren(...draft.map(index=>{
+      const li=document.createElement("li");
+      li.textContent=task.items[index];
+      return li;
+    }));
+    undo.disabled=!draft.length;
+  }
+  return () => ({
+    passed:task.answer.filter((item,index)=>draft[index]===item).length,
+    total:task.answer.length
+  });
+}
+
+function sketch(target, description, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role","img");
+  canvas.setAttribute("aria-label",description);
+  target.replaceChildren(canvas);
+  const ctx=canvas.getContext("2d");
+  ctx.scale(2,2);
+  ctx.fillStyle="#f9fcf7";
+  ctx.fillRect(0,0,570,195);
+  ctx.lineCap="round";
+  ctx.lineJoin="round";
+  draw(ctx);
+}
+function boxPlot(target, values, selected = -1) {
+  const titles=["Mínimo","C₁","C₂","C₃","Máximo"];
+  const colors={axis:"#638278",box:"#dbeadb",bold:"#25624e"};
+  const range=Math.max(1,values[4]-values[0]);
+  const x=value=>80+(value-values[0])/range*410;
+  const [min,l,m,r,max]=values.map(x);
+  sketch(target,"Diagrama con "+titles.map((item,i)=>item+" "+values[i]).join(", "),ctx=>{
+    line(ctx,[[65,146],[505,146]],colors.axis,1.5);
+    line(ctx,[[min,94],[max,94]],colors.bold,3);
+    ctx.fillStyle=colors.box;
+    ctx.fillRect(l,70,r-l,48);
+    ctx.strokeStyle=colors.bold;
+    ctx.lineWidth=2;
+    ctx.strokeRect(l,70,r-l,48);
+    for (const [at,top,bottom] of [[min,84,104],[m,70,118],[max,84,104]]) line(ctx,[[at,top],[at,bottom]],colors.bold,3);
+    const used=new Set();
+    values.forEach((value,index)=>{
+      const at=x(value);
+      if (!used.has(value)) {
+        label(ctx,String(value),at,171);
+        dot(ctx,at,146,value===values[selected]?5:3,colors.bold);
+        used.add(value);
+      }
+      if(index===selected) label(ctx,titles[index],at,48,colors.bold);
+    });
+  });
+}
+function pointGrid(target, base, image = [], description = "Plano cartesiano") {
+  const xMax=Math.max(5,...[...base,...image].map(([x])=>Math.abs(x)));
+  const yMax=Math.max(5,...[...base,...image].map(([,y])=>Math.abs(y)));
+  const size= Math.min(16,78/yMax,208/xMax);
+  const screen=([x,y])=>[285 + x * size,97 - y * size];
+  const left=Math.floor(Math.min(225/size,16));
+  const top=Math.floor(79/size);
+  sketch(target,description,ctx=>{
+    for (let i=-left;i<=left;i++) line(ctx,[screen([i,-top]),screen([i,top])],"#e0eadf",1);
+    for (let i=-top;i<=top;i++) line(ctx,[screen([-left,i]),screen([left,i])],"#e0eadf",1);
+    line(ctx,[screen([-left,0]),screen([left,0])],"#729385",1.5);
+    line(ctx,[screen([0,-top]),screen([0,top])],"#729385",1.5);
+    const arrow=screen([left,0]);
+    label(ctx,"x",Math.min(552,arrow[0]+13),arrow[1]);
+    label(ctx,"y",285,8);
+    const orig=base.map(screen);
+    const moved=image.map(screen);
+    if(moved.length) ctx.setLineDash([4,5]);
+    line(ctx,[...orig,orig[0]],moved.length?"#789186":"#24634e",2.8);
+    ctx.setLineDash([]);
+    orig.forEach(([x,y],index)=>{
+      dot(ctx,x,y,3.5,"#4b766a");
+      label(ctx,"ABC"[index],x+(index===1?12:-11),Math.max(9,y-9));
+    });
+    if (moved.length) {
+      line(ctx,moved.length===3?[...moved,moved[0]]:moved,"#247159",3);
+      moved.forEach(([x,y],index)=>{
+        dot(ctx,x,y,4,"#247159");
+        label(ctx,"ABC"[index]+"′",x+(index===1?12:-11),Math.max(9,y-9));
+      });
+    }
+  });
+}
+function graphBuilder(parent,task,draft) {
+  const panel=document.createElement("div");
+  panel.className="builder";
+  parent.append(panel);
+  const widgets=fieldGroup(parent,task.fields,draft);
+  const isBox=task.kind==="boxBuild";
+  const graphFields=widgets.slice(0,isBox?5:6);
+  graphFields.forEach(({control})=>control.addEventListener("input",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const values=graphFields.map(({control})=>{
+      const value=control.value.trim().replace(/\u2212/g,"-").replace(",",".");
+      return /^[+-]?\d+(?:\.\d+)?$/.test(value)?Number(value):null;
+    });
+    if (isBox) {
+      if (values.every((item,i)=>item!==null && (i===0 || item>=values[i-1]))) boxPlot(panel,values);
+      else panel.textContent="Completa los cinco valores ordenados de menor a mayor para dibujar el cajón.";
+    } else {
+      const ready=values.every(value=>value!==null && Number.isInteger(value) && Math.abs(value)<=15);
+      const points=ready?[values.slice(0,2),values.slice(2,4),values.slice(4,6)]:[];
+      pointGrid(panel,task.points,points,points.length?"Triángulo original y figura con tus coordenadas":"Triángulo original");
+    }
+  }
+}
+function showMathVisual(visual) {
+  const board=byId("board");
+  const legend=byId("legend");
+  if(visual.kind==="mathBox") {
+    const values=[2,4,7,9,13];
+    switcher(["Mínimo","C₁","C₂","C₃","Máximo"],index=>{
+      boxPlot(board,values,index);
+      legend.textContent=["Mínimo: 2.","Primer cuartil: 4.","Mediana: 7.","Tercer cuartil: 9.","Máximo: 13."][index];
+    });
+  } else if(visual.kind==="isometry") {
+    const base=[[1,1],[4,1],[1,4]];
+    const labels=["Original","Traslación","Reflexión en Y","Rotación de 90°"];
+    const transforms=[null,([x,y])=>[x-3,y-3],([x,y])=>[-x,y],([x,y])=>[-y,x]];
+    const notes=["Figura original: A(1,1), B(4,1), C(1,4).","Tres unidades a la izquierda y tres hacia abajo.","Se conserva y, cambia el signo de x.","90° antihorarios alrededor del origen: (x,y) → (−y,x)."];
+    switcher(labels,index=>{
+      pointGrid(board,base,transforms[index]?base.map(transforms[index]):[],notes[index]);
+      legend.textContent=notes[index];
+    });
+  } else if(visual.kind==="pythagoras") {
+    const sides=[[[204,138],[364,138]],[[204,18],[204,138]],[[204,18],[364,138]]];
+    const names=["Cateto 4","Cateto 3","Hipotenusa 5"];
+    switcher(names,index=>{
+      const explanation=["4² = 16.","3² = 9.","5² = 25. Se cumple que 16 + 9 = 25."][index];
+      sketch(board,names[index]+". "+explanation,ctx=>{
+        sides.forEach((side,i)=>line(ctx,side,i===index?"#23845b":"#a5b9ad",i===index?6:3));
+        line(ctx,[[204,123],[219,123],[219,138]],"#56736a",2);
+        label(ctx,"4",284,160);
+        label(ctx,"3",188,80);
+        label(ctx,"5",299,65);
+      });
+      legend.textContent=explanation;
+    });
+  } else if(visual.kind==="cylinder") {
+    switcher(["Cilindro","Desarrollo plano"],mode=>{
+      sketch(board,mode?"Dos círculos y un rectángulo":"Cilindro de radio r y altura h",ctx=>{
+        const ellipse=(x,y,rx,ry)=>{
+          ctx.beginPath();
+          ctx.strokeStyle="#436a5d";
+          ctx.lineWidth=2;
+          ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
+          ctx.fillStyle="#e3efe1";ctx.fill();ctx.stroke();
+        };
+        if(mode) {
+          ellipse(165,63,37,37);ellipse(165,145,37,37);
+          ctx.fillStyle="#e3efe1";ctx.fillRect(222,53,193,91);
+          ctx.strokeStyle="#436a5d";ctx.strokeRect(222,53,193,91);
+          label(ctx,"2πr",318,163);label(ctx,"h",438,99);
+        } else {
+          ellipse(280,143,65,23);
+          ctx.fillStyle="#dfebdf";ctx.fillRect(215,53,130,90);
+          line(ctx,[[215,53],[215,143]],"#436a5d",2);
+          line(ctx,[[345,53],[345,143]],"#436a5d",2);
+          ellipse(280,53,65,23);
+          line(ctx,[[280,53],[345,53]],"#436a5d",2);label(ctx,"r",314,42);
+          label(ctx,"h",367,100);
+        }
+      });
+      legend.textContent=mode?"El largo del rectángulo coincide con 2πr. El ancho es h.":"Hay dos bases circulares iguales. r es el radio y h, la altura.";
+    });
+  }
+}
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = activeLesson(unit);
+  text("unit-type",unit.unit);
+  text("unit-title",unit.title);
+  text("unit-description",unit.description);
+  text("lesson-count",lesson.recap ? "Autoevaluación de la unidad" : "Tema " + (index + 1) + " de " + (unit.lessons.length - 1));
+  text("lesson-title",lesson.title);
+  text("lesson-goal",lesson.goal);
+  renderProgress(unit);
+  renderMode(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0;
+  previous.textContent = "‹ Tema anterior";
+  previous.onclick = () => navigate(unit,index-1);
+  const last = index === unit.lessons.length - 1;
+  next.disabled = last;
+  next.textContent = last ? "Último tema" : (unit.lessons[index + 1].recap ? "Ir a autoevaluación ›" : "Siguiente tema ›");
+  next.onclick = () => {if (!last) navigate(unit,index+1);};
+}
+
+toggleFocus();
+render();
+</script>
+</body>
+</html>

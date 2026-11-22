@@ -1,0 +1,4389 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f4ee">
+<title>Ciencias Naturales · Cuadernillo de Emilio</title>
+<style>
+:root{color-scheme:light;--paper:#f5f4ee;--white:#fff;--ink:#192c2a;--muted:#47615b;--line:#d9e0d8;--deep:#123d35;--mint:#dcece0;--accent:#25624e;--wash:#eaf2e9;--amber:#75511a;--amber-bg:#fff0d8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-80px;z-index:2;background:#fff;color:var(--deep);padding:10px}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:#fcfbf6}
+.top{max-width:1170px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--deep);color:#dcece0;font-weight:800}
+.brand strong,.brand small{display:block;line-height:1.25}
+.brand small{color:var(--muted);font-size:.78rem;margin-top:4px}
+.plain,.pill,.nav-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px}
+.plain[aria-pressed=true],.pill[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+main{max-width:1170px;margin:auto;padding:22px 24px 44px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:end;gap:22px;background:var(--deep);color:#fff;padding:24px 28px;border-radius:19px}
+.hero::after{content:"";position:absolute;width:310px;height:310px;right:-95px;top:-151px;border:1px solid #ffffff32;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 59px #ffffff07;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.kicker{color:#d3e9d8;font-size:.78rem;font-weight:700;letter-spacing:.045em}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.13;margin:5px 0 8px;letter-spacing:-.035em}
+.hero p{color:#e3eee7}
+.track{width:205px;flex:none}
+.track label{display:block;font-size:.8rem;color:#e3eee7;margin-bottom:4px}
+progress{display:block;width:100%;height:9px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#ffffff2e}
+progress::-webkit-progress-bar{background:#ffffff2e}
+progress::-webkit-progress-value{background:#b6e6a5}
+progress::-moz-progress-bar{background:#b6e6a5}
+.grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+aside,.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+aside{padding:15px}
+aside h2{font-size:.95rem;margin:0 0 8px}
+.units,.items{display:grid;gap:6px}
+.units{margin-bottom:17px}
+.unit,.item{width:100%;text-align:left;border:1px solid transparent;background:#fff;border-radius:9px;color:var(--ink);padding:8px 9px}
+.unit{border-color:var(--line);font-size:.88rem}
+.unit strong,.unit span{display:block}
+.unit span{color:var(--muted);font-size:.78rem}
+.unit[aria-current=true],.item[aria-current=true]{background:var(--wash);border-color:#a5c4af;color:var(--deep)}
+.item{display:grid;grid-template-columns:24px 1fr;gap:7px;font-size:.86rem;line-height:1.32;align-items:start}
+.item:hover,.unit:hover,.plain:hover,.pill:hover,.nav-button:hover{filter:brightness(.97)}
+.index{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:700;background:#edf0ec;color:var(--deep);font-size:.75rem}
+.item.done .index{background:#cde9c8}
+.card{padding:clamp(15px,3vw,25px);min-width:0}
+.lesson-count{color:var(--accent);font-weight:700;font-size:.8rem}
+h2#lesson-title{font-size:clamp(1.35rem,3.5vw,1.88rem);line-height:1.2;letter-spacing:-.025em;margin:4px 0 5px}
+.intro{color:var(--muted)}
+.explore{margin-top:14px;padding:13px;border:1px solid #dce7dc;background:#f3f7f2;border-radius:13px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls button{padding:6px 9px;font-size:.83rem}
+.board{display:grid;min-height:106px;place-items:center;margin:9px 0 3px}
+.board canvas{display:block;width:min(100%,570px);height:auto;border-radius:10px}
+.scene{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:9px 0}
+.tile{display:grid;place-items:center;max-width:100%;min-height:53px;padding:8px 13px;text-align:center;background:#fff;border:1px solid #d0ddd2;border-radius:10px;font-weight:700;overflow-wrap:anywhere}
+.tile:nth-child(2n){background:#e2eee4}
+.legend{font-size:.89rem;color:var(--muted);text-align:center;max-width:62ch;margin:auto}
+.range-box{width:min(100%,430px);padding:10px 0}
+.range-box label{display:flex;justify-content:space-between;font-weight:650}
+.range-box input{display:block;width:100%;accent-color:var(--accent)}
+.reading{font-weight:700;text-align:center;margin-top:7px;color:var(--deep)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+summary{font-weight:700;cursor:pointer}
+.feedback{font-size:.9rem;font-weight:650;margin-top:7px;color:var(--accent)}
+.feedback:empty{display:none}
+.feedback.retry{color:var(--amber)}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.next{background:var(--deep);color:#fff;border-color:var(--deep)}
+.nav-button:disabled{opacity:.53;cursor:default}
+.focus-mode aside{display:none}
+.focus-mode .grid{grid-template-columns:minmax(0,1fr);max-width:740px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){
+  .top,main{padding-left:13px;padding-right:13px}
+  main{padding-top:14px}.hero{align-items:stretch;flex-direction:column;padding:18px;gap:12px}
+  .track{width:min(100%,210px)}.grid{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}.card{order:1}
+}
+@media print{header,aside,.controls,.navigation{display:none!important}.hero{background:#fff;color:#000;border:1px solid #999}.hero p,.kicker,.track label{color:#333}.grid{display:block}.hero::after{display:none}.card{margin-top:12px;break-inside:avoid}}
+
+.mode-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 12px}
+.mode-tab{min-height:45px;border:1px solid #c9d9ce;background:#f6f9f5;color:var(--deep);font-weight:700;border-radius:10px;padding:8px}
+.mode-tab[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.eyebrow{color:var(--accent);font-size:.8rem;font-weight:750;margin-bottom:3px}
+.guided{background:#f0f6ee;border:1px solid #d7e4d5;border-radius:13px;padding:clamp(12px,2.3vw,20px)}
+.guided h3,.worked h3,.exercise h3{font-size:clamp(1.13rem,2.2vw,1.35rem);line-height:1.25;margin-bottom:8px}
+.teaching{max-width:70ch}.teaching p+p{margin-top:9px}
+.guided .scene{justify-content:flex-start;padding-bottom:0}
+.guided .tile{min-height:auto;padding:6px 10px;font-size:.91rem}
+.step-navigation{margin-top:12px}.step-navigation button{font-size:.88rem}
+.explorer,.worked{margin-top:12px}
+.explorer .intro{margin-top:8px}
+.worked{padding:clamp(12px,2.3vw,20px);border-radius:13px;background:#fbf8ef;border:1px solid #e9dfc7}
+.worked ol{margin:8px 0;padding-left:24px}
+.worked li{margin:3px 0}
+.worked-result{font-weight:700;color:#514021;margin-top:7px}
+.practice-cta{margin-top:12px}
+.exercise{background:#f7faf6;border:1px solid #dbe6db;border-radius:13px;padding:clamp(12px,2.3vw,19px)}
+.exercise-prompt{max-width:70ch;margin-bottom:10px}
+.reference{background:#fff;margin:10px 0}
+.reference p,.solution p{margin-top:6px}
+.case-nav{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:8px;text-align:center;padding:8px 0;margin:8px 0;border-block:1px solid var(--line)}
+.case-nav>div{line-height:1.35}
+.case-nav span{display:block;font-size:.8rem;color:var(--muted)}
+.case-nav button{padding:4px 0}
+.exercise-fields{display:grid;gap:8px;margin:9px 0}
+.field{display:grid;gap:4px;font-size:.94rem;font-weight:650}
+.field input,.field select{min-width:0;width:100%;max-width:560px;min-height:42px;background:#fff;border:1px solid #adc2b3;color:var(--ink);border-radius:8px;padding:7px 9px;font:inherit;font-weight:500}
+.field [aria-invalid=true]{border-color:#a66b2d;background:#fff5e8}
+.field [data-checked=true]{border-color:#7aab7d;background:#f2f8ef}
+.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.solution{background:#fff;margin-top:10px}
+.chapter-nav{border-top:1px solid var(--line);padding-top:12px}
+.chapter-nav .nav-button,.exercise-nav .nav-button{font-size:.9rem}
+.builder{background:white;border:1px solid #dce7da;border-radius:11px;padding:9px;margin:7px 0 10px}
+.builder canvas{display:block;width:min(100%,570px);height:auto;margin:auto}
+.orbital-row{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:8px;margin:6px 0}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots button{width:45px;height:42px;padding:0;color:#153e35;background:#f0f6ef;font-size:1.1rem}
+.builder-count{font-size:.88rem;color:var(--muted);margin-top:7px}
+.lewis{display:grid;grid-template:43px 43px 43px / 46px 46px 46px;justify-content:center;align-items:stretch;gap:5px}
+.lewis button{padding:0;font-size:1.2rem;font-weight:800;line-height:1}
+.lewis strong{display:grid;place-items:center;font-size:1.4rem;color:var(--deep)}
+.lewis>:nth-child(1){grid-area:1/2}.lewis>:nth-child(2){grid-area:2/3}.lewis>:nth-child(3){grid-area:3/2}.lewis>:nth-child(4){grid-area:2/1}.lewis strong{grid-area:2/2}
+@media (max-width:450px){
+  .mode-tab{font-size:.84rem}
+  .step-navigation button,.chapter-nav .nav-button,.exercise-nav .nav-button{padding:7px 8px;font-size:.8rem}
+  .guided .tile{font-size:.82rem}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#lesson-title">Ir al bloque</a>
+<header><div class="top">
+<div class="brand"><span class="mark" aria-hidden="true">E</span><div><strong>Ciencias Naturales</strong><small>Cuadernillo de Emilio · Síntesis 2S 2026</small></div></div>
+<button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div></header>
+<main>
+<section class="hero" aria-labelledby="unit-title">
+<div><div class="kicker" id="unit-type"></div><h1 id="unit-title"></h1><p id="unit-description"></p></div>
+<div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+</section>
+<div class="grid">
+<aside><h2>Unidades</h2><nav class="units" id="units" aria-label="Unidades del ramo"></nav><h2>Temas</h2><nav class="items" id="lesson-list" aria-label="Temas de esta unidad"></nav></aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div>
+<h2 id="lesson-title" tabindex="-1"></h2>
+<p class="intro" id="lesson-goal"></p>
+<nav class="mode-tabs" aria-label="Forma de estudiar">
+  <button class="mode-tab" id="learn-tab" type="button" aria-controls="learn-panel">1. Aprende paso a paso</button>
+  <button class="mode-tab" id="practice-tab" type="button" aria-controls="practice-panel">2. Practica</button>
+</nav>
+<section id="learn-panel" aria-labelledby="learn-tab">
+  <div class="guided">
+    <div class="eyebrow" id="step-count"></div>
+    <h3 id="step-title" tabindex="-1"></h3>
+    <div id="step-text" class="teaching"></div>
+    <div id="step-flow" class="scene"></div>
+    <div class="navigation step-navigation">
+      <button class="nav-button" type="button" id="previous-step">‹ Paso anterior</button>
+      <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
+    </div>
+  </div>
+  <details class="explorer" id="visual-details">
+    <summary id="visual-summary">Explora el modelo visual</summary>
+    <p class="intro" id="visual-intro"></p>
+    <div class="explore" aria-label="Exploración visual">
+      <div class="controls" id="controls"></div>
+      <div class="board" id="board"></div>
+      <p class="legend" id="legend" aria-live="polite"></p>
+    </div>
+  </details>
+  <section class="worked" id="worked">
+    <h3 id="worked-title">Ejemplo resuelto</h3>
+    <p id="worked-prompt"></p>
+    <ol id="worked-steps"></ol>
+    <p class="worked-result" id="worked-result"></p>
+  </section>
+  <button class="nav-button next practice-cta" type="button" id="go-practice">Ir a la práctica ›</button>
+</section>
+<section id="practice-panel" aria-labelledby="practice-tab" hidden>
+  <div class="exercise">
+    <div class="eyebrow" id="exercise-position"></div>
+    <h3 id="exercise-title" tabindex="-1"></h3>
+    <p id="exercise-prompt" class="exercise-prompt"></p>
+    <details id="reference" class="reference" hidden><summary>Tabla o regla de apoyo</summary><p id="reference-text"></p></details>
+    <div class="case-nav" id="case-nav" hidden>
+      <button class="nav-button" id="previous-case" type="button" aria-label="Caso anterior">‹</button>
+      <div><span id="case-count"></span><strong id="case-label" tabindex="-1"></strong></div>
+      <button class="nav-button" id="next-case" type="button" aria-label="Caso siguiente">›</button>
+    </div>
+    <form id="exercise-form" novalidate>
+      <div id="exercise-inputs"></div>
+      <div class="actions">
+        <button class="nav-button next" type="submit" id="check">Corregir</button>
+        <button class="nav-button" type="button" id="hint">Ver pista</button>
+        <button class="nav-button" type="button" id="next-case-action" hidden>Siguiente caso ›</button>
+      </div>
+    </form>
+    <p class="feedback" id="exercise-feedback" role="status"></p>
+    <details class="solution" id="solution"><summary>Ver solución explicada</summary><p id="solution-text"></p></details>
+  </div>
+  <div class="navigation exercise-nav">
+    <button class="nav-button" id="previous-exercise" type="button">‹ Ejercicio anterior</button>
+    <button class="nav-button next" id="next-exercise" type="button">Siguiente ejercicio ›</button>
+  </div>
+</section>
+<div class="navigation chapter-nav">
+  <button class="nav-button" id="previous" type="button">‹ Tema anterior</button>
+  <button class="nav-button" id="next" type="button">Siguiente tema ›</button>
+</div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "c3",
+    "title": "Electricidad y calor",
+    "unit": "Unidad 3",
+    "description": "Comprende los circuitos y qué ocurre cuando la materia gana o pierde calor.",
+    "lessons": [
+      {
+        "title": "Circuitos en serie y en paralelo",
+        "goal": "Identificar los componentes, seguir el camino de la corriente y distinguir serie de paralelo.",
+        "steps": [
+          {
+            "title": "1. Para que algo se encienda",
+            "text": [
+              "Imagina una linterna. La pila tiene dos extremos marcados + y −, llamados polos. Entre ellos hay una diferencia eléctrica que llamamos voltaje. Esa diferencia puede impulsar el movimiento de cargas, como una diferencia de altura puede hacer que el agua se mueva.",
+              "En el metal hay electrones que se pueden mover. Cuando existe un camino completo entre los polos, su movimiento ordenado produce corriente y enciende la ampolleta. Si abres el interruptor, sus contactos se separan y la corriente se detiene."
+            ],
+            "flow": [
+              "Pila",
+              "→ cable →",
+              "Ampolleta",
+              "→ vuelve a la pila"
+            ]
+          },
+          {
+            "title": "2. Leer los símbolos del dibujo",
+            "text": [
+              "La pila se dibuja como dos rayas, la larga es el polo positivo. Una línea representa un cable. Un círculo con una X representa una ampolleta.",
+              "El interruptor se dibuja como una palanca entre dos contactos. Si los toca, está cerrado. Una resistencia se representa con un zigzag o rectángulo y dificulta el paso de corriente."
+            ],
+            "flow": [
+              "Pila · + y −",
+              "Ampolleta · ⊗",
+              "Resistencia · R"
+            ]
+          },
+          {
+            "title": "3. Distinguir serie y paralelo",
+            "text": [
+              "En serie, la corriente dispone de un solo camino. Pasa por la primera ampolleta y después por la segunda. Si se corta el camino en cualquier punto, las dos se apagan.",
+              "En paralelo, los caminos se separan en ramas y se vuelven a unir. Si se abre una rama, las otras pueden seguir funcionando porque aún conectan ambos polos."
+            ],
+            "flow": [
+              "Serie · 1 camino",
+              "Paralelo · varias ramas"
+            ]
+          },
+          {
+            "title": "4. Leer el sentido de la corriente",
+            "text": [
+              "Para dibujar la corriente convencional en el circuito exterior, sigue el camino desde el polo + hacia el −.",
+              "En un cable metálico, los electrones tienen carga negativa y se mueven en sentido contrario. Sus flechas van del polo − hacia el +."
+            ],
+            "flow": [
+              "Corriente convencional · + → −",
+              "Electrones · − → +"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una pila alimenta dos ampolletas conectadas en paralelo. La ampolleta de la rama A se quema. ¿Qué le pasa a la de la rama B?",
+          "steps": [
+            "Ubica la pila y sigue el camino que va desde uno de sus polos al otro.",
+            "Identifica que A y B están en caminos separados. El camino de A queda abierto.",
+            "Sigue el camino de B. Permanece cerrado entre los polos."
+          ],
+          "result": "La ampolleta B puede seguir encendida. Explora el circuito y abre el interruptor de la rama A para comprobarlo."
+        },
+        "exercises": [
+          {
+            "id": "u3-01",
+            "title": "Componentes del circuito",
+            "prompt": "Asocia cada componente con su función.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Pila",
+                    "kind": "pick",
+                    "options": [
+                      "Conduce entre dos puntos",
+                      "Mantiene la diferencia de potencial",
+                      "Entrega luz"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Cable",
+                    "kind": "pick",
+                    "options": [
+                      "Conduce entre dos puntos",
+                      "Abre o cierra el camino",
+                      "Entrega luz"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Interruptor",
+                    "kind": "pick",
+                    "options": [
+                      "Transforma energía en luz",
+                      "Mantiene el voltaje",
+                      "Abre o cierra el camino"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Ampolleta",
+                    "kind": "pick",
+                    "options": [
+                      "Transforma energía en luz y calor",
+                      "Cierra manualmente el camino",
+                      "Conduce de un punto a otro"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Busca qué pieza aporta energía, cuál transporta la corriente, cuál corta el camino y cuál se enciende.",
+                "why": "La pila sostiene la diferencia de potencial. Los cables conducen. El interruptor abre o cierra el camino. La ampolleta transforma parte de la energía eléctrica en luz y calor."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-02",
+            "title": "Arma un circuito en serie",
+            "prompt": "Construye un circuito con una pila, un interruptor cerrado y dos ampolletas. El dibujo se actualiza a medida que eliges piezas.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [],
+                "hint": "En serie hay un solo camino. Para que las dos ampolletas reciban corriente, el interruptor debe unir sus contactos.",
+                "why": "El esquema tiene un solo camino, una pila y un interruptor cerrado. Las dos ampolletas A y B están una después de la otra.",
+                "kind": "circuit",
+                "layout": "serie"
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-03",
+            "title": "Arma un circuito en paralelo",
+            "prompt": "Conecta tres resistencias R₁, R₂ y R₃ en ramas distintas a la misma pila.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [],
+                "hint": "Cada resistencia necesita su propia rama conectada a los mismos dos puntos de la fuente.",
+                "why": "Se usa una pila y una resistencia en cada rama. Las tres ramas se conectan a los mismos dos lados del circuito.",
+                "kind": "circuit",
+                "layout": "paralelo"
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-04",
+            "title": "Una ampolleta deja de funcionar",
+            "prompt": "Supón que se abre el camino justo donde estaba la ampolleta quemada.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "En serie, las demás…",
+                    "kind": "pick",
+                    "options": [
+                      "Se apagan",
+                      "Siguen encendidas"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "En paralelo, las otras ramas…",
+                    "kind": "pick",
+                    "options": [
+                      "Se apagan",
+                      "Pueden seguir encendidas"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "La diferencia se explica por…",
+                    "kind": "pick",
+                    "options": [
+                      "El color de los cables",
+                      "La cantidad de caminos completos",
+                      "La carga de los electrones"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Sigue el recorrido de cada ampolleta hasta ambos polos. ¿Queda algún camino completo?",
+                "why": "En serie se interrumpe el único recorrido. En paralelo, las otras ramas conservan un recorrido cerrado."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-05",
+            "title": "Dos sentidos para un circuito",
+            "prompt": "En un circuito metálico cerrado, elige la orientación de cada flecha.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Corriente convencional",
+                    "kind": "pick",
+                    "options": [
+                      "De − a +",
+                      "De + a −"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Electrones en los cables",
+                    "kind": "pick",
+                    "options": [
+                      "De − a +",
+                      "De + a −"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "La flecha convencional representa cómo se movería una carga positiva.",
+                "why": "Convencional de + a −. Los electrones, de carga negativa, se desplazan de − a + por el circuito exterior."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "circuit"
+        },
+        "intro": "Prueba qué ocurre cuando se abre el camino de una ampolleta."
+      },
+      {
+        "title": "Voltaje, corriente y resistencia",
+        "goal": "Entender qué miden V, I y R y calcular lo que pasa en circuitos simples.",
+        "steps": [
+          {
+            "title": "1. Tres preguntas distintas",
+            "text": [
+              "El voltaje (V) es la diferencia de energía por unidad de carga entre dos puntos. Piensa en él como la diferencia que impulsa el movimiento de las cargas.",
+              "La intensidad (I) indica cuánta carga pasa por un punto por segundo. La resistencia (R) indica cuánto se opone un componente a ese paso. Con la misma pila, más resistencia hace que pase menos corriente."
+            ],
+            "flow": [
+              "Voltaje · V",
+              "Intensidad · A",
+              "Resistencia · Ω"
+            ]
+          },
+          {
+            "title": "2. Medir y calcular",
+            "text": [
+              "El amperímetro va en serie para que lo atraviese la corriente que quieres medir. El voltímetro va en paralelo entre los dos extremos del elemento que quieres comparar. La resistencia se mide con un óhmetro.",
+              "Si conoces la carga Q en coulombs y el tiempo t en segundos, usa I = Q ÷ t. Si conoces el voltaje y la resistencia, usa la ley de Ohm: V = I × R, así que I = V ÷ R y R = V ÷ I."
+            ],
+            "flow": [
+              "Q ÷ t = I",
+              "V ÷ R = I",
+              "V ÷ I = R"
+            ]
+          },
+          {
+            "title": "3. Serie: suma resistencias",
+            "text": [
+              "En serie, las resistencias están una después de otra. Súmalas para obtener la resistencia equivalente. Usa el voltaje de la pila y esa resistencia para obtener la corriente total.",
+              "Por todas pasa la misma corriente. Para hallar el voltaje de cada resistencia, multiplica esa corriente por el valor de cada R. Al sumar los voltajes de las resistencias debe resultar el voltaje de la pila."
+            ],
+            "flow": [
+              "R₁ + R₂ = R equivalente",
+              "I igual en toda la ruta"
+            ]
+          },
+          {
+            "title": "4. Paralelo: mismas tensiones en las ramas",
+            "text": [
+              "En paralelo, todas las ramas están entre los mismos dos puntos, por eso tienen el mismo voltaje. Divide ese voltaje por la resistencia de cada rama para obtener su corriente. Las corrientes de las ramas se suman.",
+              "Para hallar la resistencia equivalente, suma 1/R₁ + 1/R₂ + … y dale la vuelta al resultado. También puedes calcularla como voltaje de la pila dividido por la corriente total. Queda por debajo de la menor resistencia de las ramas."
+            ],
+            "flow": [
+              "I total = I₁ + I₂",
+              "1/R equivalente = 1/R₁ + 1/R₂"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una pila de 12 V alimenta resistencias de 4 Ω y 12 Ω. Compara serie y paralelo.",
+          "steps": [
+            "Serie. Suma 4 + 12 = 16 Ω. Divide 12 ÷ 16 = 0,75 A. Multiplica 0,75 × 4 = 3 V y 0,75 × 12 = 9 V.",
+            "Paralelo. Cada rama tiene 12 V. En la primera pasan 12 ÷ 4 = 3 A y en la segunda 12 ÷ 12 = 1 A.",
+            "Suma 3 + 1 = 4 A. Divide 12 V ÷ 4 A para hallar 3 Ω de resistencia equivalente."
+          ],
+          "result": "En serie se reparten los 12 V. En paralelo cada rama recibe 12 V y la corriente total es la suma de las ramas."
+        },
+        "exercises": [
+          {
+            "id": "u3-06",
+            "title": "Instrumentos, unidades y conexión",
+            "prompt": "Completa las fichas de las tres magnitudes.",
+            "cases": [
+              {
+                "label": "Intensidad",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Conexión",
+                    "kind": "pick",
+                    "options": [
+                      "En paralelo",
+                      "En serie"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "El instrumento debe medir lo que pasa por el cable.",
+                "why": "La intensidad se mide en amperes con el amperímetro conectado en serie."
+              },
+              {
+                "label": "Voltaje",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Conexión",
+                    "kind": "pick",
+                    "options": [
+                      "En paralelo",
+                      "En serie"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Se comparan los dos extremos de un mismo elemento.",
+                "why": "El voltaje se mide en volts con el voltímetro conectado en paralelo al elemento."
+              },
+              {
+                "label": "Resistencia",
+                "fields": [
+                  {
+                    "label": "Unidad",
+                    "kind": "pick",
+                    "options": [
+                      "Volt (V)",
+                      "Ampere (A)",
+                      "Ohm (Ω)"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Instrumento",
+                    "kind": "pick",
+                    "options": [
+                      "Amperímetro",
+                      "Voltímetro",
+                      "Óhmetro"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Su símbolo es Ω.",
+                "why": "La resistencia se mide en ohms con un óhmetro."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-07",
+            "title": "Carga por segundo",
+            "prompt": "Por un conductor pasan 30 C de carga en 10 s.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Intensidad (A)",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "Divide la cantidad de carga por el tiempo.",
+                "why": "I = Q ÷ t = 30 C ÷ 10 s = 3 A."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-08",
+            "title": "Ley de Ohm",
+            "prompt": "Una ampolleta de 4 Ω está conectada a 12 V.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Intensidad (A)",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "Despeja I de V = I × R.",
+                "why": "I = 12 V ÷ 4 Ω = 3 A."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-09",
+            "title": "Duplicar la resistencia",
+            "prompt": "El voltaje se mantiene constante y la resistencia se duplica.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Se duplica la intensidad",
+                      "La intensidad queda igual",
+                      "La intensidad baja a la mitad"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "En I = V/R, la resistencia está en el denominador.",
+                "why": "Al duplicar el número por el que divides el mismo voltaje, obtienes la mitad de la intensidad."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-10",
+            "title": "Resistencias en serie",
+            "prompt": "Pila de 20 V. En serie se conectan R₁ = 2 Ω, R₂ = 3 Ω y R₃ = 5 Ω.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Resistencia equivalente (Ω)",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Intensidad total (A)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Voltaje en R₁ (V)",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Voltaje en R₂ (V)",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Voltaje en R₃ (V)",
+                    "kind": "number",
+                    "answer": 10
+                  }
+                ],
+                "hint": "Suma primero las resistencias. Con la corriente total ya calculada, usa V = I × R en cada una.",
+                "why": "R equivalente = 2 + 3 + 5 = 10 Ω. I = 20 ÷ 10 = 2 A. Los voltajes son 2 × 2 = 4 V, 2 × 3 = 6 V y 2 × 5 = 10 V. Suman 20 V."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-11",
+            "title": "Resistencias en paralelo",
+            "prompt": "Pila de 12 V. Las ramas tienen R₁ = 6 Ω y R₂ = 3 Ω.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Resistencia equivalente (Ω)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Intensidad total (A)",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Intensidad de la rama R₁ (A)",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Intensidad de la rama R₂ (A)",
+                    "kind": "number",
+                    "answer": 4
+                  }
+                ],
+                "hint": "Cada rama tiene 12 V. Puedes hallar las dos corrientes antes de obtener la resistencia equivalente.",
+                "why": "I₁ = 12 ÷ 6 = 2 A e I₂ = 12 ÷ 3 = 4 A. I total = 6 A. R equivalente = 12 ÷ 6 = 2 Ω."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "range"
+        },
+        "intro": "Mueve la resistencia con el voltaje fijo y observa qué ocurre con la corriente."
+      },
+      {
+        "title": "Calor, temperatura y equilibrio",
+        "goal": "Explicar la diferencia entre calor y temperatura y predecir hacia dónde se transfiere la energía.",
+        "steps": [
+          {
+            "title": "1. Imagina partículas en movimiento",
+            "text": [
+              "La materia está formada por partículas. En un sólido vibran alrededor de su posición. En líquidos y gases se pueden desplazar.",
+              "La temperatura indica qué tan intensa es, en promedio, su agitación. En el mismo material, mayor temperatura significa mayor energía cinética promedio de sus partículas. Se mide con un termómetro, en °C o K."
+            ],
+            "flow": [
+              "Menor temperatura · agitación más lenta",
+              "Mayor temperatura · agitación más rápida"
+            ]
+          },
+          {
+            "title": "2. El calor va del más caliente al más frío",
+            "text": [
+              "Cuando dos cuerpos tienen temperaturas distintas y pueden intercambiar energía, el más caliente entrega energía al más frío. A esa transferencia la llamamos calor. Se mide en joules o calorías.",
+              "La energía puede pasar por contacto (conducción), por el movimiento de líquidos o gases (convección) o mediante radiación, como la del Sol."
+            ],
+            "flow": [
+              "Cuerpo caliente",
+              "→ calor →",
+              "Cuerpo frío"
+            ]
+          },
+          {
+            "title": "3. Llegar al equilibrio térmico",
+            "text": [
+              "Con el tiempo, el cuerpo caliente baja su temperatura y el frío la sube. Cuando alcanzan la misma temperatura, ya no hay transferencia neta de calor entre ellos.",
+              "Al mezclar agua caliente y fría en un recipiente que apenas intercambia calor con el aire, puedes estimar la temperatura final. Con masas iguales, queda cerca del promedio. Con más agua fría, queda más cerca de la temperatura fría."
+            ],
+            "flow": [
+              "Temperaturas distintas",
+              "→ intercambio →",
+              "Igual temperatura"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Mezclas 2 L de agua a 60 °C con 1 L de agua a 15 °C en un recipiente aislado. ¿Qué temperatura esperas?",
+          "steps": [
+            "El calor fluye desde el agua a 60 °C hacia la de 15 °C.",
+            "Da a cada litro el mismo peso: (2 × 60 + 1 × 15) ÷ (2 + 1).",
+            "Divide 135 por 3."
+          ],
+          "result": "El equilibrio queda cerca de 45 °C, más cerca de 60 °C porque había más agua caliente."
+        },
+        "exercises": [
+          {
+            "id": "u3-12",
+            "title": "Temperatura o calor",
+            "prompt": "Completa las dos definiciones usando el modelo de partículas.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "La temperatura indica…",
+                    "kind": "pick",
+                    "options": [
+                      "Cuánta energía sale por segundo",
+                      "La agitación promedio de las partículas",
+                      "Los litros del cuerpo"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "El calor es…",
+                    "kind": "pick",
+                    "options": [
+                      "Energía transferida por diferencia de temperatura",
+                      "Una sustancia que entra a los objetos",
+                      "El movimiento promedio de las partículas"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Distingue una medida de cómo está un cuerpo y la energía que pasa de uno a otro.",
+                "why": "La temperatura refleja la agitación promedio. El calor es energía que se transfiere de mayor a menor temperatura."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-13",
+            "title": "Café y refresco",
+            "prompt": "Un café a 85 °C y un refresco a 5 °C están en contacto térmico. Traza el recorrido del calor seleccionando la flecha.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Flecha del calor",
+                    "kind": "pick",
+                    "options": [
+                      "Refresco → café",
+                      "Café → refresco"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Mientras intercambian energía",
+                    "kind": "pick",
+                    "options": [
+                      "El café se enfría y el refresco se calienta",
+                      "Los dos se enfrían",
+                      "Los dos se calientan"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Al final, sin pérdidas al ambiente",
+                    "kind": "pick",
+                    "options": [
+                      "Quedan a la misma temperatura",
+                      "Quedan a 85 °C y 5 °C"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "La flecha sale del cuerpo a mayor temperatura.",
+                "why": "Café → refresco. Uno pierde energía y el otro la gana hasta que alcanzan el equilibrio térmico."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-14",
+            "title": "Mezclar agua caliente y fría",
+            "prompt": "Supón que el recipiente está aislado y el volumen de agua es proporcional a su masa.",
+            "cases": [
+              {
+                "label": "1 litro a 80 °C + 1 litro a 20 °C",
+                "fields": [
+                  {
+                    "label": "Temperatura final (°C)",
+                    "kind": "number",
+                    "answer": 50
+                  }
+                ],
+                "hint": "Con masas iguales, promedia las temperaturas.",
+                "why": "(80 + 20) ÷ 2 = 50 °C."
+              },
+              {
+                "label": "1 litro a 80 °C + 3 litros a 20 °C",
+                "fields": [
+                  {
+                    "label": "Temperatura final (°C)",
+                    "kind": "number",
+                    "answer": 35
+                  }
+                ],
+                "hint": "Cuenta el aporte de los tres litros a 20 °C y divide por el volumen total.",
+                "why": "(80 + 3 × 20) ÷ 4 = 35 °C."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-15",
+            "title": "Cerrar la ventana en invierno",
+            "prompt": "La casa está más caliente que el exterior. ¿Qué efecto tiene cerrar la ventana?",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Reduce la pérdida de calor de la casa",
+                      "Encierra una sustancia llamada frío",
+                      "Hace que el calor fluya del exterior al interior"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Compara la temperatura de la casa con la temperatura exterior.",
+                "why": "El calor fluye del interior más caliente al exterior más frío. Cerrar la ventana ayuda a reducir el intercambio con el aire exterior."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Al comienzo",
+              [
+                "Café · 85 °C",
+                "Calor →",
+                "Refresco · 5 °C"
+              ],
+              "El café cede energía y el refresco la recibe."
+            ],
+            [
+              "Mientras se acercan",
+              [
+                "Café ↓",
+                "Calor →",
+                "Refresco ↑"
+              ],
+              "El café se enfría y el refresco se calienta."
+            ],
+            [
+              "En equilibrio",
+              [
+                "Misma temperatura",
+                "↔",
+                "Misma temperatura"
+              ],
+              "Cuando ambos alcanzan la misma temperatura, cesa el flujo neto de calor."
+            ]
+          ]
+        },
+        "intro": "Observa qué pasa cuando dos cuerpos de distinta temperatura se ponen en contacto."
+      },
+      {
+        "title": "Dilatación y cambios de estado",
+        "goal": "Distinguir un cambio de tamaño, uno de temperatura y uno de estado. Calcular la energía de cada tramo.",
+        "steps": [
+          {
+            "title": "1. ¿Por qué un riel deja espacio?",
+            "text": [
+              "Al calentar un sólido, sus partículas vibran más y, en muchos materiales, se separan un poco en promedio. Sus dimensiones aumentan. Eso es dilatación. Al enfriarse, suelen disminuir. Eso es contracción.",
+              "En una barra, ΔL = L₀ × α × ΔT. L₀ es el largo inicial y α es un valor del material. Para hallar el largo final, suma L₀ + ΔL. En la guía las variaciones son pequeñas, por eso importa cuidar los decimales."
+            ],
+            "flow": [
+              "Calentar metal",
+              "→ aumenta la separación media →",
+              "Se alarga"
+            ]
+          },
+          {
+            "title": "2. Calor sensible: cambia la temperatura",
+            "text": [
+              "Dentro de un mismo estado, como agua líquida, el calor que entra suele elevar la temperatura. Usa Q = m × c × ΔT.",
+              "m es la masa. c es el calor necesario por cada unidad de masa para subir 1 °C. ΔT es temperatura final menos inicial. Si m está en g y c en cal/(g·°C), Q queda en calorías."
+            ],
+            "flow": [
+              "Masa × calor específico × cambio de temperatura"
+            ]
+          },
+          {
+            "title": "3. Calor latente: cambia el estado",
+            "text": [
+              "Al fundir hielo puro, la energía se usa para pasar de sólido a líquido mientras dura el cambio. A presión atmosférica normal, esta parte ocurre a 0 °C. La ebullición ocurre a 100 °C.",
+              "Para un cambio de estado usa Q = m × L. L es la energía por gramo del cambio. En la guía se usa L de fusión = 80 cal/g y L de vaporización = 540 cal/g para el agua."
+            ],
+            "flow": [
+              "Pendiente · cambia T",
+              "Meseta · cambia el estado"
+            ]
+          },
+          {
+            "title": "4. Resolver por tramos",
+            "text": [
+              "Dibuja o lee el recorrido. Si el agua debe llegar a hervir y después transformarse en vapor, hay un tramo de subida de temperatura y un tramo de cambio de estado.",
+              "Calcula por separado lo que requiere cada tramo usando su fórmula. Luego suma todas las energías."
+            ],
+            "flow": [
+              "Identifica los tramos",
+              "Calcula cada uno",
+              "Suma las energías"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Quieres fundir 100 g de hielo a 0 °C y calentar el agua hasta 20 °C.",
+          "steps": [
+            "Fusión: el estado cambia a temperatura constante. Q = 100 × 80 = 8 000 cal.",
+            "Agua líquida: sube 20 °C. Q = 100 × 1 × 20 = 2 000 cal.",
+            "Suma los dos tramos: 8 000 + 2 000."
+          ],
+          "result": "Se requieren 10 000 cal en total."
+        },
+        "exercises": [
+          {
+            "id": "u3-16",
+            "title": "Las juntas de los rieles",
+            "prompt": "Elige la explicación que relaciona las partículas con el diseño del riel.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Al calentarse el riel se encoge",
+                      "El metal se funde al Sol",
+                      "Las partículas vibran más y el riel se alarga. La junta deja espacio"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Piensa qué le pasa al largo del metal cuando sube su temperatura.",
+                "why": "Al elevar la temperatura, aumenta la separación promedio entre partículas y el riel puede alargarse. La junta le deja espacio para dilatarse."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-17",
+            "title": "Calentar agua líquida",
+            "prompt": "Calienta 200 g de agua de 20 °C a 50 °C. Usa c = 1 cal/(g·°C).",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Cambio de temperatura (°C)",
+                    "kind": "number",
+                    "answer": 30
+                  },
+                  {
+                    "label": "Energía (cal)",
+                    "kind": "number",
+                    "answer": 6000
+                  }
+                ],
+                "hint": "Primero calcula temperatura final menos inicial. Luego usa Q = m × c × ΔT.",
+                "why": "ΔT = 50 − 20 = 30 °C. Q = 200 × 1 × 30 = 6 000 cal."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-18",
+            "title": "Fundir hielo",
+            "prompt": "Funde 50 g de hielo a 0 °C. El calor latente de fusión es 80 cal/g.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Energía (cal)",
+                    "kind": "number",
+                    "answer": 4000
+                  }
+                ],
+                "hint": "El hielo ya está a su temperatura de fusión. Aplica Q = m × L.",
+                "why": "Q = 50 × 80 = 4 000 cal."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-19",
+            "title": "Lee la meseta",
+            "prompt": "En la curva de calentamiento del agua, fíjate en los tramos horizontales.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Durante una meseta, cambia…",
+                    "kind": "pick",
+                    "options": [
+                      "El estado",
+                      "La temperatura"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "La energía se usa para…",
+                    "kind": "pick",
+                    "options": [
+                      "Elevar la temperatura sin cambiar de estado",
+                      "Producir el cambio de estado"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Si el tramo es horizontal, su altura en el eje de temperatura se mantiene.",
+                "why": "En las mesetas el calor es latente. La sustancia cambia de estado mientras su temperatura se mantiene constante."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-20",
+            "title": "Calentar y evaporar",
+            "prompt": "Hay 400 g de agua a 10 °C. Caliéntala hasta 100 °C y evapórala a esa temperatura. Usa c = 1 cal/(g·°C) y L de vaporización = 540 cal/g.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Calor para llegar a 100 °C (cal)",
+                    "kind": "number",
+                    "answer": 36000
+                  },
+                  {
+                    "label": "Calor para evaporar (cal)",
+                    "kind": "number",
+                    "answer": 216000
+                  },
+                  {
+                    "label": "Calor total (cal)",
+                    "kind": "number",
+                    "answer": 252000
+                  }
+                ],
+                "hint": "Separa la subida de temperatura de la ebullición. La masa de agua es la misma en ambos cálculos.",
+                "why": "Calentar: 400 × 1 × 90 = 36 000 cal. Evaporar: 400 × 540 = 216 000 cal. Total: 252 000 cal."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-21",
+            "title": "Dilatación de una barra",
+            "prompt": "Una barra de acero de 10 m pasa de 20 °C a 70 °C. Usa α = 1,0 × 10⁻⁵ por °C.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Aumento del largo (m)",
+                    "kind": "number",
+                    "answer": 0.005
+                  },
+                  {
+                    "label": "Largo final (m)",
+                    "kind": "number",
+                    "answer": 10.005
+                  }
+                ],
+                "hint": "Multiplica 10 m × α × el aumento de temperatura. Suma el aumento al largo inicial.",
+                "why": "ΔT = 50 °C. ΔL = 10 × 0,00001 × 50 = 0,005 m (5 mm). El largo final es 10,005 m."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "curve"
+        },
+        "intro": "Selecciona un tramo de la curva de calentamiento del agua a presión atmosférica normal."
+      },
+      {
+        "title": "Protección frente al calor y al frío",
+        "goal": "Elegir medidas de protección y explicar cómo afectan la transferencia de calor o la dilatación.",
+        "steps": [
+          {
+            "title": "1. Las personas y el intercambio con el entorno",
+            "text": [
+              "Al Sol, la radiación puede aportar energía a tu cuerpo. Busca sombra para reducir esa radiación. Hidratarse ayuda a reponer el agua que se pierde al sudar.",
+              "En un ambiente frío, el cuerpo cede calor hacia el exterior. Una capa de abrigo que atrapa aire reduce la rapidez de esa transferencia."
+            ],
+            "flow": [
+              "Sol → persona · sombra reduce radiación",
+              "Persona → aire frío · abrigo reduce pérdida"
+            ]
+          },
+          {
+            "title": "2. Materiales y objetos",
+            "text": [
+              "La lana, el plumavit y el aire atrapado son aislantes. Un aislante dificulta la transferencia de calor en cualquiera de los dos sentidos. Por eso sirve tanto para una cañería que pierde calor como para un alimento frío que recibe calor del entorno.",
+              "Algunos objetos también necesitan espacio para cambiar de tamaño. Las juntas de un puente permiten que sus partes se dilaten y se contraigan con los cambios de temperatura."
+            ],
+            "flow": [
+              "Aislante · menos intercambio",
+              "Junta · espacio para el cambio de tamaño"
+            ]
+          },
+          {
+            "title": "3. Elegir una medida que responda al problema",
+            "text": [
+              "Identifica qué quieres proteger, dónde está la fuente de energía o hacia dónde se pierde calor y qué acción ayuda.",
+              "Por ejemplo, en una helada puedes disminuir la pérdida de calor de una cañería con un aislante. En una ola de calor, proveer sombra ayuda a reducir la radiación directa que reciben las personas y los animales."
+            ],
+            "flow": [
+              "Problema",
+              "→ mecanismo →",
+              "Medida"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una cañería pasa por un lugar donde el aire baja de 0 °C durante la noche. ¿Para qué sirve cubrirla con un aislante?",
+          "steps": [
+            "Compara la temperatura inicial del agua con la del exterior.",
+            "El agua más caliente tiende a ceder energía al entorno más frío.",
+            "El aislante reduce la rapidez de transferencia."
+          ],
+          "result": "El agua se enfría más lentamente. La protección retrasa la congelación."
+        },
+        "exercises": [
+          {
+            "id": "u3-22",
+            "title": "Elige medidas y explica su efecto",
+            "prompt": "Propón dos medidas para las personas durante una ola de calor y dos para objetos o construcciones durante el frío.",
+            "cases": [
+              {
+                "label": "Personas durante una ola de calor",
+                "fields": [
+                  {
+                    "label": "Reducir la radiación directa",
+                    "kind": "pick",
+                    "options": [
+                      "Buscar sombra",
+                      "Acercarse a una ventana al Sol",
+                      "Usar más mantas"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Reponer el agua perdida al sudar",
+                    "kind": "pick",
+                    "options": [
+                      "Usar aislante en la cañería",
+                      "Tomar agua",
+                      "Cerrar una junta de dilatación"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Una medida reduce energía recibida. La otra repone agua.",
+                "why": "Buscar sombra reduce la radiación solar directa. Beber agua ayuda a reponer la que se pierde al sudar."
+              },
+              {
+                "label": "Objetos o construcciones frente al frío",
+                "fields": [
+                  {
+                    "label": "Para que el agua de una cañería pierda calor más lento",
+                    "kind": "pick",
+                    "options": [
+                      "Quitar su aislante",
+                      "Cubrirla con un aislante",
+                      "Colocar la cañería al aire libre"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Para permitir que una estructura se contraiga y luego se dilate",
+                    "kind": "pick",
+                    "options": [
+                      "Prever juntas",
+                      "Cubrirla con agua",
+                      "Forzar a que todas sus uniones queden rígidas"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Distingue entre reducir la transferencia de calor y darle libertad al material para cambiar de tamaño.",
+                "why": "El aislante retrasa la pérdida de calor del agua. Una junta permite el movimiento asociado a cambios de temperatura."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Ola de calor",
+              [
+                "Sol",
+                "→",
+                "Sombra"
+              ],
+              "La sombra reduce la radiación solar directa. Hidratarse ayuda a reponer agua."
+            ],
+            [
+              "Frío exterior",
+              [
+                "Cuerpo",
+                "→",
+                "Ropa en capas"
+              ],
+              "Las capas retienen aire, reducen la transferencia de calor al exterior y ayudan a conservar la temperatura corporal."
+            ],
+            [
+              "Helada",
+              [
+                "Agua en cañería",
+                "→",
+                "Aislante"
+              ],
+              "Un aislante reduce la pérdida de calor del agua y retrasa su congelación."
+            ],
+            [
+              "Puente",
+              [
+                "Metal caliente",
+                "↔",
+                "Junta"
+              ],
+              "La junta deja espacio para la dilatación y la contracción del material."
+            ]
+          ]
+        },
+        "intro": "Elige una situación y fíjate en qué hace la medida de protección."
+      },
+      {
+        "title": "Autoevaluación",
+        "recap": true,
+        "goal": "Responde cinco preguntas de verdadero o falso para repasar la unidad.",
+        "exercises": [
+          {
+            "id": "u3-23",
+            "title": "Voltaje en paralelo",
+            "prompt": "En paralelo, todas las ramas conectadas a los mismos dos puntos tienen el mismo voltaje.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Compara los dos extremos de cada rama.",
+                "why": "Cada rama está conectada a los mismos dos puntos, por eso la diferencia de potencial es la misma."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-24",
+            "title": "Amperímetro",
+            "prompt": "El amperímetro se conecta en paralelo.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Debe atravesarlo la corriente que queremos medir.",
+                "why": "El amperímetro va en serie. El voltímetro se conecta en paralelo."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-25",
+            "title": "Qué mide la temperatura",
+            "prompt": "La temperatura de un cuerpo es la cantidad de calor que tiene.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "El calor describe una transferencia.",
+                "why": "La temperatura indica la agitación promedio de sus partículas. El calor es energía transferida por diferencia de temperatura."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-26",
+            "title": "Meseta térmica",
+            "prompt": "Durante el cambio de estado de una sustancia pura a presión constante, la temperatura se mantiene constante.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Fíjate en la altura de la meseta de una curva de calentamiento.",
+                "why": "La energía empleada en la meseta produce el cambio de estado."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u3-27",
+            "title": "Resistencias en serie",
+            "prompt": "En serie, la resistencia equivalente es menor que la resistencia más pequeña.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "La resistencia equivalente en serie es la suma.",
+                "why": "Al sumar resistencias positivas, la equivalente supera a cada resistencia individual. La equivalente en paralelo puede ser menor que la más pequeña."
+              }
+            ],
+            "reference": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c4",
+    "title": "Tabla periódica y enlaces",
+    "unit": "Unidad 4",
+    "description": "Cuenta partículas, distribuye electrones e interpreta los enlaces y las moléculas.",
+    "lessons": [
+      {
+        "title": "Átomos, número atómico e iones",
+        "goal": "Leer el número atómico y calcular cuántos protones y electrones hay, incluso cuando el átomo tiene carga.",
+        "steps": [
+          {
+            "title": "1. Tres partículas y dos lugares",
+            "text": [
+              "Un átomo tiene un núcleo pequeño. Allí están los protones, con carga positiva, y los neutrones, sin carga. Los electrones, con carga negativa, se encuentran en una región alrededor del núcleo.",
+              "Cuando contamos partículas, cada protón aporta +1 y cada electrón −1. Los neutrones influyen en la masa del núcleo."
+            ],
+            "flow": [
+              "Núcleo · p⁺ y n",
+              "Región exterior · e⁻"
+            ]
+          },
+          {
+            "title": "2. La identidad del elemento",
+            "text": [
+              "El número atómico Z indica cuántos protones hay. Todo átomo con 11 protones es sodio. Si cambia la cantidad de protones, cambia el elemento.",
+              "La tabla se ordena por Z. Al avanzar de un elemento al siguiente en el mismo período, Z aumenta en uno. Un átomo neutro tiene e⁻ = Z porque las cargas positivas y negativas se compensan."
+            ],
+            "flow": [
+              "Z = número de protones",
+              "Átomo neutro · e⁻ = Z"
+            ]
+          },
+          {
+            "title": "3. Cómo cambia un ion",
+            "text": [
+              "Un átomo se vuelve ion cuando gana o pierde electrones. Si pierde electrones, quedan más protones que electrones y el ion es positivo (catión). Si gana electrones, el ion es negativo (anión).",
+              "Para hallar e⁻ resta la carga con su signo: e⁻ = Z − carga. Con carga +2 restas 2. Con carga −2 restas un negativo y sumas 2. Los protones y neutrones se mantienen."
+            ],
+            "flow": [
+              "Catión (+) · perdió e⁻",
+              "Anión (−) · ganó e⁻"
+            ]
+          },
+          {
+            "title": "4. Leer toda la escritura",
+            "text": [
+              "En un símbolo como ²³₁₁Na, el número pequeño de abajo a la izquierda es Z. Arriba a la izquierda está A, que cuenta protones más neutrones. Si ves una carga arriba a la derecha, úsala para contar electrones.",
+              "Para completar una ficha del átomo: p⁺ = Z, n = A − Z y e⁻ = Z − carga. En un símbolo que no muestra carga, usa carga 0 para estos ejercicios."
+            ],
+            "flow": [
+              "A arriba · p⁺ + n",
+              "Z abajo · p⁺",
+              "Carga arriba a la derecha"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Lee ²⁴₁₂Mg²⁺ y cuenta sus partículas.",
+          "steps": [
+            "Lee Z = 12. Tiene 12 protones.",
+            "Lee A = 24. Los neutrones son 24 − 12 = 12.",
+            "Lee la carga +2. Los electrones son 12 − 2 = 10."
+          ],
+          "result": "Mg²⁺ tiene 12 protones, 12 neutrones y 10 electrones."
+        },
+        "exercises": [
+          {
+            "id": "u4-01",
+            "title": "Lee la notación del átomo",
+            "prompt": "Completa la ficha de cada átomo o ion. Avanza con los botones de casos.",
+            "cases": [
+              {
+                "label": "²³₁₁Na",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 11
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 23
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 11
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 11
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 12
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 11, A = 23, p⁺ = 11, e⁻ = 11 y n = 23 − 11 = 12."
+              },
+              {
+                "label": "³⁵₁₇Cl",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 17
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 35
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 17
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 17
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 18
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 17, A = 35, p⁺ = 17, e⁻ = 17 y n = 35 − 17 = 18."
+              },
+              {
+                "label": "²⁷₁₃Al³⁺",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 13
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 27
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 13
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 14
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 13, A = 27, p⁺ = 13, e⁻ = 10 y n = 27 − 13 = 14."
+              },
+              {
+                "label": "¹⁶₈O²⁻",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 8
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 16
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 8
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 8
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 8, A = 16, p⁺ = 8, e⁻ = 10 y n = 16 − 8 = 8."
+              },
+              {
+                "label": "⁴⁰₂₀Ca²⁺",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 20
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 40
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 20
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 18
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 20
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 20, A = 40, p⁺ = 20, e⁻ = 18 y n = 40 − 20 = 20."
+              },
+              {
+                "label": "¹⁹₉F⁻",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 9
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 19
+                  },
+                  {
+                    "label": "Protones",
+                    "kind": "number",
+                    "answer": 9
+                  },
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Neutrones",
+                    "kind": "number",
+                    "answer": 10
+                  }
+                ],
+                "hint": "Lee Z abajo y A arriba. Calcula n = A − Z y e⁻ = Z − carga.",
+                "why": "Z = 9, A = 19, p⁺ = 9, e⁻ = 10 y n = 19 − 9 = 10."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-03",
+            "title": "Electrones en un átomo neutro",
+            "prompt": "Un átomo neutro tiene Z = 17 y A = 35.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Electrones",
+                    "kind": "number",
+                    "answer": 17
+                  }
+                ],
+                "hint": "La carga total es cero. ¿Qué cantidad compensa la carga de los protones?",
+                "why": "En un átomo neutro, el número de electrones coincide con Z: tiene 17."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-05",
+            "title": "Azufre que gana electrones",
+            "prompt": "A ³²₁₆S se le agregan dos electrones.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Nuevo valor de Z",
+                    "kind": "number",
+                    "answer": 16
+                  },
+                  {
+                    "label": "Nuevo valor de A",
+                    "kind": "number",
+                    "answer": 32
+                  },
+                  {
+                    "label": "Cantidad final de electrones",
+                    "kind": "number",
+                    "answer": 18
+                  }
+                ],
+                "hint": "Se agregan electrones a la región exterior. Mira qué números cuentan partículas del núcleo.",
+                "why": "Z = 16 y A = 32 se conservan. Los electrones aumentan de 16 a 18."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-08",
+            "title": "Avanzar por un período",
+            "prompt": "En la tabla periódica, ¿cómo cambia Z al avanzar un elemento hacia la derecha dentro del mismo período?",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Aumenta en uno",
+                      "Disminuye en uno",
+                      "Se mantiene igual"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Z es el orden de los elementos por cantidad de protones.",
+                "why": "Si pasas al siguiente elemento dentro de la misma fila, Z aumenta en uno."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Sodio neutro",
+              [
+                "11 protones",
+                "12 neutrones",
+                "11 electrones"
+              ],
+              "Z = 11 y carga 0."
+            ],
+            [
+              "Ion sodio Na⁺",
+              [
+                "11 protones",
+                "12 neutrones",
+                "10 electrones"
+              ],
+              "Perdió 1 electrón. Z se mantiene en 11."
+            ],
+            [
+              "Ion cloruro Cl⁻",
+              [
+                "17 protones",
+                "18 neutrones",
+                "18 electrones"
+              ],
+              "Ganó 1 electrón respecto del cloro neutro. Z = 17."
+            ]
+          ]
+        },
+        "intro": "Cambia la carga y observa qué partículas se mantienen."
+      },
+      {
+        "title": "Número másico e isótopos",
+        "goal": "Distinguir Z, A y masa atómica. Reconocer dos isótopos del mismo elemento.",
+        "steps": [
+          {
+            "title": "1. Contar lo que hay en el núcleo",
+            "text": [
+              "El número másico A es un conteo de protones y neutrones en un núcleo. Los electrones no se cuentan en A.",
+              "Suma protones y neutrones para hallar A. Si ya tienes A y la cantidad de protones Z, halla los neutrones restando Z a A."
+            ],
+            "flow": [
+              "A = protones + neutrones",
+              "Neutrones = A − Z"
+            ]
+          },
+          {
+            "title": "2. Un elemento, varios isótopos",
+            "text": [
+              "Todos los átomos del mismo elemento tienen el mismo número de protones. Pueden tener distinto número de neutrones. A esas variantes las llamamos isótopos.",
+              "Los isótopos del carbono siempre tienen 6 protones. El carbono-12 tiene 6 neutrones y el carbono-14 tiene 8. Comparten Z y difieren en A."
+            ],
+            "flow": [
+              "¹²C · 6 p⁺ y 6 n",
+              "¹⁴C · 6 p⁺ y 8 n"
+            ]
+          },
+          {
+            "title": "3. Masa de la tabla y número del isótopo",
+            "text": [
+              "La masa atómica que aparece en muchas tablas es un promedio de las masas de los isótopos naturales. Puede tener decimales. El número másico A de un isótopo siempre es entero.",
+              "Cuando la pregunta escolar indique aproximar con la masa de la tabla, redondea como pide la guía. Si el enunciado da el isótopo o cuenta sus partículas, usa esos datos para obtener A."
+            ],
+            "flow": [
+              "Tabla · masa promedio",
+              "Isótopo identificado · entero A"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Un isótopo tiene 8 protones y 10 neutrones. ¿Cuál es Z y cuál es A?",
+          "steps": [
+            "Los protones determinan Z, así que Z = 8.",
+            "Suma 8 + 10 para obtener A.",
+            "Como Z es 8, sigue siendo oxígeno. A igual a 18 identifica el isótopo."
+          ],
+          "result": "Es oxígeno-18. Z = 8 y A = 18."
+        },
+        "exercises": [
+          {
+            "id": "u4-02",
+            "title": "La aproximación para el hierro",
+            "prompt": "La masa atómica del hierro en la tabla es 55,85. Estima A según el redondeo que pide la guía.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "A aproximado",
+                    "kind": "number",
+                    "answer": 56
+                  }
+                ],
+                "hint": "Redondea el promedio al entero más cercano para este ejercicio.",
+                "why": "55,85 redondeado da 56. Para conocer A de un isótopo específico, necesitas su notación o sus partículas."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-04",
+            "title": "De electrones y neutrones a A",
+            "prompt": "Un átomo neutro tiene 35 electrones y 45 neutrones.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 80
+                  }
+                ],
+                "hint": "Si es neutro, tiene tantos protones como electrones.",
+                "why": "Tiene 35 protones. A = 35 + 45 = 80."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-06",
+            "title": "Un núcleo pequeño",
+            "prompt": "Un átomo tiene tres protones y cuatro neutrones.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Número atómico Z",
+                    "kind": "number",
+                    "answer": 3
+                  },
+                  {
+                    "label": "Número másico A",
+                    "kind": "number",
+                    "answer": 7
+                  }
+                ],
+                "hint": "Z solo cuenta protones. A incluye ambas partículas del núcleo.",
+                "why": "Z = 3 y A = 3 + 4 = 7."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-07",
+            "title": "Carbono-12 y carbono-14",
+            "prompt": "Compara los dos isótopos. El carbono tiene Z = 6.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Protones en ambos",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Neutrones en ¹²C",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Neutrones en ¹⁴C",
+                    "kind": "number",
+                    "answer": 8
+                  }
+                ],
+                "hint": "Resta Z a cada número másico.",
+                "why": "Ambos tienen 6 protones. Sus neutrones son 12 − 6 = 6 y 14 − 6 = 8, respectivamente."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Carbono-12",
+              [
+                "6 protones",
+                "+ 6 neutrones",
+                "A = 12"
+              ],
+              "Notación ¹²₆C."
+            ],
+            [
+              "Carbono-14",
+              [
+                "6 protones",
+                "+ 8 neutrones",
+                "A = 14"
+              ],
+              "Notación ¹⁴₆C. Sigue siendo carbono porque Z = 6."
+            ]
+          ]
+        },
+        "intro": "Compara los núcleos de dos isótopos del carbono."
+      },
+      {
+        "title": "Configuración electrónica",
+        "goal": "Distribuir electrones por nivel, subnivel y casillero. Escribir las tres formas de configuración.",
+        "steps": [
+          {
+            "title": "1. Un mapa para ubicar electrones",
+            "text": [
+              "Rutherford propuso un núcleo pequeño con carga positiva. Bohr describió niveles de energía. La descripción cuántica agrega orbitales, regiones donde es probable encontrar electrones. Para estudiarlos dibujamos casilleros.",
+              "En 2p⁴, el 2 es el nivel de energía, la p identifica el tipo de subnivel y el 4 dice cuántos electrones hay en ese subnivel."
+            ],
+            "flow": [
+              "2 · nivel",
+              "p · subnivel",
+              "⁴ · cantidad de electrones"
+            ]
+          },
+          {
+            "title": "2. Casilleros y orden de llenado",
+            "text": [
+              "Cada casillero u orbital admite hasta 2 electrones. Si hay dos, se muestran con flechas opuestas ↑↓. Las flechas representan su espín, una propiedad del electrón. s tiene 1 casillero, p tiene 3, d tiene 5 y f tiene 7.",
+              "Llena primero los subniveles de menor energía en estos ejercicios. El 4s se escribe antes de 3d en el orden de llenado usado en la guía."
+            ],
+            "flow": [
+              "1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p"
+            ]
+          },
+          {
+            "title": "3. Repartir antes de formar parejas",
+            "text": [
+              "Aplica la regla de Hund dentro de un subnivel con varios orbitales de igual energía. Coloca un electrón en cada casillero disponible antes de emparejar.",
+              "Si 2p tiene dos electrones, puedes representarlo [↑] [↑] [ ]. Con cuatro electrones: [↑↓] [↑] [↑]. El lugar exacto de la pareja en casilleros equivalentes puede variar."
+            ],
+            "flow": [
+              "2p² · [↑] [↑] [ ]",
+              "2p⁴ · [↑↓] [↑] [↑]"
+            ]
+          },
+          {
+            "title": "4. Tres maneras de escribir lo mismo",
+            "text": [
+              "En la extendida, escribe cada subnivel ocupado con su cantidad de electrones. Revisa que la suma de los exponentes coincida con la cantidad total. En la abreviada, sustituye el núcleo electrónico por el gas noble anterior entre corchetes: [He] cubre 2, [Ne] 10, [Ar] 18.",
+              "En el diagrama por orbitales, dibuja casilleros y flechas. Si es un ion de los ejemplos, calcula primero cuántos electrones tiene leyendo Z y la carga."
+            ],
+            "flow": [
+              "Extendida · 1s² 2s¹",
+              "Abreviada · [He] 2s¹",
+              "Orbitales · [↑↓] [↑]"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Escribe la configuración del oxígeno neutro. Z = 8.",
+          "steps": [
+            "Tiene 8 electrones. Pon 2 en 1s, 2 en 2s y los 4 restantes en 2p.",
+            "Escribe 1s² 2s² 2p⁴. Reemplaza 1s² con [He] para abreviar: [He] 2s² 2p⁴.",
+            "Dibuja 1s [↑↓] y 2s [↑↓]. En 2p coloca tres ↑ separados y empareja el cuarto: [↑↓] [↑] [↑]."
+          ],
+          "result": "En las tres formas hay 8 electrones. El número de casilleros ocupados en 2p es tres."
+        },
+        "exercises": [
+          {
+            "id": "u4-09",
+            "title": "Dos formas de escribir la configuración",
+            "prompt": "Para cada átomo neutro escribe su configuración extendida y abreviada.",
+            "cases": [
+              {
+                "label": "Li · Z = 3",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s1"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[He] 2s1"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s¹. Abreviada: [He] 2s¹."
+              },
+              {
+                "label": "O · Z = 8",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p4"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[He] 2s2 2p4"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s² 2p⁴. Abreviada: [He] 2s² 2p⁴."
+              },
+              {
+                "label": "Na · Z = 11",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s1"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[Ne] 3s1"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s¹. Abreviada: [Ne] 3s¹."
+              },
+              {
+                "label": "Cl · Z = 17",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p5"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[Ne] 3s2 3p5"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁵. Abreviada: [Ne] 3s² 3p⁵."
+              },
+              {
+                "label": "K · Z = 19",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6 4s1"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[Ar] 4s1"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹. Abreviada: [Ar] 4s¹."
+              },
+              {
+                "label": "Ca · Z = 20",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6 4s2"
+                  },
+                  {
+                    "label": "Configuración abreviada",
+                    "kind": "config",
+                    "answer": "[Ar] 4s2"
+                  }
+                ],
+                "hint": "Reparte Z electrones siguiendo el orden de llenado. En la abreviada sustituye por el gas noble anterior.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s². Abreviada: [Ar] 4s²."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          },
+          {
+            "id": "u4-10",
+            "title": "Coloca electrones en sus orbitales",
+            "prompt": "Pulsa un casillero para alternar entre vacío, ↑ y ↑↓. Construye cada diagrama.",
+            "cases": [
+              {
+                "label": "Boro · Z = 5",
+                "fields": [],
+                "hint": "Primero completa los subniveles 1s y 2s. Coloca lo que sobra en 2p.",
+                "why": "En boro: 1s [↑↓] y 2s [↑↓]. Queda un electrón en uno de los tres casilleros 2p.",
+                "kind": "orbital",
+                "groups": [
+                  [
+                    "1s",
+                    [
+                      2
+                    ]
+                  ],
+                  [
+                    "2s",
+                    [
+                      2
+                    ]
+                  ],
+                  [
+                    "2p",
+                    [
+                      1,
+                      0,
+                      0
+                    ]
+                  ]
+                ]
+              },
+              {
+                "label": "Flúor · Z = 9",
+                "fields": [],
+                "hint": "Después de llenar 1s y 2s quedan cinco electrones. En 2p se ocupan los tres casilleros antes de emparejar.",
+                "why": "En flúor: 1s [↑↓], 2s [↑↓] y 2p [↑↓] [↑↓] [↑]. Las dos parejas pueden estar en cualquiera de los tres casilleros equivalentes.",
+                "kind": "orbital",
+                "groups": [
+                  [
+                    "1s",
+                    [
+                      2
+                    ]
+                  ],
+                  [
+                    "2s",
+                    [
+                      2
+                    ]
+                  ],
+                  [
+                    "2p",
+                    [
+                      2,
+                      2,
+                      1
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-11",
+            "title": "Detecta dos errores en el carbono",
+            "prompt": "El carbono neutro tiene Z = 6.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Corrige 1s² 2s² 2p⁶",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p2"
+                  },
+                  {
+                    "label": "Sus dos electrones de 2p van…",
+                    "kind": "pick",
+                    "options": [
+                      "En el mismo casillero",
+                      "En dos casilleros distintos",
+                      "Cada uno en el nivel 3"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Suma los exponentes, luego aplica la regla de Hund a 2p.",
+                "why": "La configuración correcta es 1s² 2s² 2p². Los electrones de 2p se reparten en dos casilleros distintos."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          },
+          {
+            "id": "u4-12",
+            "title": "Configuración de iones",
+            "prompt": "Escribe la forma extendida. Antes de repartir, calcula cuántos electrones hay.",
+            "cases": [
+              {
+                "label": "Na⁺ · Z = 11",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6"
+                  }
+                ],
+                "hint": "Calcula e⁻ = Z − carga. Reparte esa cantidad, incluyendo el signo de la carga.",
+                "why": "Extendida: 1s² 2s² 2p⁶."
+              },
+              {
+                "label": "O²⁻ · Z = 8",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6"
+                  }
+                ],
+                "hint": "Calcula e⁻ = Z − carga. Reparte esa cantidad, incluyendo el signo de la carga.",
+                "why": "Extendida: 1s² 2s² 2p⁶."
+              },
+              {
+                "label": "Ca²⁺ · Z = 20",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6"
+                  }
+                ],
+                "hint": "Calcula e⁻ = Z − carga. Reparte esa cantidad, incluyendo el signo de la carga.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          },
+          {
+            "id": "u4-13",
+            "title": "Vanadio y bromo",
+            "prompt": "Escribe las configuraciones extendidas de estos átomos neutros.",
+            "cases": [
+              {
+                "label": "V · Z = 23",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6 4s2 3d3"
+                  }
+                ],
+                "hint": "Usa la secuencia de llenado. Comprueba al final que los exponentes sumen Z.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d³."
+              },
+              {
+                "label": "Br · Z = 35",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p5"
+                  }
+                ],
+                "hint": "Usa la secuencia de llenado. Comprueba al final que los exponentes sumen Z.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Extendida",
+              [
+                "1s²",
+                "2s²",
+                "2p⁴"
+              ],
+              "Suma los exponentes: 2 + 2 + 4 = 8 electrones."
+            ],
+            [
+              "Abreviada",
+              [
+                "[He]",
+                "2s²",
+                "2p⁴"
+              ],
+              "[He] representa los dos electrones iniciales."
+            ],
+            [
+              "Por orbitales",
+              [
+                "1s [↑↓]",
+                "2s [↑↓]",
+                "2p [↑↓] [↑] [↑]"
+              ],
+              "Los tres casilleros 2p se ocupan de a uno antes de emparejar."
+            ]
+          ]
+        },
+        "intro": "Compara las tres formas de representar los mismos ocho electrones del oxígeno."
+      },
+      {
+        "title": "Electrones de valencia y símbolos de Lewis",
+        "goal": "Encontrar los electrones del nivel externo y dibujarlos como puntos alrededor del símbolo.",
+        "steps": [
+          {
+            "title": "1. Buscar el nivel externo",
+            "text": [
+              "Los electrones de valencia participan en los enlaces. Para los elementos representativos de estos ejercicios, son los electrones del nivel ocupado más externo.",
+              "En 1s² 2s² 2p², el número de nivel más alto es 2. Suma los exponentes de 2s² y 2p²: 2 + 2 = 4 electrones de valencia."
+            ],
+            "flow": [
+              "Localiza el nivel más alto",
+              "Suma los electrones de ese nivel"
+            ]
+          },
+          {
+            "title": "2. Pasar a puntos",
+            "text": [
+              "Con el símbolo de Lewis representas los electrones de valencia con puntos alrededor del símbolo del elemento. El litio tiene un electrón de valencia y lleva un punto.",
+              "La guía distribuye parejas y puntos solos a partir de los casilleros orbitales. En otros textos se coloca un punto por lado antes de emparejar. La cantidad total de puntos coincide. Aquí puedes practicar ambas disposiciones en los ejercicios que las admiten."
+            ],
+            "flow": [
+              "Li · un punto",
+              "N · cinco puntos"
+            ]
+          },
+          {
+            "title": "3. Aplicarlo a un ion",
+            "text": [
+              "Si el calcio neutro pierde dos electrones de 4s, queda Ca²⁺. Para este catión, es habitual escribir [Ca]²⁺ sin los dos puntos que mostraba el calcio neutro.",
+              "Si un átomo gana electrones para completar su capa, como Cl⁻, el símbolo de Lewis puede mostrarse con ocho puntos, corchetes y la carga afuera. Usa el formato que se trabajó en clase."
+            ],
+            "flow": [
+              "Ca · 2 puntos",
+              "[Ca]²⁺ · perdió esos 2 electrones"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "El nitrógeno tiene configuración 1s² 2s² 2p³. ¿Qué muestra su Lewis?",
+          "steps": [
+            "El nivel externo es 2.",
+            "Suma los electrones 2s y 2p: 2 + 3 = 5.",
+            "Alrededor de N ubica cinco puntos: una pareja y tres puntos solos."
+          ],
+          "result": "El Lewis de N tiene cinco puntos. El par y los puntos solos se ubican alrededor del símbolo."
+        },
+        "exercises": [
+          {
+            "id": "u4-14",
+            "title": "Cuenta electrones de valencia",
+            "prompt": "Lee la configuración del átomo neutro y cuenta solo lo que hay en el nivel externo.",
+            "cases": [
+              {
+                "label": "⁷₃Li · 1s² 2s¹",
+                "fields": [
+                  {
+                    "label": "Electrones de valencia",
+                    "kind": "number",
+                    "answer": 1
+                  }
+                ],
+                "hint": "El nivel externo es el 2.",
+                "why": "En 2s¹ hay 1 electrón de valencia."
+              },
+              {
+                "label": "¹⁴₇N · 1s² 2s² 2p³",
+                "fields": [
+                  {
+                    "label": "Electrones de valencia",
+                    "kind": "number",
+                    "answer": 5
+                  }
+                ],
+                "hint": "Suma 2s y 2p porque ambos son del nivel 2.",
+                "why": "2 + 3 = 5."
+              },
+              {
+                "label": "²⁷₁₃Al · [Ne] 3s² 3p¹",
+                "fields": [
+                  {
+                    "label": "Electrones de valencia",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "El nivel externo es el 3.",
+                "why": "2 + 1 = 3."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-15",
+            "title": "Dibuja símbolos de Lewis",
+            "prompt": "Añade puntos pulsando alrededor del símbolo. Cada lado alterna entre 0, 1 y 2 puntos.",
+            "cases": [
+              {
+                "label": "Li",
+                "fields": [],
+                "hint": "Cuenta los electrones de valencia del átomo. Los lados equivalentes pueden intercambiarse.",
+                "why": "Total: 1 electrón de valencia. Distribución de referencia: 1 punto.",
+                "kind": "lewis",
+                "symbol": "Li",
+                "patterns": [
+                  [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              {
+                "label": "B",
+                "fields": [],
+                "hint": "Cuenta los electrones de valencia del átomo. Los lados equivalentes pueden intercambiarse.",
+                "why": "Total: 3 electrones de valencia. Distribución de referencia: 1 par y 1 punto en la convención de la guía.",
+                "kind": "lewis",
+                "symbol": "B",
+                "patterns": [
+                  [
+                    2,
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    1,
+                    0
+                  ]
+                ]
+              },
+              {
+                "label": "C",
+                "fields": [],
+                "hint": "Cuenta los electrones de valencia del átomo. Los lados equivalentes pueden intercambiarse.",
+                "why": "Total: 4 electrones de valencia. Distribución de referencia: 1 par y 2 puntos en la convención de la guía.",
+                "kind": "lewis",
+                "symbol": "C",
+                "patterns": [
+                  [
+                    2,
+                    1,
+                    1,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                ]
+              },
+              {
+                "label": "N",
+                "fields": [],
+                "hint": "Cuenta los electrones de valencia del átomo. Los lados equivalentes pueden intercambiarse.",
+                "why": "Total: 5 electrones de valencia. Distribución de referencia: 1 par y 3 puntos.",
+                "kind": "lewis",
+                "symbol": "N",
+                "patterns": [
+                  [
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                ]
+              },
+              {
+                "label": "Al",
+                "fields": [],
+                "hint": "Cuenta los electrones de valencia del átomo. Los lados equivalentes pueden intercambiarse.",
+                "why": "Total: 3 electrones de valencia. Distribución de referencia: 1 par y 1 punto en la convención de la guía.",
+                "kind": "lewis",
+                "symbol": "Al",
+                "patterns": [
+                  [
+                    2,
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    1,
+                    0
+                  ]
+                ]
+              }
+            ],
+            "reference": "Admite la distribución de la guía y la convención de un punto por lado antes de emparejar, cuando ambas son aplicables."
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Litio",
+              [
+                "1s² 2s¹",
+                "Nivel 2",
+                "Li ·"
+              ],
+              "Un electrón de valencia: 2s¹."
+            ],
+            [
+              "Carbono",
+              [
+                "1s² 2s² 2p²",
+                "Nivel 2",
+                "C · · · ·"
+              ],
+              "Cuatro electrones de valencia: 2 de 2s y 2 de 2p."
+            ],
+            [
+              "Nitrógeno",
+              [
+                "1s² 2s² 2p³",
+                "Nivel 2",
+                "N · · · · ·"
+              ],
+              "Cinco electrones de valencia: 2 de 2s y 3 de 2p."
+            ]
+          ]
+        },
+        "intro": "Mira el nivel externo y cuenta cuántos puntos representa el símbolo de Lewis."
+      },
+      {
+        "title": "Períodos y grupos",
+        "goal": "Reconocer filas y columnas de la tabla a partir de la configuración electrónica.",
+        "steps": [
+          {
+            "title": "1. El período es una fila",
+            "text": [
+              "En los átomos neutros que usamos, el número de nivel ocupado más alto te indica el período de la tabla. Li, Be, C y O tienen electrones en el nivel 2, así que están en el período 2.",
+              "En un mismo período, a medida que te mueves a la derecha cambia el número atómico y suele cambiar la cantidad de electrones de valencia."
+            ],
+            "flow": [
+              "Fila · mismo período",
+              "Mismo nivel externo en los ejemplos"
+            ]
+          },
+          {
+            "title": "2. El grupo es una columna",
+            "text": [
+              "Los grupos son las columnas verticales. Para los elementos representativos de estos ejercicios, elementos del mismo grupo suelen tener la misma cantidad de electrones de valencia.",
+              "Li, Na y K terminan en s¹, con 1 electrón externo. Están en el grupo 1, aunque sus niveles externos son 2, 3 y 4."
+            ],
+            "flow": [
+              "Columna · mismo grupo",
+              "Mismo patrón de valencia en los ejemplos"
+            ]
+          },
+          {
+            "title": "3. Leer nivel y cantidad por separado",
+            "text": [
+              "Si la parte exterior termina en 3s² 3p⁵, el número 3 indica período 3. Al sumar 2 + 5 obtienes 7 electrones de valencia.",
+              "En este caso se trata de un halógeno del grupo 17. Período, grupo y número de electrones de valencia responden preguntas distintas."
+            ],
+            "flow": [
+              "3s² 3p⁵",
+              "Período 3",
+              "7 electrones de valencia"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Compara Be, que termina en 2s², con Ca, que termina en 4s².",
+          "steps": [
+            "En Be el nivel externo es 2, así que está en el período 2.",
+            "En Ca el nivel externo es 4, así que está en el período 4.",
+            "Los dos terminan en s². Tienen 2 electrones de valencia y están en el grupo 2."
+          ],
+          "result": "Comparten grupo y valencia. Sus períodos son distintos."
+        },
+        "exercises": [
+          {
+            "id": "u4-16",
+            "title": "¿Qué comparten H, Li, Na y K?",
+            "prompt": "Escribe las configuraciones y luego identifica lo que comparten.",
+            "cases": [
+              {
+                "label": "H · Z = 1",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s1"
+                  }
+                ],
+                "hint": "Suma los exponentes y mira cómo termina el nivel externo.",
+                "why": "Extendida: 1s¹."
+              },
+              {
+                "label": "Li · Z = 3",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s1"
+                  }
+                ],
+                "hint": "Suma los exponentes y mira cómo termina el nivel externo.",
+                "why": "Extendida: 1s² 2s¹."
+              },
+              {
+                "label": "Na · Z = 11",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s1"
+                  }
+                ],
+                "hint": "Suma los exponentes y mira cómo termina el nivel externo.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s¹."
+              },
+              {
+                "label": "K · Z = 19",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p6 3s2 3p6 4s1"
+                  }
+                ],
+                "hint": "Suma los exponentes y mira cómo termina el nivel externo.",
+                "why": "Extendida: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹."
+              },
+              {
+                "label": "En común",
+                "fields": [
+                  {
+                    "label": "Electrones de valencia",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "Grupo",
+                    "kind": "number",
+                    "answer": 1
+                  }
+                ],
+                "hint": "Sus terminaciones son 1s¹, 2s¹, 3s¹ y 4s¹.",
+                "why": "Terminan en s¹ y tienen un electrón externo. Están en el grupo 1."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          },
+          {
+            "id": "u4-17",
+            "title": "¿Qué comparten Li, Be, C y O?",
+            "prompt": "Escribe las configuraciones y luego identifica lo que comparten.",
+            "cases": [
+              {
+                "label": "Li · Z = 3",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s1"
+                  }
+                ],
+                "hint": "Fíjate en el número que antecede a s y p en el último nivel.",
+                "why": "Extendida: 1s² 2s¹."
+              },
+              {
+                "label": "Be · Z = 4",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2"
+                  }
+                ],
+                "hint": "Fíjate en el número que antecede a s y p en el último nivel.",
+                "why": "Extendida: 1s² 2s²."
+              },
+              {
+                "label": "C · Z = 6",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p2"
+                  }
+                ],
+                "hint": "Fíjate en el número que antecede a s y p en el último nivel.",
+                "why": "Extendida: 1s² 2s² 2p²."
+              },
+              {
+                "label": "O · Z = 8",
+                "fields": [
+                  {
+                    "label": "Configuración extendida",
+                    "kind": "config",
+                    "answer": "1s2 2s2 2p4"
+                  }
+                ],
+                "hint": "Fíjate en el número que antecede a s y p en el último nivel.",
+                "why": "Extendida: 1s² 2s² 2p⁴."
+              },
+              {
+                "label": "En común",
+                "fields": [
+                  {
+                    "label": "Nivel externo",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Período",
+                    "kind": "number",
+                    "answer": 2
+                  }
+                ],
+                "hint": "El nivel con electrones más alto es el mismo en las cuatro configuraciones.",
+                "why": "Todos tienen electrones en el nivel 2. Están en el período 2."
+              }
+            ],
+            "reference": "Orden de llenado para estos ejercicios: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p. Capacidades: s = 2, p = 6, d = 10. Puedes escribir 1s2 y [He] 2s1 con números normales."
+          },
+          {
+            "id": "u4-18",
+            "title": "Usa solo la configuración",
+            "prompt": "El nivel externo de un átomo representativo termina en 3s² 3p⁵.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Período",
+                    "kind": "number",
+                    "answer": 3
+                  },
+                  {
+                    "label": "Electrones de valencia",
+                    "kind": "number",
+                    "answer": 7
+                  }
+                ],
+                "hint": "El número delante de las letras da el nivel. Los exponentes, la cantidad de electrones.",
+                "why": "Período 3. Electrones de valencia: 2 + 5 = 7."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Mismo período",
+              [
+                "Li · 2s¹",
+                "C · 2s² 2p²",
+                "O · 2s² 2p⁴"
+              ],
+              "Los tres tienen como nivel externo el 2. Están en la misma fila."
+            ],
+            [
+              "Mismo grupo",
+              [
+                "Li · 2s¹",
+                "Na · 3s¹",
+                "K · 4s¹"
+              ],
+              "Los tres tienen un electrón de valencia. Están en el grupo 1."
+            ]
+          ]
+        },
+        "intro": "Compara qué coincide al mirar una fila y una columna."
+      },
+      {
+        "title": "Enlaces y electronegatividad",
+        "goal": "Distinguir transferencia de electrones, compartición desigual y compartición igual.",
+        "steps": [
+          {
+            "title": "1. Lo que hacen los electrones al unirse",
+            "text": [
+              "En estos ejemplos, los átomos se unen mediante sus electrones de valencia. En un enlace iónico típico, un metal cede electrones y un no metal los gana. Quedan un catión y un anión que se atraen.",
+              "En un enlace covalente, dos átomos comparten uno o más pares de electrones. Un enlace simple comparte un par; uno doble, dos; uno triple, tres."
+            ],
+            "flow": [
+              "Iónico · transferencia y atracción",
+              "Covalente · pares compartidos"
+            ]
+          },
+          {
+            "title": "2. Medir la diferencia de atracción",
+            "text": [
+              "La electronegatividad (EN) mide cuánto atrae un átomo los electrones de un enlace. Aumenta generalmente hacia la derecha en un período y disminuye al bajar en un grupo.",
+              "Resta el valor menor al mayor para calcular ΔEN. En los ejemplos covalentes, si la diferencia es apreciable, el par se acerca más al átomo que lo atrae con mayor fuerza. Eso es un enlace polar."
+            ],
+            "flow": [
+              "EN mayor − EN menor = ΔEN",
+              "ΔEN = 0 · compartición igual"
+            ]
+          },
+          {
+            "title": "3. Aplicar el criterio escolar",
+            "text": [
+              "Para corregir estos casos se usa el criterio del apunte: ΔEN menor que 0,4 indica covalente apolar. Desde 0,4 hasta antes de 1,7, covalente polar. Desde 1,7, se clasifica como iónico según esa pauta escolar.",
+              "Esta pauta orienta. Hay materiales escolares que usan 2,0 como corte y existen casos límite. Si el profesor les dio otro valor para la prueba, sigue su pauta."
+            ],
+            "flow": [
+              "< 0,4 · apolar",
+              "0,4 a < 1,7 · polar",
+              "≥ 1,7 · iónico"
+            ]
+          },
+          {
+            "title": "4. Relacionar el enlace con ejemplos",
+            "text": [
+              "NaCl es un compuesto iónico. Muchos compuestos iónicos son sólidos y pueden conducir cuando sus iones tienen movilidad, como al disolverse o fundirse.",
+              "H₂O y CO₂ contienen enlaces covalentes. Cada enlace se clasifica según los átomos involucrados. Una línea entre dos símbolos representa un par compartido."
+            ],
+            "flow": [
+              "Na⁺ y Cl⁻ · iones",
+              "O=C=O · dos enlaces dobles"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Clasifica el enlace entre Li con EN 1,0 y F con EN 4,0.",
+          "steps": [
+            "Compara las electronegatividades. El flúor tiene el valor mayor.",
+            "Calcula ΔEN = 4,0 − 1,0 = 3,0.",
+            "Compara 3,0 con el criterio escolar de 1,7."
+          ],
+          "result": "Se clasifica como iónico. El litio cede un electrón y el flúor lo gana, dejando Li⁺ y F⁻."
+        },
+        "exercises": [
+          {
+            "id": "u4-19",
+            "title": "Calcula ΔEN y clasifica el enlace",
+            "prompt": "En cada caso resta la electronegatividad menor a la mayor. Selecciona el tipo de enlace según la pauta del cuadernillo.",
+            "cases": [
+              {
+                "label": "NaCl · Na 0,9 y Cl 3,0",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 2.1
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,0 − 0,9 = 2,1. Tipo: iónico."
+              },
+              {
+                "label": "KF · K 0,8 y F 4,0",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 3.2
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "4,0 − 0,8 = 3,2. Tipo: iónico."
+              },
+              {
+                "label": "MgO · Mg 1,2 y O 3,5",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 2.3
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,5 − 1,2 = 2,3. Tipo: iónico."
+              },
+              {
+                "label": "HCl · H 2,1 y Cl 3,0",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 0.9
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,0 − 2,1 = 0,9. Tipo: covalente polar."
+              },
+              {
+                "label": "H₂O · enlace O–H, O 3,5 y H 2,1",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 1.4
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,5 − 2,1 = 1,4. Tipo: covalente polar."
+              },
+              {
+                "label": "NH₃ · enlace N–H, N 3,0 y H 2,1",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 0.9
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,0 − 2,1 = 0,9. Tipo: covalente polar."
+              },
+              {
+                "label": "Cl₂ · Cl 3,0 y Cl 3,0",
+                "fields": [
+                  {
+                    "label": "Diferencia de electronegatividad ΔEN",
+                    "kind": "number",
+                    "answer": 0
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Iónico",
+                      "Covalente polar",
+                      "Covalente apolar"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Resta el valor menor al mayor y luego revisa en qué rango cae el resultado.",
+                "why": "3,0 − 3,0 = 0. Tipo: covalente apolar."
+              }
+            ],
+            "reference": "Usa ΔEN < 0,4 para apolar, desde 0,4 y menor que 1,7 para polar, y ΔEN ≥ 1,7 para iónico en estos ejemplos."
+          },
+          {
+            "id": "u4-20",
+            "title": "Quién cede y quién gana",
+            "prompt": "El sodio es un metal y el cloro es un no metal. Completa cómo se forman los iones.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "El sodio",
+                    "kind": "pick",
+                    "options": [
+                      "Gana un electrón y forma Na⁻",
+                      "Cede un electrón y forma Na⁺"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "El cloro",
+                    "kind": "pick",
+                    "options": [
+                      "Gana un electrón y forma Cl⁻",
+                      "Cede un electrón y forma Cl⁺"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Perder un electrón deja la carga más positiva. Ganarlo la deja más negativa.",
+                "why": "El sodio cede un electrón y queda Na⁺. El cloro lo gana y queda Cl⁻. Sus cargas opuestas se atraen."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Na y Cl",
+              [
+                "Na · 0,9",
+                "ΔEN = 2,1",
+                "Cl · 3,0"
+              ],
+              "Iónico en este ejemplo: el sodio cede un electrón al cloro."
+            ],
+            [
+              "O y H",
+              [
+                "O · 3,5",
+                "ΔEN = 1,4",
+                "H · 2,1"
+              ],
+              "Covalente polar: el oxígeno atrae más el par compartido."
+            ],
+            [
+              "Cl y Cl",
+              [
+                "Cl · 3,0",
+                "ΔEN = 0",
+                "Cl · 3,0"
+              ],
+              "Covalente apolar: ambos átomos atraen por igual el par compartido."
+            ]
+          ]
+        },
+        "intro": "Elige una pareja y compara cuánto atrae electrones cada átomo."
+      },
+      {
+        "title": "Moléculas con barras y esferas",
+        "goal": "Leer la composición, contar enlaces y explicar qué representan las barras y los colores.",
+        "steps": [
+          {
+            "title": "1. Contar esferas",
+            "text": [
+              "Cada esfera representa un átomo. El subíndice de una fórmula indica cuántos átomos de ese elemento hay. Si no hay subíndice, hay uno. H₂O tiene dos H y un O.",
+              "Los colores ayudan a reconocer los átomos en el modelo. En estas figuras usamos H blanco, O rojo, C oscuro y N azul. Las letras también los identifican."
+            ],
+            "flow": [
+              "H₂O · 2 H + 1 O",
+              "3 esferas"
+            ]
+          },
+          {
+            "title": "2. Un enlace puede tener varias barras",
+            "text": [
+              "Una barra representa un par de electrones compartido. Dos barras entre el mismo par de átomos muestran un enlace doble y tres muestran uno triple.",
+              "Separa al contar el número de enlaces del número de barras. En CO₂ hay dos enlaces dobles C=O, es decir, dos uniones entre pares de átomos y cuatro barras."
+            ],
+            "flow": [
+              "O=C=O",
+              "2 enlaces dobles",
+              "4 barras"
+            ]
+          },
+          {
+            "title": "3. Qué forma puede tener una molécula",
+            "text": [
+              "La forma se aprecia en tres dimensiones. El agua es angular, el dióxido de carbono es lineal y el metano es tetraédrico. En la pantalla el metano se proyecta en dos dimensiones.",
+              "El modelo de barras y esferas destaca las conexiones. El modelo espacial compacto destaca el tamaño y la forma general de la molécula."
+            ],
+            "flow": [
+              "H₂O · angular",
+              "CO₂ · lineal",
+              "CH₄ · tetraédrico"
+            ]
+          },
+          {
+            "title": "4. Relacionar valencia y cantidad de enlaces",
+            "text": [
+              "En los ejemplos de la guía, los átomos suelen compartir pares para aproximarse a una capa externa de ocho electrones. El hidrógeno completa su capa con dos.",
+              "Al carbono le faltan cuatro para llegar a ocho. En el metano comparte cuatro pares, uno con cada H. Al oxígeno le faltan dos. En el agua comparte dos pares con dos H."
+            ],
+            "flow": [
+              "C · 4 de valencia → hasta 4 pares en CH₄",
+              "O · 6 de valencia → 2 pares en H₂O"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Interpreta la fórmula y la estructura del dióxido de carbono: O=C=O.",
+          "steps": [
+            "La fórmula CO₂ muestra un carbono y dos oxígenos. Dibuja tres esferas.",
+            "Cada signo = significa un enlace doble, con dos barras. Hay dos signos =.",
+            "Cuenta cuatro barras y ubica los oxígenos a ambos lados del carbono."
+          ],
+          "result": "CO₂ tiene tres átomos, dos enlaces dobles y cuatro barras. Es lineal."
+        },
+        "exercises": [
+          {
+            "id": "u4-21",
+            "title": "Cuenta enlaces simples, dobles y triples",
+            "prompt": "Selecciona el tipo de enlace y escribe cuántos hay en cada molécula.",
+            "cases": [
+              {
+                "label": "H₂O · H–O–H",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 2 enlaces simples."
+              },
+              {
+                "label": "NH₃ · tres uniones N–H",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 3
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 3 enlaces simples."
+              },
+              {
+                "label": "CH₄ · cuatro uniones C–H",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 4 enlaces simples."
+              },
+              {
+                "label": "CO₂ · O=C=O",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 2 enlaces dobles."
+              },
+              {
+                "label": "O₂ · O=O",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 1 enlace doble."
+              },
+              {
+                "label": "N₂ · N≡N",
+                "fields": [
+                  {
+                    "label": "Número de enlaces",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "Tipo de enlace",
+                    "kind": "pick",
+                    "options": [
+                      "Simple",
+                      "Doble",
+                      "Triple"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Cuenta pares de átomos unidos. Las barras entre el mismo par determinan el tipo.",
+                "why": "Hay 1 enlace triple."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-22",
+            "title": "Arma el inventario del modelo",
+            "prompt": "Indica cuántas esferas de cada color y cuántas barras necesitas para representar las moléculas.",
+            "cases": [
+              {
+                "label": "Agua · H₂O",
+                "fields": [
+                  {
+                    "label": "Esferas rojas de oxígeno",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "Esferas blancas de hidrógeno",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "Barras",
+                    "kind": "number",
+                    "answer": 2
+                  }
+                ],
+                "hint": "Hay una esfera por átomo y una barra por enlace simple.",
+                "why": "Una esfera roja, dos blancas y dos barras. Los enlaces se dirigen desde O a cada H."
+              },
+              {
+                "label": "Metano · CH₄",
+                "fields": [
+                  {
+                    "label": "Esferas oscuras de carbono",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "Esferas blancas de hidrógeno",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Barras",
+                    "kind": "number",
+                    "answer": 4
+                  }
+                ],
+                "hint": "Lee el subíndice y considera los cuatro enlaces simples C–H.",
+                "why": "Una esfera oscura, cuatro blancas y cuatro barras. C ocupa el centro en el modelo."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-23",
+            "title": "Por qué forman cuatro o dos enlaces",
+            "prompt": "Según la regla del octeto para estos ejemplos, relaciona electrones de valencia y cantidad de pares compartidos.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Electrones de valencia del C",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Enlaces simples del C en CH₄",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Electrones de valencia del O",
+                    "kind": "number",
+                    "answer": 6
+                  },
+                  {
+                    "label": "Enlaces simples del O en H₂O",
+                    "kind": "number",
+                    "answer": 2
+                  }
+                ],
+                "hint": "Resta a ocho los electrones de valencia del átomo central para estos ejemplos.",
+                "why": "Al carbono le faltan cuatro y comparte cuatro pares en metano. Al oxígeno le faltan dos y comparte dos pares en agua."
+              }
+            ],
+            "reference": ""
+          }
+        ],
+        "visual": {
+          "kind": "molecule"
+        },
+        "intro": "Cambia de molécula. Cuenta las esferas y mira cuántas barras unen cada par."
+      },
+      {
+        "title": "Autoevaluación",
+        "recap": true,
+        "goal": "Responde cinco preguntas de verdadero o falso para repasar la unidad.",
+        "exercises": [
+          {
+            "id": "u4-24",
+            "title": "Qué cambia en un ion",
+            "prompt": "Un ion tiene distinto número de protones que el átomo neutro del que se formó.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Ganar o perder carga ocurre fuera del núcleo.",
+                "why": "Cambian los electrones. La cantidad de protones sigue siendo la misma."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-25",
+            "title": "Isótopos",
+            "prompt": "Los isótopos de un mismo elemento tienen el mismo Z.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Z indica la cantidad de protones.",
+                "why": "Los isótopos comparten Z y se distinguen por su número de neutrones."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-26",
+            "title": "Capacidad de un orbital",
+            "prompt": "Un casillero orbital admite hasta dos electrones.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Un casillero puede mostrar ↑↓.",
+                "why": "Un orbital individual admite hasta 2 electrones con espines opuestos."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-27",
+            "title": "Períodos y valencia",
+            "prompt": "Todos los elementos de un mismo período tienen la misma cantidad de electrones de valencia.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Un período es una fila; un grupo es una columna.",
+                "why": "En los ejemplos, los de una fila comparten el nivel externo. Los de un grupo suelen compartir la cantidad de electrones de valencia."
+              }
+            ],
+            "reference": ""
+          },
+          {
+            "id": "u4-28",
+            "title": "Electronegatividad en la tabla",
+            "prompt": "La electronegatividad generalmente aumenta hacia abajo en un grupo.",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "El flúor está arriba del cloro y atrae con mayor fuerza.",
+                "why": "En general, la electronegatividad disminuye hacia abajo en un grupo y aumenta hacia la derecha en un período."
+              }
+            ],
+            "reference": ""
+          }
+        ]
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function diagram(label, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", label);
+  byId("board").replaceChildren(canvas);
+  const ctx = canvas.getContext("2d");
+  ctx.scale(2, 2);
+  ctx.fillStyle = "#fbfdf9";
+  ctx.fillRect(0, 0, 570, 195);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  draw(ctx);
+}
+
+function line(ctx, points, color = "#35594e", width = 3) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  points.forEach(([x, y], index) => index ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.stroke();
+}
+
+function dot(ctx, x, y, radius, fill, stroke = "#35594e", width = 2) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
+function label(ctx, text, x, y, color = "#24453d") {
+  ctx.fillStyle = color;
+  ctx.font = "650 16px system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, x, y);
+}
+
+function showCircuit() {
+  let parallel = false;
+  let open = false;
+  const seriesButton = button("En serie", "pill");
+  const parallelButton = button("En paralelo", "pill");
+  const toggle = button("Abrir el interruptor", "pill");
+  byId("controls").append(seriesButton, parallelButton, toggle);
+  seriesButton.onclick = () => { parallel = false; draw(); };
+  parallelButton.onclick = () => { parallel = true; draw(); };
+  toggle.onclick = () => { open = !open; draw(); };
+  draw();
+
+  function draw() {
+    seriesButton.setAttribute("aria-pressed", String(!parallel));
+    parallelButton.setAttribute("aria-pressed", String(parallel));
+    toggle.textContent = open ? "Cerrar el interruptor" : "Abrir el interruptor";
+    const lamp1 = !open;
+    const lamp2 = parallel || !open;
+    const message = open ? (parallel
+      ? "La rama de A queda abierta. B sigue encendida porque mantiene un camino cerrado."
+      : "El interruptor corta el único camino. Las dos ampolletas se apagan.")
+      : (parallel ? "A y B están en ramas distintas. Las dos reciben el voltaje de la pila."
+      : "A y B comparten el mismo camino. La corriente que pasa por ambas es igual.");
+    byId("legend").textContent = message;
+    diagram("Circuito " + (parallel ? "en paralelo. " : "en serie. ") + message, ctx => {
+      const wire = "#52746a";
+      const live = "#257052";
+      const top = 46;
+      const bottom = 143;
+      line(ctx, [[95,top],[95,bottom],[263,bottom]], wire, 4);
+      line(ctx, [[301,bottom],[475,bottom],[475,top],[209,top]], wire, 4);
+      line(ctx, [[95,top],[159,top]], wire, 4);
+      line(ctx, [[263,bottom],[275,bottom]], wire, 4);
+      line(ctx, [[289,bottom],[301,bottom]], wire, 4);
+      line(ctx, [[275,126],[275,160]], wire, 4);
+      line(ctx, [[289,133],[289,153]], wire, 4);
+      label(ctx, "+", 258, 164);
+      label(ctx, "−", 305, 164);
+      label(ctx, "Pila", 282, 179);
+      line(ctx, [[159,top],[open ? 195 : 209,open ? 25 : top]], open ? "#9a6425" : live, 4);
+      dot(ctx,159,top,4,"#fff",wire);
+      dot(ctx,209,top,4,"#fff",wire);
+      lamp(ctx, parallel ? 340 : 309, top, "A", lamp1);
+      if (parallel) {
+        line(ctx, [[95,93],[475,93]], live, 4);
+        dot(ctx,95,93,4,live,live);
+        dot(ctx,475,93,4,live,live);
+        lamp(ctx,340,93,"B",lamp2);
+      } else {
+        lamp(ctx,416,top,"B",lamp2);
+      }
+      label(ctx, "Interruptor", 185, 70);
+    });
+  }
+  function lamp(ctx,x,y,name,on) {
+    dot(ctx,x,y,15,on ? "#ffe1a0" : "#eeefeb",on ? "#9b6c2b" : "#627670",2.5);
+    const color = on ? "#6b4616" : "#627670";
+    line(ctx,[[x-6,y-6],[x+6,y+6]],color,2);
+    line(ctx,[[x-6,y+6],[x+6,y-6]],color,2);
+    label(ctx,name,x,y+25,color);
+  }
+}
+
+function showRange() {
+  const box = document.createElement("div");
+  box.className = "range-box";
+  const title = document.createElement("label");
+  title.htmlFor = "resistance";
+  title.textContent = "Resistencia";
+  const value = document.createElement("output");
+  value.setAttribute("for","resistance");
+  title.append(value);
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = "resistance";
+  slider.min = "1";
+  slider.max = "12";
+  slider.value = "3";
+  const reading = document.createElement("p");
+  reading.className = "reading";
+  box.append(title, slider, reading);
+  byId("board").append(box);
+  byId("legend").textContent = "Con el voltaje fijo, si duplicas la resistencia, la corriente queda en la mitad.";
+  slider.addEventListener("input", update);
+  update();
+  function update() {
+    value.textContent = slider.value + " Ω";
+    reading.textContent = "I = 12 V ÷ " + slider.value + " Ω = " + (12 / Number(slider.value)).toLocaleString("es-CL", {maximumFractionDigits: 2}) + " A";
+    slider.setAttribute("aria-valuetext", value.textContent);
+  }
+}
+
+function showCurve() {
+  const names = ["Calentar hielo","Fundir","Calentar agua","Hervir","Calentar vapor"];
+  const notes = [
+    "Calor sensible: el hielo se calienta hasta 0 °C.",
+    "Calor latente de fusión: el hielo pasa a líquido a 0 °C.",
+    "Calor sensible: el agua líquida se calienta de 0 °C a 100 °C.",
+    "Calor latente de vaporización: el agua hierve a 100 °C.",
+    "Calor sensible: el vapor aumenta su temperatura."
+  ];
+  const points = [[89,149],[140,123],[222,123],[307,61],[445,61],[500,28]];
+  switcher(names, active => {
+    byId("legend").textContent = notes[active] + " Esquema sin escala.";
+    diagram("Curva de calentamiento del agua. " + notes[active], ctx => {
+      line(ctx,[[73,19],[73,160],[526,160]],"#67837a",1.5);
+      for (const [y,temp] of [[123,"0 °C"],[61,"100 °C"]]) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[[73,y],[515,y]],"#a8bdb4",1);
+        ctx.setLineDash([]);
+        label(ctx,temp,43,y);
+      }
+      label(ctx,"Calor agregado →",302,180);
+      line(ctx,points,"#a3b9ae",3.5);
+      line(ctx,[points[active],points[active+1]],"#219167",7);
+    });
+  });
+}
+
+function showMolecules() {
+  const models = [
+    ["H₂O", [["O",285,67],["H",211,120],["H",359,120]],[[0,1,1],[0,2,1]],"Agua: 3 átomos, 2 enlaces simples. Forma angular."],
+    ["CO₂", [["C",285,97],["O",169,97],["O",401,97]],[[0,1,2],[0,2,2]],"Dióxido de carbono: 3 átomos, 2 enlaces dobles. Forma lineal."],
+    ["CH₄", [["C",285,97],["H",223,139],["H",345,139],["H",286,33],["H",347,63]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],"Metano: 5 átomos y 4 enlaces simples. Proyección del modelo tetraédrico."],
+    ["NH₃", [["N",285,62],["H",205,111],["H",365,111],["H",285,145]],[[0,1,1],[0,2,1],[0,3,1]],"Amoníaco: 4 átomos, 3 enlaces simples. Proyección de su forma piramidal."],
+    ["O₂", [["O",226,97],["O",344,97]],[[0,1,2]],"Oxígeno: 2 átomos, 1 enlace doble."],
+    ["N₂", [["N",226,97],["N",344,97]],[[0,1,3]],"Nitrógeno: 2 átomos, 1 enlace triple."]
+  ];
+  const atomColor = {O:"#ac3039", C:"#233231", N:"#254f89", H:"#fff"};
+  switcher(models.map(model => model[0]), index => {
+    const [name, atoms, bonds, note] = models[index];
+    byId("legend").textContent = note;
+    diagram(name + ". " + note, ctx => {
+      for (const [i,j,count] of bonds) {
+        const [,ax,ay] = atoms[i];
+        const [,bx,by] = atoms[j];
+        const distance = Math.hypot(bx-ax,by-ay);
+        for (let k = 0; k < count; k++) {
+          const offset = (k - (count - 1)/2) * 8;
+          const dx = (ay-by)/distance*offset;
+          const dy = (bx-ax)/distance*offset;
+          line(ctx,[[ax+dx,ay+dy],[bx+dx,by+dy]],"#759284",4);
+        }
+      }
+      for (const [atom,x,y] of atoms) {
+        dot(ctx,x,y,atom === "H" ? 18 : 23,atomColor[atom],"#35594e",2);
+        label(ctx,atom,x,y,atom === "H" ? "#143931" : "#fff");
+      }
+    });
+  });
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules};
+  if (visual.kind === "scenes") {
+    switcher(visual.choices.map(choice => choice[0]), active => {
+      const [, cells, note] = visual.choices[active];
+      const scene = document.createElement("div");
+      scene.className = "scene";
+      for (const cell of cells) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.textContent = cell;
+        scene.append(tile);
+      }
+      byId("board").replaceChildren(scene);
+      byId("legend").textContent = note;
+    });
+  } else {
+    renderers[visual.kind]();
+  }
+}
+
+
+
+
+function electronBuilder(parent, task, values) {
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  const counter = document.createElement("p");
+  counter.className = "builder-count";
+  counter.setAttribute("aria-live","polite");
+  let groupIndex = 0;
+  function addSlots(container, names, glyphs) {
+    const group = values[groupIndex] ??= names.map(() => 0);
+    groupIndex++;
+    names.forEach((name,index) => {
+      const slot = button("","nav-button");
+      function refresh() {
+        const count = group[index];
+        slot.textContent = glyphs[count];
+        slot.setAttribute("aria-label",name + ": " + count + (count === 1 ? " electrón" : " electrones"));
+      }
+      slot.onclick = () => {
+        group[index] = (group[index] + 1) % 3;
+        refresh();
+        updateCount();
+      };
+      refresh();
+      container.append(slot);
+    });
+  }
+  function updateCount() {
+    const total = values.flat().reduce((sum,current) => sum + current,0);
+    counter.textContent = "Electrones colocados: " + total;
+  }
+  function equivalent(a,b) {
+    return [...a].sort().join(",") === [...b].sort().join(",");
+  }
+  if (task.kind === "lewis") {
+    const arrangement = document.createElement("div");
+    arrangement.className = "lewis";
+    addSlots(arrangement,["Arriba","Derecha","Abajo","Izquierda"],["○","•","••"]);
+    const symbol = document.createElement("strong");
+    symbol.textContent = task.symbol;
+    arrangement.append(symbol);
+    panel.append(arrangement,counter);
+    parent.append(panel);
+    updateCount();
+    return () => ({passed:Number(task.patterns.some(pattern => equivalent(pattern,values[0]))),total:1});
+  }
+  for (const [name, occupancy] of task.groups) {
+    const row = document.createElement("div");
+    row.className = "orbital-row";
+    const heading = document.createElement("strong");
+    heading.textContent = name;
+    const slots = document.createElement("div");
+    slots.className = "slots";
+    addSlots(slots,occupancy.map((_,index) => name + ", casillero " + (index + 1)),["—","↑","↑↓"]);
+    row.append(heading,slots);
+    panel.append(row);
+  }
+  panel.append(counter);
+  parent.append(panel);
+  updateCount();
+  return () => ({
+    passed:task.groups.filter(([,occupancy], index) => equivalent(occupancy,values[index])).length,
+    total:task.groups.length
+  });
+}
+
+function circuitBuilder(parent, task, draft) {
+  const parallel = task.layout === "paralelo";
+  const parts = ["Pila","Interruptor cerrado","Interruptor abierto","Ampolleta","Resistencia","Cable"];
+  const slots = parallel ? [
+    ["Rama superior",4,293,29,"R₁"],["Rama del medio",4,293,72,"R₂"],
+    ["Rama inferior",4,293,115,"R₃"],["Alimentación",0,293,153,"Pila"]
+  ] : [
+    ["Lugar 1",1,184,51,"Interruptor"],["Lugar 2",3,302,51,"Ampolleta A"],
+    ["Lugar 3",3,420,51,"Ampolleta B"],["Alimentación",0,293,144,"Pila"]
+  ];
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  parent.append(panel);
+  const fields = slots.map(([label,answer]) => ({label,kind:"pick",options:parts,answer}));
+  const widgets = fieldGroup(parent,fields,draft);
+  widgets.forEach(widget => widget.control.addEventListener("change",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1140;
+    canvas.height = 390;
+    canvas.setAttribute("role","img");
+    canvas.setAttribute("aria-label","Esquema en " + task.layout + ". " + slots.map(([name],index) => {
+      const selected = widgets[index].control.value;
+      return name + ": " + (selected === "" ? "vacío" : parts[Number(selected)]);
+    }).join(". "));
+    panel.replaceChildren(canvas);
+    const ctx = canvas.getContext("2d");
+    ctx.scale(2,2);
+    ctx.fillStyle = "#f8fbf6";
+    ctx.fillRect(0,0,570,195);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    const upper = parallel ? 29 : 51;
+    const lower = parallel ? 153 : 144;
+    line(ctx,[[86,upper],[86,lower],[260,lower]]);
+    line(ctx,[[326,lower],[484,lower],[484,upper]]);
+    if (parallel) {
+      for (const y of [29,72,115]) {
+        line(ctx,[[86,y],[260,y]]);
+        line(ctx,[[326,y],[484,y]]);
+        if (y > upper) {
+          dot(ctx,86,y,3,"#35594e");
+          dot(ctx,484,y,3,"#35594e");
+        }
+      }
+    } else {
+      for (const [start,end] of [[86,151],[217,269],[335,387],[453,484]]) {
+        line(ctx,[[start,upper],[end,upper]]);
+      }
+    }
+    slots.forEach(([,want,x,y,name],index) => {
+      const value = widgets[index].control.value;
+      drawPart(ctx,x,y,value === "" ? -1 : Number(value),name,want);
+    });
+  }
+
+  function drawPart(ctx,x,y,part,name,want) {
+    const pink = "#a36b30";
+    if (part === -1) {
+      ctx.setLineDash([4,5]);
+      line(ctx,[[x-33,y],[x+33,y]],"#91a79a",2);
+      ctx.setLineDash([]);
+      return;
+    }
+    const width = [13,21,21,12,22,0][part];
+    line(ctx,[[x-33,y],[x-width,y]]);
+    line(ctx,[[x+width,y],[x+33,y]]);
+    if (part === 0) {
+      line(ctx,[[x-13,y],[x-6,y]]);
+      line(ctx,[[x+6,y],[x+13,y]]);
+      line(ctx,[[x-6,y-14],[x-6,y+14]]);
+      line(ctx,[[x+6,y-8],[x+6,y+8]]);
+      label(ctx,"+",x-20,y-13);
+      label(ctx,"−",x+20,y-13);
+    } else if (part === 1 || part === 2) {
+      dot(ctx,x-21,y,3,"#fff");
+      dot(ctx,x+21,y,3,"#fff");
+      line(ctx,[[x-21,y],[part===1 ? x+21 : x+13,part===1 ? y : y-13]],pink,2.5);
+    } else if (part === 3) {
+      dot(ctx,x,y,12,"#fff0cb",pink,2);
+      line(ctx,[[x-5,y-5],[x+5,y+5]],pink,2);
+      line(ctx,[[x+5,y-5],[x-5,y+5]],pink,2);
+    } else if (part === 4) {
+      line(ctx,[[x-22,y],[x-16,y-7],[x-8,y+7],[x,y-7],[x+8,y+7],[x+16,y-7],[x+22,y]],"#35594e",2);
+    }
+    const chosen = part === want ? name : parts[part];
+    label(ctx,chosen,x,y+23);
+  }
+}
+
+
+const byId = id => document.getElementById(id);
+const storageKey = "cuadernillo-emilio-2s-2026-ciencias-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const record = value => value && typeof value === "object" && !Array.isArray(value) ? value : {};
+const state = {
+  unit: units.some(item => item.id === saved.unit) ? saved.unit : units[0].id,
+  positions: record(saved.positions),
+  sessions: record(saved.sessions),
+  solved: record(saved.solved),
+  focus: saved.focus === true
+};
+let checkAnswer = () => {};
+const drafts = new Map();
+const bounded = (value, length) => Number.isInteger(value) && value >= 0 && value < length ? value : 0;
+const text = (id, value) => { byId(id).textContent = value; };
+const activeUnit = () => units.find(item => item.id === state.unit);
+const position = unit => bounded(state.positions[unit.id], unit.lessons.length);
+const activeLesson = unit => unit.lessons[position(unit)];
+const caseSolved = (exercise, index) => state.solved[exercise.id + ":" + index] === true;
+const exerciseSolved = exercise => exercise.cases.every((_, index) => caseSolved(exercise, index));
+const chapterSolved = lesson => lesson.exercises.every(exerciseSolved);
+
+function save() {
+  try { localStorage.setItem(storageKey,JSON.stringify(state)); } catch {}
+}
+function session(unit) {
+  const key = unit.id + ":" + position(unit);
+  const existing = state.sessions[key];
+  if (existing && existing.cases && typeof existing.cases === "object") return existing;
+  const created = {mode:"learn",step:0,exercise:0,cases:{}};
+  state.sessions[key] = created;
+  return created;
+}
+function button(label, className) {
+  const element = document.createElement("button");
+  element.type = "button";
+  element.className = className;
+  element.textContent = label;
+  return element;
+}
+function list(id, items, tag) {
+  byId(id).replaceChildren(...items.map(item => {
+    const element = document.createElement(tag);
+    element.textContent = item;
+    return element;
+  }));
+}
+function focusHeading(id) {
+  byId(id).focus({preventScroll:true});
+  byId(id).scrollIntoView({block:"nearest"});
+}
+function navigate(unit, index = position(unit)) {
+  state.unit = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  focusHeading("lesson-title");
+}
+function toggleFocus() {
+  document.body.classList.toggle("focus-mode",state.focus);
+  byId("focus").setAttribute("aria-pressed",String(state.focus));
+  text("focus",state.focus ? "Salir de enfoque" : "Modo enfoque");
+}
+byId("focus").onclick = () => {
+  state.focus = !state.focus;
+  toggleFocus();
+  save();
+};
+
+function renderProgress(unit) {
+  const exercises = unit.lessons.flatMap(lesson => lesson.exercises);
+  const completed = exercises.filter(exerciseSolved).length;
+  const progress = byId("progress");
+  progress.max = exercises.length;
+  progress.value = completed;
+  text("progress-label",completed + " de " + exercises.length + " ejercicios resueltos");
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,index) => {
+    const done = chapterSolved(lesson);
+    const element = button("","item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : lesson.recap ? "✓?" : String(index + 1);
+    badge.setAttribute("aria-hidden","true");
+    element.append(badge,document.createTextNode(lesson.title));
+    if (done) element.setAttribute("aria-label",lesson.title + ", ejercicios resueltos");
+    if (index === position(unit)) element.setAttribute("aria-current","true");
+    element.onclick = () => navigate(unit,index);
+    return element;
+  }));
+}
+
+function renderMenus(unit) {
+  byId("units").replaceChildren(...units.map(item => {
+    const element = button("","unit");
+    const label = document.createElement("strong");
+    const subtitle = document.createElement("span");
+    label.textContent = item.title;
+    subtitle.textContent = item.unit;
+    element.append(label,subtitle);
+    if (item.id === unit.id) element.setAttribute("aria-current","true");
+    element.onclick = () => navigate(item);
+    return element;
+  }));
+  renderProgress(unit);
+}
+function showStep(lesson, study) {
+  const index = bounded(study.step,lesson.steps.length);
+  const step = lesson.steps[index];
+  text("step-count","Paso " + (index + 1) + " de " + lesson.steps.length);
+  text("step-title",step.title.replace(/^\d+\.\s*/,""));
+  list("step-text",step.text,"p");
+  byId("step-flow").replaceChildren(...step.flow.map(piece => {
+    const tile = document.createElement("span");
+    tile.className = "tile";
+    tile.textContent = piece;
+    return tile;
+  }));
+  const previous = byId("previous-step");
+  const next = byId("next-step");
+  previous.disabled = index === 0;
+  next.disabled = index === lesson.steps.length - 1;
+  function change(newIndex) {
+    study.step = newIndex;
+    save();
+    showStep(lesson,study);
+    focusHeading("step-title");
+  }
+  previous.onclick = () => change(index - 1);
+  next.onclick = () => change(index + 1);
+}
+function showLearning(lesson, study) {
+  showStep(lesson,study);
+  byId("visual-details").open = false;
+  text("visual-intro",lesson.intro);
+  showVisual(lesson.visual);
+  text("worked-prompt",lesson.worked.prompt);
+  list("worked-steps",lesson.worked.steps,"li");
+  text("worked-result",lesson.worked.result);
+}
+function openMode(unit, mode, moveFocus = true) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const selected = lesson.recap || mode === "practice" ? "practice" : "learn";
+  if (study.mode === selected && !byId(selected + "-panel").hidden) return;
+  study.mode = selected;
+  save();
+  renderMode(unit);
+  if (moveFocus) focusHeading(study.mode === "learn" ? "step-title" : "exercise-title");
+}
+function renderMode(unit) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const learning = !lesson.recap && study.mode !== "practice";
+  byId("learn-panel").hidden = !learning;
+  byId("practice-panel").hidden = learning;
+  byId("learn-tab").hidden = Boolean(lesson.recap);
+  byId("learn-tab").setAttribute("aria-pressed",String(learning));
+  byId("practice-tab").setAttribute("aria-pressed",String(!learning));
+  byId("learn-tab").onclick = () => openMode(unit,"learn");
+  byId("practice-tab").onclick = () => openMode(unit,"practice");
+  byId("go-practice").onclick = () => openMode(unit,"practice");
+  if (learning) showLearning(lesson,study);
+  else showExercise(unit,lesson,study);
+}
+
+function normalizeConfiguration(value) {
+  const superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+  let remaining = value.trim().toLowerCase()
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, digit => String(superscript.indexOf(digit)))
+    .replace(/[\s^,]+/g,"");
+  const noble = remaining.match(/^\[(he|ne|ar|kr)\]/)?.[0] || "";
+  remaining = remaining.slice(noble.length);
+  const tokens = [];
+  const seen = new Set();
+  while (remaining) {
+    const token = remaining.match(/^([1-7][spdf])(10|11|12|13|14|[1-9])(?=[1-7][spdf]|$)/);
+    if (!token || seen.has(token[1])) return null;
+    seen.add(token[1]);
+    tokens.push(token[0]);
+    remaining = remaining.slice(token[0].length);
+  }
+  if (!tokens.length && !noble) return null;
+  return noble + tokens.sort().join(" ");
+}
+
+function matchesNumber(value, expected) {
+  const input = value.trim().replace(/\u2212/g,"-");
+  const candidates = [];
+  if (/^[+-]?\d+(?:[.,]\d+)?$/.test(input)) candidates.push(Number(input.replace(",",".")));
+  if (/^[+-]?\d{1,3}(?:[.\u00a0 ]\d{3})+(?:,\d+)?$/.test(input)) {
+    candidates.push(Number(input.replace(/[.\u00a0 ]/g,"").replace(",",".")));
+  }
+  return candidates.some(candidate => Math.abs(candidate - expected) < 1e-7);
+}
+function fieldWidget(specification) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = specification.label;
+  let control;
+  if (specification.kind === "pick") {
+    control = document.createElement("select");
+    const blank = new Option("Selecciona…","");
+    blank.disabled = true;
+    control.add(blank);
+    specification.options.forEach((option,index) => control.add(new Option(option,index)));
+    control.value = "";
+  } else {
+    control = document.createElement("input");
+    control.type = "text";
+    control.inputMode = specification.kind === "number" ? "decimal" : "text";
+    control.autocomplete = "off";
+    control.spellcheck = false;
+    if (specification.kind === "config") control.placeholder = "Ejemplo: 1s2 2s1";
+  }
+  wrapper.append(name,control);
+  control.addEventListener("input",() => {
+    control.removeAttribute("aria-invalid");
+    delete control.dataset.checked;
+  });
+  function check() {
+    let correct;
+    if (specification.kind === "pick") correct = control.value === String(specification.answer);
+    else if (specification.kind === "number") correct = matchesNumber(control.value,specification.answer);
+    else correct = normalizeConfiguration(control.value) === normalizeConfiguration(specification.answer);
+    control.setAttribute("aria-invalid",String(!correct));
+    control.dataset.checked = String(correct);
+    return correct;
+  }
+  return {wrapper,control,check};
+}
+function fieldGroup(parent, fields, draft) {
+  const container = document.createElement("div");
+  container.className = "exercise-fields";
+  const widgets = fields.map((field,index) => {
+    const widget = fieldWidget(field);
+    if (draft[index] !== undefined) widget.control.value = draft[index];
+    const remember = () => { draft[index] = widget.control.value; };
+    widget.control.addEventListener("input",remember);
+    widget.control.addEventListener("change",remember);
+    return widget;
+  });
+  container.append(...widgets.map(widget => widget.wrapper));
+  parent.append(container);
+  return widgets;
+}
+function checkFields(widgets) {
+  const passed = widgets.map(widget => widget.check()).filter(Boolean).length;
+  return {passed,total:widgets.length};
+}
+
+function showExercise(unit,lesson,study) {
+  const exerciseIndex = bounded(study.exercise,lesson.exercises.length);
+  const exercise = lesson.exercises[exerciseIndex];
+  const caseIndex = bounded(study.cases[exercise.id],exercise.cases.length);
+  const task = exercise.cases[caseIndex];
+  const multiple = exercise.cases.length > 1;
+  text("exercise-position","Ejercicio " + (exerciseIndex + 1) + " de " + lesson.exercises.length);
+  text("exercise-title",exercise.title);
+  text("exercise-prompt",exercise.prompt);
+  text("reference-text",exercise.reference);
+  byId("reference").hidden = !exercise.reference;
+  byId("reference").open = false;
+  byId("case-nav").hidden = !multiple;
+  text("case-count","Caso " + (caseIndex + 1) + " de " + exercise.cases.length);
+  text("case-label",task.label);
+  text("solution-text",task.why);
+  byId("solution").open = false;
+  const inputs = byId("exercise-inputs");
+  inputs.replaceChildren();
+  setFeedback(caseSolved(exercise,caseIndex) ? "Ya resolviste este caso. Puedes volver a intentarlo." : "");
+  const key = exercise.id + ":" + caseIndex;
+  if (!drafts.has(key)) drafts.set(key,[]);
+  const draft = drafts.get(key);
+  let check;
+  if (task.kind === "circuit") check = circuitBuilder(inputs,task,draft);
+  else if (task.kind === "orbital" || task.kind === "lewis") check = electronBuilder(inputs,task,draft);
+  else {
+    const widgets = fieldGroup(inputs,task.fields,draft);
+    check = () => checkFields(widgets);
+  }
+
+  function moveCase(index) {
+    study.cases[exercise.id] = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("case-label");
+  }
+  function moveExercise(index) {
+    study.exercise = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("exercise-title");
+  }
+  const previousCase = byId("previous-case");
+  const nextCase = byId("next-case");
+  previousCase.disabled = caseIndex === 0;
+  nextCase.disabled = caseIndex === exercise.cases.length - 1;
+  previousCase.onclick = () => moveCase(caseIndex - 1);
+  nextCase.onclick = () => moveCase(caseIndex + 1);
+  const nextCaseAction = byId("next-case-action");
+  nextCaseAction.onclick = nextCase.onclick;
+  nextCaseAction.hidden = nextCase.disabled || !caseSolved(exercise,caseIndex);
+  const previousExercise = byId("previous-exercise");
+  const nextExercise = byId("next-exercise");
+  previousExercise.disabled = exerciseIndex === 0;
+  nextExercise.disabled = exerciseIndex === lesson.exercises.length - 1;
+  previousExercise.onclick = () => moveExercise(exerciseIndex - 1);
+  nextExercise.onclick = () => moveExercise(exerciseIndex + 1);
+  byId("hint").onclick = () => setFeedback("Pista. " + task.hint,true);
+  checkAnswer = () => {
+    const {passed,total} = check();
+    if (passed === total) {
+      state.solved[exercise.id + ":" + caseIndex] = true;
+      save();
+      renderProgress(unit);
+      setFeedback("Correcto. " + task.why);
+      nextCaseAction.hidden = nextCase.disabled;
+    } else {
+      const count = total > 1 ? passed + " de " + total + " partes correctas. " : "Revisa tu respuesta. ";
+      setFeedback(count + task.hint,true);
+    }
+  };
+}
+function setFeedback(message, hint = false) {
+  const feedback = byId("exercise-feedback");
+  feedback.classList.toggle("retry",hint);
+  feedback.textContent = message;
+}
+byId("exercise-form").addEventListener("submit",event => {
+  event.preventDefault();
+  checkAnswer();
+});
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = activeLesson(unit);
+  text("unit-type",unit.unit + " · Ciencias Naturales");
+  text("unit-title",unit.title);
+  text("unit-description",unit.description);
+  text("lesson-count",lesson.recap ? "Autoevaluación de la unidad" : "Tema " + (index + 1) + " de " + (unit.lessons.length - 1));
+  text("lesson-title",lesson.title);
+  text("lesson-goal",lesson.goal);
+  renderMenus(unit);
+  renderMode(unit);
+  const unitIndex = units.indexOf(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0 && unitIndex === 0;
+  previous.textContent = index === 0 && unitIndex > 0 ? "‹ Unidad anterior" : "‹ Tema anterior";
+  previous.onclick = () => {
+    if (index > 0) navigate(unit,index - 1);
+    else navigate(units[unitIndex - 1],units[unitIndex - 1].lessons.length - 1);
+  };
+  const last = index === unit.lessons.length - 1;
+  next.disabled = last && unitIndex === units.length - 1;
+  next.textContent = last ? (next.disabled ? "Fin de la unidad" : "Siguiente unidad ›")
+    : (unit.lessons[index + 1].recap ? "Ir a autoevaluación ›" : "Siguiente tema ›");
+  next.onclick = () => {
+    if (!last) navigate(unit,index + 1);
+    else navigate(units[unitIndex + 1],0);
+  };
+}
+
+toggleFocus();
+render();
+</script>
+</body>
+</html>

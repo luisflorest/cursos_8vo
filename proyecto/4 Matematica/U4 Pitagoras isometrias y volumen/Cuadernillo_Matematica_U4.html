@@ -1,0 +1,2793 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f2edf9">
+<title>Matemática · Unidad 4 · Pitágoras, isometrías y volumen</title>
+<style>
+:root{color-scheme:light;--paper:#f5f4ee;--white:#fff;--ink:#192c2a;--muted:#47615b;--line:#d9e0d8;--deep:#123d35;--mint:#dcece0;--accent:#25624e;--wash:#eaf2e9;--amber:#75511a;--amber-bg:#fff0d8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-80px;z-index:2;background:#fff;color:var(--deep);padding:10px}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:#fcfbf6}
+.top{max-width:1170px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--deep);color:#dcece0;font-weight:800}
+.brand strong,.brand small{display:block;line-height:1.25}
+.brand small{color:var(--muted);font-size:.78rem;margin-top:4px}
+.plain,.pill,.nav-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px}
+.plain[aria-pressed=true],.pill[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+main{max-width:1170px;margin:auto;padding:22px 24px 44px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:end;gap:22px;background:var(--deep);color:#fff;padding:24px 28px;border-radius:19px}
+.hero::after{content:"";position:absolute;width:310px;height:310px;right:-95px;top:-151px;border:1px solid #ffffff32;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 59px #ffffff07;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.kicker{color:#d3e9d8;font-size:.78rem;font-weight:700;letter-spacing:.045em}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.13;margin:5px 0 8px;letter-spacing:-.035em}
+.hero p{color:#e3eee7}
+.track{width:205px;flex:none}
+.track label{display:block;font-size:.8rem;color:#e3eee7;margin-bottom:4px}
+progress{display:block;width:100%;height:9px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#ffffff2e}
+progress::-webkit-progress-bar{background:#ffffff2e}
+progress::-webkit-progress-value{background:#b6e6a5}
+progress::-moz-progress-bar{background:#b6e6a5}
+.grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+aside,.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+aside{padding:15px}
+aside h2{font-size:.95rem;margin:0 0 8px}
+.units,.items{display:grid;gap:6px}
+.units{margin-bottom:17px}
+.unit,.item{width:100%;text-align:left;border:1px solid transparent;background:#fff;border-radius:9px;color:var(--ink);padding:8px 9px}
+.unit{border-color:var(--line);font-size:.88rem}
+.unit strong,.unit span{display:block}
+.unit span{color:var(--muted);font-size:.78rem}
+.unit[aria-current=true],.item[aria-current=true]{background:var(--wash);border-color:#a5c4af;color:var(--deep)}
+.item{display:grid;grid-template-columns:24px 1fr;gap:7px;font-size:.86rem;line-height:1.32;align-items:start}
+.item:hover,.unit:hover,.plain:hover,.pill:hover,.nav-button:hover{filter:brightness(.97)}
+.index{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:700;background:#edf0ec;color:var(--deep);font-size:.75rem}
+.item.done .index{background:#cde9c8}
+.card{padding:clamp(15px,3vw,25px);min-width:0}
+.lesson-count{color:var(--accent);font-weight:700;font-size:.8rem}
+h2#lesson-title{font-size:clamp(1.35rem,3.5vw,1.88rem);line-height:1.2;letter-spacing:-.025em;margin:4px 0 5px}
+.intro{color:var(--muted)}
+.explore{margin-top:14px;padding:13px;border:1px solid #dce7dc;background:#f3f7f2;border-radius:13px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls button{padding:6px 9px;font-size:.83rem}
+.board{display:grid;min-height:106px;place-items:center;margin:9px 0 3px}
+.board canvas{display:block;width:min(100%,570px);height:auto;border-radius:10px}
+.scene{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:9px 0}
+.tile{display:grid;place-items:center;max-width:100%;min-height:53px;padding:8px 13px;text-align:center;background:#fff;border:1px solid #d0ddd2;border-radius:10px;font-weight:700;overflow-wrap:anywhere}
+.tile:nth-child(2n){background:#e2eee4}
+.legend{font-size:.89rem;color:var(--muted);text-align:center;max-width:62ch;margin:auto}
+.range-box{width:min(100%,430px);padding:10px 0}
+.range-box label{display:flex;justify-content:space-between;font-weight:650}
+.range-box input{display:block;width:100%;accent-color:var(--accent)}
+.reading{font-weight:700;text-align:center;margin-top:7px;color:var(--deep)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+summary{font-weight:700;cursor:pointer}
+.feedback{font-size:.9rem;font-weight:650;margin-top:7px;color:var(--accent)}
+.feedback:empty{display:none}
+.feedback.retry{color:var(--amber)}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.next{background:var(--deep);color:#fff;border-color:var(--deep)}
+.nav-button:disabled{opacity:.53;cursor:default}
+.focus-mode aside{display:none}
+.focus-mode .grid{grid-template-columns:minmax(0,1fr);max-width:740px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){
+  .top,main{padding-left:13px;padding-right:13px}
+  main{padding-top:14px}.hero{align-items:stretch;flex-direction:column;padding:18px;gap:12px}
+  .track{width:min(100%,210px)}.grid{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}.card{order:1}
+}
+@media print{header,aside,.controls,.navigation{display:none!important}.hero{background:#fff;color:#000;border:1px solid #999}.hero p,.kicker,.track label{color:#333}.grid{display:block}.hero::after{display:none}.card{margin-top:12px;break-inside:avoid}}
+
+.mode-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 12px}
+.mode-tab{min-height:45px;border:1px solid #c9d9ce;background:#f6f9f5;color:var(--deep);font-weight:700;border-radius:10px;padding:8px}
+.mode-tab[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.eyebrow{color:var(--accent);font-size:.8rem;font-weight:750;margin-bottom:3px}
+.guided{background:#f0f6ee;border:1px solid #d7e4d5;border-radius:13px;padding:clamp(12px,2.3vw,20px)}
+.guided h3,.worked h3,.exercise h3{font-size:clamp(1.13rem,2.2vw,1.35rem);line-height:1.25;margin-bottom:8px}
+.teaching{max-width:70ch}.teaching p+p{margin-top:9px}
+.guided .scene{justify-content:flex-start;padding-bottom:0}
+.guided .tile{min-height:auto;padding:6px 10px;font-size:.91rem}
+.step-navigation{margin-top:12px}.step-navigation button{font-size:.88rem}
+.explorer,.worked{margin-top:12px}
+.explorer .intro{margin-top:8px}
+.worked{padding:clamp(12px,2.3vw,20px);border-radius:13px;background:#fbf8ef;border:1px solid #e9dfc7}
+.worked ol{margin:8px 0;padding-left:24px}
+.worked li{margin:3px 0}
+.worked-result{font-weight:700;color:#514021;margin-top:7px}
+.practice-cta{margin-top:12px}
+.exercise{background:#f7faf6;border:1px solid #dbe6db;border-radius:13px;padding:clamp(12px,2.3vw,19px)}
+.exercise-prompt{max-width:70ch;margin-bottom:10px}
+.reference{background:#fff;margin:10px 0}
+.reference p,.solution p{margin-top:6px}
+.case-nav{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:8px;text-align:center;padding:8px 0;margin:8px 0;border-block:1px solid var(--line)}
+.case-nav>div{line-height:1.35}
+.case-nav span{display:block;font-size:.8rem;color:var(--muted)}
+.case-nav button{padding:4px 0}
+.exercise-fields{display:grid;gap:8px;margin:9px 0}
+.field{display:grid;gap:4px;font-size:.94rem;font-weight:650}
+.field input,.field select{min-width:0;width:100%;max-width:560px;min-height:42px;background:#fff;border:1px solid #adc2b3;color:var(--ink);border-radius:8px;padding:7px 9px;font:inherit;font-weight:500}
+.field [aria-invalid=true]{border-color:#a66b2d;background:#fff5e8}
+.field [data-checked=true]{border-color:#7aab7d;background:#f2f8ef}
+.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.solution{background:#fff;margin-top:10px}
+.chapter-nav{border-top:1px solid var(--line);padding-top:12px}
+.chapter-nav .nav-button,.exercise-nav .nav-button{font-size:.9rem}
+.builder{background:white;border:1px solid #dce7da;border-radius:11px;padding:9px;margin:7px 0 10px}
+.builder canvas{display:block;width:min(100%,570px);height:auto;margin:auto}
+.orbital-row{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:8px;margin:6px 0}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots button{width:45px;height:42px;padding:0;color:#153e35;background:#f0f6ef;font-size:1.1rem}
+.builder-count{font-size:.88rem;color:var(--muted);margin-top:7px}
+.lewis{display:grid;grid-template:43px 43px 43px / 46px 46px 46px;justify-content:center;align-items:stretch;gap:5px}
+.lewis button{padding:0;font-size:1.2rem;font-weight:800;line-height:1}
+.lewis strong{display:grid;place-items:center;font-size:1.4rem;color:var(--deep)}
+.lewis>:nth-child(1){grid-area:1/2}.lewis>:nth-child(2){grid-area:2/3}.lewis>:nth-child(3){grid-area:3/2}.lewis>:nth-child(4){grid-area:2/1}.lewis strong{grid-area:2/2}
+@media (max-width:450px){
+  .mode-tab{font-size:.84rem}
+  .step-navigation button,.chapter-nav .nav-button,.exercise-nav .nav-button{padding:7px 8px;font-size:.8rem}
+  .guided .tile{font-size:.82rem}
+}
+
+
+.unit-finished{margin-top:13px;border:1px solid #accbb2;border-radius:12px;background:#e3f2de;color:#1e4b3b;padding:12px 16px}
+.unit-finished strong{font-size:1.05rem}
+.unit-finished p{font-size:.92rem}
+.topic-progress{color:#47615b;font-size:.86rem;font-weight:600;margin-top:4px}
+.field textarea{width:100%;max-width:650px;min-height:96px;padding:8px 9px;border-radius:9px;border:1px solid #adc2b3;background:#fff;color:var(--ink);font:inherit;resize:vertical}
+.field textarea:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+.rubric{display:flex;gap:9px;align-items:start;background:#edf6ea;border:1px solid #bdd3bb;border-radius:9px;padding:9px;margin-top:10px}
+.rubric input{margin-top:5px;accent-color:#215843}
+.sequence{margin:8px 0;min-height:26px;padding-left:25px}
+.sequence li{padding:3px 6px}
+.sequence+.nav-button{font-size:.86rem}
+.passage{background:#fbf8ef;margin:10px 0}
+.passage blockquote{margin:8px 0;white-space:pre-line}
+.data-table{width:min(100%,440px);margin:10px 0}
+.data-table table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.data-table td,.data-table th{border:1px solid #cfddd0;padding:5px 8px;text-align:left}
+.data-table th{background:#e6efe4}
+h2[tabindex="-1"]:focus,h3[tabindex="-1"]:focus,strong[tabindex="-1"]:focus{outline:none}
+
+
+:root {
+  --paper: #f8f7f5;
+  --ink: #252728;
+  --muted: #4c5357;
+  --line: #d9dadd;
+  --surface: #fff;
+  --focus-ring: #884208;
+  --lift: 0 14px 35px #20293710;
+}
+body[data-subject="c"] { --deep:#153f45; --accent:#246269; --wash:#eaf4f4; --tint:#d8ebeb; --ink-link:#18515a; }
+body[data-subject="h"] { --deep:#693820; --accent:#885032; --wash:#fbf1e8; --tint:#f2dfcf; --ink-link:#754025; }
+body[data-subject="l"] { --deep:#294174; --accent:#3c568e; --wash:#edf1fc; --tint:#dce5f7; --ink-link:#304a82; }
+body[data-subject="m"] { --deep:#4b3569; --accent:#634983; --wash:#f2edf9; --tint:#e8ddf5; --ink-link:#543575; }
+body { line-height:1.61; }
+:where(button, a, summary, input, select, textarea):focus-visible {
+  outline:3px solid var(--focus-ring); outline-offset:3px;
+}
+:where(h2,h3,strong)[tabindex="-1"] { scroll-margin-top:100px; }
+.skip { z-index:6; }
+.study-header { position:sticky; top:0; z-index:4; background:#fff; border-color:var(--line); }
+.top { max-width:1160px; min-height:70px; padding:10px 24px; gap:16px; }
+.brand { min-width:0; gap:11px; }
+.brand strong { font-size:.99rem; color:var(--deep); }
+.mark { width:36px; height:36px; flex:none; border-radius:10px; background:var(--deep); color:#fff; }
+.brand small { color:var(--muted); font-size:.77rem; }
+.header-tools { display:flex; gap:8px; align-items:center; flex:none; }
+.header-tools .plain { min-height:44px; padding:7px 12px; background:#fff; color:var(--deep); border-color:#a6aab1; font-weight:700; }
+.header-tools .plain[aria-pressed=true] { background:var(--wash); color:var(--deep); border-color:var(--accent); }
+main { max-width:1160px; }
+.hero {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(230px,.55fr);
+  align-items:center; gap:24px; padding:clamp(17px,3vw,30px);
+  background:var(--wash); color:var(--ink); border:1px solid var(--tint);
+  border-inline-start:5px solid var(--accent); border-radius:15px;
+}
+.hero::after { content:none; }
+.hero-copy { min-width:0; }
+.kicker { color:var(--ink-link); font-size:.84rem; line-height:1.35; font-weight:700; letter-spacing:0; }
+h1 { color:var(--deep); font-size:clamp(1.6rem,4vw,2.75rem); line-height:1.08; letter-spacing:-.032em; max-width:22ch; overflow-wrap:anywhere; }
+.hero p { color:var(--muted); }
+#unit-description { max-width:56ch; font-size:.98rem; }
+.resume-panel { background:#fff; padding:13px 14px 14px; border:1px solid var(--tint); border-radius:12px; min-width:0; }
+.resume-panel .track { width:100%; }
+.track label { color:var(--muted); font-size:.86rem; font-weight:650; }
+progress { background:var(--tint); height:8px; }
+progress::-webkit-progress-bar { background:var(--tint); }
+progress::-webkit-progress-value { background:var(--accent); }
+progress::-moz-progress-bar { background:var(--accent); }
+#resume-context { color:var(--deep); font-size:.88rem; line-height:1.35; margin:12px 0 7px; font-weight:680; overflow-wrap:anywhere; }
+#resume { min-height:44px; display:block; width:100%; line-height:1.3; padding:9px 12px; }
+.grid { grid-template-columns:224px minmax(0,1fr); gap:18px; }
+aside,.card { border-radius:14px; }
+aside { background:#fff; }
+aside h2 { color:var(--deep); font-weight:750; }
+.item { min-height:44px; align-items:center; font-size:.92rem; color:var(--ink); padding:8px; }
+.item[aria-current=true] { border-color:var(--accent); background:var(--wash); color:var(--deep); font-weight:720; }
+.index { background:var(--tint); color:var(--deep); }
+.item.done .index { background:#dceedd; color:#1f543f; }
+.lesson-count { color:var(--accent); font-size:.89rem; }
+h2#lesson-title { color:var(--deep); margin:4px 0 7px; }
+.topic-progress { color:var(--ink-link); margin-top:7px; font-size:.88rem; }
+.mode-tabs { gap:8px; margin:17px 0 13px; }
+.mode-tab {
+  min-height:44px; background:#fff; color:var(--deep); border:1px solid #9b9da7;
+  font-weight:650; font-size:.95rem; border-radius:9px; line-height:1.3;
+}
+.mode-tab[aria-pressed=true] { background:var(--wash); color:var(--deep); border-color:var(--accent); box-shadow:inset 0 -3px 0 var(--accent); }
+.guided { background:var(--wash); border-color:var(--tint); }
+.guided h3,.worked h3,.exercise h3 { line-height:1.22; color:var(--deep); }
+.teaching,.exercise-prompt,.worked>p,.worked ol,.passage blockquote { max-width:62ch; }
+.exercise { background:#fff; border-color:var(--tint); border-top:3px solid var(--accent); }
+.explore { background:var(--wash); border-color:var(--tint); }
+.tile { border-color:var(--tint); }
+.tile:nth-child(2n) { background:var(--tint); }
+.worked { background:#fbf6ea; border-color:#e0d1ac; }
+.worked-result { color:#5c441d; }
+.nav-button,.pill { border-color:#a5a8ae; min-height:44px; font-weight:650; line-height:1.25; }
+.next { background:var(--deep); color:#fff; border-color:var(--deep); font-weight:720; }
+.field input,.field select,.field textarea { border-color:#858990; }
+.field [aria-invalid=true] { border-color:#9c561f; }
+.field [data-checked=true] { border-color:#447952; }
+.case-nav { grid-template-columns:44px minmax(0,1fr) 44px; }
+.actions { gap:8px; }
+.feedback { line-height:1.5; }
+.topic-finished {
+  margin-top:13px; border-radius:9px; border:1px solid #a4c3a8; border-inline-start:4px solid #337654;
+  background:#eaf5e8; padding:10px 12px; color:#244d39;
+}
+.topic-finished p { font-size:.92rem; color:#355747; }
+.topic-finished strong { display:block; line-height:1.3; }
+.unit-finished { margin-top:14px; }
+.topic-dialog {
+  padding:0; border:1px solid var(--line); border-radius:16px; color:var(--ink);
+  width:min(460px,calc(100% - 26px)); max-height:min(78vh,640px); box-shadow:var(--lift);
+}
+.topic-dialog::backdrop { background:#23272e78; }
+.topic-dialog > div { padding:14px; }
+.dialog-title { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; }
+.dialog-title h2 { color:var(--deep); font-size:1.15rem; line-height:1.2; }
+.dialog-title button { min-width:70px; }
+.topic-dialog .item { padding:9px; min-height:47px; }
+@media (max-width:720px) {
+  .top { min-height:60px; padding:8px 13px; gap:8px; }
+  .brand { gap:7px; }
+  .brand strong { font-size:.87rem; }
+  .header-tools { gap:5px; }
+  .header-tools .plain { font-size:.83rem; padding:6px 8px; }
+  main { padding:13px 13px 32px; }
+  .hero { grid-template-columns:minmax(0,1fr); gap:13px; }
+  .grid { grid-template-columns:minmax(0,1fr); margin-top:13px; }
+  aside { display:none; }
+  .card { padding:14px; }
+}
+@media (max-width:390px) {
+  .brand small { display:none; }
+  .brand .mark { width:30px; height:30px; }
+  .mode-tab { font-size:.85rem; }
+  .step-navigation .nav-button,.exercise-nav .nav-button,.chapter-nav .nav-button { padding:6px 8px; }
+  .actions .nav-button { font-size:.87rem; }
+  .hero { padding:13px; }
+}
+@media print {
+  .topic-dialog,.header-tools,#resume { display:none!important; }
+  .hero { border:1px solid #aaa; background:#fff; }
+  .hero h1,.hero .kicker,.track label,.hero p { color:#222; }
+}
+
+.solution-body { margin-top:10px; max-width:65ch; }
+.solution-steps { margin:0 0 10px; padding-inline-start:1.5rem; }
+.solution-steps li { padding-inline-start:.15rem; }
+.solution-steps li + li { margin-top:.55rem; }
+.solution-steps li::marker { color:var(--accent); font-weight:700; }
+.solution-result {
+  background:var(--wash); border-inline-start:3px solid var(--accent);
+  border-radius:0 8px 8px 0; padding:8px 12px;
+}
+.solution-result strong { color:var(--deep); }
+.solution-result p { margin-top:3px; overflow-wrap:anywhere; }
+</style>
+</head>
+<body data-subject="m">
+<a class="skip" href="#lesson-title">Ir al bloque</a>
+<header class="study-header"><div class="top">
+<div class="brand"><span class="mark" aria-hidden="true">E</span><div><strong>Matemática</strong><small>Cuadernillo de Emilio · Síntesis 2S 2026</small></div></div>
+<div class="header-tools">
+  <button class="plain" id="topics-open" type="button" aria-haspopup="dialog" aria-controls="topics-dialog">Temas</button>
+  <button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div>
+</div></header>
+<dialog class="topic-dialog" id="topics-dialog" aria-labelledby="topics-title">
+  <div>
+    <div class="dialog-title"><h2 id="topics-title">Temas de la unidad</h2><button class="nav-button" id="topics-close" type="button">Cerrar</button></div>
+    <nav id="dialog-lessons" class="items" aria-label="Elegir tema"></nav>
+  </div>
+</dialog>
+<main>
+<section class="hero" aria-labelledby="unit-title">
+  <div class="hero-copy"><div class="kicker" id="unit-type"></div><h1 id="unit-title"></h1><p id="unit-description"></p></div>
+  <div class="resume-panel">
+    <div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+    <p id="resume-context"></p>
+    <button id="resume" type="button" class="nav-button next" aria-describedby="resume-context">Empezar el cuadernillo</button>
+  </div>
+</section>
+<section class="unit-finished" id="unit-finished" role="status" hidden><strong>¡Unidad completada!</strong><p id="finish-message"></p></section>
+<div class="grid">
+<aside><h2>Temas</h2><nav class="items" id="lesson-list" aria-label="Temas de esta unidad"></nav></aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div>
+<h2 id="lesson-title" tabindex="-1"></h2>
+<p class="intro" id="lesson-goal"></p>
+<p class="topic-progress" id="topic-progress"></p>
+<nav class="mode-tabs" aria-label="Forma de estudiar">
+  <button class="mode-tab" id="learn-tab" type="button" aria-controls="learn-panel">1. Aprende paso a paso</button>
+  <button class="mode-tab" id="practice-tab" type="button" aria-controls="practice-panel">2. Practica</button>
+</nav>
+<section id="learn-panel" aria-labelledby="learn-tab">
+  <div class="guided">
+    <div class="eyebrow" id="step-count"></div>
+    <h3 id="step-title" tabindex="-1"></h3>
+    <div id="step-text" class="teaching"></div>
+    <div id="step-flow" class="scene"></div>
+    <div class="navigation step-navigation">
+      <button class="nav-button" type="button" id="previous-step">‹ Paso anterior</button>
+      <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
+    </div>
+  </div>
+  <details class="explorer" id="visual-details">
+    <summary id="visual-summary">Explora el modelo visual</summary>
+    <p class="intro" id="visual-intro"></p>
+    <div class="explore" aria-label="Exploración visual">
+      <div class="controls" id="controls"></div>
+      <div class="board" id="board"></div>
+      <p class="legend" id="legend" aria-live="polite"></p>
+    </div>
+  </details>
+  <section class="worked" id="worked">
+    <h3 id="worked-title">Ejemplo resuelto</h3>
+    <p id="worked-prompt"></p>
+    <ol id="worked-steps"></ol>
+    <p class="worked-result" id="worked-result"></p>
+  </section>
+  <button class="nav-button next practice-cta" type="button" id="go-practice">Ir a la práctica ›</button>
+</section>
+<section id="practice-panel" aria-labelledby="practice-tab" hidden>
+  <div class="exercise">
+    <div class="eyebrow" id="exercise-position"></div>
+    <h3 id="exercise-title" tabindex="-1"></h3>
+    <details class="passage" id="reading" hidden><summary>Fragmento para analizar</summary><blockquote id="excerpt"></blockquote></details>
+    <p id="exercise-prompt" class="exercise-prompt"></p>
+    <div class="data-table" id="data-table" hidden></div>
+    <details id="reference" class="reference" hidden><summary>Tabla o regla de apoyo</summary><p id="reference-text"></p></details>
+    <div class="case-nav" id="case-nav" hidden>
+      <button class="nav-button" id="previous-case" type="button" aria-label="Caso anterior">‹</button>
+      <div><span id="case-count"></span><strong id="case-label" tabindex="-1"></strong></div>
+      <button class="nav-button" id="next-case" type="button" aria-label="Caso siguiente">›</button>
+    </div>
+    <form id="exercise-form" novalidate>
+      <div id="exercise-inputs"></div>
+      <div class="actions">
+        <button class="nav-button next" type="submit" id="check">Corregir</button>
+        <button class="nav-button" type="button" id="hint">Ver pista</button>
+        <button class="nav-button next" type="button" id="next-case-action" hidden>Siguiente caso ›</button>
+      </div>
+    </form>
+    <p class="feedback" id="exercise-feedback" role="status"></p>
+    <div class="topic-finished" id="topic-finished" role="status" hidden><strong>Terminaste este tema</strong><p id="topic-finish-message"></p></div>
+    <details class="solution" id="solution">
+      <summary>Ver solución explicada</summary>
+      <div class="solution-body">
+        <ol id="solution-steps" class="solution-steps" aria-label="Pasos de la solución"></ol>
+        <div class="solution-result">
+          <strong id="solution-result-label">Respuesta</strong>
+          <p id="solution-text"></p>
+        </div>
+      </div>
+    </details>
+  </div>
+  <div class="navigation exercise-nav">
+    <button class="nav-button" id="previous-exercise" type="button">‹ Ejercicio anterior</button>
+    <button class="nav-button" id="next-exercise" type="button">Siguiente ejercicio ›</button>
+  </div>
+</section>
+<div class="navigation chapter-nav">
+  <button class="nav-button" id="previous" type="button">‹ Tema anterior</button>
+  <button class="nav-button" id="next" type="button">Siguiente tema ›</button>
+</div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "m4",
+    "unit": "Unidad 4",
+    "title": "Pitágoras, isometrías y volumen",
+    "description": "Calcula lados, mueve figuras y distingue el área de la superficie del espacio interior.",
+    "lessons": [
+      {
+        "title": "Teorema de Pitágoras",
+        "goal": "Identifica catetos e hipotenusa y elige cuándo sumar o restar.",
+        "steps": [
+          {
+            "title": "Cuadrado y raíz cuadrada",
+            "text": [
+              "Elevar al cuadrado significa multiplicar el número por sí mismo: 7² = 49. La raíz cuadrada de 49 es 7 porque 7² = 49.",
+              "Un triángulo rectángulo tiene un ángulo de 90°. Los dos lados que lo forman son catetos. El lado de enfrente, y el más largo, es la hipotenusa."
+            ],
+            "flow": [
+              "Cateto · a",
+              "Cateto · b",
+              "Hipotenusa · c"
+            ]
+          },
+          {
+            "title": "Cuando falta un lado",
+            "text": [
+              "En un triángulo rectángulo, a² + b² = c². Para encontrar la hipotenusa, suma los cuadrados de los catetos y saca la raíz.",
+              "Si conoces la hipotenusa y un cateto, resta sus cuadrados y aplica la raíz. Una escalera contra una pared puede ser la hipotenusa. La pared y el suelo forman el ángulo recto."
+            ],
+            "flow": [
+              "Hipotenusa · raíz de la suma",
+              "Cateto · raíz de la resta"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Un triángulo rectángulo tiene catetos 5 cm y 12 cm. ¿Cuánto mide la hipotenusa?",
+          "steps": [
+            "El lado buscado está frente a 90°.",
+            "Suma 5² + 12² = 25 + 144 = 169.",
+            "Aplica raíz cuadrada: √169 = 13."
+          ],
+          "result": "La hipotenusa mide 13 cm."
+        },
+        "intro": "Selecciona un lado y compara su cuadrado con los demás.",
+        "visual": {
+          "kind": "pythagoras",
+          "intro": "Selecciona un lado y compara su cuadrado con los demás."
+        },
+        "exercises": [
+          {
+            "id": "m4-1",
+            "title": "Cuadrados y raíces",
+            "prompt": "Calcula: (a) 9²; (b) 15²; (c) √81; (d) √196; (e) √225.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "9²",
+                    "kind": "number",
+                    "answer": 81
+                  },
+                  {
+                    "label": "15²",
+                    "kind": "number",
+                    "answer": 225
+                  },
+                  {
+                    "label": "√81",
+                    "kind": "number",
+                    "answer": 9
+                  },
+                  {
+                    "label": "√196",
+                    "kind": "number",
+                    "answer": 14
+                  },
+                  {
+                    "label": "√225",
+                    "kind": "number",
+                    "answer": 15
+                  }
+                ],
+                "hint": "Eleva multiplicando por sí mismo. La raíz busca qué número produjo ese cuadrado.",
+                "label": "",
+                "why": "81; (b) 225; (c) 9; (d) 14; (e) 15.",
+                "pasosSolucion": [
+                  "Para un cuadrado, multiplica el número por sí mismo. Aplica eso a 9 y a 15.",
+                  "Para cada raíz, busca un número positivo que multiplicado por sí mismo dé 81, 196 o 225, respectivamente."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-2",
+            "title": "Identifica la hipotenusa",
+            "prompt": "En un triángulo rectángulo de lados 9, 12 y 15, ¿cuál es la hipotenusa? ¿Por qué?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Hipotenusa",
+                    "kind": "number",
+                    "answer": 15
+                  },
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Está frente a 90° y es el lado mayor",
+                      "Forma el ángulo recto con el segundo cateto"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "La hipotenusa no toca el vértice de 90°.",
+                "label": "",
+                "why": "15, porque es el lado más largo (y 81 + 144 = 225).",
+                "pasosSolucion": [
+                  "En un triángulo rectángulo, la hipotenusa está frente al ángulo recto y es el lado más largo.",
+                  "Compara 9, 12 y 15. Si quieres comprobarlo con Pitágoras, verifica que los cuadrados de los otros dos suman el cuadrado del mayor."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-3",
+            "title": "Hipotenusa de 6 y 8",
+            "prompt": "Calcula la hipotenusa de un triángulo de catetos 6 cm y 8 cm.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Hipotenusa (cm)",
+                    "kind": "number",
+                    "answer": 10
+                  }
+                ],
+                "hint": "Calcula √(6² + 8²).",
+                "label": "",
+                "why": "√(36 + 64) = 10 cm.",
+                "pasosSolucion": [
+                  "Los dos datos son catetos. La hipotenusa es la incógnita, así que parte de c² = 6² + 8².",
+                  "Eleva al cuadrado, suma y, al final, saca la raíz positiva para pasar de c² a la longitud c."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-4",
+            "title": "Cateto con hipotenusa de 13",
+            "prompt": "Calcula el cateto que falta: hipotenusa 13 cm, cateto 5 cm.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Cateto (cm)",
+                    "kind": "number",
+                    "answer": 12
+                  }
+                ],
+                "hint": "Calcula √(13² − 5²).",
+                "label": "",
+                "why": "√(169 − 25) = 12 cm.",
+                "pasosSolucion": [
+                  "Identifica 13 cm como hipotenusa y 5 cm como el cateto conocido. Escribe x² + 5² = 13².",
+                  "Resta 5² de ambos lados. Saca la raíz positiva del resultado para hallar x."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-5",
+            "title": "Cateto con hipotenusa de 10",
+            "prompt": "Calcula el cateto que falta: hipotenusa 10 cm, cateto 6 cm.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Cateto (cm)",
+                    "kind": "number",
+                    "answer": 8
+                  }
+                ],
+                "hint": "Calcula √(10² − 6²).",
+                "label": "",
+                "why": "√(100 − 36) = 8 cm.",
+                "pasosSolucion": [
+                  "Identifica 10 cm como hipotenusa y 6 cm como cateto conocido. Escribe x² + 6² = 10².",
+                  "Despeja x² restando 6² al cuadrado de la hipotenusa. Saca la raíz positiva para obtener la medida."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-6",
+            "title": "Una escalera y una pared",
+            "prompt": "Una escalera de 13 m se apoya en una pared y su base queda a 5 m. ¿A qué altura llega?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Altura de la pared alcanzada (m)",
+                    "kind": "number",
+                    "answer": 12
+                  }
+                ],
+                "hint": "La escalera de 13 m es la hipotenusa y el suelo aporta el cateto de 5 m.",
+                "why": "La altura es √(13² − 5²) = √144 = 12 m.",
+                "label": "",
+                "pasosSolucion": [
+                  "La pared y el piso son los catetos. La escalera de 13 m es la hipotenusa y el tramo de 5 m es el cateto horizontal.",
+                  "Para hallar la altura, resta el cuadrado del tramo horizontal al cuadrado de la escalera y saca la raíz."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-7",
+            "title": "Diagonal de la pantalla",
+            "prompt": "Una pantalla mide 80 cm de ancho y 60 cm de alto. ¿Cuánto mide su diagonal?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Diagonal (cm)",
+                    "kind": "number",
+                    "answer": 100
+                  }
+                ],
+                "hint": "La diagonal está frente al ángulo recto del rectángulo.",
+                "label": "",
+                "why": "√(6.400 + 3.600) = √10.000 = 100 cm.",
+                "pasosSolucion": [
+                  "El ancho y el alto de la pantalla forman un ángulo recto. La diagonal es la hipotenusa.",
+                  "Suma 80² y 60². Saca la raíz positiva de la suma para hallar la diagonal en centímetros."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Recíproco de Pitágoras",
+        "goal": "Decide si tres lados forman un triángulo rectángulo.",
+        "steps": [
+          {
+            "title": "Usar Pitágoras al revés",
+            "text": [
+              "El teorema parte de un ángulo recto y calcula relaciones entre lados. El recíproco parte de tres lados y pregunta si el triángulo es rectángulo.",
+              "Elige el lado mayor para c. Eleva los tres al cuadrado. Si a² + b² = c², el triángulo es rectángulo. Si son distintos, no lo es."
+            ],
+            "flow": [
+              "Lado mayor",
+              "Eleva al cuadrado",
+              "Compara"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "¿Los lados 9, 12 y 15 forman un triángulo rectángulo?",
+          "steps": [
+            "El mayor es 15.",
+            "9² + 12² = 81 + 144 = 225.",
+            "15² = 225."
+          ],
+          "result": "Sí. La igualdad verifica que el triángulo es rectángulo."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Igualdad",
+              [
+                "3² + 4² = 25",
+                "5² = 25",
+                "Rectángulo"
+              ],
+              "La suma y el cuadrado mayor coinciden."
+            ],
+            [
+              "No coincide",
+              [
+                "4² + 6² = 52",
+                "7² = 49",
+                "No rectángulo"
+              ],
+              "Los dos resultados son distintos."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "m4-8",
+            "title": "Comprueba cuatro ternas",
+            "prompt": "¿Son triángulos rectángulos? Justifica: (a) 7, 24, 25; (b) 5, 6, 8; (c) 8, 15, 17; (d) 4, 5, 6.",
+            "cases": [
+              {
+                "label": "7, 24, 25",
+                "fields": [
+                  {
+                    "label": "Suma de los cuadrados de los dos menores",
+                    "kind": "number",
+                    "answer": 625
+                  },
+                  {
+                    "label": "Cuadrado del lado mayor",
+                    "kind": "number",
+                    "answer": 625
+                  },
+                  {
+                    "label": "¿Es rectángulo?",
+                    "kind": "pick",
+                    "options": [
+                      "Sí",
+                      "No"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Eleva por separado los tres lados antes de comparar.",
+                "why": "7² + 24² = 625. 25² = 625. Coinciden: es rectángulo.",
+                "pasosSolucion": [
+                  "De 7, 24 y 25, toma 25 como candidato a hipotenusa por ser el lado mayor. Calcula su cuadrado.",
+                  "Suma 7² y 24². Si coincide con 25², los lados forman un triángulo rectángulo. Si difiere, no lo forman."
+                ]
+              },
+              {
+                "label": "5, 6, 8",
+                "fields": [
+                  {
+                    "label": "Suma de los cuadrados de los dos menores",
+                    "kind": "number",
+                    "answer": 61
+                  },
+                  {
+                    "label": "Cuadrado del lado mayor",
+                    "kind": "number",
+                    "answer": 64
+                  },
+                  {
+                    "label": "¿Es rectángulo?",
+                    "kind": "pick",
+                    "options": [
+                      "Sí",
+                      "No"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Eleva por separado los tres lados antes de comparar.",
+                "why": "5² + 6² = 61. 8² = 64. Difieren: no es rectángulo.",
+                "pasosSolucion": [
+                  "De 5, 6 y 8, toma 8 como candidato a hipotenusa por ser el lado mayor. Calcula su cuadrado.",
+                  "Suma 5² y 6². Si coincide con 8², los lados forman un triángulo rectángulo. Si difiere, no lo forman."
+                ]
+              },
+              {
+                "label": "8, 15, 17",
+                "fields": [
+                  {
+                    "label": "Suma de los cuadrados de los dos menores",
+                    "kind": "number",
+                    "answer": 289
+                  },
+                  {
+                    "label": "Cuadrado del lado mayor",
+                    "kind": "number",
+                    "answer": 289
+                  },
+                  {
+                    "label": "¿Es rectángulo?",
+                    "kind": "pick",
+                    "options": [
+                      "Sí",
+                      "No"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Eleva por separado los tres lados antes de comparar.",
+                "why": "8² + 15² = 289. 17² = 289. Coinciden: es rectángulo.",
+                "pasosSolucion": [
+                  "De 8, 15 y 17, toma 17 como candidato a hipotenusa por ser el lado mayor. Calcula su cuadrado.",
+                  "Suma 8² y 15². Si coincide con 17², los lados forman un triángulo rectángulo. Si difiere, no lo forman."
+                ]
+              },
+              {
+                "label": "4, 5, 6",
+                "fields": [
+                  {
+                    "label": "Suma de los cuadrados de los dos menores",
+                    "kind": "number",
+                    "answer": 41
+                  },
+                  {
+                    "label": "Cuadrado del lado mayor",
+                    "kind": "number",
+                    "answer": 36
+                  },
+                  {
+                    "label": "¿Es rectángulo?",
+                    "kind": "pick",
+                    "options": [
+                      "Sí",
+                      "No"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Eleva por separado los tres lados antes de comparar.",
+                "why": "4² + 5² = 41. 6² = 36. Difieren: no es rectángulo.",
+                "pasosSolucion": [
+                  "De 4, 5 y 6, toma 6 como candidato a hipotenusa por ser el lado mayor. Calcula su cuadrado.",
+                  "Suma 4² y 5². Si coincide con 6², los lados forman un triángulo rectángulo. Si difiere, no lo forman."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Traslación, reflexión y rotación",
+        "goal": "Transforma puntos en el plano sin cambiar el tamaño ni la forma.",
+        "steps": [
+          {
+            "title": "Qué se conserva",
+            "text": [
+              "Las isometrías conservan distancias y ángulos. Mueven la figura o cambian su orientación. A′ se lee «A prima» y representa la imagen de A."
+            ],
+            "flow": []
+          },
+          {
+            "title": "Traslación",
+            "text": [
+              "Una traslación desplaza toda la figura con el mismo vector. Al punto (x, y) súmale el vector (a, b): obtienes (x + a, y + b).",
+              "Para encontrar el vector a partir de dos puntos, resta las coordenadas del punto original a las de su imagen."
+            ],
+            "flow": [
+              "Punto + vector = imagen",
+              "Imagen − punto = vector"
+            ]
+          },
+          {
+            "title": "Reflexión",
+            "text": [
+              "Reflejar significa usar un eje como espejo. El punto y su imagen quedan a la misma distancia del eje, en lados opuestos salvo que estén sobre él.",
+              "En el eje X se conserva x y cambia el signo de y. En el eje Y se conserva y y cambia el signo de x."
+            ],
+            "flow": [
+              "Eje X · (x, −y)",
+              "Eje Y · (−x, y)"
+            ]
+          },
+          {
+            "title": "Rotación con centro en el origen",
+            "text": [
+              "En sentido antihorario, a 90° la regla es (x, y) → (−y, x). A 180° cambian ambos signos. A 270° la regla es (x, y) → (y, −x).",
+              "Identifica centro, sentido y ángulo antes de usar una regla."
+            ],
+            "flow": [
+              "90° · (−y, x)",
+              "180° · (−x, −y)",
+              "270° · (y, −x)"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Refleja el punto (3, −2) respecto del eje Y.",
+          "steps": [
+            "El eje Y es vertical.",
+            "La altura y sigue siendo −2. Cambia el lado horizontal del punto.",
+            "Cambia el signo de x: 3 pasa a −3."
+          ],
+          "result": "La imagen es (−3, −2). Queda a la misma distancia horizontal del eje."
+        },
+        "intro": "Activa una transformación. La figura punteada indica la posición original.",
+        "visual": {
+          "kind": "isometry",
+          "intro": "Activa una transformación. La figura punteada indica la posición original."
+        },
+        "exercises": [
+          {
+            "id": "m4-9",
+            "title": "Lo que se conserva",
+            "prompt": "¿Qué tienen en común las tres transformaciones isométricas?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Tamaño y forma",
+                      "La ubicación de todos los puntos",
+                      "Solo el número de lados"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Una isometría conserva distancias y ángulos.",
+                "label": "",
+                "why": "No cambian la forma ni el tamaño de la figura; solo su posición.",
+                "pasosSolucion": [
+                  "Compara dos puntos de la figura antes y después de transformarla. Observa qué pasa con su distancia.",
+                  "Compara también la abertura de sus ángulos. Si distancias y ángulos se conservan, la forma y el tamaño se conservan."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-10",
+            "title": "Traslada los puntos",
+            "prompt": "Traslada los puntos según el vector: (a) A(3, −1) con v(4, 2); (b) B(−5, 2) con v(4, 4).",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "A′ · x",
+                    "kind": "number",
+                    "answer": 7
+                  },
+                  {
+                    "label": "A′ · y",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "B′ · x",
+                    "kind": "number",
+                    "answer": -1
+                  },
+                  {
+                    "label": "B′ · y",
+                    "kind": "number",
+                    "answer": 6
+                  }
+                ],
+                "hint": "Suma la x y la y de cada vector al punto correspondiente.",
+                "label": "",
+                "why": "A’(7, 1). (b) B’(−1, 6).",
+                "pasosSolucion": [
+                  "En cada punto, suma la primera componente de su vector a x para hallar x′.",
+                  "Suma la segunda componente del mismo vector a y para hallar y′. Conserva los signos durante las sumas."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-11",
+            "title": "Encuentra los vectores",
+            "prompt": "Calcula el vector de traslación: (a) B(4, 2) → B’(12, 6); (b) C(20, −17) → C’(13, 11); (c) D(−6, 1) → D’(5, −8).",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Vector de B · x",
+                    "kind": "number",
+                    "answer": 8
+                  },
+                  {
+                    "label": "Vector de B · y",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Vector de C · x",
+                    "kind": "number",
+                    "answer": -7
+                  },
+                  {
+                    "label": "Vector de C · y",
+                    "kind": "number",
+                    "answer": 28
+                  },
+                  {
+                    "label": "Vector de D · x",
+                    "kind": "number",
+                    "answer": 11
+                  },
+                  {
+                    "label": "Vector de D · y",
+                    "kind": "number",
+                    "answer": -9
+                  }
+                ],
+                "hint": "Resta imagen − original por coordenada.",
+                "label": "",
+                "why": "v(8, 4). (b) v(−7, 28). (c) v(11, −9).",
+                "pasosSolucion": [
+                  "El vector describe el desplazamiento desde el punto original al final. Para obtener su componente horizontal, calcula x final − x inicial.",
+                  "Haz lo mismo con las coordenadas y. Escribe el par en el orden horizontal, vertical, y revisa los signos."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-12",
+            "title": "Refleja P en ambos ejes",
+            "prompt": "Refleja P(4, −3) respecto del eje X y respecto del eje Y.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Respecto de X · x",
+                    "kind": "number",
+                    "answer": 4
+                  },
+                  {
+                    "label": "Respecto de X · y",
+                    "kind": "number",
+                    "answer": 3
+                  },
+                  {
+                    "label": "Respecto de Y · x",
+                    "kind": "number",
+                    "answer": -4
+                  },
+                  {
+                    "label": "Respecto de Y · y",
+                    "kind": "number",
+                    "answer": -3
+                  }
+                ],
+                "hint": "Al reflejar sobre X se invierte y. Al reflejar sobre Y se invierte x.",
+                "label": "",
+                "why": "Eje X: (4, 3). Eje Y: (−4, −3).",
+                "pasosSolucion": [
+                  "Respecto de X, conserva la posición horizontal y cambia el signo de y.",
+                  "Respecto de Y, conserva la posición vertical y cambia el signo de x. Aplica ambas reglas al punto original por separado."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-13",
+            "title": "Tres giros antihorarios",
+            "prompt": "Rota Q(2, 5) en 90°, 180° y 270° en sentido antihorario con centro en el origen.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "90° · x",
+                    "kind": "number",
+                    "answer": -5
+                  },
+                  {
+                    "label": "90° · y",
+                    "kind": "number",
+                    "answer": 2
+                  },
+                  {
+                    "label": "180° · x",
+                    "kind": "number",
+                    "answer": -2
+                  },
+                  {
+                    "label": "180° · y",
+                    "kind": "number",
+                    "answer": -5
+                  },
+                  {
+                    "label": "270° · x",
+                    "kind": "number",
+                    "answer": 5
+                  },
+                  {
+                    "label": "270° · y",
+                    "kind": "number",
+                    "answer": -2
+                  }
+                ],
+                "hint": "Sigue (−y, x), (−x, −y) y (y, −x).",
+                "label": "",
+                "why": "90°: (−5, 2). 180°: (−2, −5). 270°: (5, −2).",
+                "pasosSolucion": [
+                  "Con centro en el origen, girar 90° antihorario transforma (x, y) en (−y, x). Aplica esa regla a (2, 5).",
+                  "Gira nuevamente el resultado con la misma regla para obtener 180°, y una vez más para obtener 270°."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-14",
+            "title": "Dibuja la reflexión de un triángulo",
+            "prompt": "Un triángulo tiene vértices A(1, 1), B(4, 1) y C(1, 3). Completa las coordenadas de la reflexión respecto del eje Y para dibujarla en el plano.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "A′ · x",
+                    "kind": "number",
+                    "answer": -1
+                  },
+                  {
+                    "label": "A′ · y",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "B′ · x",
+                    "kind": "number",
+                    "answer": -4
+                  },
+                  {
+                    "label": "B′ · y",
+                    "kind": "number",
+                    "answer": 1
+                  },
+                  {
+                    "label": "C′ · x",
+                    "kind": "number",
+                    "answer": -1
+                  },
+                  {
+                    "label": "C′ · y",
+                    "kind": "number",
+                    "answer": 3
+                  }
+                ],
+                "hint": "Para el eje Y, reemplaza x por −x y conserva y.",
+                "kind": "pointBuild",
+                "points": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    4,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "label": "",
+                "why": "A’(−1, 1), B’(−4, 1), C’(−1, 3).",
+                "pasosSolucion": [
+                  "Cada vértice debe quedar a la misma distancia del eje Y, al lado opuesto. Cambia el signo de x en A, B y C.",
+                  "Conserva cada y. Escribe A′, B′ y C′ y comprueba que las alturas de los vértices coinciden con las del triángulo original."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Área y volumen de prismas",
+        "goal": "Identifica la base y calcula superficie y volumen con sus unidades.",
+        "steps": [
+          {
+            "title": "Dos bases iguales",
+            "text": [
+              "Un prisma tiene dos bases poligonales iguales y paralelas. Al desarmar un prisma recto aparecen las dos bases y las caras laterales rectangulares.",
+              "Área de un rectángulo = base × altura. Área de un triángulo = base × altura ÷ 2."
+            ],
+            "flow": []
+          },
+          {
+            "title": "Área total y volumen",
+            "text": [
+              "Volumen = área de la base × altura del prisma. Área total de un prisma recto = dos áreas de base + perímetro de la base × altura.",
+              "Cubo de arista a: A = 6a² y V = a³. Cuboide de lados l, w y h: A = 2(lw + lh + wh) y V = lwh."
+            ],
+            "flow": [
+              "Área · cm²",
+              "Volumen · cm³"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Prisma con una base en forma de triángulo rectángulo de catetos 3 y 4 cm. Distancia entre bases: 7 cm.",
+          "steps": [
+            "La hipotenusa de la base es 5 cm. Área de la base: 3 × 4 ÷ 2 = 6 cm².",
+            "Volumen: 6 × 7 = 42 cm³.",
+            "Área total: 2 × 6 + (3 + 4 + 5) × 7 = 96 cm²."
+          ],
+          "result": "El área total es 96 cm² y el volumen es 42 cm³."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Volumen",
+              [
+                "Área de la base",
+                "× altura del prisma",
+                "cm³"
+              ],
+              "La altura del prisma mide la distancia entre las dos bases."
+            ],
+            [
+              "Superficie",
+              [
+                "2 bases",
+                "+ caras laterales",
+                "cm²"
+              ],
+              "Para un prisma recto, la parte lateral vale perímetro de la base × altura."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "m4-15",
+            "title": "Área y volumen del cuboide",
+            "prompt": "Calcula el área total y el volumen de un cuboide de 4 cm × 3 cm × 5 cm.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Área total (cm²)",
+                    "kind": "number",
+                    "answer": 94
+                  },
+                  {
+                    "label": "Volumen (cm³)",
+                    "kind": "number",
+                    "answer": 60
+                  }
+                ],
+                "hint": "Para el área, suma las tres caras distintas y duplica.",
+                "label": "",
+                "why": "V = 60 cm³. A = 2 · (12 + 20 + 15) = 94 cm².",
+                "pasosSolucion": [
+                  "Para el volumen, multiplica el área de la base de 4 × 3 por los 5 cm de altura.",
+                  "Para el área, calcula 4 × 3, 4 × 5 y 3 × 5. Suma esas tres áreas y duplica porque cada cara tiene una opuesta igual."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-16",
+            "title": "Área y volumen del cubo",
+            "prompt": "Calcula el área total y el volumen de un cubo de 6 cm de arista.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Área total (cm²)",
+                    "kind": "number",
+                    "answer": 216
+                  },
+                  {
+                    "label": "Volumen (cm³)",
+                    "kind": "number",
+                    "answer": 216
+                  }
+                ],
+                "hint": "Cada cara tiene 6² de área. El volumen es 6³.",
+                "label": "",
+                "why": "A = 216 cm². V = 216 cm³.",
+                "pasosSolucion": [
+                  "Las seis caras son cuadrados de lado 6 cm. Calcula el área de una y multiplica por seis.",
+                  "Para el volumen, multiplica el área de la base por 6 cm de altura. Distingue cm² de cm³."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-17",
+            "title": "Prisma de base triangular",
+            "prompt": "Un prisma triangular tiene como base un triángulo rectángulo de catetos 6 cm y 8 cm, y un largo de 12 cm. Calcula la hipotenusa de la base, el volumen y el área total.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Hipotenusa (cm)",
+                    "kind": "number",
+                    "answer": 10
+                  },
+                  {
+                    "label": "Volumen (cm³)",
+                    "kind": "number",
+                    "answer": 288
+                  },
+                  {
+                    "label": "Área total (cm²)",
+                    "kind": "number",
+                    "answer": 336
+                  }
+                ],
+                "hint": "Calcula primero el área y el perímetro de la base triangular.",
+                "label": "",
+                "why": "Hipotenusa 10 cm. Área de la base 24 cm². V = 288 cm³. A = 2 · 24 + (6 + 8 + 10) · 12 = 48 + 288 = 336 cm².",
+                "pasosSolucion": [
+                  "Calcula la hipotenusa de la base con Pitágoras y su área con 6 × 8 ÷ 2.",
+                  "Multiplica esa área por 12 para el volumen. Para el área total, suma dos bases y el perímetro del triángulo multiplicado por 12."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-18",
+            "title": "Altura de una caja",
+            "prompt": "Una caja tiene un volumen de 120 cm³, un largo de 6 cm y un ancho de 4 cm. ¿Cuál es su altura?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Altura (cm)",
+                    "kind": "number",
+                    "answer": 5
+                  }
+                ],
+                "hint": "Divide el volumen por largo × ancho.",
+                "label": "",
+                "why": "120 / (6 · 4) = 5 cm.",
+                "pasosSolucion": [
+                  "Halla el área de la base multiplicando los 6 cm de largo por los 4 cm de ancho.",
+                  "Usa V = área de la base × altura. Despeja la altura dividiendo 120 cm³ por el área de la base."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Área y volumen de cilindros",
+        "goal": "Usa el radio y distingue base, área lateral y área total.",
+        "steps": [
+          {
+            "title": "Dos círculos y un rectángulo",
+            "text": [
+              "Al abrir la superficie del cilindro aparecen dos círculos iguales y un rectángulo. El alto del rectángulo es h. Su largo coincide con la vuelta completa al círculo: 2πr.",
+              "El radio va del centro al borde. El diámetro atraviesa el centro y mide dos radios."
+            ],
+            "flow": [
+              "2 círculos · 2πr²",
+              "Rectángulo · 2πr × h"
+            ]
+          },
+          {
+            "title": "Fórmulas y unidades",
+            "text": [
+              "Área de una base = πr². Área lateral = 2πrh. Área total = 2πr² + 2πrh. Volumen = πr²h.",
+              "Usa π ≈ 3,14 en los ejercicios de la guía. Antes de calcular, comprueba si el enunciado entrega r o diámetro."
+            ],
+            "flow": [
+              "Área · cm²",
+              "Volumen · cm³"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Cilindro de diámetro 4 cm y altura 5 cm. Usa π ≈ 3,14.",
+          "steps": [
+            "Radio: 4 ÷ 2 = 2 cm. Área de la base: 3,14 × 2² = 12,56 cm².",
+            "Área lateral: 2 × 3,14 × 2 × 5 = 62,8 cm². Suma dos bases: 87,92 cm².",
+            "Volumen: 12,56 × 5 = 62,8 cm³."
+          ],
+          "result": "Área total: 87,92 cm². Volumen: 62,8 cm³."
+        },
+        "intro": "Compara el cilindro con su desarrollo plano.",
+        "visual": {
+          "kind": "cylinder",
+          "intro": "Compara el cilindro con su desarrollo plano."
+        },
+        "exercises": [
+          {
+            "id": "m4-19",
+            "title": "Cilindro con radio conocido",
+            "prompt": "Calcula el volumen y el área total de un cilindro de radio 3 cm y altura 10 cm.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Volumen (cm³)",
+                    "kind": "number",
+                    "answer": 282.6,
+                    "tolerance": 0.0051
+                  },
+                  {
+                    "label": "Área total (cm²)",
+                    "kind": "number",
+                    "answer": 244.92,
+                    "tolerance": 0.0051
+                  }
+                ],
+                "hint": "Para el área total, cuenta dos círculos y una superficie lateral.",
+                "label": "",
+                "why": "V = 3,14 · 9 · 10 = 282,6 cm³. A = 56,52 + 188,4 = 244,92 cm².",
+                "pasosSolucion": [
+                  "Calcula el área de un círculo con πr². Multiplícala por 10 cm de altura para obtener el volumen.",
+                  "Para el área total, suma dos círculos y el rectángulo lateral, cuyo ancho es 2πr y cuya altura es 10 cm. Usa π = 3,14."
+                ]
+              }
+            ],
+            "reference": "Usa π ≈ 3,14. El radio es la mitad del diámetro. Área: cm². Volumen: cm³.",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-20",
+            "title": "Volumen y área de una lata",
+            "prompt": "Una lata tiene 10 cm de diámetro y 8 cm de altura. Calcula su volumen y su área total.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Radio (cm)",
+                    "kind": "number",
+                    "answer": 5
+                  },
+                  {
+                    "label": "Volumen (cm³)",
+                    "kind": "number",
+                    "answer": 628,
+                    "tolerance": 0.0051
+                  },
+                  {
+                    "label": "Área total (cm²)",
+                    "kind": "number",
+                    "answer": 408.2,
+                    "tolerance": 0.0051
+                  }
+                ],
+                "hint": "El diámetro no se usa directamente en πr². Primero divídelo por 2.",
+                "label": "",
+                "why": "Radio 5 cm. V = 3,14 · 25 · 8 = 628 cm³. A = 2 · 3,14 · 25 + 2 · 3,14 · 5 · 8 = 157 + 251,2 = 408,2 cm².",
+                "pasosSolucion": [
+                  "Divide el diámetro de 10 cm por dos. Usa ese radio para hallar πr² y multiplícalo por 8 cm para el volumen.",
+                  "Para hallar el área total, suma dos bases circulares más el área lateral 2πr × 8. Usa π = 3,14."
+                ]
+              }
+            ],
+            "reference": "Usa π ≈ 3,14. El radio es la mitad del diámetro. Área: cm². Volumen: cm³.",
+            "excerpt": ""
+          },
+          {
+            "id": "m4-21",
+            "title": "Desarrollo del cilindro",
+            "prompt": "Al desarmar un cilindro, ¿qué figuras aparecen? ¿Qué medida del cilindro es el largo del rectángulo?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "1 rectángulo y 2 círculos",
+                      "1 cuadrado y 1 círculo",
+                      "2 rectángulos y 1 triángulo"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Largo del rectángulo",
+                    "kind": "pick",
+                    "options": [
+                      "2πr",
+                      "πr²",
+                      "r"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Imagina que envuelves el rectángulo alrededor de la base.",
+                "label": "",
+                "why": "Elige una respuesta: 1 rectángulo y 2 círculos. Largo del rectángulo: 2πr.",
+                "pasosSolucion": [
+                  "Separa las dos tapas circulares. Imagina que haces un corte vertical y despliegas la superficie que las une.",
+                  "La longitud horizontal del rectángulo recorre el borde de una tapa completa. Usa la fórmula de su circunferencia."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Autoevaluación",
+        "recap": true,
+        "goal": "Cierra la unidad con un repaso de verdadero o falso.",
+        "exercises": [
+          {
+            "id": "m4-repaso-1",
+            "title": "Hipotenusa",
+            "prompt": "La hipotenusa es el lado más largo del triángulo rectángulo.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Es el lado más largo, frente al ángulo recto.",
+                "pasosSolucion": [
+                  "Ubica el ángulo de 90° de un triángulo rectángulo. El lado que no toca ese ángulo es la hipotenusa.",
+                  "Por Pitágoras, su cuadrado es la suma de los cuadrados de los dos catetos. Compáralo con el cuadrado de cualquiera de ellos."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "m4-repaso-2",
+            "title": "Cómo hallar un cateto",
+            "prompt": "Para calcular un cateto se suman los cuadrados.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Al cuadrado de la hipotenusa se le resta el cuadrado del cateto conocido. Luego se saca la raíz.",
+                "pasosSolucion": [
+                  "Escribe cateto desconocido² + cateto conocido² = hipotenusa².",
+                  "Para dejar solo el cateto desconocido, resta el cuadrado del conocido y luego saca la raíz."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "m4-repaso-3",
+            "title": "Traslación",
+            "prompt": "En una traslación la figura cambia de tamaño.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "La traslación cambia la posición y conserva forma y tamaño.",
+                "pasosSolucion": [
+                  "En una traslación, aplica el mismo vector a todos los vértices.",
+                  "La diferencia de coordenadas entre cada par de vértices se mantiene. Por eso sus distancias y el tamaño no cambian."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "m4-repaso-4",
+            "title": "Volumen del prisma",
+            "prompt": "El volumen de un prisma es área de la base por altura.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Se multiplica el área de la base por la altura del prisma.",
+                "pasosSolucion": [
+                  "Imagina el prisma como secciones iguales a su base que se repiten a lo largo de su altura.",
+                  "Multiplica el área de una sección por la altura perpendicular entre bases. Así pasas de unidades cuadradas a cúbicas."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "m4-repaso-5",
+            "title": "Área lateral del cilindro",
+            "prompt": "El área lateral de un cilindro es 2 · π · r · h.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "La superficie lateral desplegada es un rectángulo de lados 2πr y h.",
+                "pasosSolucion": [
+                  "Despliega la pared curva del cilindro. Su forma plana es un rectángulo de altura h.",
+                  "El otro lado recorre toda la circunferencia de la base, 2πr. Multiplica ambos lados para obtener el área lateral."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function diagram(label, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", label);
+  byId("board").replaceChildren(canvas);
+  const ctx = canvas.getContext("2d");
+  ctx.scale(2, 2);
+  ctx.fillStyle = "#fbfdf9";
+  ctx.fillRect(0, 0, 570, 195);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  draw(ctx);
+}
+
+function line(ctx, points, color = "#35594e", width = 3) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  points.forEach(([x, y], index) => index ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.stroke();
+}
+
+function dot(ctx, x, y, radius, fill, stroke = "#35594e", width = 2) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
+function label(ctx, text, x, y, color = "#24453d") {
+  ctx.fillStyle = color;
+  ctx.font = "650 16px system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, x, y);
+}
+
+function showCircuit() {
+  let parallel = false;
+  let open = false;
+  const seriesButton = button("En serie", "pill");
+  const parallelButton = button("En paralelo", "pill");
+  const toggle = button("Abrir el interruptor", "pill");
+  byId("controls").append(seriesButton, parallelButton, toggle);
+  seriesButton.onclick = () => { parallel = false; draw(); };
+  parallelButton.onclick = () => { parallel = true; draw(); };
+  toggle.onclick = () => { open = !open; draw(); };
+  draw();
+
+  function draw() {
+    seriesButton.setAttribute("aria-pressed", String(!parallel));
+    parallelButton.setAttribute("aria-pressed", String(parallel));
+    toggle.textContent = open ? "Cerrar el interruptor" : "Abrir el interruptor";
+    const lamp1 = !open;
+    const lamp2 = parallel || !open;
+    const message = open ? (parallel
+      ? "La rama de A queda abierta. B sigue encendida porque mantiene un camino cerrado."
+      : "El interruptor corta el único camino. Las dos ampolletas se apagan.")
+      : (parallel ? "A y B están en ramas distintas. Las dos reciben el voltaje de la pila."
+      : "A y B comparten el mismo camino. La corriente que pasa por ambas es igual.");
+    byId("legend").textContent = message;
+    diagram("Circuito " + (parallel ? "en paralelo. " : "en serie. ") + message, ctx => {
+      const wire = "#52746a";
+      const live = "#257052";
+      const top = 46;
+      const bottom = 143;
+      line(ctx, [[95,top],[95,bottom],[263,bottom]], wire, 4);
+      line(ctx, [[301,bottom],[475,bottom],[475,top],[209,top]], wire, 4);
+      line(ctx, [[95,top],[159,top]], wire, 4);
+      line(ctx, [[263,bottom],[275,bottom]], wire, 4);
+      line(ctx, [[289,bottom],[301,bottom]], wire, 4);
+      line(ctx, [[275,126],[275,160]], wire, 4);
+      line(ctx, [[289,133],[289,153]], wire, 4);
+      label(ctx, "+", 258, 164);
+      label(ctx, "−", 305, 164);
+      label(ctx, "Pila", 282, 179);
+      line(ctx, [[159,top],[open ? 195 : 209,open ? 25 : top]], open ? "#9a6425" : live, 4);
+      dot(ctx,159,top,4,"#fff",wire);
+      dot(ctx,209,top,4,"#fff",wire);
+      lamp(ctx, parallel ? 340 : 309, top, "A", lamp1);
+      if (parallel) {
+        line(ctx, [[95,93],[475,93]], live, 4);
+        dot(ctx,95,93,4,live,live);
+        dot(ctx,475,93,4,live,live);
+        lamp(ctx,340,93,"B",lamp2);
+      } else {
+        lamp(ctx,416,top,"B",lamp2);
+      }
+      label(ctx, "Interruptor", 185, 70);
+    });
+  }
+  function lamp(ctx,x,y,name,on) {
+    dot(ctx,x,y,15,on ? "#ffe1a0" : "#eeefeb",on ? "#9b6c2b" : "#627670",2.5);
+    const color = on ? "#6b4616" : "#627670";
+    line(ctx,[[x-6,y-6],[x+6,y+6]],color,2);
+    line(ctx,[[x-6,y+6],[x+6,y-6]],color,2);
+    label(ctx,name,x,y+25,color);
+  }
+}
+
+function showRange() {
+  const box = document.createElement("div");
+  box.className = "range-box";
+  const title = document.createElement("label");
+  title.htmlFor = "resistance";
+  title.textContent = "Resistencia";
+  const value = document.createElement("output");
+  value.setAttribute("for","resistance");
+  title.append(value);
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = "resistance";
+  slider.min = "1";
+  slider.max = "12";
+  slider.value = "3";
+  const reading = document.createElement("p");
+  reading.className = "reading";
+  box.append(title, slider, reading);
+  byId("board").append(box);
+  byId("legend").textContent = "Con el voltaje fijo, si duplicas la resistencia, la corriente queda en la mitad.";
+  slider.addEventListener("input", update);
+  update();
+  function update() {
+    value.textContent = slider.value + " Ω";
+    reading.textContent = "I = 12 V ÷ " + slider.value + " Ω = " + (12 / Number(slider.value)).toLocaleString("es-CL", {maximumFractionDigits: 2}) + " A";
+    slider.setAttribute("aria-valuetext", value.textContent);
+  }
+}
+
+function showCurve() {
+  const names = ["Calentar hielo","Fundir","Calentar agua","Hervir","Calentar vapor"];
+  const notes = [
+    "Calor sensible: el hielo se calienta hasta 0 °C.",
+    "Calor latente de fusión: el hielo pasa a líquido a 0 °C.",
+    "Calor sensible: el agua líquida se calienta de 0 °C a 100 °C.",
+    "Calor latente de vaporización: el agua hierve a 100 °C.",
+    "Calor sensible: el vapor aumenta su temperatura."
+  ];
+  const points = [[89,149],[140,123],[222,123],[307,61],[445,61],[500,28]];
+  switcher(names, active => {
+    byId("legend").textContent = notes[active] + " Esquema sin escala.";
+    diagram("Curva de calentamiento del agua. " + notes[active], ctx => {
+      line(ctx,[[73,19],[73,160],[526,160]],"#67837a",1.5);
+      for (const [y,temp] of [[123,"0 °C"],[61,"100 °C"]]) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[[73,y],[515,y]],"#a8bdb4",1);
+        ctx.setLineDash([]);
+        label(ctx,temp,43,y);
+      }
+      label(ctx,"Calor agregado →",302,180);
+      line(ctx,points,"#a3b9ae",3.5);
+      line(ctx,[points[active],points[active+1]],"#219167",7);
+    });
+  });
+}
+
+function showMolecules() {
+  const models = [
+    ["H₂O", [["O",285,67],["H",211,120],["H",359,120]],[[0,1,1],[0,2,1]],"Agua: 3 átomos, 2 enlaces simples. Forma angular."],
+    ["CO₂", [["C",285,97],["O",169,97],["O",401,97]],[[0,1,2],[0,2,2]],"Dióxido de carbono: 3 átomos, 2 enlaces dobles. Forma lineal."],
+    ["CH₄", [["C",285,97],["H",223,139],["H",345,139],["H",286,33],["H",347,63]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],"Metano: 5 átomos y 4 enlaces simples. Proyección del modelo tetraédrico."],
+    ["NH₃", [["N",285,62],["H",205,111],["H",365,111],["H",285,145]],[[0,1,1],[0,2,1],[0,3,1]],"Amoníaco: 4 átomos, 3 enlaces simples. Proyección de su forma piramidal."],
+    ["O₂", [["O",226,97],["O",344,97]],[[0,1,2]],"Oxígeno: 2 átomos, 1 enlace doble."],
+    ["N₂", [["N",226,97],["N",344,97]],[[0,1,3]],"Nitrógeno: 2 átomos, 1 enlace triple."]
+  ];
+  const atomColor = {O:"#ac3039", C:"#233231", N:"#254f89", H:"#fff"};
+  switcher(models.map(model => model[0]), index => {
+    const [name, atoms, bonds, note] = models[index];
+    byId("legend").textContent = note;
+    diagram(name + ". " + note, ctx => {
+      for (const [i,j,count] of bonds) {
+        const [,ax,ay] = atoms[i];
+        const [,bx,by] = atoms[j];
+        const distance = Math.hypot(bx-ax,by-ay);
+        for (let k = 0; k < count; k++) {
+          const offset = (k - (count - 1)/2) * 8;
+          const dx = (ay-by)/distance*offset;
+          const dy = (bx-ax)/distance*offset;
+          line(ctx,[[ax+dx,ay+dy],[bx+dx,by+dy]],"#759284",4);
+        }
+      }
+      for (const [atom,x,y] of atoms) {
+        dot(ctx,x,y,atom === "H" ? 18 : 23,atomColor[atom],"#35594e",2);
+        label(ctx,atom,x,y,atom === "H" ? "#143931" : "#fff");
+      }
+    });
+  });
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules};
+  if (visual.kind === "scenes") {
+    switcher(visual.choices.map(choice => choice[0]), active => {
+      const [, cells, note] = visual.choices[active];
+      const scene = document.createElement("div");
+      scene.className = "scene";
+      for (const cell of cells) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.textContent = cell;
+        scene.append(tile);
+      }
+      byId("board").replaceChildren(scene);
+      byId("legend").textContent = note;
+    });
+  } else {
+    const renderVisual = renderers[visual.kind];
+    if (renderVisual) renderVisual();
+    else showMathVisual(visual);
+  }
+}
+
+
+
+
+function electronBuilder(parent, task, values) {
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  const counter = document.createElement("p");
+  counter.className = "builder-count";
+  counter.setAttribute("aria-live","polite");
+  let groupIndex = 0;
+  function addSlots(container, names, glyphs) {
+    const group = values[groupIndex] ??= names.map(() => 0);
+    groupIndex++;
+    names.forEach((name,index) => {
+      const slot = button("","nav-button");
+      function refresh() {
+        const count = group[index];
+        slot.textContent = glyphs[count];
+        slot.setAttribute("aria-label",name + ": " + count + (count === 1 ? " electrón" : " electrones"));
+      }
+      slot.onclick = () => {
+        group[index] = (group[index] + 1) % 3;
+        refresh();
+        updateCount();
+        queueSave();
+      };
+      refresh();
+      container.append(slot);
+    });
+  }
+  function updateCount() {
+    const total = values.flat().reduce((sum,current) => sum + current,0);
+    counter.textContent = "Electrones colocados: " + total;
+  }
+  function equivalent(a,b) {
+    return [...a].sort().join(",") === [...b].sort().join(",");
+  }
+  if (task.kind === "lewis") {
+    const arrangement = document.createElement("div");
+    arrangement.className = "lewis";
+    addSlots(arrangement,["Arriba","Derecha","Abajo","Izquierda"],["○","•","••"]);
+    const symbol = document.createElement("strong");
+    symbol.textContent = task.symbol;
+    arrangement.append(symbol);
+    panel.append(arrangement,counter);
+    parent.append(panel);
+    updateCount();
+    return () => ({passed:Number(task.patterns.some(pattern => equivalent(pattern,values[0]))),total:1});
+  }
+  for (const [name, occupancy] of task.groups) {
+    const row = document.createElement("div");
+    row.className = "orbital-row";
+    const heading = document.createElement("strong");
+    heading.textContent = name;
+    const slots = document.createElement("div");
+    slots.className = "slots";
+    addSlots(slots,occupancy.map((_,index) => name + ", casillero " + (index + 1)),["—","↑","↑↓"]);
+    row.append(heading,slots);
+    panel.append(row);
+  }
+  panel.append(counter);
+  parent.append(panel);
+  updateCount();
+  return () => ({
+    passed:task.groups.filter(([,occupancy], index) => equivalent(occupancy,values[index])).length,
+    total:task.groups.length
+  });
+}
+
+function circuitBuilder(parent, task, draft) {
+  const parallel = task.layout === "paralelo";
+  const parts = ["Pila","Interruptor cerrado","Interruptor abierto","Ampolleta","Resistencia","Cable"];
+  const slots = parallel ? [
+    ["Rama superior",4,293,29,"R₁"],["Rama del medio",4,293,72,"R₂"],
+    ["Rama inferior",4,293,115,"R₃"],["Alimentación",0,293,153,"Pila"]
+  ] : [
+    ["Lugar 1",1,184,51,"Interruptor"],["Lugar 2",3,302,51,"Ampolleta A"],
+    ["Lugar 3",3,420,51,"Ampolleta B"],["Alimentación",0,293,144,"Pila"]
+  ];
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  parent.append(panel);
+  const fields = slots.map(([label,answer]) => ({label,kind:"pick",options:parts,answer}));
+  const widgets = fieldGroup(parent,fields,draft);
+  widgets.forEach(widget => widget.control.addEventListener("change",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1140;
+    canvas.height = 390;
+    canvas.setAttribute("role","img");
+    canvas.setAttribute("aria-label","Esquema en " + task.layout + ". " + slots.map(([name],index) => {
+      const selected = widgets[index].control.value;
+      return name + ": " + (selected === "" ? "vacío" : parts[Number(selected)]);
+    }).join(". "));
+    panel.replaceChildren(canvas);
+    const ctx = canvas.getContext("2d");
+    ctx.scale(2,2);
+    ctx.fillStyle = "#f8fbf6";
+    ctx.fillRect(0,0,570,195);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    const upper = parallel ? 29 : 51;
+    const lower = parallel ? 153 : 144;
+    line(ctx,[[86,upper],[86,lower],[260,lower]]);
+    line(ctx,[[326,lower],[484,lower],[484,upper]]);
+    if (parallel) {
+      for (const y of [29,72,115]) {
+        line(ctx,[[86,y],[260,y]]);
+        line(ctx,[[326,y],[484,y]]);
+        if (y > upper) {
+          dot(ctx,86,y,3,"#35594e");
+          dot(ctx,484,y,3,"#35594e");
+        }
+      }
+    } else {
+      for (const [start,end] of [[86,151],[217,269],[335,387],[453,484]]) {
+        line(ctx,[[start,upper],[end,upper]]);
+      }
+    }
+    slots.forEach(([,want,x,y,name],index) => {
+      const value = widgets[index].control.value;
+      drawPart(ctx,x,y,value === "" ? -1 : Number(value),name,want);
+    });
+  }
+
+  function drawPart(ctx,x,y,part,name,want) {
+    const pink = "#a36b30";
+    if (part === -1) {
+      ctx.setLineDash([4,5]);
+      line(ctx,[[x-33,y],[x+33,y]],"#91a79a",2);
+      ctx.setLineDash([]);
+      return;
+    }
+    const width = [13,21,21,12,22,0][part];
+    line(ctx,[[x-33,y],[x-width,y]]);
+    line(ctx,[[x+width,y],[x+33,y]]);
+    if (part === 0) {
+      line(ctx,[[x-13,y],[x-6,y]]);
+      line(ctx,[[x+6,y],[x+13,y]]);
+      line(ctx,[[x-6,y-14],[x-6,y+14]]);
+      line(ctx,[[x+6,y-8],[x+6,y+8]]);
+      label(ctx,"+",x-20,y-13);
+      label(ctx,"−",x+20,y-13);
+    } else if (part === 1 || part === 2) {
+      dot(ctx,x-21,y,3,"#fff");
+      dot(ctx,x+21,y,3,"#fff");
+      line(ctx,[[x-21,y],[part===1 ? x+21 : x+13,part===1 ? y : y-13]],pink,2.5);
+    } else if (part === 3) {
+      dot(ctx,x,y,12,"#fff0cb",pink,2);
+      line(ctx,[[x-5,y-5],[x+5,y+5]],pink,2);
+      line(ctx,[[x+5,y-5],[x-5,y+5]],pink,2);
+    } else if (part === 4) {
+      line(ctx,[[x-22,y],[x-16,y-7],[x-8,y+7],[x,y-7],[x+8,y+7],[x+16,y-7],[x+22,y]],"#35594e",2);
+    }
+    const chosen = part === want ? name : parts[part];
+    label(ctx,chosen,x,y+23);
+  }
+}
+
+
+const byId = id => document.getElementById(id);
+const storageKey = "emilio-sintesis-2026-unidad-m4-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const record = value => value && typeof value === "object" && !Array.isArray(value) ? value : {};
+const state = {
+  unit: units.some(item => item.id === saved.unit) ? saved.unit : units[0].id,
+  positions: record(saved.positions),
+  sessions: record(saved.sessions),
+  solved: record(saved.solved),
+  focus: saved.focus === true,
+  started: saved.started === true || Object.keys(record(saved.solved)).length > 0 ||
+    Object.values(record(saved.sessions)).some(s => s && (s.mode === "practice" || s.step > 0)) ||
+    Object.values(record(saved.positions)).some(index => index > 0),
+  drafts: Object.assign(Object.create(null),record(saved.drafts))
+};
+let checkAnswer = () => {};
+let pendingSave = 0;
+const bounded = (value, length) => Number.isInteger(value) && value >= 0 && value < length ? value : 0;
+const text = (id, value) => { byId(id).textContent = value; };
+const activeUnit = () => units.find(item => item.id === state.unit);
+const position = unit => bounded(state.positions[unit.id], unit.lessons.length);
+const activeLesson = unit => unit.lessons[position(unit)];
+const caseSolved = (exercise, index) => state.solved[exercise.id + ":" + index] === true;
+const exerciseSolved = exercise => exercise.cases.every((_, index) => caseSolved(exercise, index));
+const chapterSolved = lesson => lesson.exercises.every(exerciseSolved);
+
+function save() {
+  clearTimeout(pendingSave);
+  pendingSave = 0;
+  try { localStorage.setItem(storageKey,JSON.stringify(state)); } catch {}
+}
+function queueSave() {
+  if (!pendingSave) pendingSave = setTimeout(save,200);
+}
+window.addEventListener("pagehide",()=>{if(pendingSave) save();});
+function session(unit) {
+  const key = unit.id + ":" + position(unit);
+  const existing = state.sessions[key];
+  if (existing && existing.cases && typeof existing.cases === "object") return existing;
+  const created = {mode:"learn",step:0,exercise:0,cases:{}};
+  state.sessions[key] = created;
+  return created;
+}
+function button(label, className) {
+  const element = document.createElement("button");
+  element.type = "button";
+  element.className = className;
+  element.textContent = label;
+  return element;
+}
+function list(id, items, tag) {
+  byId(id).replaceChildren(...items.map(item => {
+    const element = document.createElement(tag);
+    element.textContent = item;
+    return element;
+  }));
+}
+function focusHeading(id,block="nearest") {
+  byId(id).focus({preventScroll:true});
+  byId(id).scrollIntoView({block});
+}
+function navigate(unit, index = position(unit)) {
+  state.started = true;
+  state.unit = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  focusHeading("lesson-title");
+}
+function toggleFocus() {
+  document.body.classList.toggle("focus-mode",state.focus);
+  byId("focus").setAttribute("aria-pressed",String(state.focus));
+  text("focus",state.focus ? "Salir de enfoque" : "Modo enfoque");
+}
+byId("focus").onclick = () => {
+  state.focus = !state.focus;
+  toggleFocus();
+  save();
+};
+
+function renderProgress(unit) {
+  const exercises = unit.lessons.flatMap(lesson => lesson.exercises);
+  const completed = exercises.filter(exerciseSolved).length;
+  const progress = byId("progress");
+  progress.max = exercises.length;
+  progress.value = completed;
+  text("progress-label",completed + " de " + exercises.length + " actividades terminadas");
+  const current = activeLesson(unit);
+  const topicDone = current.exercises.filter(exerciseSolved).length;
+  text("topic-progress",topicDone === current.exercises.length ? "✓ Tema completado" : topicDone + " de " + current.exercises.length + " actividades de este tema");
+  byId("unit-finished").hidden = completed !== exercises.length;
+  text("finish-message","Terminaste las " + exercises.length + " actividades de " + unit.unit.toLowerCase() + ". Puedes repasar cualquier tema cuando quieras.");
+  byId("topic-finished").hidden = topicDone !== current.exercises.length;
+  text("topic-finish-message","Completaste "+current.exercises.length+(current.exercises.length===1?" actividad.":" actividades."));
+  renderTopicMenu(unit);
+}
+
+
+const topicsDialog = byId("topics-dialog");
+byId("topics-open").onclick = () => {
+  topicsDialog.showModal();
+  topicsDialog.querySelector('[aria-current="true"]')?.focus();
+};
+function dismissTopics() {
+  topicsDialog.close();
+  byId("topics-open").focus();
+}
+byId("topics-close").onclick = dismissTopics;
+topicsDialog.addEventListener("cancel",event=>{
+  event.preventDefault();
+  dismissTopics();
+});
+
+function renderTopicMenu(unit) {
+  function topicButton(lesson,index,inDialog) {
+    const done = chapterSolved(lesson);
+    const current = index === position(unit);
+    const element = button("","item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : lesson.recap ? "↺" : String(index+1);
+    badge.setAttribute("aria-hidden","true");
+    element.append(badge,document.createTextNode(lesson.title));
+    if (done) element.setAttribute("aria-label",lesson.title + ", tema completado");
+    if (current) element.setAttribute("aria-current","true");
+    element.onclick = () => {
+      if (inDialog) topicsDialog.close();
+      navigate(unit,index);
+    };
+    return element;
+  }
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,false)));
+  byId("dialog-lessons").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,true)));
+}
+function renderBookmark() {
+  const unit=activeUnit();
+  const lesson=activeLesson(unit);
+  const study=session(unit);
+  const inPractice=lesson.recap || study.mode==="practice";
+  const item=inPractice?bounded(study.exercise,lesson.exercises.length)+1:bounded(study.step,lesson.steps.length)+1;
+  let description=inPractice?"Ejercicio "+item+" de "+lesson.exercises.length:"Paso "+item+" de "+lesson.steps.length;
+  if (inPractice) {
+    const exercise=lesson.exercises[item-1];
+    if (exercise.cases.length>1) {
+      const current=bounded(study.cases[exercise.id],exercise.cases.length)+1;
+      description+=" · Caso "+current+" de "+exercise.cases.length;
+    }
+  }
+  text("resume-context",lesson.title+" · "+description);
+  text("resume",state.started?"Continuar donde quedé":"Empezar el cuadernillo");
+}
+byId("resume").onclick=()=>{
+  state.started=true;
+  save();
+  renderBookmark();
+  focusHeading(byId("practice-panel").hidden?"step-title":"exercise-title","start");
+};
+
+function showStep(lesson, study) {
+  const index = bounded(study.step,lesson.steps.length);
+  const step = lesson.steps[index];
+  text("step-count","Paso " + (index + 1) + " de " + lesson.steps.length);
+  text("step-title",step.title.replace(/^\d+\.\s*/,""));
+  list("step-text",step.text,"p");
+  byId("step-flow").replaceChildren(...step.flow.map(piece => {
+    const tile = document.createElement("span");
+    tile.className = "tile";
+    tile.textContent = piece;
+    return tile;
+  }));
+  const previous = byId("previous-step");
+  const next = byId("next-step");
+  previous.disabled = index === 0;
+  next.disabled = index === lesson.steps.length - 1;
+  next.hidden = next.disabled;
+  byId("go-practice").hidden = !next.disabled;
+  renderBookmark();
+  function change(newIndex) {
+    state.started = true;
+    study.step = newIndex;
+    save();
+    showStep(lesson,study);
+    focusHeading("step-title");
+  }
+  previous.onclick = () => change(index - 1);
+  next.onclick = () => change(index + 1);
+}
+function showLearning(lesson, study) {
+  showStep(lesson,study);
+  byId("visual-details").open = false;
+  text("visual-intro",lesson.intro);
+  showVisual(lesson.visual);
+  text("worked-prompt",lesson.worked.prompt);
+  list("worked-steps",lesson.worked.steps,"li");
+  text("worked-result",lesson.worked.result);
+}
+function openMode(unit, mode, moveFocus = true) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const selected = lesson.recap || mode === "practice" ? "practice" : "learn";
+  if (study.mode === selected && !byId(selected + "-panel").hidden) return;
+  state.started = true;
+  study.mode = selected;
+  save();
+  renderMode(unit);
+  if (moveFocus) focusHeading(study.mode === "learn" ? "step-title" : "exercise-title");
+}
+function renderMode(unit) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const learning = !lesson.recap && study.mode !== "practice";
+  byId("learn-panel").hidden = !learning;
+  byId("practice-panel").hidden = learning;
+  byId("learn-tab").hidden = Boolean(lesson.recap);
+  byId("learn-tab").setAttribute("aria-pressed",String(learning));
+  byId("practice-tab").setAttribute("aria-pressed",String(!learning));
+  byId("learn-tab").onclick = () => openMode(unit,"learn");
+  byId("practice-tab").onclick = () => openMode(unit,"practice");
+  byId("go-practice").onclick = () => openMode(unit,"practice");
+  if (learning) showLearning(lesson,study);
+  else showExercise(unit,lesson,study);
+}
+
+function normalizeConfiguration(value) {
+  const superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+  let remaining = value.trim().toLowerCase()
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, digit => String(superscript.indexOf(digit)))
+    .replace(/[\s^,]+/g,"");
+  const noble = remaining.match(/^\[(he|ne|ar|kr)\]/)?.[0] || "";
+  remaining = remaining.slice(noble.length);
+  const tokens = [];
+  const seen = new Set();
+  while (remaining) {
+    const token = remaining.match(/^([1-7][spdf])(10|11|12|13|14|[1-9])(?=[1-7][spdf]|$)/);
+    if (!token || seen.has(token[1])) return null;
+    seen.add(token[1]);
+    tokens.push(token[0]);
+    remaining = remaining.slice(token[0].length);
+  }
+  if (!tokens.length && !noble) return null;
+  return noble + tokens.sort().join(" ");
+}
+
+function matchesNumber(value, expected, tolerance = 1e-7) {
+  const input = value.trim().replace(/\u2212/g,"-");
+  const candidates = [];
+  if (/^[+-]?\d+(?:[.,]\d+)?$/.test(input)) candidates.push(Number(input.replace(",",".")));
+  if (/^[+-]?\d{1,3}(?:[.\u00a0 ]\d{3})+(?:,\d+)?$/.test(input)) {
+    candidates.push(Number(input.replace(/[.\u00a0 ]/g,"").replace(",",".")));
+  }
+  return candidates.some(candidate => Math.abs(candidate - expected) < tolerance);
+}
+function fieldWidget(specification) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = specification.label;
+  let control;
+  if (specification.kind === "pick") {
+    control = document.createElement("select");
+    const blank = new Option("Selecciona…","");
+    blank.disabled = true;
+    control.add(blank);
+    specification.options.forEach((option,index) => control.add(new Option(option,index)));
+    control.value = "";
+  } else {
+    control = document.createElement("input");
+    control.type = "text";
+    control.inputMode = specification.kind === "number" ? "decimal" : "text";
+    control.autocomplete = "off";
+    control.spellcheck = false;
+    if (specification.kind === "config") control.placeholder = "Ejemplo: 1s2 2s1";
+  }
+  wrapper.append(name,control);
+  control.addEventListener("input",() => {
+    control.removeAttribute("aria-invalid");
+    delete control.dataset.checked;
+  });
+  function check() {
+    let correct;
+    if (specification.kind === "pick") correct = control.value === String(specification.answer);
+    else if (specification.kind === "number") correct = matchesNumber(control.value,specification.answer,specification.tolerance);
+    else correct = normalizeConfiguration(control.value) === normalizeConfiguration(specification.answer);
+    control.setAttribute("aria-invalid",String(!correct));
+    control.dataset.checked = String(correct);
+    return correct;
+  }
+  return {wrapper,control,check};
+}
+function fieldGroup(parent, fields, draft) {
+  const container = document.createElement("div");
+  container.className = "exercise-fields";
+  const widgets = fields.map((field,index) => {
+    const widget = fieldWidget(field);
+    if (draft[index] !== undefined) widget.control.value = draft[index];
+    const remember = () => { draft[index] = widget.control.value; queueSave(); };
+    widget.control.addEventListener("input",remember);
+    widget.control.addEventListener("change",remember);
+    return widget;
+  });
+  container.append(...widgets.map(widget => widget.wrapper));
+  parent.append(container);
+  return widgets;
+}
+function checkFields(widgets) {
+  const passed = widgets.map(widget => widget.check()).filter(Boolean).length;
+  return {passed,total:widgets.length};
+}
+
+function showExercise(unit,lesson,study) {
+  const exerciseIndex = bounded(study.exercise,lesson.exercises.length);
+  const exercise = lesson.exercises[exerciseIndex];
+  const caseIndex = bounded(study.cases[exercise.id],exercise.cases.length);
+  const task = exercise.cases[caseIndex];
+  const multiple = exercise.cases.length > 1;
+  text("exercise-position","Ejercicio " + (exerciseIndex + 1) + " de " + lesson.exercises.length);
+  text("exercise-title",exercise.title);
+  text("exercise-prompt",exercise.prompt);
+  byId("reading").hidden = !exercise.excerpt;
+  byId("reading").open = Boolean(exercise.excerpt);
+  textBlock("excerpt",exercise.excerpt);
+  renderExerciseTable(exercise.table);
+  text("check",task.kind === "written" ? "Comparar mi respuesta" : "Corregir");
+  text("reference-text",exercise.reference);
+  byId("reference").hidden = !exercise.reference;
+  byId("reference").open = false;
+  byId("case-nav").hidden = !multiple;
+  text("case-count","Caso " + (caseIndex + 1) + " de " + exercise.cases.length);
+  text("case-label",task.label);
+  list("solution-steps",task.pasosSolucion,"li");
+  text("solution-result-label",task.kind === "written" ? "Respuesta modelo" : "Respuesta");
+  const item = task.fields[0];
+  const truth = task.fields.length === 1 && item.options?.join("|") === "Verdadero|Falso";
+  const answer = task.why.replace(/\bElige una respuesta:\s*/g,"");
+  text("solution-text",truth ? item.options[item.answer] + ". " + answer : answer);
+  byId("solution").open = false;
+  const inputs = byId("exercise-inputs");
+  inputs.replaceChildren();
+  setFeedback(caseSolved(exercise,caseIndex) ? "Ya resolviste este caso. Puedes volver a intentarlo." : "");
+  const key = exercise.id + ":" + caseIndex;
+  if (!Array.isArray(state.drafts[key])) state.drafts[key] = [];
+  const draft = state.drafts[key];
+  let check;
+  if (task.kind === "written") check = writtenBuilder(inputs,task,draft);
+  else if (task.kind === "order") check = orderBuilder(inputs,task,draft);
+  else if (task.kind === "boxBuild" || task.kind === "pointBuild") check = graphBuilder(inputs,task,draft);
+  else if (task.kind === "circuit") check = circuitBuilder(inputs,task,draft);
+  else if (task.kind === "orbital" || task.kind === "lewis") check = electronBuilder(inputs,task,draft);
+  else {
+    if (task.diagram) {
+      const panel = document.createElement("div");
+      panel.className = "builder";
+      inputs.append(panel);
+      boxPlot(panel,task.diagram);
+    }
+    const widgets = fieldGroup(inputs,task.fields,draft);
+    check = () => checkFields(widgets);
+  }
+
+  function moveCase(index) {
+    study.cases[exercise.id] = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("case-label");
+  }
+  function moveExercise(index) {
+    study.exercise = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("exercise-title");
+  }
+  const previousCase = byId("previous-case");
+  const nextCase = byId("next-case");
+  previousCase.disabled = caseIndex === 0;
+  nextCase.disabled = caseIndex === exercise.cases.length - 1;
+  previousCase.onclick = () => moveCase(caseIndex - 1);
+  nextCase.onclick = () => moveCase(caseIndex + 1);
+  const nextCaseAction = byId("next-case-action");
+  nextCaseAction.hidden = true;
+  const previousExercise = byId("previous-exercise");
+  const nextExercise = byId("next-exercise");
+  previousExercise.disabled = exerciseIndex === 0;
+  nextExercise.disabled = exerciseIndex === lesson.exercises.length - 1;
+  previousExercise.onclick = () => moveExercise(exerciseIndex - 1);
+  nextExercise.onclick = () => moveExercise(exerciseIndex + 1);
+  function updateAction() {
+    const caseDone = caseSolved(exercise,caseIndex);
+    let following;
+    if (caseDone && !nextCase.disabled) following = ["Siguiente caso ›",nextCase.onclick];
+    else if (caseDone) {
+      const unfinishedCase = exercise.cases.findIndex((_,index)=>!caseSolved(exercise,index));
+      const unfinishedExercise = lesson.exercises.findIndex(item=>!exerciseSolved(item));
+      if (unfinishedCase >= 0) following = ["Ir al caso pendiente ›",()=>moveCase(unfinishedCase)];
+      else if (!nextExercise.disabled) following = ["Siguiente ejercicio ›",nextExercise.onclick];
+      else if (unfinishedExercise >= 0) following = ["Ir al ejercicio pendiente ›",()=>moveExercise(unfinishedExercise)];
+      else if (position(unit) < unit.lessons.length-1) {
+        const nextTitle=unit.lessons[position(unit)+1].recap?"Ir a autoevaluación ›":"Siguiente tema ›";
+        following = [nextTitle,()=>navigate(unit,position(unit)+1)];
+      }
+    }
+    nextCaseAction.hidden = !following;
+    byId("check").classList.toggle("next",!caseDone);
+    if (following) {
+      nextCaseAction.textContent=following[0];
+      nextCaseAction.onclick=following[1];
+    }
+  }
+  updateAction();
+  renderBookmark();
+  byId("hint").onclick = () => setFeedback("Pista. " + task.hint,true);
+  checkAnswer = () => {
+    const {passed,total,message} = check();
+    if (message) {setFeedback(message,true);return;}
+    if (passed === total) {
+      state.solved[exercise.id + ":" + caseIndex] = true;
+      save();
+      renderProgress(unit);
+      setFeedback(task.kind === "written" ? "Respuesta revisada. Puedes avanzar." : "Correcto. Puedes revisar el razonamiento en la solución explicada.");
+      updateAction();
+    } else {
+      const count = total > 1 ? passed + " de " + total + " partes correctas. " : "Revisa tu respuesta. ";
+      setFeedback(count + task.hint,true);
+    }
+  };
+}
+function setFeedback(message, hint = false) {
+  const feedback = byId("exercise-feedback");
+  feedback.classList.toggle("retry",hint);
+  feedback.textContent = message;
+}
+byId("exercise-form").addEventListener("submit",event => {
+  event.preventDefault();
+  checkAnswer();
+});
+
+
+function textBlock(id, content) {
+  const item = byId(id);
+  item.hidden = !content;
+  item.textContent = content || "";
+}
+function renderExerciseTable(rows) {
+  const area = byId("data-table");
+  area.hidden = !rows;
+  area.replaceChildren();
+  if (!rows) return;
+  const table = document.createElement("table");
+  const header = table.createTHead().insertRow();
+  rows[0].forEach(value => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = value;
+    header.append(th);
+  });
+  const body = table.createTBody();
+  rows.slice(1).forEach(values => {
+    const row = body.insertRow();
+    values.forEach(value => { row.insertCell().textContent = value; });
+  });
+  area.append(table);
+}
+function writtenBuilder(parent,task,draft) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = "Tu respuesta";
+  const response = document.createElement("textarea");
+  response.rows = 4;
+  response.value = draft[0] || "";
+  response.addEventListener("input",() => { draft[0] = response.value; queueSave(); });
+  wrapper.append(name,response);
+
+  const rubric = document.createElement("label");
+  rubric.className = "rubric";
+  rubric.hidden = true;
+  const reviewed = document.createElement("input");
+  reviewed.type = "checkbox";
+  rubric.append(reviewed,document.createTextNode(task.rubric));
+  parent.append(wrapper,rubric);
+  return () => {
+    if (!response.value.trim()) {
+      response.focus();
+      return {message:"Escribe tu respuesta y luego compárala con la pauta."};
+    }
+    if (rubric.hidden) {
+      byId("solution").open = true;
+      text("check","Marcar como revisada");
+      rubric.hidden = false;
+      return {message:"Compara tu texto con el modelo y revisa el criterio. Puedes corregir tu respuesta antes de marcarla."};
+    }
+    if (!reviewed.checked) return {message:"Marca el criterio cuando tu respuesta lo cumpla."};
+    return {passed:1,total:1};
+  };
+}
+
+function orderBuilder(parent,task,draft) {
+  const options = document.createElement("div");
+  options.className = "controls";
+  options.setAttribute("aria-label","Elementos para ordenar");
+  const sequence = document.createElement("ol");
+  sequence.className = "sequence";
+  sequence.setAttribute("aria-live","polite");
+  const undo = button("Quitar el último","nav-button");
+  undo.onclick = () => {draft.pop();draw();queueSave();};
+  const controls = task.items.map((value,index)=>{
+    const item=button(value,"pill");
+    item.onclick=()=>{draft.push(index);draw();queueSave();};
+    options.append(item);
+    return item;
+  });
+  parent.append(options,sequence,undo);
+  draw();
+  function draw(){
+    controls.forEach((item,index)=>{
+      item.disabled=draft.includes(index);
+      item.setAttribute("aria-pressed",String(item.disabled));
+    });
+    sequence.replaceChildren(...draft.map(index=>{
+      const li=document.createElement("li");
+      li.textContent=task.items[index];
+      return li;
+    }));
+    undo.disabled=!draft.length;
+  }
+  return () => ({
+    passed:task.answer.filter((item,index)=>draft[index]===item).length,
+    total:task.answer.length
+  });
+}
+
+function sketch(target, description, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role","img");
+  canvas.setAttribute("aria-label",description);
+  target.replaceChildren(canvas);
+  const ctx=canvas.getContext("2d");
+  ctx.scale(2,2);
+  ctx.fillStyle="#f9fcf7";
+  ctx.fillRect(0,0,570,195);
+  ctx.lineCap="round";
+  ctx.lineJoin="round";
+  draw(ctx);
+}
+function boxPlot(target, values, selected = -1) {
+  const titles=["Mínimo","C₁","C₂","C₃","Máximo"];
+  const colors={axis:"#638278",box:"#dbeadb",bold:"#25624e"};
+  const range=Math.max(1,values[4]-values[0]);
+  const x=value=>80+(value-values[0])/range*410;
+  const [min,l,m,r,max]=values.map(x);
+  sketch(target,"Diagrama con "+titles.map((item,i)=>item+" "+values[i]).join(", "),ctx=>{
+    line(ctx,[[65,146],[505,146]],colors.axis,1.5);
+    line(ctx,[[min,94],[max,94]],colors.bold,3);
+    ctx.fillStyle=colors.box;
+    ctx.fillRect(l,70,r-l,48);
+    ctx.strokeStyle=colors.bold;
+    ctx.lineWidth=2;
+    ctx.strokeRect(l,70,r-l,48);
+    for (const [at,top,bottom] of [[min,84,104],[m,70,118],[max,84,104]]) line(ctx,[[at,top],[at,bottom]],colors.bold,3);
+    const used=new Set();
+    values.forEach((value,index)=>{
+      const at=x(value);
+      if (!used.has(value)) {
+        label(ctx,String(value),at,171);
+        dot(ctx,at,146,value===values[selected]?5:3,colors.bold);
+        used.add(value);
+      }
+      if(index===selected) label(ctx,titles[index],at,48,colors.bold);
+    });
+  });
+}
+function pointGrid(target, base, image = [], description = "Plano cartesiano") {
+  const xMax=Math.max(5,...[...base,...image].map(([x])=>Math.abs(x)));
+  const yMax=Math.max(5,...[...base,...image].map(([,y])=>Math.abs(y)));
+  const size= Math.min(16,78/yMax,208/xMax);
+  const screen=([x,y])=>[285 + x * size,97 - y * size];
+  const left=Math.floor(Math.min(225/size,16));
+  const top=Math.floor(79/size);
+  sketch(target,description,ctx=>{
+    for (let i=-left;i<=left;i++) line(ctx,[screen([i,-top]),screen([i,top])],"#e0eadf",1);
+    for (let i=-top;i<=top;i++) line(ctx,[screen([-left,i]),screen([left,i])],"#e0eadf",1);
+    line(ctx,[screen([-left,0]),screen([left,0])],"#729385",1.5);
+    line(ctx,[screen([0,-top]),screen([0,top])],"#729385",1.5);
+    const arrow=screen([left,0]);
+    label(ctx,"x",Math.min(552,arrow[0]+13),arrow[1]);
+    label(ctx,"y",285,8);
+    const orig=base.map(screen);
+    const moved=image.map(screen);
+    if(moved.length) ctx.setLineDash([4,5]);
+    line(ctx,[...orig,orig[0]],moved.length?"#789186":"#24634e",2.8);
+    ctx.setLineDash([]);
+    orig.forEach(([x,y],index)=>{
+      dot(ctx,x,y,3.5,"#4b766a");
+      label(ctx,"ABC"[index],x+(index===1?12:-11),Math.max(9,y-9));
+    });
+    if (moved.length) {
+      line(ctx,moved.length===3?[...moved,moved[0]]:moved,"#247159",3);
+      moved.forEach(([x,y],index)=>{
+        dot(ctx,x,y,4,"#247159");
+        label(ctx,"ABC"[index]+"′",x+(index===1?12:-11),Math.max(9,y-9));
+      });
+    }
+  });
+}
+function graphBuilder(parent,task,draft) {
+  const panel=document.createElement("div");
+  panel.className="builder";
+  parent.append(panel);
+  const widgets=fieldGroup(parent,task.fields,draft);
+  const isBox=task.kind==="boxBuild";
+  const graphFields=widgets.slice(0,isBox?5:6);
+  graphFields.forEach(({control})=>control.addEventListener("input",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const values=graphFields.map(({control})=>{
+      const value=control.value.trim().replace(/\u2212/g,"-").replace(",",".");
+      return /^[+-]?\d+(?:\.\d+)?$/.test(value)?Number(value):null;
+    });
+    if (isBox) {
+      if (values.every((item,i)=>item!==null && (i===0 || item>=values[i-1]))) boxPlot(panel,values);
+      else panel.textContent="Completa los cinco valores ordenados de menor a mayor para dibujar el cajón.";
+    } else {
+      const ready=values.every(value=>value!==null && Number.isInteger(value) && Math.abs(value)<=15);
+      const points=ready?[values.slice(0,2),values.slice(2,4),values.slice(4,6)]:[];
+      pointGrid(panel,task.points,points,points.length?"Triángulo original y figura con tus coordenadas":"Triángulo original");
+    }
+  }
+}
+function showMathVisual(visual) {
+  const board=byId("board");
+  const legend=byId("legend");
+  if(visual.kind==="mathBox") {
+    const values=[2,4,7,9,13];
+    switcher(["Mínimo","C₁","C₂","C₃","Máximo"],index=>{
+      boxPlot(board,values,index);
+      legend.textContent=["Mínimo: 2.","Primer cuartil: 4.","Mediana: 7.","Tercer cuartil: 9.","Máximo: 13."][index];
+    });
+  } else if(visual.kind==="isometry") {
+    const base=[[1,1],[4,1],[1,4]];
+    const labels=["Original","Traslación","Reflexión en Y","Rotación de 90°"];
+    const transforms=[null,([x,y])=>[x-3,y-3],([x,y])=>[-x,y],([x,y])=>[-y,x]];
+    const notes=["Figura original: A(1,1), B(4,1), C(1,4).","Tres unidades a la izquierda y tres hacia abajo.","Se conserva y, cambia el signo de x.","90° antihorarios alrededor del origen: (x,y) → (−y,x)."];
+    switcher(labels,index=>{
+      pointGrid(board,base,transforms[index]?base.map(transforms[index]):[],notes[index]);
+      legend.textContent=notes[index];
+    });
+  } else if(visual.kind==="pythagoras") {
+    const sides=[[[204,138],[364,138]],[[204,18],[204,138]],[[204,18],[364,138]]];
+    const names=["Cateto 4","Cateto 3","Hipotenusa 5"];
+    switcher(names,index=>{
+      const explanation=["4² = 16.","3² = 9.","5² = 25. Se cumple que 16 + 9 = 25."][index];
+      sketch(board,names[index]+". "+explanation,ctx=>{
+        sides.forEach((side,i)=>line(ctx,side,i===index?"#23845b":"#a5b9ad",i===index?6:3));
+        line(ctx,[[204,123],[219,123],[219,138]],"#56736a",2);
+        label(ctx,"4",284,160);
+        label(ctx,"3",188,80);
+        label(ctx,"5",299,65);
+      });
+      legend.textContent=explanation;
+    });
+  } else if(visual.kind==="cylinder") {
+    switcher(["Cilindro","Desarrollo plano"],mode=>{
+      sketch(board,mode?"Dos círculos y un rectángulo":"Cilindro de radio r y altura h",ctx=>{
+        const ellipse=(x,y,rx,ry)=>{
+          ctx.beginPath();
+          ctx.strokeStyle="#436a5d";
+          ctx.lineWidth=2;
+          ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
+          ctx.fillStyle="#e3efe1";ctx.fill();ctx.stroke();
+        };
+        if(mode) {
+          ellipse(165,63,37,37);ellipse(165,145,37,37);
+          ctx.fillStyle="#e3efe1";ctx.fillRect(222,53,193,91);
+          ctx.strokeStyle="#436a5d";ctx.strokeRect(222,53,193,91);
+          label(ctx,"2πr",318,163);label(ctx,"h",438,99);
+        } else {
+          ellipse(280,143,65,23);
+          ctx.fillStyle="#dfebdf";ctx.fillRect(215,53,130,90);
+          line(ctx,[[215,53],[215,143]],"#436a5d",2);
+          line(ctx,[[345,53],[345,143]],"#436a5d",2);
+          ellipse(280,53,65,23);
+          line(ctx,[[280,53],[345,53]],"#436a5d",2);label(ctx,"r",314,42);
+          label(ctx,"h",367,100);
+        }
+      });
+      legend.textContent=mode?"El largo del rectángulo coincide con 2πr. El ancho es h.":"Hay dos bases circulares iguales. r es el radio y h, la altura.";
+    });
+  }
+}
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = activeLesson(unit);
+  text("unit-type",unit.unit);
+  text("unit-title",unit.title);
+  text("unit-description",unit.description);
+  text("lesson-count",lesson.recap ? "Autoevaluación de la unidad" : "Tema " + (index + 1) + " de " + (unit.lessons.length - 1));
+  text("lesson-title",lesson.title);
+  text("lesson-goal",lesson.goal);
+  renderProgress(unit);
+  renderMode(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0;
+  previous.textContent = "‹ Tema anterior";
+  previous.onclick = () => navigate(unit,index-1);
+  const last = index === unit.lessons.length - 1;
+  next.disabled = last;
+  next.textContent = last ? "Último tema" : (unit.lessons[index + 1].recap ? "Ir a autoevaluación ›" : "Siguiente tema ›");
+  next.onclick = () => {if (!last) navigate(unit,index+1);};
+}
+
+toggleFocus();
+render();
+</script>
+</body>
+</html>

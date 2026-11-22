@@ -1,0 +1,2680 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#edf1fc">
+<title>Lenguaje y Literatura · Unidad 3 · Relatos de misterio</title>
+<style>
+:root{color-scheme:light;--paper:#f5f4ee;--white:#fff;--ink:#192c2a;--muted:#47615b;--line:#d9e0d8;--deep:#123d35;--mint:#dcece0;--accent:#25624e;--wash:#eaf2e9;--amber:#75511a;--amber-bg:#fff0d8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-80px;z-index:2;background:#fff;color:var(--deep);padding:10px}
+.skip:focus{top:8px}
+header{border-bottom:1px solid var(--line);background:#fcfbf6}
+.top{max-width:1170px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--deep);color:#dcece0;font-weight:800}
+.brand strong,.brand small{display:block;line-height:1.25}
+.brand small{color:var(--muted);font-size:.78rem;margin-top:4px}
+.plain,.pill,.nav-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px}
+.plain[aria-pressed=true],.pill[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+main{max-width:1170px;margin:auto;padding:22px 24px 44px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:end;gap:22px;background:var(--deep);color:#fff;padding:24px 28px;border-radius:19px}
+.hero::after{content:"";position:absolute;width:310px;height:310px;right:-95px;top:-151px;border:1px solid #ffffff32;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 59px #ffffff07;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.kicker{color:#d3e9d8;font-size:.78rem;font-weight:700;letter-spacing:.045em}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.13;margin:5px 0 8px;letter-spacing:-.035em}
+.hero p{color:#e3eee7}
+.track{width:205px;flex:none}
+.track label{display:block;font-size:.8rem;color:#e3eee7;margin-bottom:4px}
+progress{display:block;width:100%;height:9px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#ffffff2e}
+progress::-webkit-progress-bar{background:#ffffff2e}
+progress::-webkit-progress-value{background:#b6e6a5}
+progress::-moz-progress-bar{background:#b6e6a5}
+.grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+aside,.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+aside{padding:15px}
+aside h2{font-size:.95rem;margin:0 0 8px}
+.units,.items{display:grid;gap:6px}
+.units{margin-bottom:17px}
+.unit,.item{width:100%;text-align:left;border:1px solid transparent;background:#fff;border-radius:9px;color:var(--ink);padding:8px 9px}
+.unit{border-color:var(--line);font-size:.88rem}
+.unit strong,.unit span{display:block}
+.unit span{color:var(--muted);font-size:.78rem}
+.unit[aria-current=true],.item[aria-current=true]{background:var(--wash);border-color:#a5c4af;color:var(--deep)}
+.item{display:grid;grid-template-columns:24px 1fr;gap:7px;font-size:.86rem;line-height:1.32;align-items:start}
+.item:hover,.unit:hover,.plain:hover,.pill:hover,.nav-button:hover{filter:brightness(.97)}
+.index{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-weight:700;background:#edf0ec;color:var(--deep);font-size:.75rem}
+.item.done .index{background:#cde9c8}
+.card{padding:clamp(15px,3vw,25px);min-width:0}
+.lesson-count{color:var(--accent);font-weight:700;font-size:.8rem}
+h2#lesson-title{font-size:clamp(1.35rem,3.5vw,1.88rem);line-height:1.2;letter-spacing:-.025em;margin:4px 0 5px}
+.intro{color:var(--muted)}
+.explore{margin-top:14px;padding:13px;border:1px solid #dce7dc;background:#f3f7f2;border-radius:13px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls button{padding:6px 9px;font-size:.83rem}
+.board{display:grid;min-height:106px;place-items:center;margin:9px 0 3px}
+.board canvas{display:block;width:min(100%,570px);height:auto;border-radius:10px}
+.scene{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:9px 0}
+.tile{display:grid;place-items:center;max-width:100%;min-height:53px;padding:8px 13px;text-align:center;background:#fff;border:1px solid #d0ddd2;border-radius:10px;font-weight:700;overflow-wrap:anywhere}
+.tile:nth-child(2n){background:#e2eee4}
+.legend{font-size:.89rem;color:var(--muted);text-align:center;max-width:62ch;margin:auto}
+.range-box{width:min(100%,430px);padding:10px 0}
+.range-box label{display:flex;justify-content:space-between;font-weight:650}
+.range-box input{display:block;width:100%;accent-color:var(--accent)}
+.reading{font-weight:700;text-align:center;margin-top:7px;color:var(--deep)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+summary{font-weight:700;cursor:pointer}
+.feedback{font-size:.9rem;font-weight:650;margin-top:7px;color:var(--accent)}
+.feedback:empty{display:none}
+.feedback.retry{color:var(--amber)}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.next{background:var(--deep);color:#fff;border-color:var(--deep)}
+.nav-button:disabled{opacity:.53;cursor:default}
+.focus-mode aside{display:none}
+.focus-mode .grid{grid-template-columns:minmax(0,1fr);max-width:740px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){
+  .top,main{padding-left:13px;padding-right:13px}
+  main{padding-top:14px}.hero{align-items:stretch;flex-direction:column;padding:18px;gap:12px}
+  .track{width:min(100%,210px)}.grid{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}.card{order:1}
+}
+@media print{header,aside,.controls,.navigation{display:none!important}.hero{background:#fff;color:#000;border:1px solid #999}.hero p,.kicker,.track label{color:#333}.grid{display:block}.hero::after{display:none}.card{margin-top:12px;break-inside:avoid}}
+
+.mode-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 12px}
+.mode-tab{min-height:45px;border:1px solid #c9d9ce;background:#f6f9f5;color:var(--deep);font-weight:700;border-radius:10px;padding:8px}
+.mode-tab[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.eyebrow{color:var(--accent);font-size:.8rem;font-weight:750;margin-bottom:3px}
+.guided{background:#f0f6ee;border:1px solid #d7e4d5;border-radius:13px;padding:clamp(12px,2.3vw,20px)}
+.guided h3,.worked h3,.exercise h3{font-size:clamp(1.13rem,2.2vw,1.35rem);line-height:1.25;margin-bottom:8px}
+.teaching{max-width:70ch}.teaching p+p{margin-top:9px}
+.guided .scene{justify-content:flex-start;padding-bottom:0}
+.guided .tile{min-height:auto;padding:6px 10px;font-size:.91rem}
+.step-navigation{margin-top:12px}.step-navigation button{font-size:.88rem}
+.explorer,.worked{margin-top:12px}
+.explorer .intro{margin-top:8px}
+.worked{padding:clamp(12px,2.3vw,20px);border-radius:13px;background:#fbf8ef;border:1px solid #e9dfc7}
+.worked ol{margin:8px 0;padding-left:24px}
+.worked li{margin:3px 0}
+.worked-result{font-weight:700;color:#514021;margin-top:7px}
+.practice-cta{margin-top:12px}
+.exercise{background:#f7faf6;border:1px solid #dbe6db;border-radius:13px;padding:clamp(12px,2.3vw,19px)}
+.exercise-prompt{max-width:70ch;margin-bottom:10px}
+.reference{background:#fff;margin:10px 0}
+.reference p,.solution p{margin-top:6px}
+.case-nav{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:8px;text-align:center;padding:8px 0;margin:8px 0;border-block:1px solid var(--line)}
+.case-nav>div{line-height:1.35}
+.case-nav span{display:block;font-size:.8rem;color:var(--muted)}
+.case-nav button{padding:4px 0}
+.exercise-fields{display:grid;gap:8px;margin:9px 0}
+.field{display:grid;gap:4px;font-size:.94rem;font-weight:650}
+.field input,.field select{min-width:0;width:100%;max-width:560px;min-height:42px;background:#fff;border:1px solid #adc2b3;color:var(--ink);border-radius:8px;padding:7px 9px;font:inherit;font-weight:500}
+.field [aria-invalid=true]{border-color:#a66b2d;background:#fff5e8}
+.field [data-checked=true]{border-color:#7aab7d;background:#f2f8ef}
+.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.solution{background:#fff;margin-top:10px}
+.chapter-nav{border-top:1px solid var(--line);padding-top:12px}
+.chapter-nav .nav-button,.exercise-nav .nav-button{font-size:.9rem}
+.builder{background:white;border:1px solid #dce7da;border-radius:11px;padding:9px;margin:7px 0 10px}
+.builder canvas{display:block;width:min(100%,570px);height:auto;margin:auto}
+.orbital-row{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:8px;margin:6px 0}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots button{width:45px;height:42px;padding:0;color:#153e35;background:#f0f6ef;font-size:1.1rem}
+.builder-count{font-size:.88rem;color:var(--muted);margin-top:7px}
+.lewis{display:grid;grid-template:43px 43px 43px / 46px 46px 46px;justify-content:center;align-items:stretch;gap:5px}
+.lewis button{padding:0;font-size:1.2rem;font-weight:800;line-height:1}
+.lewis strong{display:grid;place-items:center;font-size:1.4rem;color:var(--deep)}
+.lewis>:nth-child(1){grid-area:1/2}.lewis>:nth-child(2){grid-area:2/3}.lewis>:nth-child(3){grid-area:3/2}.lewis>:nth-child(4){grid-area:2/1}.lewis strong{grid-area:2/2}
+@media (max-width:450px){
+  .mode-tab{font-size:.84rem}
+  .step-navigation button,.chapter-nav .nav-button,.exercise-nav .nav-button{padding:7px 8px;font-size:.8rem}
+  .guided .tile{font-size:.82rem}
+}
+
+
+.unit-finished{margin-top:13px;border:1px solid #accbb2;border-radius:12px;background:#e3f2de;color:#1e4b3b;padding:12px 16px}
+.unit-finished strong{font-size:1.05rem}
+.unit-finished p{font-size:.92rem}
+.topic-progress{color:#47615b;font-size:.86rem;font-weight:600;margin-top:4px}
+.field textarea{width:100%;max-width:650px;min-height:96px;padding:8px 9px;border-radius:9px;border:1px solid #adc2b3;background:#fff;color:var(--ink);font:inherit;resize:vertical}
+.field textarea:focus-visible{outline:3px solid #8b531d;outline-offset:3px}
+.rubric{display:flex;gap:9px;align-items:start;background:#edf6ea;border:1px solid #bdd3bb;border-radius:9px;padding:9px;margin-top:10px}
+.rubric input{margin-top:5px;accent-color:#215843}
+.sequence{margin:8px 0;min-height:26px;padding-left:25px}
+.sequence li{padding:3px 6px}
+.sequence+.nav-button{font-size:.86rem}
+.passage{background:#fbf8ef;margin:10px 0}
+.passage blockquote{margin:8px 0;white-space:pre-line}
+.data-table{width:min(100%,440px);margin:10px 0}
+.data-table table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.data-table td,.data-table th{border:1px solid #cfddd0;padding:5px 8px;text-align:left}
+.data-table th{background:#e6efe4}
+h2[tabindex="-1"]:focus,h3[tabindex="-1"]:focus,strong[tabindex="-1"]:focus{outline:none}
+
+
+:root {
+  --paper: #f8f7f5;
+  --ink: #252728;
+  --muted: #4c5357;
+  --line: #d9dadd;
+  --surface: #fff;
+  --focus-ring: #884208;
+  --lift: 0 14px 35px #20293710;
+}
+body[data-subject="c"] { --deep:#153f45; --accent:#246269; --wash:#eaf4f4; --tint:#d8ebeb; --ink-link:#18515a; }
+body[data-subject="h"] { --deep:#693820; --accent:#885032; --wash:#fbf1e8; --tint:#f2dfcf; --ink-link:#754025; }
+body[data-subject="l"] { --deep:#294174; --accent:#3c568e; --wash:#edf1fc; --tint:#dce5f7; --ink-link:#304a82; }
+body[data-subject="m"] { --deep:#4b3569; --accent:#634983; --wash:#f2edf9; --tint:#e8ddf5; --ink-link:#543575; }
+body { line-height:1.61; }
+:where(button, a, summary, input, select, textarea):focus-visible {
+  outline:3px solid var(--focus-ring); outline-offset:3px;
+}
+:where(h2,h3,strong)[tabindex="-1"] { scroll-margin-top:100px; }
+.skip { z-index:6; }
+.study-header { position:sticky; top:0; z-index:4; background:#fff; border-color:var(--line); }
+.top { max-width:1160px; min-height:70px; padding:10px 24px; gap:16px; }
+.brand { min-width:0; gap:11px; }
+.brand strong { font-size:.99rem; color:var(--deep); }
+.mark { width:36px; height:36px; flex:none; border-radius:10px; background:var(--deep); color:#fff; }
+.brand small { color:var(--muted); font-size:.77rem; }
+.header-tools { display:flex; gap:8px; align-items:center; flex:none; }
+.header-tools .plain { min-height:44px; padding:7px 12px; background:#fff; color:var(--deep); border-color:#a6aab1; font-weight:700; }
+.header-tools .plain[aria-pressed=true] { background:var(--wash); color:var(--deep); border-color:var(--accent); }
+main { max-width:1160px; }
+.hero {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(230px,.55fr);
+  align-items:center; gap:24px; padding:clamp(17px,3vw,30px);
+  background:var(--wash); color:var(--ink); border:1px solid var(--tint);
+  border-inline-start:5px solid var(--accent); border-radius:15px;
+}
+.hero::after { content:none; }
+.hero-copy { min-width:0; }
+.kicker { color:var(--ink-link); font-size:.84rem; line-height:1.35; font-weight:700; letter-spacing:0; }
+h1 { color:var(--deep); font-size:clamp(1.6rem,4vw,2.75rem); line-height:1.08; letter-spacing:-.032em; max-width:22ch; overflow-wrap:anywhere; }
+.hero p { color:var(--muted); }
+#unit-description { max-width:56ch; font-size:.98rem; }
+.resume-panel { background:#fff; padding:13px 14px 14px; border:1px solid var(--tint); border-radius:12px; min-width:0; }
+.resume-panel .track { width:100%; }
+.track label { color:var(--muted); font-size:.86rem; font-weight:650; }
+progress { background:var(--tint); height:8px; }
+progress::-webkit-progress-bar { background:var(--tint); }
+progress::-webkit-progress-value { background:var(--accent); }
+progress::-moz-progress-bar { background:var(--accent); }
+#resume-context { color:var(--deep); font-size:.88rem; line-height:1.35; margin:12px 0 7px; font-weight:680; overflow-wrap:anywhere; }
+#resume { min-height:44px; display:block; width:100%; line-height:1.3; padding:9px 12px; }
+.grid { grid-template-columns:224px minmax(0,1fr); gap:18px; }
+aside,.card { border-radius:14px; }
+aside { background:#fff; }
+aside h2 { color:var(--deep); font-weight:750; }
+.item { min-height:44px; align-items:center; font-size:.92rem; color:var(--ink); padding:8px; }
+.item[aria-current=true] { border-color:var(--accent); background:var(--wash); color:var(--deep); font-weight:720; }
+.index { background:var(--tint); color:var(--deep); }
+.item.done .index { background:#dceedd; color:#1f543f; }
+.lesson-count { color:var(--accent); font-size:.89rem; }
+h2#lesson-title { color:var(--deep); margin:4px 0 7px; }
+.topic-progress { color:var(--ink-link); margin-top:7px; font-size:.88rem; }
+.mode-tabs { gap:8px; margin:17px 0 13px; }
+.mode-tab {
+  min-height:44px; background:#fff; color:var(--deep); border:1px solid #9b9da7;
+  font-weight:650; font-size:.95rem; border-radius:9px; line-height:1.3;
+}
+.mode-tab[aria-pressed=true] { background:var(--wash); color:var(--deep); border-color:var(--accent); box-shadow:inset 0 -3px 0 var(--accent); }
+.guided { background:var(--wash); border-color:var(--tint); }
+.guided h3,.worked h3,.exercise h3 { line-height:1.22; color:var(--deep); }
+.teaching,.exercise-prompt,.worked>p,.worked ol,.passage blockquote { max-width:62ch; }
+.exercise { background:#fff; border-color:var(--tint); border-top:3px solid var(--accent); }
+.explore { background:var(--wash); border-color:var(--tint); }
+.tile { border-color:var(--tint); }
+.tile:nth-child(2n) { background:var(--tint); }
+.worked { background:#fbf6ea; border-color:#e0d1ac; }
+.worked-result { color:#5c441d; }
+.nav-button,.pill { border-color:#a5a8ae; min-height:44px; font-weight:650; line-height:1.25; }
+.next { background:var(--deep); color:#fff; border-color:var(--deep); font-weight:720; }
+.field input,.field select,.field textarea { border-color:#858990; }
+.field [aria-invalid=true] { border-color:#9c561f; }
+.field [data-checked=true] { border-color:#447952; }
+.case-nav { grid-template-columns:44px minmax(0,1fr) 44px; }
+.actions { gap:8px; }
+.feedback { line-height:1.5; }
+.topic-finished {
+  margin-top:13px; border-radius:9px; border:1px solid #a4c3a8; border-inline-start:4px solid #337654;
+  background:#eaf5e8; padding:10px 12px; color:#244d39;
+}
+.topic-finished p { font-size:.92rem; color:#355747; }
+.topic-finished strong { display:block; line-height:1.3; }
+.unit-finished { margin-top:14px; }
+.topic-dialog {
+  padding:0; border:1px solid var(--line); border-radius:16px; color:var(--ink);
+  width:min(460px,calc(100% - 26px)); max-height:min(78vh,640px); box-shadow:var(--lift);
+}
+.topic-dialog::backdrop { background:#23272e78; }
+.topic-dialog > div { padding:14px; }
+.dialog-title { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; }
+.dialog-title h2 { color:var(--deep); font-size:1.15rem; line-height:1.2; }
+.dialog-title button { min-width:70px; }
+.topic-dialog .item { padding:9px; min-height:47px; }
+@media (max-width:720px) {
+  .top { min-height:60px; padding:8px 13px; gap:8px; }
+  .brand { gap:7px; }
+  .brand strong { font-size:.87rem; }
+  .header-tools { gap:5px; }
+  .header-tools .plain { font-size:.83rem; padding:6px 8px; }
+  main { padding:13px 13px 32px; }
+  .hero { grid-template-columns:minmax(0,1fr); gap:13px; }
+  .grid { grid-template-columns:minmax(0,1fr); margin-top:13px; }
+  aside { display:none; }
+  .card { padding:14px; }
+}
+@media (max-width:390px) {
+  .brand small { display:none; }
+  .brand .mark { width:30px; height:30px; }
+  .mode-tab { font-size:.85rem; }
+  .step-navigation .nav-button,.exercise-nav .nav-button,.chapter-nav .nav-button { padding:6px 8px; }
+  .actions .nav-button { font-size:.87rem; }
+  .hero { padding:13px; }
+}
+@media print {
+  .topic-dialog,.header-tools,#resume { display:none!important; }
+  .hero { border:1px solid #aaa; background:#fff; }
+  .hero h1,.hero .kicker,.track label,.hero p { color:#222; }
+}
+
+.solution-body { margin-top:10px; max-width:65ch; }
+.solution-steps { margin:0 0 10px; padding-inline-start:1.5rem; }
+.solution-steps li { padding-inline-start:.15rem; }
+.solution-steps li + li { margin-top:.55rem; }
+.solution-steps li::marker { color:var(--accent); font-weight:700; }
+.solution-result {
+  background:var(--wash); border-inline-start:3px solid var(--accent);
+  border-radius:0 8px 8px 0; padding:8px 12px;
+}
+.solution-result strong { color:var(--deep); }
+.solution-result p { margin-top:3px; overflow-wrap:anywhere; }
+</style>
+</head>
+<body data-subject="l">
+<a class="skip" href="#lesson-title">Ir al bloque</a>
+<header class="study-header"><div class="top">
+<div class="brand"><span class="mark" aria-hidden="true">E</span><div><strong>Lenguaje y Literatura</strong><small>Cuadernillo de Emilio · Síntesis 2S 2026</small></div></div>
+<div class="header-tools">
+  <button class="plain" id="topics-open" type="button" aria-haspopup="dialog" aria-controls="topics-dialog">Temas</button>
+  <button class="plain" id="focus" type="button" aria-pressed="false">Modo enfoque</button>
+</div>
+</div></header>
+<dialog class="topic-dialog" id="topics-dialog" aria-labelledby="topics-title">
+  <div>
+    <div class="dialog-title"><h2 id="topics-title">Temas de la unidad</h2><button class="nav-button" id="topics-close" type="button">Cerrar</button></div>
+    <nav id="dialog-lessons" class="items" aria-label="Elegir tema"></nav>
+  </div>
+</dialog>
+<main>
+<section class="hero" aria-labelledby="unit-title">
+  <div class="hero-copy"><div class="kicker" id="unit-type"></div><h1 id="unit-title"></h1><p id="unit-description"></p></div>
+  <div class="resume-panel">
+    <div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
+    <p id="resume-context"></p>
+    <button id="resume" type="button" class="nav-button next" aria-describedby="resume-context">Empezar el cuadernillo</button>
+  </div>
+</section>
+<section class="unit-finished" id="unit-finished" role="status" hidden><strong>¡Unidad completada!</strong><p id="finish-message"></p></section>
+<div class="grid">
+<aside><h2>Temas</h2><nav class="items" id="lesson-list" aria-label="Temas de esta unidad"></nav></aside>
+<article class="card">
+<div class="lesson-count" id="lesson-count"></div>
+<h2 id="lesson-title" tabindex="-1"></h2>
+<p class="intro" id="lesson-goal"></p>
+<p class="topic-progress" id="topic-progress"></p>
+<nav class="mode-tabs" aria-label="Forma de estudiar">
+  <button class="mode-tab" id="learn-tab" type="button" aria-controls="learn-panel">1. Aprende paso a paso</button>
+  <button class="mode-tab" id="practice-tab" type="button" aria-controls="practice-panel">2. Practica</button>
+</nav>
+<section id="learn-panel" aria-labelledby="learn-tab">
+  <div class="guided">
+    <div class="eyebrow" id="step-count"></div>
+    <h3 id="step-title" tabindex="-1"></h3>
+    <div id="step-text" class="teaching"></div>
+    <div id="step-flow" class="scene"></div>
+    <div class="navigation step-navigation">
+      <button class="nav-button" type="button" id="previous-step">‹ Paso anterior</button>
+      <button class="nav-button next" type="button" id="next-step">Siguiente paso ›</button>
+    </div>
+  </div>
+  <details class="explorer" id="visual-details">
+    <summary id="visual-summary">Explora el modelo visual</summary>
+    <p class="intro" id="visual-intro"></p>
+    <div class="explore" aria-label="Exploración visual">
+      <div class="controls" id="controls"></div>
+      <div class="board" id="board"></div>
+      <p class="legend" id="legend" aria-live="polite"></p>
+    </div>
+  </details>
+  <section class="worked" id="worked">
+    <h3 id="worked-title">Ejemplo resuelto</h3>
+    <p id="worked-prompt"></p>
+    <ol id="worked-steps"></ol>
+    <p class="worked-result" id="worked-result"></p>
+  </section>
+  <button class="nav-button next practice-cta" type="button" id="go-practice">Ir a la práctica ›</button>
+</section>
+<section id="practice-panel" aria-labelledby="practice-tab" hidden>
+  <div class="exercise">
+    <div class="eyebrow" id="exercise-position"></div>
+    <h3 id="exercise-title" tabindex="-1"></h3>
+    <details class="passage" id="reading" hidden><summary>Fragmento para analizar</summary><blockquote id="excerpt"></blockquote></details>
+    <p id="exercise-prompt" class="exercise-prompt"></p>
+    <div class="data-table" id="data-table" hidden></div>
+    <details id="reference" class="reference" hidden><summary>Tabla o regla de apoyo</summary><p id="reference-text"></p></details>
+    <div class="case-nav" id="case-nav" hidden>
+      <button class="nav-button" id="previous-case" type="button" aria-label="Caso anterior">‹</button>
+      <div><span id="case-count"></span><strong id="case-label" tabindex="-1"></strong></div>
+      <button class="nav-button" id="next-case" type="button" aria-label="Caso siguiente">›</button>
+    </div>
+    <form id="exercise-form" novalidate>
+      <div id="exercise-inputs"></div>
+      <div class="actions">
+        <button class="nav-button next" type="submit" id="check">Corregir</button>
+        <button class="nav-button" type="button" id="hint">Ver pista</button>
+        <button class="nav-button next" type="button" id="next-case-action" hidden>Siguiente caso ›</button>
+      </div>
+    </form>
+    <p class="feedback" id="exercise-feedback" role="status"></p>
+    <div class="topic-finished" id="topic-finished" role="status" hidden><strong>Terminaste este tema</strong><p id="topic-finish-message"></p></div>
+    <details class="solution" id="solution">
+      <summary>Ver solución explicada</summary>
+      <div class="solution-body">
+        <ol id="solution-steps" class="solution-steps" aria-label="Pasos de la solución"></ol>
+        <div class="solution-result">
+          <strong id="solution-result-label">Respuesta</strong>
+          <p id="solution-text"></p>
+        </div>
+      </div>
+    </details>
+  </div>
+  <div class="navigation exercise-nav">
+    <button class="nav-button" id="previous-exercise" type="button">‹ Ejercicio anterior</button>
+    <button class="nav-button" id="next-exercise" type="button">Siguiente ejercicio ›</button>
+  </div>
+</section>
+<div class="navigation chapter-nav">
+  <button class="nav-button" id="previous" type="button">‹ Tema anterior</button>
+  <button class="nav-button" id="next" type="button">Siguiente tema ›</button>
+</div>
+</article>
+</div>
+</main>
+<noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
+<script>
+"use strict";
+
+const units = [
+  {
+    "id": "l3",
+    "unit": "Unidad 3",
+    "title": "Relatos de misterio",
+    "description": "Sigue pistas, analiza un relato policial y defiende una idea con evidencia.",
+    "lessons": [
+      {
+        "title": "Hechos, opiniones y pistas",
+        "goal": "Distingue lo que se puede comprobar de las interpretaciones y juicios.",
+        "steps": [
+          {
+            "title": "Detectar la diferencia",
+            "text": [
+              "Un hecho relata algo comprobable. Una opinión comunica un juicio, valoración o postura. Pregúntate qué observarías o dónde buscarías para verificarlo.",
+              "Una frase puede reunir ambos: «El collar desapareció, lo que fue una vergüenza». La primera parte se verifica; la segunda expresa una valoración."
+            ],
+            "flow": [
+              "Hecho · ¿cómo lo compruebo?",
+              "Opinión · ¿quién lo valora?"
+            ]
+          },
+          {
+            "title": "El vocabulario del detective",
+            "text": [
+              "Un indicio orienta; una evidencia es un dato o prueba que apoya o debilita una explicación. Una hipótesis propone una causa posible. Una conjetura es una suposición a partir de indicios todavía incompletos.",
+              "La deducción razona desde datos o reglas. La conclusión es el resultado al que se llega. Una coartada aporta información de que alguien estuvo en otro lugar."
+            ],
+            "flow": [
+              "Observa",
+              "Formula hipótesis",
+              "Razona",
+              "Concluye"
+            ]
+          }
+        ],
+        "worked": {
+          "prompt": "Una taza sigue caliente y la ventana está abierta. ¿Qué puedes afirmar?",
+          "steps": [
+            "Comprueba las observaciones: temperatura de la taza y estado de la ventana.",
+            "Propón hipótesis: alguien pudo abrirla al salir.",
+            "Busca otro rastro que apoye o debilite esa idea."
+          ],
+          "result": "La ventana abierta es un hecho dentro de la historia. Quién la abrió todavía es una hipótesis."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Hecho",
+              [
+                "Había barro en la ventana",
+                "→",
+                "se puede observar"
+              ],
+              "Se puede verificar en el lugar o con un registro."
+            ],
+            [
+              "Hipótesis",
+              [
+                "Alguien entró por la ventana",
+                "→",
+                "se pone a prueba"
+              ],
+              "Propone una explicación posible."
+            ],
+            [
+              "Opinión",
+              [
+                "Fue un robo muy torpe",
+                "→",
+                "es una valoración"
+              ],
+              "Dice lo que alguien piensa acerca del hecho."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "l3-1",
+            "title": "Hecho u opinión",
+            "prompt": "Clasifica como hecho (H) u opinión (O):",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Poe publicó el relato en 1841",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Holmes es el detective más interesante",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Los asesinatos de Whitechapel ocurrieron en 1888",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "La policía debió esforzarse más",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Conan Doyle fue médico",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Los relatos policiales son aburridos",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Distingue lo que una fuente permite verificar de una valoración.",
+                "label": "",
+                "why": "Poe publicó el relato en 1841: Hecho. Holmes es el detective más interesante: Opinión. Los asesinatos de Whitechapel ocurrieron en 1888: Hecho. La policía debió esforzarse más: Opinión. Conan Doyle fue médico: Hecho. Los relatos policiales son aburridos: Opinión.",
+                "pasosSolucion": [
+                  "Pregúntate si la afirmación se puede comprobar con una fuente, por ejemplo mediante una fecha o una biografía.",
+                  "Identifica las expresiones que valoran, como «aburrido» o «el más interesante». Distingue esas valoraciones de los datos comprobables."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-2",
+            "title": "Convierte un juicio en un hecho",
+            "prompt": "Transforma la opinión “Holmes es genial” en un hecho comprobable sobre Holmes.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Cambia «genial» por un dato verificable sobre su primera aparición o su conducta en un relato.",
+                "rubric": "Escribí una afirmación que se puede verificar en una fuente.",
+                "fields": [],
+                "label": "",
+                "why": "Ejemplos: “Holmes resuelve el caso usando la observación de pistas”; “Holmes aparece por primera vez en 1887”.",
+                "pasosSolucion": [
+                  "Encuentra la valoración «genial». Distintas personas podrían juzgar al personaje de forma diferente.",
+                  "Cambia ese adjetivo por una afirmación comprobable sobre el personaje, como cuándo apareció o qué hizo en un relato."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-3",
+            "title": "Hecho y opinión en una misma frase",
+            "prompt": "Selecciona qué parte es hecho y cuál es opinión: “El crimen no fue resuelto, lo cual es una vergüenza para Scotland Yard.”",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "El crimen no fue resuelto",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Lo cual es una vergüenza para Scotland Yard",
+                    "kind": "pick",
+                    "options": [
+                      "Hecho",
+                      "Opinión"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Separa lo que ocurrió de cómo se lo evalúa.",
+                "label": "",
+                "why": "El crimen no fue resuelto: Hecho. Lo cual es una vergüenza para Scotland Yard: Opinión.",
+                "pasosSolucion": [
+                  "Separa «el crimen no fue resuelto» del comentario que empieza con «lo cual».",
+                  "La primera parte puede verificarse en el relato. Examina si llamar «vergüenza» a ese hecho describe algo comprobable o lo juzga."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-4",
+            "title": "Glosario del detective",
+            "prompt": "Une cada palabra con su definición: evidencia, hipótesis, conjetura, deducción, conclusión.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Evidencia",
+                    "kind": "pick",
+                    "options": [
+                      "Explicación posible por comprobar",
+                      "Razonamiento a partir de datos",
+                      "Prueba concreta",
+                      "Juicio a partir de indicios incompletos",
+                      "Resultado del razonamiento"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Hipótesis",
+                    "kind": "pick",
+                    "options": [
+                      "Explicación posible por comprobar",
+                      "Razonamiento a partir de datos",
+                      "Prueba concreta",
+                      "Juicio a partir de indicios incompletos",
+                      "Resultado del razonamiento"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Conjetura",
+                    "kind": "pick",
+                    "options": [
+                      "Explicación posible por comprobar",
+                      "Razonamiento a partir de datos",
+                      "Prueba concreta",
+                      "Juicio a partir de indicios incompletos",
+                      "Resultado del razonamiento"
+                    ],
+                    "answer": 3
+                  },
+                  {
+                    "label": "Deducción",
+                    "kind": "pick",
+                    "options": [
+                      "Explicación posible por comprobar",
+                      "Razonamiento a partir de datos",
+                      "Prueba concreta",
+                      "Juicio a partir de indicios incompletos",
+                      "Resultado del razonamiento"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Conclusión",
+                    "kind": "pick",
+                    "options": [
+                      "Explicación posible por comprobar",
+                      "Razonamiento a partir de datos",
+                      "Prueba concreta",
+                      "Juicio a partir de indicios incompletos",
+                      "Resultado del razonamiento"
+                    ],
+                    "answer": 4
+                  }
+                ],
+                "hint": "Separa el dato observado, la explicación por probar y el resultado final.",
+                "label": "",
+                "why": "Evidencia: Prueba concreta. Hipótesis: Explicación posible por comprobar. Conjetura: Juicio a partir de indicios incompletos. Deducción: Razonamiento a partir de datos. Conclusión: Resultado del razonamiento.",
+                "pasosSolucion": [
+                  "Distingue el dato observable de las ideas que surgen a partir de él. Una explicación provisional se puede poner a prueba y una conjetura se apoya en indicios incompletos.",
+                  "Separa también el razonamiento de su resultado. Uno conecta las pistas y el otro expresa a qué se llegó."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-5",
+            "title": "Usa evidencia e hipótesis",
+            "prompt": "Escribe una oración sobre un robo en tu colegio usando las palabras evidencia e hipótesis.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Nombra un rastro observable y una explicación que todavía se pueda poner a prueba.",
+                "rubric": "Usé evidencia para el dato e hipótesis para una explicación provisional.",
+                "fields": [],
+                "label": "",
+                "why": "Ejemplo: “La evidencia era una huella en el vidrio; nuestra hipótesis es que el ladrón entró por la ventana.”",
+                "pasosSolucion": [
+                  "Levanta una pista concreta del caso imaginado, como una huella o la hora que muestra una cámara.",
+                  "Propón una explicación que esa pista apoye y que aún se pueda comprobar. Usa una palabra distinta para el dato y para la explicación."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-6",
+            "title": "Ordena la investigación",
+            "prompt": "Pulsa los elementos en el orden solicitado. Si te equivocas, puedes quitar el último.",
+            "cases": [
+              {
+                "kind": "order",
+                "items": [
+                  "Conclusión",
+                  "Observación de evidencias",
+                  "Deducción",
+                  "Hipótesis"
+                ],
+                "answer": [
+                  1,
+                  3,
+                  2,
+                  0
+                ],
+                "hint": "Parte por observar. La conclusión queda al final.",
+                "fields": [],
+                "label": "",
+                "why": "Observación de evidencias → hipótesis → deducción → conclusión.",
+                "pasosSolucion": [
+                  "Empieza por lo que la persona investigadora puede observar. A partir de esas pistas, propone una explicación posible.",
+                  "Usa las pistas para razonar acerca de esa explicación. Deja para el final aquello que ya se puede sostener."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Historia y rasgos del relato policial",
+        "goal": "Explica su origen y reconoce el enigma, los personajes y el detective clásico.",
+        "steps": [
+          {
+            "title": "El contexto en que se desarrolla el género",
+            "text": [
+              "La industrialización hizo crecer ciudades como Londres. Aumentaron el hacinamiento y los contrastes sociales. Se formaron policías modernas y la prensa difundió casos que el público siguió como historias.",
+              "El caso de Whitechapel de 1888 generó interés porque quedó sin resolver. El género ya existía: Poe publicó su relato protagonizado por Dupin en 1841 y Holmes debutó en 1887."
+            ],
+            "flow": []
+          },
+          {
+            "title": "Cómo avanza el relato",
+            "text": [
+              "Suele comenzar con un enigma. Durante la investigación aparecen una víctima, sospechosos, pistas, un culpable y un detective. Un ayudante puede narrar como testigo y la policía oficial puede servir de contraste.",
+              "La narración a menudo comienza después del crimen y reconstruye lo ocurrido antes. El lugar urbano o cerrado y la entrega gradual de pistas sostienen el suspenso."
+            ],
+            "flow": [
+              "Enigma",
+              "→ investigación",
+              "→ explicación"
+            ]
+          },
+          {
+            "title": "Qué es un arquetipo",
+            "text": [
+              "Un arquetipo es un modelo de personaje que reaparece en muchas obras. El detective clásico observa detalles, razona con lógica, tiene amplio conocimiento y a menudo investiga con independencia de la policía.",
+              "Puede tener rasgos excéntricos y un acompañante como Watson. Dupin, Holmes y Poirot son ejemplos del modelo clásico."
+            ],
+            "flow": []
+          }
+        ],
+        "worked": {
+          "prompt": "Una narradora acompaña al investigador y cuenta lo que él observa, pero desconoce la solución.",
+          "steps": [
+            "Identifica quién investiga y quién cuenta.",
+            "La narradora presencia hechos y no conoce todo.",
+            "Como sabe poco, el lector descubre pistas junto a ella."
+          ],
+          "result": "Es una narradora testigo y su punto de vista ayuda a sostener el suspenso."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "1841",
+              [
+                "Poe",
+                "→",
+                "Auguste Dupin"
+              ],
+              "«Los crímenes de la calle Morgue» suele considerarse el primer relato detectivesco moderno."
+            ],
+            [
+              "1887",
+              [
+                "Conan Doyle",
+                "→",
+                "Sherlock Holmes"
+              ],
+              "Holmes aparece por primera vez en «Estudio en escarlata»."
+            ],
+            [
+              "1888",
+              [
+                "Whitechapel",
+                "→",
+                "Cobertura de prensa"
+              ],
+              "El caso sin resolver aumentó el interés público por las investigaciones."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "l3-7",
+            "title": "Londres en que se escribían los relatos",
+            "prompt": "Explica dos rasgos del Londres del siglo XIX que favorecieron el nacimiento del relato detectivesco.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Piensa en el crecimiento urbano, la policía y la prensa.",
+                "rubric": "Expliqué dos rasgos del contexto y cómo favorecieron el interés por la investigación.",
+                "fields": [],
+                "label": "",
+                "why": "Ciudad enorme por la Revolución Industrial, con barrios pobres y delincuencia; calles oscuras y niebla; nacen las policías modernas; la prensa difunde los crímenes (bastan dos).",
+                "pasosSolucion": [
+                  "Ubica dos cambios del Londres del siglo XIX que afectaban cómo se vivía o qué noticias conocía la gente.",
+                  "Conecta esos cambios con la investigación de delitos. Puedes explicar cómo la prensa acercaba los casos a lectores o cómo surgieron nuevas formas de investigarlos."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-8",
+            "title": "Un caso sin resolver y la prensa",
+            "prompt": "¿Por qué el caso de Jack, el destripador influyó en el interés por las historias de detectives?",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Relaciona cobertura, interés público y dificultad de resolver el caso.",
+                "rubric": "Mencioné que quedó sin resolver y expliqué cómo alentó el interés público.",
+                "fields": [],
+                "label": "",
+                "why": "Fue un crimen famoso que la policía no resolvió, generó miedo y gran cobertura de prensa, y despertó el deseo de un investigador capaz de resolver lo imposible.",
+                "pasosSolucion": [
+                  "Identifica por qué llamaba la atención el caso, qué se sabía y qué seguía sin resolverse.",
+                  "Relaciona la cobertura de prensa con la curiosidad del público por reconstruir las pistas y encontrar una explicación."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-9",
+            "title": "Poe, la obra y el detective",
+            "prompt": "¿Cuál fue el primer relato detectivesco, quién lo escribió y quién era su detective?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Relato",
+                    "kind": "pick",
+                    "options": [
+                      "Estudio en escarlata",
+                      "Los crímenes de la calle Morgue",
+                      "El crimen casi perfecto"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Autor",
+                    "kind": "pick",
+                    "options": [
+                      "Edgar Allan Poe",
+                      "Arthur Conan Doyle",
+                      "Roberto Arlt"
+                    ],
+                    "answer": 0
+                  },
+                  {
+                    "label": "Detective",
+                    "kind": "pick",
+                    "options": [
+                      "Sherlock Holmes",
+                      "Watson",
+                      "Auguste Dupin"
+                    ],
+                    "answer": 2
+                  }
+                ],
+                "hint": "Busca el relato de 1841.",
+                "label": "",
+                "why": "Relato: Los crímenes de la calle Morgue. Autor: Edgar Allan Poe. Detective: Auguste Dupin.",
+                "pasosSolucion": [
+                  "Busca en la línea de tiempo el relato de 1841. Esa fecha es anterior a la primera aparición de Sherlock Holmes.",
+                  "Distingue al escritor del personaje investigador. Asocia a cada uno con el título del relato."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-10",
+            "title": "Qué hace cada personaje",
+            "prompt": "Nombra los personajes típicos de un relato policial y la función de cada uno.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Detective",
+                    "kind": "pick",
+                    "options": [
+                      "Cuenta desde lo que presencia",
+                      "Investiga",
+                      "Sufre el daño",
+                      "Comete el crimen",
+                      "Podrían estar involucrados"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Víctima",
+                    "kind": "pick",
+                    "options": [
+                      "Cuenta desde lo que presencia",
+                      "Investiga",
+                      "Sufre el daño",
+                      "Comete el crimen",
+                      "Podrían estar involucrados"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Culpable",
+                    "kind": "pick",
+                    "options": [
+                      "Cuenta desde lo que presencia",
+                      "Investiga",
+                      "Sufre el daño",
+                      "Comete el crimen",
+                      "Podrían estar involucrados"
+                    ],
+                    "answer": 3
+                  },
+                  {
+                    "label": "Sospechosos",
+                    "kind": "pick",
+                    "options": [
+                      "Cuenta desde lo que presencia",
+                      "Investiga",
+                      "Sufre el daño",
+                      "Comete el crimen",
+                      "Podrían estar involucrados"
+                    ],
+                    "answer": 4
+                  },
+                  {
+                    "label": "Narrador testigo",
+                    "kind": "pick",
+                    "options": [
+                      "Cuenta desde lo que presencia",
+                      "Investiga",
+                      "Sufre el daño",
+                      "Comete el crimen",
+                      "Podrían estar involucrados"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Separa a quien investiga, quien sufre el hecho, quien lo comete y quien cuenta.",
+                "label": "",
+                "why": "Detective: Investiga. Víctima: Sufre el daño. Culpable: Comete el crimen. Sospechosos: Podrían estar involucrados. Narrador testigo: Cuenta desde lo que presencia.",
+                "pasosSolucion": [
+                  "Para los personajes del caso, distingue quién investiga, quién sufre el daño y quién lo provoca.",
+                  "Separadamente, identifica quiénes podrían haber participado y quién cuenta lo que vio. Cumplen funciones diferentes aunque sean parte del mismo relato."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-11",
+            "title": "El conflicto y el orden del tiempo",
+            "prompt": "¿Qué es el conflicto en un relato policial? ¿Cómo se maneja el tiempo?",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Piensa en lo que se intenta resolver y desde cuándo se narran los hechos.",
+                "rubric": "Expliqué el enigma y cómo se reconstruye lo ocurrido antes desde la investigación.",
+                "fields": [],
+                "label": "",
+                "why": "Un enigma o crimen por resolver. El relato parte del crimen y reconstruye hacia atrás lo que pasó, manteniendo el suspenso hasta el desenlace.",
+                "pasosSolucion": [
+                  "Identifica la pregunta que mantiene sin resolver el caso. Esa duda pone en marcha la investigación.",
+                  "Distingue el presente de quien investiga de los hechos anteriores que va reconstruyendo con las pistas."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-12",
+            "title": "Reconoce el arquetipo",
+            "prompt": "Nombra cuatro rasgos del arquetipo del detective clásico y da un ejemplo de personaje que los cumpla.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Usa rasgos del personaje, de su método y de su relación con otros.",
+                "rubric": "Incluí cuatro rasgos y un detective clásico que los ejemplifica.",
+                "fields": [],
+                "label": "",
+                "why": "Inteligencia y deducción, observación de detalles, conocimiento amplio, excéntrico, independiente de la policía, tiene un ayudante. Ejemplo: Sherlock Holmes o Dupin.",
+                "pasosSolucion": [
+                  "Elige un detective clásico conocido y piensa cómo observa, razona y usa su conocimiento al investigar.",
+                  "Añade rasgos de su personalidad o su relación con la policía y sus ayudantes. Selecciona cuatro rasgos reconocibles en el personaje que elegiste."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Análisis de un misterio",
+        "goal": "Usa evidencia del fragmento para justificar tus interpretaciones.",
+        "steps": [
+          {
+            "title": "Leer en dos pasadas",
+            "text": [
+              "Primero identifica qué ocurrió, quién investiga y qué falta por explicar. Después marca dos detalles que el texto sí muestra.",
+              "Pregunta qué sostiene cada detalle y qué parte de tu explicación sigue pendiente. Evita elegir un culpable solo por su apariencia."
+            ],
+            "flow": []
+          },
+          {
+            "title": "Justificar un rasgo de personaje",
+            "text": [
+              "Si afirmas que una detective es observadora, cita en qué detalle se fija. Si dices que la policía se apresuró, muestra qué conclusión propuso y qué prueba le faltaba.",
+              "Usa la forma «Pienso esto porque en el texto ocurre…». El respaldo permite que otra persona revise tu interpretación."
+            ],
+            "flow": []
+          }
+        ],
+        "worked": {
+          "prompt": "El inspector atribuye un robo a alguien por su apariencia. La detective compara huellas con zapatos.",
+          "steps": [
+            "El inspector emite un juicio con evidencia insuficiente.",
+            "La detective contrasta su explicación con un dato observable.",
+            "Una huella incompatible debilita esa hipótesis, pero por sí sola no identifica a la persona culpable."
+          ],
+          "result": "La detective muestra observación y razonamiento; el inspector hace de contraste."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Pregunta",
+              [
+                "¿Qué falta?",
+                "→",
+                "Enigma"
+              ],
+              "Formula la pregunta que mueve el relato."
+            ],
+            [
+              "Rastro",
+              [
+                "Observación",
+                "→",
+                "Evidencia"
+              ],
+              "Cita un detalle concreto del pasaje."
+            ],
+            [
+              "Interpretación",
+              [
+                "Rastro",
+                "→",
+                "Hipótesis"
+              ],
+              "Explica qué sugiere y qué quedaría por corroborar."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "l3-13",
+            "title": "El enigma del collar",
+            "prompt": "¿Cuál es el enigma o conflicto?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Por qué el inspector tenía prisa",
+                      "Quién robó el collar",
+                      "Quién preparó el té"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Identifica qué desapareció.",
+                "label": "",
+                "why": "Quién robó el collar de perlas de la señora Ramírez.",
+                "pasosSolucion": [
+                  "Lee qué objeto desapareció y por qué los personajes empiezan a investigarlo.",
+                  "Formula el enigma como pregunta sobre aquello que todavía no saben. Céntrate en la incógnita que sostiene este fragmento."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": "La señora Ramírez apareció dormida en su sillón, con la taza de té todavía caliente. Faltaba el collar de perlas. El inspector Soto, apurado, culpó al jardinero, que “tenía cara de ladrón”. La joven detective Ana Lillo, en cambio, se agachó junto a la ventana: el barro de la alfombra tenía la marca de un tacón alto, y el jardinero usaba botas. “Alguien entró por aquí y conocía la casa”, murmuró. Dos horas después, la sobrina de la señora confesaba."
+          },
+          {
+            "id": "l3-14",
+            "title": "Evidencia, hipótesis y deducción",
+            "prompt": "Identifica una evidencia, una hipótesis equivocada y una deducción.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Compara lo que se observa en el barro con lo que usa el jardinero.",
+                "rubric": "Cité una evidencia, la hipótesis del inspector y la inferencia de Ana a partir del rastro.",
+                "why": "La marca de tacón alto es evidencia. El inspector sospecha del jardinero por su apariencia. Ana nota que el jardinero usa botas, por lo que el rastro no coincide y la hipótesis pierde fuerza. Su idea de que quien entró conocía la casa requiere corroboración.",
+                "fields": [],
+                "label": "",
+                "pasosSolucion": [
+                  "Subraya qué marca quedó en el barro. Distingue esa pista observable de la persona a quien acusa el inspector por su apariencia.",
+                  "Compara la forma de la marca con el calzado del jardinero. Explica qué sospecha se debilita y qué todavía necesita confirmación."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": "La señora Ramírez apareció dormida en su sillón, con la taza de té todavía caliente. Faltaba el collar de perlas. El inspector Soto, apurado, culpó al jardinero, que “tenía cara de ladrón”. La joven detective Ana Lillo, en cambio, se agachó junto a la ventana: el barro de la alfombra tenía la marca de un tacón alto, y el jardinero usaba botas. “Alguien entró por aquí y conocía la casa”, murmuró. Dos horas después, la sobrina de la señora confesaba."
+          },
+          {
+            "id": "l3-15",
+            "title": "Ana Lillo y el inspector",
+            "prompt": "¿Qué rasgos del arquetipo del detective tiene Ana Lillo? ¿Qué papel cumple el inspector Soto?",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Mira quién se detiene a observar y quién acusa primero.",
+                "rubric": "Cité un detalle del texto que muestra el método de Ana y expliqué cómo Soto hace de contraste.",
+                "fields": [],
+                "label": "",
+                "why": "Observadora, razona con lógica, se fija en detalles, resuelve lo que la policía no. Soto es la policía oficial que se equivoca y hace de contraste.",
+                "pasosSolucion": [
+                  "Ubica una acción concreta de Ana. Fíjate en qué detalle mira y cómo lo compara con otro dato.",
+                  "Compárala con la forma en que Soto elige a un sospechoso. Explica qué resalta ese contraste sobre la forma de investigar de Ana."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": "La señora Ramírez apareció dormida en su sillón, con la taza de té todavía caliente. Faltaba el collar de perlas. El inspector Soto, apurado, culpó al jardinero, que “tenía cara de ladrón”. La joven detective Ana Lillo, en cambio, se agachó junto a la ventana: el barro de la alfombra tenía la marca de un tacón alto, y el jardinero usaba botas. “Alguien entró por aquí y conocía la casa”, murmuró. Dos horas después, la sobrina de la señora confesaba."
+          },
+          {
+            "id": "l3-16",
+            "title": "Hecho y opinión en el fragmento",
+            "prompt": "Señala un hecho y una opinión dentro del fragmento.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Busca algo que se observa y un juicio sobre el jardinero.",
+                "rubric": "Cité dos frases del texto y distinguí lo comprobable de la valoración.",
+                "fields": [],
+                "label": "",
+                "why": "Hecho: “Faltaba el collar de perlas” (o “el jardinero usaba botas”). Opinión: que el jardinero “tenía cara de ladrón”.",
+                "pasosSolucion": [
+                  "Busca una acción, un objeto o un dato que el fragmento presenta como observable.",
+                  "Busca luego una valoración de un personaje. Comprueba si esa valoración puede depender de quién la expresa."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": "La señora Ramírez apareció dormida en su sillón, con la taza de té todavía caliente. Faltaba el collar de perlas. El inspector Soto, apurado, culpó al jardinero, que “tenía cara de ladrón”. La joven detective Ana Lillo, en cambio, se agachó junto a la ventana: el barro de la alfombra tenía la marca de un tacón alto, y el jardinero usaba botas. “Alguien entró por aquí y conocía la casa”, murmuró. Dos horas después, la sobrina de la señora confesaba."
+          }
+        ]
+      },
+      {
+        "title": "Texto argumentativo",
+        "goal": "Escribe una postura, razones y un respaldo que puedas verificar.",
+        "steps": [
+          {
+            "title": "Tema, tesis, argumento y respaldo",
+            "text": [
+              "El tema es el asunto que se debate. La tesis es tu postura en una oración. Un argumento explica por qué debería aceptarse y un respaldo apoya esa razón con un hecho, cifra, cita o ejemplo.",
+              "La tesis puede ser una opinión. Un respaldo suele poder verificarse."
+            ],
+            "flow": [
+              "Tesis",
+              "← argumento",
+              "← respaldo"
+            ]
+          },
+          {
+            "title": "Ordenar para persuadir",
+            "text": [
+              "En la introducción presenta el tema y tu tesis. En el desarrollo presenta razones y respáldalas. En la conclusión sintetiza o reafirma tu postura.",
+              "Un contraargumento reconoce otra postura y se puede responder con razones. Al usar datos, identifica su fuente o di qué observarías para verificarlos."
+            ],
+            "flow": []
+          }
+        ],
+        "worked": {
+          "prompt": "Tema: ¿conviene un recreo con juegos de mesa?",
+          "steps": [
+            "Tesis: el colegio debería ofrecer juegos de mesa en un recreo a la semana.",
+            "Argumento: aumentan las opciones para quienes prefieren una actividad tranquila.",
+            "Respaldo posible: un registro de asistencia del piloto o una encuesta identificable."
+          ],
+          "result": "La razón sostiene la tesis. El respaldo debe ser verificable cuando se use como evidencia."
+        },
+        "intro": "Elige una vista para comparar las ideas del tema.",
+        "visual": {
+          "kind": "scenes",
+          "choices": [
+            [
+              "Tesis",
+              [
+                "Postura",
+                "¿Qué defiendo?"
+              ],
+              "Es lo que quieres que el lector considere."
+            ],
+            [
+              "Argumento",
+              [
+                "Razón",
+                "¿Por qué la defiendo?"
+              ],
+              "Conecta la postura con una razón relevante."
+            ],
+            [
+              "Respaldo",
+              [
+                "Dato, cita o ejemplo",
+                "¿Cómo sostengo la razón?"
+              ],
+              "Identifica de dónde sale la evidencia."
+            ]
+          ]
+        },
+        "exercises": [
+          {
+            "id": "l3-17",
+            "title": "Para qué se argumenta",
+            "prompt": "¿Cuál es el propósito de un texto argumentativo?",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Elige una respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Enumerar personajes",
+                      "Persuadir sobre una postura",
+                      "Dar instrucciones para una escena"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Piensa qué quiere conseguir quien defiende una tesis.",
+                "label": "",
+                "why": "Convencer o persuadir al lector de una postura sobre un tema polémico.",
+                "pasosSolucion": [
+                  "Detecta si el texto propone una postura sobre un tema y ofrece razones para apoyarla.",
+                  "Pregúntate qué busca conseguir con esas razones en la persona lectora. Ese efecto define el propósito del texto."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-18",
+            "title": "Tesis, argumento y respaldo",
+            "prompt": "Define tesis, argumento y respaldo.",
+            "cases": [
+              {
+                "fields": [
+                  {
+                    "label": "Tesis",
+                    "kind": "pick",
+                    "options": [
+                      "Dato o ejemplo que apoya una razón",
+                      "Postura que se defiende",
+                      "Razón a favor de la postura"
+                    ],
+                    "answer": 1
+                  },
+                  {
+                    "label": "Argumento",
+                    "kind": "pick",
+                    "options": [
+                      "Dato o ejemplo que apoya una razón",
+                      "Postura que se defiende",
+                      "Razón a favor de la postura"
+                    ],
+                    "answer": 2
+                  },
+                  {
+                    "label": "Respaldo",
+                    "kind": "pick",
+                    "options": [
+                      "Dato o ejemplo que apoya una razón",
+                      "Postura que se defiende",
+                      "Razón a favor de la postura"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Pregunta qué se defiende, por qué y con qué evidencia.",
+                "label": "",
+                "why": "Tesis: Postura que se defiende. Argumento: Razón a favor de la postura. Respaldo: Dato o ejemplo que apoya una razón.",
+                "pasosSolucion": [
+                  "Encuentra qué postura defiende el texto. Después distingue una razón que explique por qué sostiene esa postura.",
+                  "Busca un dato, cita o ejemplo que ayude a sostener esa razón. Clasifica por separado postura, razón y apoyo."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-19",
+            "title": "Estructura de un texto argumentativo",
+            "prompt": "Pulsa los elementos en el orden solicitado. Si te equivocas, puedes quitar el último.",
+            "cases": [
+              {
+                "kind": "order",
+                "items": [
+                  "Conclusión",
+                  "Desarrollo",
+                  "Introducción"
+                ],
+                "answer": [
+                  2,
+                  1,
+                  0
+                ],
+                "hint": "Presenta la postura antes de dar las razones.",
+                "fields": [],
+                "label": "",
+                "why": "Introducción (tema y tesis), desarrollo (argumentos con respaldos), conclusión (cierre que reafirma la tesis).",
+                "pasosSolucion": [
+                  "Ubica primero la parte que presenta el tema y la postura. El lector necesita conocerlos antes de seguir las razones.",
+                  "Ordena después las razones con sus apoyos y termina con la parte que retoma el punto central del texto."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          },
+          {
+            "id": "l3-20",
+            "title": "Argumenta sobre el celular",
+            "prompt": "Tema: “¿Deberían los colegios prohibir el celular en clases?”. Escribe una tesis, dos argumentos y un respaldo para uno de ellos.",
+            "cases": [
+              {
+                "kind": "written",
+                "hint": "Escribe primero una postura, después dos razones diferentes y al final un respaldo que se pueda comprobar.",
+                "rubric": "Mi texto presenta tesis, dos argumentos distintos y un respaldo identificable.",
+                "why": "Ejemplo: el colegio debería guardar los celulares durante las explicaciones. Razones: evita interrupciones y da más oportunidades de hablar entre compañeros. Un respaldo posible sería registrar las interrupciones durante dos semanas, permitiendo el celular una semana y guardándolo otra, e indicar los resultados observados.",
+                "fields": [],
+                "label": "",
+                "pasosSolucion": [
+                  "Elige una postura clara sobre el uso del celular en clases. Escribe dos razones diferentes que la sostengan.",
+                  "Elige una de tus razones y señala qué dato, registro o ejemplo comprobable podría apoyarla. Distingue un respaldo ya observado de uno que propones recolectar."
+                ]
+              }
+            ],
+            "reference": "",
+            "excerpt": ""
+          }
+        ]
+      },
+      {
+        "title": "Autoevaluación",
+        "recap": true,
+        "goal": "Cierra la unidad con un repaso de verdadero o falso.",
+        "exercises": [
+          {
+            "id": "l3-repaso-1",
+            "title": "Verificar una opinión",
+            "prompt": "Una opinión se puede comprobar con datos.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Una valoración personal no se prueba como un hecho. Sí puede respaldarse con razones y evidencia.",
+                "pasosSolucion": [
+                  "Distingue una afirmación verificable de un juicio personal. Los datos cumplen funciones distintas en cada caso.",
+                  "Pregúntate si el dato demuestra una valoración o si solo ofrece una razón a favor de quien la sostiene."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l3-repaso-2",
+            "title": "Conjetura",
+            "prompt": "La conjetura se basa en indicios, no en pruebas completas.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Se apoya en indicios, con evidencia todavía incompleta.",
+                "pasosSolucion": [
+                  "Identifica qué hay disponible cuando alguien formula una conjetura. Hay señales que orientan, aunque falta confirmación.",
+                  "Comprueba si disponer de indicios equivale ya a contar con evidencia completa para cerrar el caso."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l3-repaso-3",
+            "title": "Primer detective clásico",
+            "prompt": "Sherlock Holmes fue el primer detective de la literatura.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 1
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Dupin aparece en el relato de Poe de 1841.",
+                "pasosSolucion": [
+                  "Ordena las primeras apariciones de los detectives del temario. El relato de Poe de 1841 apareció antes que los relatos de Conan Doyle.",
+                  "Identifica al personaje investigador del relato de Poe y compáralo con quien se menciona en la frase."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l3-repaso-4",
+            "title": "Método del detective",
+            "prompt": "En el relato policial el detective resuelve el caso por deducción.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "En el policial clásico la deducción ayuda a resolver el caso.",
+                "pasosSolucion": [
+                  "Busca qué hace quien investiga con las pistas en un relato policial clásico.",
+                  "Relaciona las pistas para inferir qué pudo ocurrir. Identifica el nombre que recibe ese proceso de razonamiento."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l3-repaso-5",
+            "title": "Tesis",
+            "prompt": "La tesis es la idea que el emisor quiere defender.",
+            "reference": "",
+            "cases": [
+              {
+                "label": "",
+                "fields": [
+                  {
+                    "label": "Elige tu respuesta",
+                    "kind": "pick",
+                    "options": [
+                      "Verdadero",
+                      "Falso"
+                    ],
+                    "answer": 0
+                  }
+                ],
+                "hint": "Revisa el concepto en los temas de esta unidad.",
+                "why": "Es la postura que se busca defender.",
+                "pasosSolucion": [
+                  "Distingue el tema del texto, que es el asunto, de lo que el autor afirma sobre él.",
+                  "Identifica qué parte buscan sostener las razones y ejemplos. Esa es la postura central del texto."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+function switcher(labels, render) {
+  const buttons = labels.map((label, index) => {
+    const el = button(label, "pill");
+    el.addEventListener("click", () => activate(index));
+    byId("controls").append(el);
+    return el;
+  });
+  function activate(index) {
+    buttons.forEach((el, i) => el.setAttribute("aria-pressed", String(i === index)));
+    render(index);
+  }
+  activate(0);
+}
+
+function diagram(label, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", label);
+  byId("board").replaceChildren(canvas);
+  const ctx = canvas.getContext("2d");
+  ctx.scale(2, 2);
+  ctx.fillStyle = "#fbfdf9";
+  ctx.fillRect(0, 0, 570, 195);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  draw(ctx);
+}
+
+function line(ctx, points, color = "#35594e", width = 3) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  points.forEach(([x, y], index) => index ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.stroke();
+}
+
+function dot(ctx, x, y, radius, fill, stroke = "#35594e", width = 2) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = width;
+  ctx.stroke();
+}
+
+function label(ctx, text, x, y, color = "#24453d") {
+  ctx.fillStyle = color;
+  ctx.font = "650 16px system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, x, y);
+}
+
+function showCircuit() {
+  let parallel = false;
+  let open = false;
+  const seriesButton = button("En serie", "pill");
+  const parallelButton = button("En paralelo", "pill");
+  const toggle = button("Abrir el interruptor", "pill");
+  byId("controls").append(seriesButton, parallelButton, toggle);
+  seriesButton.onclick = () => { parallel = false; draw(); };
+  parallelButton.onclick = () => { parallel = true; draw(); };
+  toggle.onclick = () => { open = !open; draw(); };
+  draw();
+
+  function draw() {
+    seriesButton.setAttribute("aria-pressed", String(!parallel));
+    parallelButton.setAttribute("aria-pressed", String(parallel));
+    toggle.textContent = open ? "Cerrar el interruptor" : "Abrir el interruptor";
+    const lamp1 = !open;
+    const lamp2 = parallel || !open;
+    const message = open ? (parallel
+      ? "La rama de A queda abierta. B sigue encendida porque mantiene un camino cerrado."
+      : "El interruptor corta el único camino. Las dos ampolletas se apagan.")
+      : (parallel ? "A y B están en ramas distintas. Las dos reciben el voltaje de la pila."
+      : "A y B comparten el mismo camino. La corriente que pasa por ambas es igual.");
+    byId("legend").textContent = message;
+    diagram("Circuito " + (parallel ? "en paralelo. " : "en serie. ") + message, ctx => {
+      const wire = "#52746a";
+      const live = "#257052";
+      const top = 46;
+      const bottom = 143;
+      line(ctx, [[95,top],[95,bottom],[263,bottom]], wire, 4);
+      line(ctx, [[301,bottom],[475,bottom],[475,top],[209,top]], wire, 4);
+      line(ctx, [[95,top],[159,top]], wire, 4);
+      line(ctx, [[263,bottom],[275,bottom]], wire, 4);
+      line(ctx, [[289,bottom],[301,bottom]], wire, 4);
+      line(ctx, [[275,126],[275,160]], wire, 4);
+      line(ctx, [[289,133],[289,153]], wire, 4);
+      label(ctx, "+", 258, 164);
+      label(ctx, "−", 305, 164);
+      label(ctx, "Pila", 282, 179);
+      line(ctx, [[159,top],[open ? 195 : 209,open ? 25 : top]], open ? "#9a6425" : live, 4);
+      dot(ctx,159,top,4,"#fff",wire);
+      dot(ctx,209,top,4,"#fff",wire);
+      lamp(ctx, parallel ? 340 : 309, top, "A", lamp1);
+      if (parallel) {
+        line(ctx, [[95,93],[475,93]], live, 4);
+        dot(ctx,95,93,4,live,live);
+        dot(ctx,475,93,4,live,live);
+        lamp(ctx,340,93,"B",lamp2);
+      } else {
+        lamp(ctx,416,top,"B",lamp2);
+      }
+      label(ctx, "Interruptor", 185, 70);
+    });
+  }
+  function lamp(ctx,x,y,name,on) {
+    dot(ctx,x,y,15,on ? "#ffe1a0" : "#eeefeb",on ? "#9b6c2b" : "#627670",2.5);
+    const color = on ? "#6b4616" : "#627670";
+    line(ctx,[[x-6,y-6],[x+6,y+6]],color,2);
+    line(ctx,[[x-6,y+6],[x+6,y-6]],color,2);
+    label(ctx,name,x,y+25,color);
+  }
+}
+
+function showRange() {
+  const box = document.createElement("div");
+  box.className = "range-box";
+  const title = document.createElement("label");
+  title.htmlFor = "resistance";
+  title.textContent = "Resistencia";
+  const value = document.createElement("output");
+  value.setAttribute("for","resistance");
+  title.append(value);
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = "resistance";
+  slider.min = "1";
+  slider.max = "12";
+  slider.value = "3";
+  const reading = document.createElement("p");
+  reading.className = "reading";
+  box.append(title, slider, reading);
+  byId("board").append(box);
+  byId("legend").textContent = "Con el voltaje fijo, si duplicas la resistencia, la corriente queda en la mitad.";
+  slider.addEventListener("input", update);
+  update();
+  function update() {
+    value.textContent = slider.value + " Ω";
+    reading.textContent = "I = 12 V ÷ " + slider.value + " Ω = " + (12 / Number(slider.value)).toLocaleString("es-CL", {maximumFractionDigits: 2}) + " A";
+    slider.setAttribute("aria-valuetext", value.textContent);
+  }
+}
+
+function showCurve() {
+  const names = ["Calentar hielo","Fundir","Calentar agua","Hervir","Calentar vapor"];
+  const notes = [
+    "Calor sensible: el hielo se calienta hasta 0 °C.",
+    "Calor latente de fusión: el hielo pasa a líquido a 0 °C.",
+    "Calor sensible: el agua líquida se calienta de 0 °C a 100 °C.",
+    "Calor latente de vaporización: el agua hierve a 100 °C.",
+    "Calor sensible: el vapor aumenta su temperatura."
+  ];
+  const points = [[89,149],[140,123],[222,123],[307,61],[445,61],[500,28]];
+  switcher(names, active => {
+    byId("legend").textContent = notes[active] + " Esquema sin escala.";
+    diagram("Curva de calentamiento del agua. " + notes[active], ctx => {
+      line(ctx,[[73,19],[73,160],[526,160]],"#67837a",1.5);
+      for (const [y,temp] of [[123,"0 °C"],[61,"100 °C"]]) {
+        ctx.setLineDash([4,5]);
+        line(ctx,[[73,y],[515,y]],"#a8bdb4",1);
+        ctx.setLineDash([]);
+        label(ctx,temp,43,y);
+      }
+      label(ctx,"Calor agregado →",302,180);
+      line(ctx,points,"#a3b9ae",3.5);
+      line(ctx,[points[active],points[active+1]],"#219167",7);
+    });
+  });
+}
+
+function showMolecules() {
+  const models = [
+    ["H₂O", [["O",285,67],["H",211,120],["H",359,120]],[[0,1,1],[0,2,1]],"Agua: 3 átomos, 2 enlaces simples. Forma angular."],
+    ["CO₂", [["C",285,97],["O",169,97],["O",401,97]],[[0,1,2],[0,2,2]],"Dióxido de carbono: 3 átomos, 2 enlaces dobles. Forma lineal."],
+    ["CH₄", [["C",285,97],["H",223,139],["H",345,139],["H",286,33],["H",347,63]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],"Metano: 5 átomos y 4 enlaces simples. Proyección del modelo tetraédrico."],
+    ["NH₃", [["N",285,62],["H",205,111],["H",365,111],["H",285,145]],[[0,1,1],[0,2,1],[0,3,1]],"Amoníaco: 4 átomos, 3 enlaces simples. Proyección de su forma piramidal."],
+    ["O₂", [["O",226,97],["O",344,97]],[[0,1,2]],"Oxígeno: 2 átomos, 1 enlace doble."],
+    ["N₂", [["N",226,97],["N",344,97]],[[0,1,3]],"Nitrógeno: 2 átomos, 1 enlace triple."]
+  ];
+  const atomColor = {O:"#ac3039", C:"#233231", N:"#254f89", H:"#fff"};
+  switcher(models.map(model => model[0]), index => {
+    const [name, atoms, bonds, note] = models[index];
+    byId("legend").textContent = note;
+    diagram(name + ". " + note, ctx => {
+      for (const [i,j,count] of bonds) {
+        const [,ax,ay] = atoms[i];
+        const [,bx,by] = atoms[j];
+        const distance = Math.hypot(bx-ax,by-ay);
+        for (let k = 0; k < count; k++) {
+          const offset = (k - (count - 1)/2) * 8;
+          const dx = (ay-by)/distance*offset;
+          const dy = (bx-ax)/distance*offset;
+          line(ctx,[[ax+dx,ay+dy],[bx+dx,by+dy]],"#759284",4);
+        }
+      }
+      for (const [atom,x,y] of atoms) {
+        dot(ctx,x,y,atom === "H" ? 18 : 23,atomColor[atom],"#35594e",2);
+        label(ctx,atom,x,y,atom === "H" ? "#143931" : "#fff");
+      }
+    });
+  });
+}
+
+function showVisual(visual) {
+  byId("controls").replaceChildren();
+  byId("board").replaceChildren();
+  byId("legend").textContent = "";
+  const renderers = {circuit:showCircuit,range:showRange,curve:showCurve,molecule:showMolecules};
+  if (visual.kind === "scenes") {
+    switcher(visual.choices.map(choice => choice[0]), active => {
+      const [, cells, note] = visual.choices[active];
+      const scene = document.createElement("div");
+      scene.className = "scene";
+      for (const cell of cells) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.textContent = cell;
+        scene.append(tile);
+      }
+      byId("board").replaceChildren(scene);
+      byId("legend").textContent = note;
+    });
+  } else {
+    const renderVisual = renderers[visual.kind];
+    if (renderVisual) renderVisual();
+    else showMathVisual(visual);
+  }
+}
+
+
+
+
+function electronBuilder(parent, task, values) {
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  const counter = document.createElement("p");
+  counter.className = "builder-count";
+  counter.setAttribute("aria-live","polite");
+  let groupIndex = 0;
+  function addSlots(container, names, glyphs) {
+    const group = values[groupIndex] ??= names.map(() => 0);
+    groupIndex++;
+    names.forEach((name,index) => {
+      const slot = button("","nav-button");
+      function refresh() {
+        const count = group[index];
+        slot.textContent = glyphs[count];
+        slot.setAttribute("aria-label",name + ": " + count + (count === 1 ? " electrón" : " electrones"));
+      }
+      slot.onclick = () => {
+        group[index] = (group[index] + 1) % 3;
+        refresh();
+        updateCount();
+        queueSave();
+      };
+      refresh();
+      container.append(slot);
+    });
+  }
+  function updateCount() {
+    const total = values.flat().reduce((sum,current) => sum + current,0);
+    counter.textContent = "Electrones colocados: " + total;
+  }
+  function equivalent(a,b) {
+    return [...a].sort().join(",") === [...b].sort().join(",");
+  }
+  if (task.kind === "lewis") {
+    const arrangement = document.createElement("div");
+    arrangement.className = "lewis";
+    addSlots(arrangement,["Arriba","Derecha","Abajo","Izquierda"],["○","•","••"]);
+    const symbol = document.createElement("strong");
+    symbol.textContent = task.symbol;
+    arrangement.append(symbol);
+    panel.append(arrangement,counter);
+    parent.append(panel);
+    updateCount();
+    return () => ({passed:Number(task.patterns.some(pattern => equivalent(pattern,values[0]))),total:1});
+  }
+  for (const [name, occupancy] of task.groups) {
+    const row = document.createElement("div");
+    row.className = "orbital-row";
+    const heading = document.createElement("strong");
+    heading.textContent = name;
+    const slots = document.createElement("div");
+    slots.className = "slots";
+    addSlots(slots,occupancy.map((_,index) => name + ", casillero " + (index + 1)),["—","↑","↑↓"]);
+    row.append(heading,slots);
+    panel.append(row);
+  }
+  panel.append(counter);
+  parent.append(panel);
+  updateCount();
+  return () => ({
+    passed:task.groups.filter(([,occupancy], index) => equivalent(occupancy,values[index])).length,
+    total:task.groups.length
+  });
+}
+
+function circuitBuilder(parent, task, draft) {
+  const parallel = task.layout === "paralelo";
+  const parts = ["Pila","Interruptor cerrado","Interruptor abierto","Ampolleta","Resistencia","Cable"];
+  const slots = parallel ? [
+    ["Rama superior",4,293,29,"R₁"],["Rama del medio",4,293,72,"R₂"],
+    ["Rama inferior",4,293,115,"R₃"],["Alimentación",0,293,153,"Pila"]
+  ] : [
+    ["Lugar 1",1,184,51,"Interruptor"],["Lugar 2",3,302,51,"Ampolleta A"],
+    ["Lugar 3",3,420,51,"Ampolleta B"],["Alimentación",0,293,144,"Pila"]
+  ];
+  const panel = document.createElement("div");
+  panel.className = "builder";
+  parent.append(panel);
+  const fields = slots.map(([label,answer]) => ({label,kind:"pick",options:parts,answer}));
+  const widgets = fieldGroup(parent,fields,draft);
+  widgets.forEach(widget => widget.control.addEventListener("change",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1140;
+    canvas.height = 390;
+    canvas.setAttribute("role","img");
+    canvas.setAttribute("aria-label","Esquema en " + task.layout + ". " + slots.map(([name],index) => {
+      const selected = widgets[index].control.value;
+      return name + ": " + (selected === "" ? "vacío" : parts[Number(selected)]);
+    }).join(". "));
+    panel.replaceChildren(canvas);
+    const ctx = canvas.getContext("2d");
+    ctx.scale(2,2);
+    ctx.fillStyle = "#f8fbf6";
+    ctx.fillRect(0,0,570,195);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    const upper = parallel ? 29 : 51;
+    const lower = parallel ? 153 : 144;
+    line(ctx,[[86,upper],[86,lower],[260,lower]]);
+    line(ctx,[[326,lower],[484,lower],[484,upper]]);
+    if (parallel) {
+      for (const y of [29,72,115]) {
+        line(ctx,[[86,y],[260,y]]);
+        line(ctx,[[326,y],[484,y]]);
+        if (y > upper) {
+          dot(ctx,86,y,3,"#35594e");
+          dot(ctx,484,y,3,"#35594e");
+        }
+      }
+    } else {
+      for (const [start,end] of [[86,151],[217,269],[335,387],[453,484]]) {
+        line(ctx,[[start,upper],[end,upper]]);
+      }
+    }
+    slots.forEach(([,want,x,y,name],index) => {
+      const value = widgets[index].control.value;
+      drawPart(ctx,x,y,value === "" ? -1 : Number(value),name,want);
+    });
+  }
+
+  function drawPart(ctx,x,y,part,name,want) {
+    const pink = "#a36b30";
+    if (part === -1) {
+      ctx.setLineDash([4,5]);
+      line(ctx,[[x-33,y],[x+33,y]],"#91a79a",2);
+      ctx.setLineDash([]);
+      return;
+    }
+    const width = [13,21,21,12,22,0][part];
+    line(ctx,[[x-33,y],[x-width,y]]);
+    line(ctx,[[x+width,y],[x+33,y]]);
+    if (part === 0) {
+      line(ctx,[[x-13,y],[x-6,y]]);
+      line(ctx,[[x+6,y],[x+13,y]]);
+      line(ctx,[[x-6,y-14],[x-6,y+14]]);
+      line(ctx,[[x+6,y-8],[x+6,y+8]]);
+      label(ctx,"+",x-20,y-13);
+      label(ctx,"−",x+20,y-13);
+    } else if (part === 1 || part === 2) {
+      dot(ctx,x-21,y,3,"#fff");
+      dot(ctx,x+21,y,3,"#fff");
+      line(ctx,[[x-21,y],[part===1 ? x+21 : x+13,part===1 ? y : y-13]],pink,2.5);
+    } else if (part === 3) {
+      dot(ctx,x,y,12,"#fff0cb",pink,2);
+      line(ctx,[[x-5,y-5],[x+5,y+5]],pink,2);
+      line(ctx,[[x+5,y-5],[x-5,y+5]],pink,2);
+    } else if (part === 4) {
+      line(ctx,[[x-22,y],[x-16,y-7],[x-8,y+7],[x,y-7],[x+8,y+7],[x+16,y-7],[x+22,y]],"#35594e",2);
+    }
+    const chosen = part === want ? name : parts[part];
+    label(ctx,chosen,x,y+23);
+  }
+}
+
+
+const byId = id => document.getElementById(id);
+const storageKey = "emilio-sintesis-2026-unidad-l3-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch {}
+const record = value => value && typeof value === "object" && !Array.isArray(value) ? value : {};
+const state = {
+  unit: units.some(item => item.id === saved.unit) ? saved.unit : units[0].id,
+  positions: record(saved.positions),
+  sessions: record(saved.sessions),
+  solved: record(saved.solved),
+  focus: saved.focus === true,
+  started: saved.started === true || Object.keys(record(saved.solved)).length > 0 ||
+    Object.values(record(saved.sessions)).some(s => s && (s.mode === "practice" || s.step > 0)) ||
+    Object.values(record(saved.positions)).some(index => index > 0),
+  drafts: Object.assign(Object.create(null),record(saved.drafts))
+};
+let checkAnswer = () => {};
+let pendingSave = 0;
+const bounded = (value, length) => Number.isInteger(value) && value >= 0 && value < length ? value : 0;
+const text = (id, value) => { byId(id).textContent = value; };
+const activeUnit = () => units.find(item => item.id === state.unit);
+const position = unit => bounded(state.positions[unit.id], unit.lessons.length);
+const activeLesson = unit => unit.lessons[position(unit)];
+const caseSolved = (exercise, index) => state.solved[exercise.id + ":" + index] === true;
+const exerciseSolved = exercise => exercise.cases.every((_, index) => caseSolved(exercise, index));
+const chapterSolved = lesson => lesson.exercises.every(exerciseSolved);
+
+function save() {
+  clearTimeout(pendingSave);
+  pendingSave = 0;
+  try { localStorage.setItem(storageKey,JSON.stringify(state)); } catch {}
+}
+function queueSave() {
+  if (!pendingSave) pendingSave = setTimeout(save,200);
+}
+window.addEventListener("pagehide",()=>{if(pendingSave) save();});
+function session(unit) {
+  const key = unit.id + ":" + position(unit);
+  const existing = state.sessions[key];
+  if (existing && existing.cases && typeof existing.cases === "object") return existing;
+  const created = {mode:"learn",step:0,exercise:0,cases:{}};
+  state.sessions[key] = created;
+  return created;
+}
+function button(label, className) {
+  const element = document.createElement("button");
+  element.type = "button";
+  element.className = className;
+  element.textContent = label;
+  return element;
+}
+function list(id, items, tag) {
+  byId(id).replaceChildren(...items.map(item => {
+    const element = document.createElement(tag);
+    element.textContent = item;
+    return element;
+  }));
+}
+function focusHeading(id,block="nearest") {
+  byId(id).focus({preventScroll:true});
+  byId(id).scrollIntoView({block});
+}
+function navigate(unit, index = position(unit)) {
+  state.started = true;
+  state.unit = unit.id;
+  state.positions[unit.id] = index;
+  save();
+  render();
+  focusHeading("lesson-title");
+}
+function toggleFocus() {
+  document.body.classList.toggle("focus-mode",state.focus);
+  byId("focus").setAttribute("aria-pressed",String(state.focus));
+  text("focus",state.focus ? "Salir de enfoque" : "Modo enfoque");
+}
+byId("focus").onclick = () => {
+  state.focus = !state.focus;
+  toggleFocus();
+  save();
+};
+
+function renderProgress(unit) {
+  const exercises = unit.lessons.flatMap(lesson => lesson.exercises);
+  const completed = exercises.filter(exerciseSolved).length;
+  const progress = byId("progress");
+  progress.max = exercises.length;
+  progress.value = completed;
+  text("progress-label",completed + " de " + exercises.length + " actividades terminadas");
+  const current = activeLesson(unit);
+  const topicDone = current.exercises.filter(exerciseSolved).length;
+  text("topic-progress",topicDone === current.exercises.length ? "✓ Tema completado" : topicDone + " de " + current.exercises.length + " actividades de este tema");
+  byId("unit-finished").hidden = completed !== exercises.length;
+  text("finish-message","Terminaste las " + exercises.length + " actividades de " + unit.unit.toLowerCase() + ". Puedes repasar cualquier tema cuando quieras.");
+  byId("topic-finished").hidden = topicDone !== current.exercises.length;
+  text("topic-finish-message","Completaste "+current.exercises.length+(current.exercises.length===1?" actividad.":" actividades."));
+  renderTopicMenu(unit);
+}
+
+
+const topicsDialog = byId("topics-dialog");
+byId("topics-open").onclick = () => {
+  topicsDialog.showModal();
+  topicsDialog.querySelector('[aria-current="true"]')?.focus();
+};
+function dismissTopics() {
+  topicsDialog.close();
+  byId("topics-open").focus();
+}
+byId("topics-close").onclick = dismissTopics;
+topicsDialog.addEventListener("cancel",event=>{
+  event.preventDefault();
+  dismissTopics();
+});
+
+function renderTopicMenu(unit) {
+  function topicButton(lesson,index,inDialog) {
+    const done = chapterSolved(lesson);
+    const current = index === position(unit);
+    const element = button("","item" + (done ? " done" : ""));
+    const badge = document.createElement("span");
+    badge.className = "index";
+    badge.textContent = done ? "✓" : lesson.recap ? "↺" : String(index+1);
+    badge.setAttribute("aria-hidden","true");
+    element.append(badge,document.createTextNode(lesson.title));
+    if (done) element.setAttribute("aria-label",lesson.title + ", tema completado");
+    if (current) element.setAttribute("aria-current","true");
+    element.onclick = () => {
+      if (inDialog) topicsDialog.close();
+      navigate(unit,index);
+    };
+    return element;
+  }
+  byId("lesson-list").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,false)));
+  byId("dialog-lessons").replaceChildren(...unit.lessons.map((lesson,index)=>topicButton(lesson,index,true)));
+}
+function renderBookmark() {
+  const unit=activeUnit();
+  const lesson=activeLesson(unit);
+  const study=session(unit);
+  const inPractice=lesson.recap || study.mode==="practice";
+  const item=inPractice?bounded(study.exercise,lesson.exercises.length)+1:bounded(study.step,lesson.steps.length)+1;
+  let description=inPractice?"Ejercicio "+item+" de "+lesson.exercises.length:"Paso "+item+" de "+lesson.steps.length;
+  if (inPractice) {
+    const exercise=lesson.exercises[item-1];
+    if (exercise.cases.length>1) {
+      const current=bounded(study.cases[exercise.id],exercise.cases.length)+1;
+      description+=" · Caso "+current+" de "+exercise.cases.length;
+    }
+  }
+  text("resume-context",lesson.title+" · "+description);
+  text("resume",state.started?"Continuar donde quedé":"Empezar el cuadernillo");
+}
+byId("resume").onclick=()=>{
+  state.started=true;
+  save();
+  renderBookmark();
+  focusHeading(byId("practice-panel").hidden?"step-title":"exercise-title","start");
+};
+
+function showStep(lesson, study) {
+  const index = bounded(study.step,lesson.steps.length);
+  const step = lesson.steps[index];
+  text("step-count","Paso " + (index + 1) + " de " + lesson.steps.length);
+  text("step-title",step.title.replace(/^\d+\.\s*/,""));
+  list("step-text",step.text,"p");
+  byId("step-flow").replaceChildren(...step.flow.map(piece => {
+    const tile = document.createElement("span");
+    tile.className = "tile";
+    tile.textContent = piece;
+    return tile;
+  }));
+  const previous = byId("previous-step");
+  const next = byId("next-step");
+  previous.disabled = index === 0;
+  next.disabled = index === lesson.steps.length - 1;
+  next.hidden = next.disabled;
+  byId("go-practice").hidden = !next.disabled;
+  renderBookmark();
+  function change(newIndex) {
+    state.started = true;
+    study.step = newIndex;
+    save();
+    showStep(lesson,study);
+    focusHeading("step-title");
+  }
+  previous.onclick = () => change(index - 1);
+  next.onclick = () => change(index + 1);
+}
+function showLearning(lesson, study) {
+  showStep(lesson,study);
+  byId("visual-details").open = false;
+  text("visual-intro",lesson.intro);
+  showVisual(lesson.visual);
+  text("worked-prompt",lesson.worked.prompt);
+  list("worked-steps",lesson.worked.steps,"li");
+  text("worked-result",lesson.worked.result);
+}
+function openMode(unit, mode, moveFocus = true) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const selected = lesson.recap || mode === "practice" ? "practice" : "learn";
+  if (study.mode === selected && !byId(selected + "-panel").hidden) return;
+  state.started = true;
+  study.mode = selected;
+  save();
+  renderMode(unit);
+  if (moveFocus) focusHeading(study.mode === "learn" ? "step-title" : "exercise-title");
+}
+function renderMode(unit) {
+  const lesson = activeLesson(unit);
+  const study = session(unit);
+  const learning = !lesson.recap && study.mode !== "practice";
+  byId("learn-panel").hidden = !learning;
+  byId("practice-panel").hidden = learning;
+  byId("learn-tab").hidden = Boolean(lesson.recap);
+  byId("learn-tab").setAttribute("aria-pressed",String(learning));
+  byId("practice-tab").setAttribute("aria-pressed",String(!learning));
+  byId("learn-tab").onclick = () => openMode(unit,"learn");
+  byId("practice-tab").onclick = () => openMode(unit,"practice");
+  byId("go-practice").onclick = () => openMode(unit,"practice");
+  if (learning) showLearning(lesson,study);
+  else showExercise(unit,lesson,study);
+}
+
+function normalizeConfiguration(value) {
+  const superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+  let remaining = value.trim().toLowerCase()
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, digit => String(superscript.indexOf(digit)))
+    .replace(/[\s^,]+/g,"");
+  const noble = remaining.match(/^\[(he|ne|ar|kr)\]/)?.[0] || "";
+  remaining = remaining.slice(noble.length);
+  const tokens = [];
+  const seen = new Set();
+  while (remaining) {
+    const token = remaining.match(/^([1-7][spdf])(10|11|12|13|14|[1-9])(?=[1-7][spdf]|$)/);
+    if (!token || seen.has(token[1])) return null;
+    seen.add(token[1]);
+    tokens.push(token[0]);
+    remaining = remaining.slice(token[0].length);
+  }
+  if (!tokens.length && !noble) return null;
+  return noble + tokens.sort().join(" ");
+}
+
+function matchesNumber(value, expected, tolerance = 1e-7) {
+  const input = value.trim().replace(/\u2212/g,"-");
+  const candidates = [];
+  if (/^[+-]?\d+(?:[.,]\d+)?$/.test(input)) candidates.push(Number(input.replace(",",".")));
+  if (/^[+-]?\d{1,3}(?:[.\u00a0 ]\d{3})+(?:,\d+)?$/.test(input)) {
+    candidates.push(Number(input.replace(/[.\u00a0 ]/g,"").replace(",",".")));
+  }
+  return candidates.some(candidate => Math.abs(candidate - expected) < tolerance);
+}
+function fieldWidget(specification) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = specification.label;
+  let control;
+  if (specification.kind === "pick") {
+    control = document.createElement("select");
+    const blank = new Option("Selecciona…","");
+    blank.disabled = true;
+    control.add(blank);
+    specification.options.forEach((option,index) => control.add(new Option(option,index)));
+    control.value = "";
+  } else {
+    control = document.createElement("input");
+    control.type = "text";
+    control.inputMode = specification.kind === "number" ? "decimal" : "text";
+    control.autocomplete = "off";
+    control.spellcheck = false;
+    if (specification.kind === "config") control.placeholder = "Ejemplo: 1s2 2s1";
+  }
+  wrapper.append(name,control);
+  control.addEventListener("input",() => {
+    control.removeAttribute("aria-invalid");
+    delete control.dataset.checked;
+  });
+  function check() {
+    let correct;
+    if (specification.kind === "pick") correct = control.value === String(specification.answer);
+    else if (specification.kind === "number") correct = matchesNumber(control.value,specification.answer,specification.tolerance);
+    else correct = normalizeConfiguration(control.value) === normalizeConfiguration(specification.answer);
+    control.setAttribute("aria-invalid",String(!correct));
+    control.dataset.checked = String(correct);
+    return correct;
+  }
+  return {wrapper,control,check};
+}
+function fieldGroup(parent, fields, draft) {
+  const container = document.createElement("div");
+  container.className = "exercise-fields";
+  const widgets = fields.map((field,index) => {
+    const widget = fieldWidget(field);
+    if (draft[index] !== undefined) widget.control.value = draft[index];
+    const remember = () => { draft[index] = widget.control.value; queueSave(); };
+    widget.control.addEventListener("input",remember);
+    widget.control.addEventListener("change",remember);
+    return widget;
+  });
+  container.append(...widgets.map(widget => widget.wrapper));
+  parent.append(container);
+  return widgets;
+}
+function checkFields(widgets) {
+  const passed = widgets.map(widget => widget.check()).filter(Boolean).length;
+  return {passed,total:widgets.length};
+}
+
+function showExercise(unit,lesson,study) {
+  const exerciseIndex = bounded(study.exercise,lesson.exercises.length);
+  const exercise = lesson.exercises[exerciseIndex];
+  const caseIndex = bounded(study.cases[exercise.id],exercise.cases.length);
+  const task = exercise.cases[caseIndex];
+  const multiple = exercise.cases.length > 1;
+  text("exercise-position","Ejercicio " + (exerciseIndex + 1) + " de " + lesson.exercises.length);
+  text("exercise-title",exercise.title);
+  text("exercise-prompt",exercise.prompt);
+  byId("reading").hidden = !exercise.excerpt;
+  byId("reading").open = Boolean(exercise.excerpt);
+  textBlock("excerpt",exercise.excerpt);
+  renderExerciseTable(exercise.table);
+  text("check",task.kind === "written" ? "Comparar mi respuesta" : "Corregir");
+  text("reference-text",exercise.reference);
+  byId("reference").hidden = !exercise.reference;
+  byId("reference").open = false;
+  byId("case-nav").hidden = !multiple;
+  text("case-count","Caso " + (caseIndex + 1) + " de " + exercise.cases.length);
+  text("case-label",task.label);
+  list("solution-steps",task.pasosSolucion,"li");
+  text("solution-result-label",task.kind === "written" ? "Respuesta modelo" : "Respuesta");
+  const item = task.fields[0];
+  const truth = task.fields.length === 1 && item.options?.join("|") === "Verdadero|Falso";
+  const answer = task.why.replace(/\bElige una respuesta:\s*/g,"");
+  text("solution-text",truth ? item.options[item.answer] + ". " + answer : answer);
+  byId("solution").open = false;
+  const inputs = byId("exercise-inputs");
+  inputs.replaceChildren();
+  setFeedback(caseSolved(exercise,caseIndex) ? "Ya resolviste este caso. Puedes volver a intentarlo." : "");
+  const key = exercise.id + ":" + caseIndex;
+  if (!Array.isArray(state.drafts[key])) state.drafts[key] = [];
+  const draft = state.drafts[key];
+  let check;
+  if (task.kind === "written") check = writtenBuilder(inputs,task,draft);
+  else if (task.kind === "order") check = orderBuilder(inputs,task,draft);
+  else if (task.kind === "boxBuild" || task.kind === "pointBuild") check = graphBuilder(inputs,task,draft);
+  else if (task.kind === "circuit") check = circuitBuilder(inputs,task,draft);
+  else if (task.kind === "orbital" || task.kind === "lewis") check = electronBuilder(inputs,task,draft);
+  else {
+    if (task.diagram) {
+      const panel = document.createElement("div");
+      panel.className = "builder";
+      inputs.append(panel);
+      boxPlot(panel,task.diagram);
+    }
+    const widgets = fieldGroup(inputs,task.fields,draft);
+    check = () => checkFields(widgets);
+  }
+
+  function moveCase(index) {
+    study.cases[exercise.id] = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("case-label");
+  }
+  function moveExercise(index) {
+    study.exercise = index;
+    save();
+    showExercise(unit,lesson,study);
+    focusHeading("exercise-title");
+  }
+  const previousCase = byId("previous-case");
+  const nextCase = byId("next-case");
+  previousCase.disabled = caseIndex === 0;
+  nextCase.disabled = caseIndex === exercise.cases.length - 1;
+  previousCase.onclick = () => moveCase(caseIndex - 1);
+  nextCase.onclick = () => moveCase(caseIndex + 1);
+  const nextCaseAction = byId("next-case-action");
+  nextCaseAction.hidden = true;
+  const previousExercise = byId("previous-exercise");
+  const nextExercise = byId("next-exercise");
+  previousExercise.disabled = exerciseIndex === 0;
+  nextExercise.disabled = exerciseIndex === lesson.exercises.length - 1;
+  previousExercise.onclick = () => moveExercise(exerciseIndex - 1);
+  nextExercise.onclick = () => moveExercise(exerciseIndex + 1);
+  function updateAction() {
+    const caseDone = caseSolved(exercise,caseIndex);
+    let following;
+    if (caseDone && !nextCase.disabled) following = ["Siguiente caso ›",nextCase.onclick];
+    else if (caseDone) {
+      const unfinishedCase = exercise.cases.findIndex((_,index)=>!caseSolved(exercise,index));
+      const unfinishedExercise = lesson.exercises.findIndex(item=>!exerciseSolved(item));
+      if (unfinishedCase >= 0) following = ["Ir al caso pendiente ›",()=>moveCase(unfinishedCase)];
+      else if (!nextExercise.disabled) following = ["Siguiente ejercicio ›",nextExercise.onclick];
+      else if (unfinishedExercise >= 0) following = ["Ir al ejercicio pendiente ›",()=>moveExercise(unfinishedExercise)];
+      else if (position(unit) < unit.lessons.length-1) {
+        const nextTitle=unit.lessons[position(unit)+1].recap?"Ir a autoevaluación ›":"Siguiente tema ›";
+        following = [nextTitle,()=>navigate(unit,position(unit)+1)];
+      }
+    }
+    nextCaseAction.hidden = !following;
+    byId("check").classList.toggle("next",!caseDone);
+    if (following) {
+      nextCaseAction.textContent=following[0];
+      nextCaseAction.onclick=following[1];
+    }
+  }
+  updateAction();
+  renderBookmark();
+  byId("hint").onclick = () => setFeedback("Pista. " + task.hint,true);
+  checkAnswer = () => {
+    const {passed,total,message} = check();
+    if (message) {setFeedback(message,true);return;}
+    if (passed === total) {
+      state.solved[exercise.id + ":" + caseIndex] = true;
+      save();
+      renderProgress(unit);
+      setFeedback(task.kind === "written" ? "Respuesta revisada. Puedes avanzar." : "Correcto. Puedes revisar el razonamiento en la solución explicada.");
+      updateAction();
+    } else {
+      const count = total > 1 ? passed + " de " + total + " partes correctas. " : "Revisa tu respuesta. ";
+      setFeedback(count + task.hint,true);
+    }
+  };
+}
+function setFeedback(message, hint = false) {
+  const feedback = byId("exercise-feedback");
+  feedback.classList.toggle("retry",hint);
+  feedback.textContent = message;
+}
+byId("exercise-form").addEventListener("submit",event => {
+  event.preventDefault();
+  checkAnswer();
+});
+
+
+function textBlock(id, content) {
+  const item = byId(id);
+  item.hidden = !content;
+  item.textContent = content || "";
+}
+function renderExerciseTable(rows) {
+  const area = byId("data-table");
+  area.hidden = !rows;
+  area.replaceChildren();
+  if (!rows) return;
+  const table = document.createElement("table");
+  const header = table.createTHead().insertRow();
+  rows[0].forEach(value => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = value;
+    header.append(th);
+  });
+  const body = table.createTBody();
+  rows.slice(1).forEach(values => {
+    const row = body.insertRow();
+    values.forEach(value => { row.insertCell().textContent = value; });
+  });
+  area.append(table);
+}
+function writtenBuilder(parent,task,draft) {
+  const wrapper = document.createElement("label");
+  wrapper.className = "field";
+  const name = document.createElement("span");
+  name.textContent = "Tu respuesta";
+  const response = document.createElement("textarea");
+  response.rows = 4;
+  response.value = draft[0] || "";
+  response.addEventListener("input",() => { draft[0] = response.value; queueSave(); });
+  wrapper.append(name,response);
+
+  const rubric = document.createElement("label");
+  rubric.className = "rubric";
+  rubric.hidden = true;
+  const reviewed = document.createElement("input");
+  reviewed.type = "checkbox";
+  rubric.append(reviewed,document.createTextNode(task.rubric));
+  parent.append(wrapper,rubric);
+  return () => {
+    if (!response.value.trim()) {
+      response.focus();
+      return {message:"Escribe tu respuesta y luego compárala con la pauta."};
+    }
+    if (rubric.hidden) {
+      byId("solution").open = true;
+      text("check","Marcar como revisada");
+      rubric.hidden = false;
+      return {message:"Compara tu texto con el modelo y revisa el criterio. Puedes corregir tu respuesta antes de marcarla."};
+    }
+    if (!reviewed.checked) return {message:"Marca el criterio cuando tu respuesta lo cumpla."};
+    return {passed:1,total:1};
+  };
+}
+
+function orderBuilder(parent,task,draft) {
+  const options = document.createElement("div");
+  options.className = "controls";
+  options.setAttribute("aria-label","Elementos para ordenar");
+  const sequence = document.createElement("ol");
+  sequence.className = "sequence";
+  sequence.setAttribute("aria-live","polite");
+  const undo = button("Quitar el último","nav-button");
+  undo.onclick = () => {draft.pop();draw();queueSave();};
+  const controls = task.items.map((value,index)=>{
+    const item=button(value,"pill");
+    item.onclick=()=>{draft.push(index);draw();queueSave();};
+    options.append(item);
+    return item;
+  });
+  parent.append(options,sequence,undo);
+  draw();
+  function draw(){
+    controls.forEach((item,index)=>{
+      item.disabled=draft.includes(index);
+      item.setAttribute("aria-pressed",String(item.disabled));
+    });
+    sequence.replaceChildren(...draft.map(index=>{
+      const li=document.createElement("li");
+      li.textContent=task.items[index];
+      return li;
+    }));
+    undo.disabled=!draft.length;
+  }
+  return () => ({
+    passed:task.answer.filter((item,index)=>draft[index]===item).length,
+    total:task.answer.length
+  });
+}
+
+function sketch(target, description, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1140;
+  canvas.height = 390;
+  canvas.setAttribute("role","img");
+  canvas.setAttribute("aria-label",description);
+  target.replaceChildren(canvas);
+  const ctx=canvas.getContext("2d");
+  ctx.scale(2,2);
+  ctx.fillStyle="#f9fcf7";
+  ctx.fillRect(0,0,570,195);
+  ctx.lineCap="round";
+  ctx.lineJoin="round";
+  draw(ctx);
+}
+function boxPlot(target, values, selected = -1) {
+  const titles=["Mínimo","C₁","C₂","C₃","Máximo"];
+  const colors={axis:"#638278",box:"#dbeadb",bold:"#25624e"};
+  const range=Math.max(1,values[4]-values[0]);
+  const x=value=>80+(value-values[0])/range*410;
+  const [min,l,m,r,max]=values.map(x);
+  sketch(target,"Diagrama con "+titles.map((item,i)=>item+" "+values[i]).join(", "),ctx=>{
+    line(ctx,[[65,146],[505,146]],colors.axis,1.5);
+    line(ctx,[[min,94],[max,94]],colors.bold,3);
+    ctx.fillStyle=colors.box;
+    ctx.fillRect(l,70,r-l,48);
+    ctx.strokeStyle=colors.bold;
+    ctx.lineWidth=2;
+    ctx.strokeRect(l,70,r-l,48);
+    for (const [at,top,bottom] of [[min,84,104],[m,70,118],[max,84,104]]) line(ctx,[[at,top],[at,bottom]],colors.bold,3);
+    const used=new Set();
+    values.forEach((value,index)=>{
+      const at=x(value);
+      if (!used.has(value)) {
+        label(ctx,String(value),at,171);
+        dot(ctx,at,146,value===values[selected]?5:3,colors.bold);
+        used.add(value);
+      }
+      if(index===selected) label(ctx,titles[index],at,48,colors.bold);
+    });
+  });
+}
+function pointGrid(target, base, image = [], description = "Plano cartesiano") {
+  const xMax=Math.max(5,...[...base,...image].map(([x])=>Math.abs(x)));
+  const yMax=Math.max(5,...[...base,...image].map(([,y])=>Math.abs(y)));
+  const size= Math.min(16,78/yMax,208/xMax);
+  const screen=([x,y])=>[285 + x * size,97 - y * size];
+  const left=Math.floor(Math.min(225/size,16));
+  const top=Math.floor(79/size);
+  sketch(target,description,ctx=>{
+    for (let i=-left;i<=left;i++) line(ctx,[screen([i,-top]),screen([i,top])],"#e0eadf",1);
+    for (let i=-top;i<=top;i++) line(ctx,[screen([-left,i]),screen([left,i])],"#e0eadf",1);
+    line(ctx,[screen([-left,0]),screen([left,0])],"#729385",1.5);
+    line(ctx,[screen([0,-top]),screen([0,top])],"#729385",1.5);
+    const arrow=screen([left,0]);
+    label(ctx,"x",Math.min(552,arrow[0]+13),arrow[1]);
+    label(ctx,"y",285,8);
+    const orig=base.map(screen);
+    const moved=image.map(screen);
+    if(moved.length) ctx.setLineDash([4,5]);
+    line(ctx,[...orig,orig[0]],moved.length?"#789186":"#24634e",2.8);
+    ctx.setLineDash([]);
+    orig.forEach(([x,y],index)=>{
+      dot(ctx,x,y,3.5,"#4b766a");
+      label(ctx,"ABC"[index],x+(index===1?12:-11),Math.max(9,y-9));
+    });
+    if (moved.length) {
+      line(ctx,moved.length===3?[...moved,moved[0]]:moved,"#247159",3);
+      moved.forEach(([x,y],index)=>{
+        dot(ctx,x,y,4,"#247159");
+        label(ctx,"ABC"[index]+"′",x+(index===1?12:-11),Math.max(9,y-9));
+      });
+    }
+  });
+}
+function graphBuilder(parent,task,draft) {
+  const panel=document.createElement("div");
+  panel.className="builder";
+  parent.append(panel);
+  const widgets=fieldGroup(parent,task.fields,draft);
+  const isBox=task.kind==="boxBuild";
+  const graphFields=widgets.slice(0,isBox?5:6);
+  graphFields.forEach(({control})=>control.addEventListener("input",draw));
+  draw();
+  return () => checkFields(widgets);
+
+  function draw() {
+    const values=graphFields.map(({control})=>{
+      const value=control.value.trim().replace(/\u2212/g,"-").replace(",",".");
+      return /^[+-]?\d+(?:\.\d+)?$/.test(value)?Number(value):null;
+    });
+    if (isBox) {
+      if (values.every((item,i)=>item!==null && (i===0 || item>=values[i-1]))) boxPlot(panel,values);
+      else panel.textContent="Completa los cinco valores ordenados de menor a mayor para dibujar el cajón.";
+    } else {
+      const ready=values.every(value=>value!==null && Number.isInteger(value) && Math.abs(value)<=15);
+      const points=ready?[values.slice(0,2),values.slice(2,4),values.slice(4,6)]:[];
+      pointGrid(panel,task.points,points,points.length?"Triángulo original y figura con tus coordenadas":"Triángulo original");
+    }
+  }
+}
+function showMathVisual(visual) {
+  const board=byId("board");
+  const legend=byId("legend");
+  if(visual.kind==="mathBox") {
+    const values=[2,4,7,9,13];
+    switcher(["Mínimo","C₁","C₂","C₃","Máximo"],index=>{
+      boxPlot(board,values,index);
+      legend.textContent=["Mínimo: 2.","Primer cuartil: 4.","Mediana: 7.","Tercer cuartil: 9.","Máximo: 13."][index];
+    });
+  } else if(visual.kind==="isometry") {
+    const base=[[1,1],[4,1],[1,4]];
+    const labels=["Original","Traslación","Reflexión en Y","Rotación de 90°"];
+    const transforms=[null,([x,y])=>[x-3,y-3],([x,y])=>[-x,y],([x,y])=>[-y,x]];
+    const notes=["Figura original: A(1,1), B(4,1), C(1,4).","Tres unidades a la izquierda y tres hacia abajo.","Se conserva y, cambia el signo de x.","90° antihorarios alrededor del origen: (x,y) → (−y,x)."];
+    switcher(labels,index=>{
+      pointGrid(board,base,transforms[index]?base.map(transforms[index]):[],notes[index]);
+      legend.textContent=notes[index];
+    });
+  } else if(visual.kind==="pythagoras") {
+    const sides=[[[204,138],[364,138]],[[204,18],[204,138]],[[204,18],[364,138]]];
+    const names=["Cateto 4","Cateto 3","Hipotenusa 5"];
+    switcher(names,index=>{
+      const explanation=["4² = 16.","3² = 9.","5² = 25. Se cumple que 16 + 9 = 25."][index];
+      sketch(board,names[index]+". "+explanation,ctx=>{
+        sides.forEach((side,i)=>line(ctx,side,i===index?"#23845b":"#a5b9ad",i===index?6:3));
+        line(ctx,[[204,123],[219,123],[219,138]],"#56736a",2);
+        label(ctx,"4",284,160);
+        label(ctx,"3",188,80);
+        label(ctx,"5",299,65);
+      });
+      legend.textContent=explanation;
+    });
+  } else if(visual.kind==="cylinder") {
+    switcher(["Cilindro","Desarrollo plano"],mode=>{
+      sketch(board,mode?"Dos círculos y un rectángulo":"Cilindro de radio r y altura h",ctx=>{
+        const ellipse=(x,y,rx,ry)=>{
+          ctx.beginPath();
+          ctx.strokeStyle="#436a5d";
+          ctx.lineWidth=2;
+          ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
+          ctx.fillStyle="#e3efe1";ctx.fill();ctx.stroke();
+        };
+        if(mode) {
+          ellipse(165,63,37,37);ellipse(165,145,37,37);
+          ctx.fillStyle="#e3efe1";ctx.fillRect(222,53,193,91);
+          ctx.strokeStyle="#436a5d";ctx.strokeRect(222,53,193,91);
+          label(ctx,"2πr",318,163);label(ctx,"h",438,99);
+        } else {
+          ellipse(280,143,65,23);
+          ctx.fillStyle="#dfebdf";ctx.fillRect(215,53,130,90);
+          line(ctx,[[215,53],[215,143]],"#436a5d",2);
+          line(ctx,[[345,53],[345,143]],"#436a5d",2);
+          ellipse(280,53,65,23);
+          line(ctx,[[280,53],[345,53]],"#436a5d",2);label(ctx,"r",314,42);
+          label(ctx,"h",367,100);
+        }
+      });
+      legend.textContent=mode?"El largo del rectángulo coincide con 2πr. El ancho es h.":"Hay dos bases circulares iguales. r es el radio y h, la altura.";
+    });
+  }
+}
+
+function render() {
+  const unit = activeUnit();
+  const index = position(unit);
+  const lesson = activeLesson(unit);
+  text("unit-type",unit.unit);
+  text("unit-title",unit.title);
+  text("unit-description",unit.description);
+  text("lesson-count",lesson.recap ? "Autoevaluación de la unidad" : "Tema " + (index + 1) + " de " + (unit.lessons.length - 1));
+  text("lesson-title",lesson.title);
+  text("lesson-goal",lesson.goal);
+  renderProgress(unit);
+  renderMode(unit);
+  const previous = byId("previous");
+  const next = byId("next");
+  previous.disabled = index === 0;
+  previous.textContent = "‹ Tema anterior";
+  previous.onclick = () => navigate(unit,index-1);
+  const last = index === unit.lessons.length - 1;
+  next.disabled = last;
+  next.textContent = last ? "Último tema" : (unit.lessons[index + 1].recap ? "Ir a autoevaluación ›" : "Siguiente tema ›");
+  next.onclick = () => {if (!last) navigate(unit,index+1);};
+}
+
+toggleFocus();
+render();
+</script>
+</body>
+</html>
