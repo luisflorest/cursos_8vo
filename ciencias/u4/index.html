@@ -905,6 +905,39 @@ body[data-subject="m"] {
 }
 .science-screen-reader { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 
+.exam-entry { display:inline-flex; margin-top:12px; text-decoration:none; }
+.exam[open] { padding:0; }
+.exam { max-width:990px; margin:22px auto 0; color:#183437; background:#f5fbfa; border:1px solid #b8d4ce; border-radius:16px; overflow:clip; }
+.exam summary { background:#e6f4ef; padding:15px 20px !important; color:#183437 !important; font-weight:800; }
+.exam-body { padding:clamp(12px,3vw,25px); }
+.exam-head { display:flex; gap:15px; align-items:center; justify-content:space-between; flex-wrap:wrap; background:#174c44; color:white; border-radius:12px; padding:clamp(14px,3vw,22px); }
+.exam-head h2 { color:white; margin:0; line-height:1.2; font-size:clamp(1.2rem,4vw,1.65rem); }
+.exam-head p { margin:5px 0 0; }
+.exam-score { font-size:1.05rem; padding:6px 10px; border:1px solid #9ac7ba; border-radius:8px; }
+.exam-progress { width:100%; height:10px; display:block; margin-top:10px; accent-color:#237365; }
+.exam-map { margin:12px 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr)); gap:7px; }
+.exam-map button { text-align:left; border:1px solid #a8c9c1; padding:8px; background:#fff; color:#214e48; font-weight:700; border-radius:8px; cursor:pointer; min-height:44px; }
+.exam-map button[aria-current=true] { border:2px solid #195b50; background:#e2f3ed; }
+.exam-map small { display:block; font-weight:500; }
+.exam-card { padding:clamp(12px,3vw,22px); background:#fff; border:1px solid #b8d4ce; border-radius:12px; }
+.exam-card h3 { margin:0 0 6px; color:#183437; scroll-margin-top:85px; }
+.exam-tag { color:#18574c; margin:0 0 5px; font-weight:750; font-size:.9rem; }
+.exam-card p { max-width:78ch; }
+.exam-options { display:grid; gap:8px; margin:12px 0; }
+.exam-option { display:flex; align-items:center; gap:8px; background:#f3f8f7; border:1px solid #b8d4ce; border-radius:8px; padding:9px; cursor:pointer; }
+.exam-option:has(input:checked) { border-color:#21665a; background:#e2f3ed; }
+.exam input { accent-color:#21665a; }
+.exam textarea { display:block; background:#fff; color:#172e31; width:100%; min-height:96px; font:inherit; padding:8px; border:1px solid #789e98; border-radius:8px; margin:6px 0 0; }
+.exam-pad { display:block; width:100%; max-width:640px; aspect-ratio:640/300; margin:10px 0; border-radius:7px; border:1px solid #83a69f; background-color:#fbfdfc; background-image:linear-gradient(#deebe7 1px,transparent 1px),linear-gradient(90deg,#deebe7 1px,transparent 1px); background-size:18px 18px; touch-action:none; cursor:crosshair; }
+.exam-diagram { display:block; width:min(100%,540px); height:auto; background:#fff; border:1px solid #b8d4ce; border-radius:8px; margin:10px 0; }
+.exam-toolbar,.exam-nav { display:flex; gap:7px; flex-wrap:wrap; align-items:center; margin:11px 0; }
+.exam button:focus-visible,.exam textarea:focus-visible { outline:3px solid #26766e; outline-offset:2px; }
+.exam-rubric { margin-top:12px; border-left:4px solid #26766e; background:#eaf6f0; padding:10px 12px; border-radius:0 8px 8px 0; }
+.exam-check { display:flex; gap:8px; align-items:baseline; margin:6px 0; }
+.exam-warning { color:#794924; font-weight:650; }
+.exam-chart-caption { font-size:.88rem; }
+@media(max-width:420px) { .exam summary { padding:12px !important; } }
+
 </style>
 <!--
 Material Icons by Google (https://github.com/google/material-design-icons).
@@ -1138,6 +1171,7 @@ Apache License
     <div class="kicker"><span class="history-icon" data-icon="document" aria-hidden="true"></span><span id="unit-type"></span></div>
     <h1 id="unit-title"></h1>
     <p id="unit-description"></p>
+    <a class="nav-button exam-entry" href="#practice-exam">⚡ Abrir ensayo tipo prueba</a>
   </div>
   <div class="resume-panel">
     <div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
@@ -1146,6 +1180,21 @@ Apache License
   </div>
 </section>
 <section class="unit-finished" id="unit-finished" role="status" hidden><strong>¡Unidad completada!</strong><p id="finish-message"></p></section>
+<details class="exam" id="practice-exam" data-unit="u4">
+  <summary>Ensayo tipo prueba · 31 preguntas · 31 puntos</summary>
+  <div class="exam-body">
+    <header class="exam-head">
+      <div><h2>Ensayo de Ciencias · Unidad 4</h2><p>Una pregunta a la vez. Las soluciones aparecen al entregar.</p></div>
+      <strong class="exam-score exam-status" role="status"></strong>
+    </header>
+    <progress class="exam-progress" aria-label="Preguntas respondidas" max="31" value="0"></progress>
+    <p>Los bloques de configuración separan neutros e iones para practicar las dos filas de la pauta. Puedes retomar el ensayo en este navegador.</p>
+    <p class="exam-storage exam-warning" hidden>Este navegador no pudo guardar el avance.</p>
+    <nav class="exam-map" aria-label="Bloques del ensayo"></nav>
+    <div class="exam-card exam-place"></div>
+    <div class="exam-nav" aria-label="Navegación del ensayo"></div>
+  </div>
+</details>
 <div class="grid">
 <aside class="study-topics">
   <h2 class="topics-heading"><span class="history-icon" data-icon="layers" aria-hidden="true"></span> Temas de la unidad</h2>
@@ -5652,6 +5701,387 @@ function render() {
 
 toggleFocus();
 render();
+</script>
+<script id="practice-exam-data" type="application/json">[{"name": "Configura átomos neutros", "icon": "▦", "items": [{"kind": "choice", "q": "Litio neutro, Z = 3. ¿Qué configuración corresponde?", "options": ["1s² 2s²", "1s² 2s¹", "1s¹ 2s²"], "a": 1, "why": "Tiene 3 electrones. Los dos primeros llenan 1s y el tercero entra en 2s.", "points": 1}, {"kind": "choice", "q": "Nitrógeno neutro, Z = 7. ¿Qué configuración corresponde?", "options": ["1s² 2s² 2p³", "1s² 2s² 2p⁵", "1s² 2s¹ 2p⁴"], "a": 0, "why": "Tras llenar 1s y 2s, quedan 3 electrones en 2p.", "points": 1}, {"kind": "choice", "q": "Flúor neutro, Z = 9. ¿Cómo se ocupan los tres orbitales 2p?", "options": ["[↑↓] [↑↓] [ ]", "[↑] [↑] [↑]", "[↑↓] [↑↓] [↑]"], "a": 2, "why": "1s y 2s contienen cuatro electrones en total. Los otros cinco ocupan 2p.", "points": 1}, {"kind": "choice", "q": "Magnesio neutro, Z = 12. El núcleo electrónico [Ne] representa 10 electrones. ¿Qué sigue?", "options": ["3s²", "3p²", "2s²"], "a": 0, "why": "Los dos electrones restantes ocupan 3s.", "points": 1}, {"kind": "choice", "q": "Cloro neutro, Z = 17. ¿Qué configuración abreviada corresponde?", "options": ["[Ne] 3s² 3p⁶", "[Ne] 3s² 3p⁵", "[Ne] 3s¹ 3p⁵"], "a": 1, "why": "[Ne] aporta 10. Al sumar 2 de 3s y 5 de 3p se llega a 17.", "points": 1}]}, {"name": "Dibuja la valencia", "icon": "•", "items": [{"kind": "draw", "q": "Dibuja el símbolo de Lewis de Li neutro. Representa los electrones de valencia como puntos. Si es un ion, escribe la carga fuera de los corchetes.", "model": "Un punto alrededor de Li.", "criteria": [["Coinciden el símbolo, el número de puntos y la carga cuando corresponde. Seguí la distribución de puntos usada en clase.", 1]], "diagram": {"type": "lewis", "sym": "Li", "charge": "", "dots": 1}, "points": 1}, {"kind": "draw", "q": "Dibuja el símbolo de Lewis de N neutro. Representa los electrones de valencia como puntos. Si es un ion, escribe la carga fuera de los corchetes.", "model": "Cinco puntos, con un par y tres puntos solos.", "criteria": [["Coinciden el símbolo, el número de puntos y la carga cuando corresponde. Seguí la distribución de puntos usada en clase.", 1]], "diagram": {"type": "lewis", "sym": "N", "charge": "", "dots": 5}, "points": 1}, {"kind": "draw", "q": "Dibuja el símbolo de Lewis de O neutro. Representa los electrones de valencia como puntos. Si es un ion, escribe la carga fuera de los corchetes.", "model": "Seis puntos, con dos pares y dos puntos solos.", "criteria": [["Coinciden el símbolo, el número de puntos y la carga cuando corresponde. Seguí la distribución de puntos usada en clase.", 1]], "diagram": {"type": "lewis", "sym": "O", "charge": "", "dots": 6}, "points": 1}, {"kind": "draw", "q": "Dibuja el símbolo de Lewis de Na⁺. Representa los electrones de valencia como puntos. Si es un ion, escribe la carga fuera de los corchetes.", "model": "[Na]⁺ sin puntos en la representación del catión.", "criteria": [["Coinciden el símbolo, el número de puntos y la carga cuando corresponde. Seguí la distribución de puntos usada en clase.", 1]], "diagram": {"type": "lewis", "sym": "Na", "charge": "+", "dots": 0}, "points": 1}, {"kind": "draw", "q": "Dibuja el símbolo de Lewis de Cl⁻. Representa los electrones de valencia como puntos. Si es un ion, escribe la carga fuera de los corchetes.", "model": "[Cl]⁻ con cuatro pares de puntos y la carga afuera.", "criteria": [["Coinciden el símbolo, el número de puntos y la carga cuando corresponde. Seguí la distribución de puntos usada en clase.", 1]], "diagram": {"type": "lewis", "sym": "Cl", "charge": "−", "dots": 8}, "points": 1}]}, {"name": "Configura iones", "icon": "±", "items": [{"kind": "choice", "q": "¿Qué configuración tiene Na⁺ si Z = 11?", "options": ["1s² 2s² 2p⁶ 3s¹", "1s² 2s² 2p⁶ 3s²", "1s² 2s² 2p⁶"], "a": 2, "why": "Na⁺ perdió un electrón y conserva 10.", "points": 1}, {"kind": "choice", "q": "¿Qué configuración tiene O²⁻ si Z = 8?", "options": ["1s² 2s² 2p⁶", "1s² 2s² 2p²", "1s² 2s² 2p⁴"], "a": 0, "why": "O²⁻ ganó dos electrones. Tiene 10.", "points": 1}, {"kind": "choice", "q": "¿Qué configuración tiene Mg²⁺ si Z = 12?", "options": ["[Ne] 3s²", "[Ne]", "[Ne] 3s² 3p²"], "a": 1, "why": "Mg²⁺ perdió los dos electrones 3s.", "points": 1}, {"kind": "choice", "q": "¿Qué configuración tiene Cl⁻ si Z = 17?", "options": ["[Ne] 3s² 3p⁵", "[Ne] 3s² 3p⁴", "[Ne] 3s² 3p⁶"], "a": 2, "why": "Cl⁻ tiene 18 electrones, uno más que el cloro neutro.", "points": 1}, {"kind": "choice", "q": "¿Cuáles tienen la misma cantidad de electrones?", "options": ["Na⁺ (Z = 11) y F⁻ (Z = 9)", "Mg²⁺ (Z = 12) y Na neutro (Z = 11)", "Cl⁻ (Z = 17) y Cl neutro (Z = 17)"], "a": 0, "why": "Na⁺ y F⁻ tienen 10 electrones cada uno.", "points": 1}]}, {"name": "Ubícate en la tabla", "icon": "▤", "items": [{"kind": "choice", "q": "Li termina en 2s¹ y Na en 3s¹. ¿Qué comparten?", "options": ["El período 2.", "El grupo 1.", "El número atómico."], "a": 1, "why": "El patrón externo s¹ los ubica en el grupo 1.", "points": 1}, {"kind": "choice", "q": "C termina en 2s² 2p² y O en 2s² 2p⁴. ¿Qué comparten?", "options": ["El grupo 16.", "Seis electrones de valencia.", "El período 2."], "a": 2, "why": "En ambos átomos neutros el nivel ocupado más alto es 2.", "points": 1}, {"kind": "choice", "q": "Un átomo neutro termina en 3s² 3p⁵. ¿En qué período está?", "options": ["Período 3.", "Período 5.", "Período 7."], "a": 0, "why": "El mayor nivel ocupado es 3.", "points": 1}, {"kind": "choice", "q": "Be termina en 2s² y Mg en 3s². ¿Qué patrón comparten?", "options": ["Tres niveles ocupados.", "Dos electrones de valencia.", "El mismo período."], "a": 1, "why": "Ambos tienen dos electrones en su nivel más externo.", "points": 1}, {"kind": "choice", "q": "¿Qué pareja comparte período y pertenece a distintos grupos?", "options": ["Li: 2s¹ y Na: 3s¹.", "Be: 2s² y Mg: 3s².", "Na: 3s¹ y Cl: 3s² 3p⁵."], "a": 2, "why": "Na y Cl tienen nivel externo 3, pero distintas configuraciones externas.", "points": 1}]}, {"name": "Reconoce el enlace", "icon": "⇄", "items": [{"kind": "choice", "q": "Na transfiere un electrón a Cl. ¿Qué tipo de unión predomina en NaCl?", "options": ["Covalente polar.", "Iónica.", "Covalente apolar."], "a": 1, "why": "La transferencia forma Na⁺ y Cl⁻. Sus cargas opuestas se atraen.", "points": 1}, {"kind": "choice", "q": "Dos átomos de oxígeno comparten dos pares de electrones en O₂. ¿Qué enlace forman?", "options": ["Iónico.", "Covalente simple.", "Covalente doble."], "a": 2, "why": "Cada par compartido aporta una línea al enlace. Dos pares forman un enlace doble.", "points": 1}, {"kind": "choice", "q": "En H–Cl los átomos comparten un par, pero el cloro lo atrae más. ¿Qué enlace es?", "options": ["Covalente polar.", "Iónico.", "Covalente apolar."], "a": 0, "why": "El par se comparte de manera desigual.", "points": 1}, {"kind": "choice", "q": "Mg cede dos electrones y O los recibe en el modelo de MgO. ¿Qué tipo de enlace corresponde?", "options": ["Covalente doble.", "Iónico.", "Covalente apolar."], "a": 1, "why": "Se forman iones de cargas opuestas que se atraen.", "points": 1}, {"kind": "choice", "q": "En Cl₂ ambos átomos atraen por igual el par compartido. ¿Qué tipo de enlace corresponde?", "options": ["Iónico.", "Covalente polar.", "Covalente apolar."], "a": 2, "why": "Los dos átomos tienen la misma electronegatividad.", "points": 1}]}, {"name": "Construye moléculas", "icon": "⬡", "items": [{"kind": "draw", "q": "Dibuja un modelo de H₂O. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "O se une a dos H mediante dos enlaces simples.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["H", 0.22, 0.65], ["O", 0.5, 0.3], ["H", 0.78, 0.65]], "bonds": [[0, 1, 1], [1, 2, 1]]}, "points": 1}, {"kind": "draw", "q": "Dibuja un modelo de CO₂. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "C queda al centro. Hay dos enlaces dobles: O=C=O.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["O", 0.19, 0.5], ["C", 0.5, 0.5], ["O", 0.81, 0.5]], "bonds": [[0, 1, 2], [1, 2, 2]]}, "points": 1}, {"kind": "draw", "q": "Dibuja un modelo de CH₄. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "C se une a cuatro H con enlaces simples. El esquema muestra conectividad en plano.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["C", 0.5, 0.5], ["H", 0.5, 0.14], ["H", 0.5, 0.86], ["H", 0.22, 0.5], ["H", 0.78, 0.5]], "bonds": [[0, 1, 1], [0, 2, 1], [0, 3, 1], [0, 4, 1]]}, "points": 1}, {"kind": "draw", "q": "Dibuja un modelo de NH₃. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "N se une a tres H con enlaces simples. El esquema muestra conectividad en plano.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["N", 0.5, 0.25], ["H", 0.22, 0.67], ["H", 0.5, 0.8], ["H", 0.78, 0.67]], "bonds": [[0, 1, 1], [0, 2, 1], [0, 3, 1]]}, "points": 1}, {"kind": "draw", "q": "Dibuja un modelo de O₂. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "Los dos oxígenos se unen mediante un enlace doble.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["O", 0.3, 0.5], ["O", 0.7, 0.5]], "bonds": [[0, 1, 2]]}, "points": 1}, {"kind": "draw", "q": "Dibuja un modelo de N₂. Identifica cada átomo con su símbolo y marca el orden de cada enlace con una, dos o tres líneas.", "model": "Los dos nitrógenos se unen mediante un enlace triple.", "criteria": [["Coinciden la cantidad y los símbolos de los átomos, cuáles se conectan y el orden de sus enlaces.", 1]], "diagram": {"type": "molecule", "atoms": [["N", 0.3, 0.5], ["N", 0.7, 0.5]], "bonds": [[0, 1, 3]]}, "points": 1}]}]</script>
+<script>
+(() => {
+  'use strict';
+  const root = document.getElementById('practice-exam');
+  const blocks = JSON.parse(document.getElementById('practice-exam-data').textContent);
+  const items = blocks.flatMap((block, group) => block.items.map(item => ({...item, group})));
+  const key = 'emilio-ensayo-ciencias-' + root.dataset.unit + '-1';
+  const fresh = () => ({at:0, submitted:false, answers:{}, marks:{}});
+  let state = fresh();
+  try {
+    const stored = JSON.parse(localStorage.getItem(key) || 'null');
+    if (stored && items[stored.at] && stored.answers && stored.marks) state = stored;
+  } catch {}
+  const create = (tag, text, className) => {
+    const el = document.createElement(tag);
+    if (text) el.textContent = text;
+    if (className) el.className = className;
+    return el;
+  };
+  const btn = (label, action, primary = false) => {
+    const el = create('button', label, 'nav-button' + (primary ? ' next' : ''));
+    el.type = 'button';
+    el.addEventListener('click', action);
+    return el;
+  };
+  const save = () => {
+    try { localStorage.setItem(key, JSON.stringify(state)); }
+    catch { root.querySelector('.exam-storage').hidden = false; }
+  };
+  const total = items.reduce((sum, q) => sum + q.points, 0);
+  const answer = i => state.answers[i] ?? {};
+  const attempted = i => {
+    const a = answer(i);
+    return Number.isInteger(a.choice) || Boolean(a.text?.trim()) || !!a.strokes?.length || a.paper === true;
+  };
+  const head = root.querySelector('.exam-status');
+  const progress = root.querySelector('.exam-progress');
+  const map = root.querySelector('.exam-map');
+  const place = root.querySelector('.exam-place');
+  const controls = root.querySelector('.exam-nav');
+  let confirmSubmit = false;
+
+  function stats() {
+    const objective = items.reduce((sum,q,i) => sum + Number(q.kind === 'choice' && answer(i).choice === q.a),0);
+    const guided = items.reduce((sum,q,i) => sum + (q.criteria || []).reduce((s,[,p],j) => s + (state.marks[i]?.[j] ? p : 0),0),0);
+    const pending = items.filter((q,i) => q.criteria && attempted(i) && !state.marks[i]?.reviewed).length;
+    return {objective,guided,pending};
+  }
+
+  function repaintStatus() {
+    const count = items.filter((_,i) => attempted(i)).length;
+    const {objective,guided,pending} = stats();
+    progress.max = items.length;
+    progress.value = count;
+    head.textContent = state.submitted
+      ? (objective + guided) + ' / ' + total + ' pts' + (pending ? ' · ' + pending + ' por autocorregir' : ' · revisión completa')
+      : count + ' / ' + items.length + ' respondidas';
+    map.replaceChildren();
+    let start = 0;
+    for (const [i,b] of blocks.entries()) {
+      const first = start;
+      const answered = b.items.filter((_,j) => attempted(first+j)).length;
+      const points = b.items.reduce((sum,q)=>sum+q.points,0);
+      const subtotal = b.items.reduce((sum, q, j) => {
+        const pos = first + j;
+        if (q.kind === 'choice') return sum + Number(answer(pos).choice === q.a);
+        return sum + q.criteria.reduce((s,[,p],c) => s + (state.marks[pos]?.[c] ? p : 0),0);
+      },0);
+      const button = btn(b.icon + ' ' + b.name, () => jump(first));
+      button.append(create('small', state.submitted ? subtotal + '/' + points + ' pts' : answered + '/' + b.items.length + ' · ' + points + ' pts'));
+      if (items[state.at].group === i) button.setAttribute('aria-current','true');
+      map.append(button);
+      start += b.items.length;
+    }
+  }
+
+  function jump(i) {
+    state.at = i;
+    confirmSubmit = false;
+    save();
+    render(true);
+  }
+
+  function stroke(ctx, points, color='#153a3b', width=3) {
+    if (!points.length) return;
+    ctx.beginPath();
+    ctx.strokeStyle=color;
+    ctx.fillStyle=color;
+    ctx.lineWidth=width;
+    ctx.lineCap='round';
+    ctx.lineJoin='round';
+    if (points.length === 1) {
+      ctx.arc(points[0][0],points[0][1],width/2,0,Math.PI*2);
+      ctx.fill();
+      return;
+    }
+    ctx.moveTo(...points[0]);
+    for (const point of points.slice(1)) ctx.lineTo(...point);
+    ctx.stroke();
+  }
+
+  function textAt(ctx,label,x,y,size=21) {
+    ctx.font='600 '+ size +'px system-ui';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.fillStyle='#163638';
+    ctx.fillText(label,x,y);
+  }
+
+  function circle(ctx,x,y,r, fill='#e1f3eb') {
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle=fill;
+    ctx.fill();
+    ctx.strokeStyle='#235353';
+    ctx.lineWidth=2;
+    ctx.stroke();
+  }
+
+  function illustration(label, draw) {
+    const canvas = create('canvas','', 'exam-diagram');
+    canvas.width=640;
+    canvas.height=300;
+    canvas.setAttribute('role','img');
+    canvas.setAttribute('aria-label',label);
+    draw(canvas.getContext('2d'));
+    return canvas;
+  }
+
+  function plot() {
+    const figure = create('figure','', 'exam-chart');
+    figure.style.margin='10px 0';
+    figure.append(illustration('Curva de calentamiento del agua. Eje horizontal: energía acumulada en calorías. Eje vertical: temperatura en grados Celsius. A: 0 cal, 0 °C. B: 4.000 cal, 0 °C. C: 6.000 cal, 40 °C.', ctx => {
+      textAt(ctx,'Temperatura (°C)',118,20);
+      for (const [y,t] of [[65,'40'],[145,'20'],[225,'0']]) {
+        stroke(ctx,[[72,y],[557,y]],'#c5ded8',2);
+        textAt(ctx,t,49,y,17);
+      }
+      stroke(ctx,[[72,40],[72,225],[588,225]],'#235353',2);
+      const pts=[[72,225],[392,225],[552,65]];
+      stroke(ctx,pts,'#168271',6);
+      for (const [i,[x,y]] of pts.entries()) {
+        circle(ctx,x,y,6);
+        textAt(ctx,'ABC'[i],x+9,y-19,19);
+        textAt(ctx,['0','4.000','6.000'][i],x,249,17);
+      }
+      textAt(ctx,'Energía acumulada (cal)',323,278,18);
+    }), create('figcaption','Curva para 50 g de hielo puro desde 0 °C, a presión constante.','exam-chart-caption'));
+    return figure;
+  }
+
+  function modelGraphic(q) {
+    const d = q.diagram;
+    return illustration(q.model,ctx => {
+      if (d === 'circuit') {
+        const wire = p => stroke(ctx,p);
+        wire([[70,185],[70,70],[112,70]]);
+        wire([[112,70],[154,70],[180,70]]);
+        circle(ctx,204,70,24);
+        textAt(ctx,'A',204,70);
+        wire([[228,70],[260,70]]);
+        const resistance = (x,n) => {
+          stroke(ctx,[[x,70],[x+8,58],[x+17,82],[x+26,58],[x+35,82],[x+44,58],[x+54,70]]);
+          textAt(ctx,n,x+27,36,19);
+        };
+        resistance(260,'R₁ · 2 Ω');
+        wire([[314,70],[385,70]]);
+        resistance(385,'R₂ · 4 Ω');
+        wire([[439,70],[560,70],[560,235],[70,235],[70,205]]);
+        wire([[54,185],[86,185]]);
+        wire([[60,205],[80,205]]);
+        textAt(ctx,'12 V',122,195,19);
+        textAt(ctx,'Interruptor cerrado',130,110,16);
+        wire([[365,70],[365,153],[389,153]]);
+        wire([[435,153],[465,153],[465,70]]);
+        circle(ctx,412,153,23);
+        textAt(ctx,'V',412,153);
+        circle(ctx,365,70,4);
+        circle(ctx,465,70,4);
+      } else if (d.type === 'lewis') {
+        textAt(ctx,d.charge ? '['+d.sym+']' : d.sym,320,150,48);
+        if (d.charge) textAt(ctx,d.charge,381,111,30);
+        const sides = [[[298,94],[342,94]],[[390,137],[390,163]],[[298,205],[342,205]],[[250,137],[250,163]]];
+        if (d.charge) {
+          sides[1]=[[362,137],[362,163]];
+          sides[3]=[[278,137],[278,163]];
+        }
+        for (let i=0;i<d.dots;i++) circle(ctx,...sides[i%4][Math.floor(i/4)],5,'#235353');
+      } else {
+        const atoms = d.atoms.map(([sym,x,y]) => [sym,x*640,y*300]);
+        for (const [a,b,n] of d.bonds) {
+          const [,x,y]=atoms[a], [,u,v]=atoms[b];
+          const len=Math.hypot(u-x,v-y);
+          for(let j=0;j<n;j++) {
+            const offset=(j-(n-1)/2)*8;
+            const dx=-(v-y)/len*offset,dy=(u-x)/len*offset;
+            stroke(ctx,[[x+dx,y+dy],[u+dx,v+dy]],'#235353',3);
+          }
+        }
+        for (const [sym,x,y] of atoms) {
+          circle(ctx,x,y,22,{O:'#ffd4cd',N:'#cfe2fa',C:'#d8dfdf',H:'#fff'}[sym]);
+          textAt(ctx,sym,x,y);
+        }
+      }
+    });
+  }
+
+  function sketch(a, locked) {
+    const holder = create('div');
+    const canvas = create('canvas','', 'exam-pad');
+    canvas.width=640;
+    canvas.height=300;
+    canvas.setAttribute('aria-label','Área de dibujo. Puedes resolver en papel y dejar una descripción en el cuadro de texto.');
+    const ctx=canvas.getContext('2d');
+    const redraw=() => {
+      ctx.clearRect(0,0,640,300);
+      for(const line of a.strokes || []) stroke(ctx,line);
+    };
+    redraw();
+    holder.append(canvas);
+    if (locked) return holder;
+    const toolbar=create('div','', 'exam-toolbar');
+    const update=() => {
+      redraw();
+      undo.disabled=!(a.strokes?.length);
+      save();
+      repaintStatus();
+    };
+    const undo=btn('Deshacer trazo',()=>{a.strokes?.pop();update();});
+    undo.disabled=!(a.strokes?.length);
+    const pencil=create('p','Dibuja con el mouse o el dedo. También puedes dibujar en papel y describir tu respuesta en el cuadro.');
+    toolbar.append(undo);
+    holder.prepend(pencil);
+    holder.append(toolbar);
+    let line=null, pointer=null;
+    const point=e=>{
+      const r=canvas.getBoundingClientRect();
+      return [Math.round((e.clientX-r.left)*640/r.width),Math.round((e.clientY-r.top)*300/r.height)];
+    };
+    canvas.addEventListener('pointerdown',e=>{
+      if (pointer !== null || e.button !== 0) return;
+      pointer=e.pointerId;
+      canvas.setPointerCapture(pointer);
+      line=[point(e)];
+      (a.strokes ||= []).push(line);
+      stroke(ctx,line);
+    });
+    canvas.addEventListener('pointermove',e=>{
+      if (e.pointerId !== pointer || !line) return;
+      const next=point(e);
+      stroke(ctx,[line.at(-1),next]);
+      line.push(next);
+    });
+    const end=e=>{
+      if(e.pointerId !== pointer) return;
+      line=null;
+      pointer=null;
+      update();
+    };
+    canvas.addEventListener('pointerup',end);
+    canvas.addEventListener('pointercancel',end);
+    canvas.addEventListener('lostpointercapture',end);
+    return holder;
+  }
+
+  function review(q, i, a) {
+    const box=create('div','', 'exam-rubric');
+    if(q.kind === 'choice') {
+      box.append(create('strong',a.choice===q.a ? 'Correcta · 1 punto' : 'Respuesta esperada'),create('p',q.options[q.a]),create('p',q.why));
+      return box;
+    }
+    box.append(create('strong','Compara con la respuesta modelo'));
+    if(q.diagram) box.append(modelGraphic(q));
+    box.append(create('p',q.model));
+    if(!attempted(i)) {
+      box.append(create('p','La pregunta quedó sin respuesta.'));
+      return box;
+    }
+    const marks=state.marks[i] ||= {};
+    for(const [j,[label,points]] of q.criteria.entries()){
+      const row=create('label','', 'exam-check');
+      const check=create('input');
+      check.type='checkbox';
+      check.checked=Boolean(marks[j]);
+      check.addEventListener('change',()=>{marks[j]=check.checked;save();repaintStatus();});
+      row.append(check,document.createTextNode(label+' · '+points+' '+(points===1?'pt':'pts')));
+      box.append(row);
+    }
+    const done=btn(marks.reviewed ? '✓ Autocorregida' : 'Marcar como autocorregida',()=>{
+      marks.reviewed=true;
+      done.textContent='✓ Autocorregida';
+      save();
+      repaintStatus();
+    });
+    box.append(done);
+    return box;
+  }
+
+  function finish() {
+    if(!confirmSubmit && items.some((_,i)=>!attempted(i))){
+      confirmSubmit=true;
+      render();
+      controls.querySelector('[data-submit]').focus();
+      return;
+    }
+    state.submitted=true;
+    const first=items.findIndex((q,i)=>q.criteria && attempted(i));
+    if(first>=0) jump(first);
+    else jump(0);
+  }
+
+  function render(focus=false) {
+    const i=state.at, q=items[i], a=state.answers[i] ||= {};
+    repaintStatus();
+    const label=create('div',blocks[q.group].icon+' '+blocks[q.group].name+' · '+q.points+' '+(q.points===1?'pt':'pts'),'exam-tag');
+    const heading=create('h3','Pregunta '+(i+1)+' de '+items.length);
+    heading.tabIndex=-1;
+    const question=create('p',q.q);
+    place.replaceChildren(label,heading,question);
+    if(q.chart) place.append(plot());
+    if(q.kind==='choice'){
+      const options=create('div','', 'exam-options');
+      options.setAttribute('role','group');
+      options.setAttribute('aria-label','Alternativas de la pregunta '+(i+1));
+      for(const [j,option] of q.options.entries()){
+        const row=create('label','', 'exam-option');
+        const radio=create('input');
+        radio.type='radio';radio.name='science-exam-choice';radio.checked=a.choice===j;radio.disabled=state.submitted;
+        radio.addEventListener('change',()=>{a.choice=j;save();repaintStatus();});
+        row.append(radio,document.createTextNode('ABC'[j]+'. '+option));
+        options.append(row);
+      }
+      place.append(options);
+    } else {
+      if(q.kind==='draw') place.append(sketch(a,state.submitted));
+      const label=create('label',q.kind==='draw'?'Describe o completa tu dibujo':'Escribe tu respuesta');
+      label.htmlFor='science-exam-response';
+      const input=create('textarea');
+      input.id=label.htmlFor;
+      input.value=a.text || '';
+      input.readOnly=state.submitted;
+      input.addEventListener('input',()=>{a.text=input.value;save();repaintStatus();});
+      place.append(label,input);
+      const paperLabel=create('label','', 'exam-check');
+      const paper=create('input');
+      paper.type='checkbox';
+      paper.checked=Boolean(a.paper);
+      paper.disabled=state.submitted;
+      paper.addEventListener('change',()=>{a.paper=paper.checked;save();repaintStatus();});
+      paperLabel.append(paper,document.createTextNode('Respondí esta pregunta en papel'));
+      place.append(paperLabel);
+    }
+    if(state.submitted) place.append(review(q,i,a));
+    controls.replaceChildren();
+    if(i>0) controls.append(btn('‹ Anterior',()=>jump(i-1)));
+    if(i<items.length-1) controls.append(btn('Siguiente ›',()=>jump(i+1),true));
+    if(!state.submitted) {
+      const submit=btn(confirmSubmit ? 'Entregar con preguntas pendientes' : 'Entregar y corregir', finish, i===items.length-1);
+      submit.dataset.submit='';
+      controls.append(submit);
+      if(confirmSubmit) controls.append(create('p','Aún quedan preguntas sin responder. Puedes seguir avanzando o confirmar la entrega.','exam-warning'));
+    } else {
+      const pending = items.findIndex((item, index)=>item.criteria && attempted(index) && !state.marks[index]?.reviewed && index !== i);
+      if(pending>=0) controls.append(btn('Ir a otra respuesta por corregir',()=>jump(pending)));
+      controls.append(btn('Iniciar otro intento',()=>{
+        if(!window.confirm('¿Borrar las respuestas y la autocorrección de este ensayo para empezar de nuevo?')) return;
+        state=fresh();
+        jump(0);
+      }));
+    }
+    if(focus) heading.focus();
+  }
+
+  document.querySelector('.exam-entry').addEventListener('click', () => {
+    root.open=true;
+    root.querySelector('summary').focus({preventScroll:true});
+  });
+  render();
+})();
 </script>
 </body>
 </html>
