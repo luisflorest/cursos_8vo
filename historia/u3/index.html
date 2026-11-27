@@ -533,7 +533,7 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
   background:#fcf9fc;
   color:var(--model-ink);
 }
-.history-explorer summary {
+.history-explorer > summary {
   display:grid;
   grid-template-columns:44px minmax(0,1fr) 12px;
   align-items:center;
@@ -543,8 +543,8 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
   cursor:pointer;
   list-style:none;
 }
-.history-explorer summary::-webkit-details-marker { display:none; }
-.history-explorer summary:hover { background:#f5edf5; }
+.history-explorer > summary::-webkit-details-marker { display:none; }
+.history-explorer > summary:hover { background:#f5edf5; }
 .history-summary-icon {
   display:grid;
   place-items:center;
@@ -565,7 +565,7 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
   border-width:0 2px 2px 0;
   transform:translateY(-2px) rotate(45deg);
 }
-.history-explorer[open] .history-chevron { transform:translateY(2px) rotate(225deg); }
+.history-explorer[open] > summary .history-chevron { transform:translateY(2px) rotate(225deg); }
 .history-model {
   display:grid;
   gap:12px;
@@ -690,6 +690,21 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
 .history-videos .history-icon[data-icon=external] { width:14px; height:14px; }
 .history-video-source { font-size:.81rem; color:var(--model-muted); margin-top:1px; }
 .history-video-prompt { font-size:.9rem; line-height:1.4; margin-top:3px; }
+.unit-recap-videos { margin:16px 0; }
+.focus-mode .unit-recap-videos { max-width:850px; margin-inline:auto; }
+.recap-video { border:1px solid var(--model-line); border-radius:9px; background:var(--surface); }
+.recap-video > summary { padding:10px 12px; min-height:44px; cursor:pointer; }
+.recap-video > summary strong { color:var(--model-accent); }
+.recap-video-questions { display:block; padding-inline-start:1.2em; font-size:.875rem; color:var(--model-muted); }
+.recap-video-body { display:grid; gap:8px; padding:0 12px 12px; }
+.recap-video-body > a { justify-self:start; color:var(--model-accent); font-weight:700; }
+.recap-video-player:empty { display:none; }
+.recap-video-player { width:min(100%,720px); }
+.recap-video-player iframe {
+  display:block; width:100%; min-height:200px; aspect-ratio:16 / 9;
+  border:0; border-radius:8px; background:#16131a;
+}
+@media print { .unit-recap-videos { display:none; } }
 .history-icon {
   display:inline-block;
   flex:none;
@@ -699,7 +714,7 @@ details[open]:not(.history-explorer) > summary .history-chevron { transform:tran
   mask:var(--history-icon) center / contain no-repeat;
 }
 @media (max-width:480px) {
-  .history-explorer summary { padding:11px; gap:9px; }
+  .history-explorer > summary { padding:11px; gap:9px; }
   .history-choices { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .history-cards { grid-template-columns:minmax(0,1fr); gap:6px; }
   .history-cards > .history-icon { transform:rotate(90deg); }
@@ -1037,6 +1052,40 @@ Apache License
     <button id="resume" type="button" class="nav-button next" aria-describedby="resume-context">Empezar el cuadernillo</button>
   </div>
 </section>
+<details class="history-explorer unit-recap-videos" id="unit-recap-videos">
+  <summary>
+    <span class="history-summary-icon" aria-hidden="true"><span class="history-icon" data-icon="video"></span></span>
+    <span class="history-summary-label"><strong>Videos para repasar la unidad</strong><span>3 videos para preparar las 11 preguntas del cuestionario</span></span>
+    <span class="history-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="history-model">
+    <p class="history-instruction" id="recap-local-note" hidden>Si abriste el archivo directamente, usa «Ver en YouTube». Los reproductores se cargan cuando el cuadernillo se sirve desde un sitio web.</p>
+    <details class="recap-video" name="history-recap-video" data-video-id="IO2nkhbbOcI">
+      <summary><strong>El Antiguo Régimen y la Ilustración</strong><span class="recap-video-questions">Preguntas 1–3 · El Cubil de Peter · 13 min</span></summary>
+      <div class="recap-video-body">
+        <p>Compara cómo funcionaban la política, la sociedad, la economía y la cultura con lo que proponían los ilustrados.</p>
+        <div class="recap-video-player"></div>
+        <a href="https://www.youtube.com/watch?v=IO2nkhbbOcI" target="_blank" rel="noopener noreferrer" aria-label="Ver El Antiguo Régimen y la Ilustración en YouTube">Ver en YouTube</a>
+      </div>
+    </details>
+    <details class="recap-video" name="history-recap-video" data-video-id="ttdq818TGD0">
+      <summary><strong>La Revolución Francesa</strong><span class="recap-video-questions">Preguntas 4–8 · Academia Play · 14 min</span></summary>
+      <div class="recap-video-body">
+        <p>Al inicio, identifica las causas. Cerca de 7:45, fíjate en cómo la Constitución limitó al rey. Sigue la secuencia hasta la república.</p>
+        <div class="recap-video-player"></div>
+        <a href="https://www.youtube.com/watch?v=ttdq818TGD0" target="_blank" rel="noopener noreferrer" aria-label="Ver La Revolución Francesa en YouTube">Ver en YouTube</a>
+      </div>
+    </details>
+    <details class="recap-video" name="history-recap-video" data-video-id="ex5KqTKzYZA">
+      <summary><strong>La Independencia de Chile</strong><span class="recap-video-questions">Preguntas 9–11 · Cuaderno de Historia</span></summary>
+      <div class="recap-video-body">
+        <p>Busca el descontento criollo cerca del 2:30, la crisis de la monarquía española cerca del 3:50 y las consecuencias a partir del 10:50.</p>
+        <div class="recap-video-player"></div>
+        <a href="https://www.youtube.com/watch?v=ex5KqTKzYZA" target="_blank" rel="noopener noreferrer" aria-label="Ver La Independencia de Chile en YouTube">Ver en YouTube</a>
+      </div>
+    </details>
+  </div>
+</details>
 <section class="unit-finished" id="unit-finished" role="status" hidden><strong>¡Unidad completada!</strong><p id="finish-message"></p></section>
 <div class="grid">
 <aside class="study-topics">
@@ -4171,6 +4220,31 @@ function render() {
   next.disabled = last;
   next.textContent = last ? "Último tema" : (unit.lessons[index + 1].recap ? "Ir a autoevaluación ›" : "Siguiente tema ›");
   next.onclick = () => {if (!last) navigate(unit,index+1);};
+}
+
+const recapVideos = byId("unit-recap-videos");
+if (location.protocol === "file:") {
+  byId("recap-local-note").hidden = false;
+} else {
+  const videoCards = recapVideos.querySelectorAll("[data-video-id]");
+  recapVideos.addEventListener("toggle", () => {
+    for (const card of videoCards) {
+      const player = card.querySelector(".recap-video-player");
+      if (!recapVideos.open || !card.open) {
+        player.replaceChildren();
+        continue;
+      }
+      if (player.firstElementChild) continue;
+
+      const iframe = document.createElement("iframe");
+      iframe.title = card.querySelector("summary strong").textContent;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow = "encrypted-media; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + card.dataset.videoId;
+      player.append(iframe);
+    }
+  }, true);
 }
 
 toggleFocus();
