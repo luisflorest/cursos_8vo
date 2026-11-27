@@ -212,6 +212,90 @@ progress::-moz-progress-bar { background:var(--accent); border-radius:100px; }
   overflow-wrap:anywhere;
 }
 #resume { width:100%; }
+#history-exam-open { width:100%; margin-top:8px; }
+html:has(#history-exam[open]) { overflow:hidden; }
+#history-exam {
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  height:100dvh;
+  max-width:none;
+  max-height:none;
+  margin:0;
+  padding:0;
+  border:0;
+  background:var(--paper);
+  color:var(--ink);
+  overflow:auto;
+  overscroll-behavior:contain;
+}
+#history-exam::backdrop { background:var(--paper); }
+.history-exam-shell { max-width:850px; margin:auto; padding:clamp(14px,3vw,30px); }
+.history-exam-header {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px 16px;
+  margin-bottom:14px;
+}
+.history-exam-header h2 { color:var(--deep); font-size:clamp(1.3rem,3vw,1.75rem); }
+.history-exam-muted { color:var(--muted); }
+.history-exam-card {
+  margin-top:14px;
+  padding:clamp(14px,3vw,23px);
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+.history-exam-topic { margin-bottom:6px; font-weight:700; color:var(--accent); }
+.history-exam-card h3 { font-size:clamp(1.05rem,2.8vw,1.28rem); line-height:1.42; }
+.history-exam-card progress { margin:7px 0 10px; }
+.history-exam-options { display:grid; gap:8px; margin-top:13px; }
+.history-exam-option {
+  display:grid;
+  grid-template-columns:auto auto minmax(0,1fr);
+  align-items:start;
+  gap:8px;
+  min-height:44px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--quiet);
+  line-height:1.4;
+}
+.history-exam-option input { margin:3px 0 0; accent-color:var(--accent); }
+.history-exam-options:has(input:enabled) .history-exam-option { cursor:pointer; }
+.history-exam-option:has(input:enabled):hover { border-color:var(--accent); }
+.history-exam-option:has(input:checked) { border-color:var(--accent); background:var(--wash); }
+.history-exam-option:focus-within { outline:2px solid var(--focus); outline-offset:2px; }
+.history-exam-option[data-result="correct"] { border-color:var(--success); background:var(--success-bg); }
+.history-exam-option[data-result="incorrect"] { border-color:var(--hint); background:var(--hint-bg); }
+.history-exam-option-note { display:block; margin-top:4px; font-size:.85rem; font-weight:700; }
+.history-exam-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:16px; }
+.history-exam-warning { margin-top:12px; padding:9px 12px; border-radius:8px; background:var(--hint-bg); color:var(--hint); }
+.history-exam-review {
+  margin-top:14px;
+  padding:12px 14px;
+  border-inline-start:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  background:var(--wash);
+}
+.history-exam-review ol { margin:7px 0 0; padding-inline-start:1.4rem; }
+.history-exam-review li + li { margin-top:6px; }
+.history-exam-score { margin:7px 0; font-size:clamp(1.45rem,4vw,2rem); font-weight:800; color:var(--deep); }
+.history-exam-score-list { margin:12px 0 0; padding:0; list-style:none; }
+.history-exam-score-list li {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  padding:8px 0;
+  border-top:1px solid var(--line);
+}
+.history-exam-score-list strong { white-space:nowrap; }
+@media print { #history-exam-open,#history-exam { display:none; } }
 .grid {
   display:grid;
   grid-template-columns:minmax(214px,.28fr) minmax(0,1fr);
@@ -404,7 +488,7 @@ progress::-moz-progress-bar { background:var(--accent); border-radius:100px; }
 .field [aria-invalid=true] { border-color:#986218; background:var(--hint-bg); }
 .field [data-checked=true] { border-color:#548369; background:var(--success-bg); }
 .actions { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:12px; }
-.feedback:not(:empty),.rubric,.topic-finished,.unit-finished {
+.feedback:not(:empty),.topic-finished,.unit-finished {
   margin-top:11px;
   padding:9px 11px;
   border:1px solid var(--success-line);
@@ -416,8 +500,26 @@ progress::-moz-progress-bar { background:var(--accent); border-radius:100px; }
 .feedback { font-size:.92rem; font-weight:690; }
 .feedback:empty { display:none; }
 .feedback.retry:not(:empty) { border-color:var(--hint-line); border-inline-start-color:var(--hint); color:var(--hint); background:var(--hint-bg); }
-.rubric { display:flex; align-items:start; gap:8px; font-size:.91rem; }
-.rubric input { flex:none; margin-top:5px; accent-color:var(--success); }
+.written-review {
+  margin-top:10px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--quiet);
+}
+.written-score { font-size:1.15rem; font-weight:780; color:var(--deep); }
+.written-review ul { list-style:none; padding:0; margin:10px 0 0; display:grid; gap:6px; }
+.written-review li {
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:5px 9px;
+  padding:6px 9px;
+  border-radius:6px;
+  background:var(--hint-bg);
+  color:var(--hint);
+}
+.written-review li.written-found { background:var(--success-bg); color:var(--success); }
 .topic-finished strong,.unit-finished strong { display:block; }
 .topic-finished p,.unit-finished p { font-size:.91rem; }
 .unit-finished { margin-top:15px; }
@@ -1050,6 +1152,7 @@ Apache License
     <div class="track"><label for="progress" id="progress-label"></label><progress id="progress" value="0" max="1"></progress></div>
     <p id="resume-context"></p>
     <button id="resume" type="button" class="nav-button next" aria-describedby="resume-context">Empezar el cuadernillo</button>
+    <button id="history-exam-open" type="button" class="nav-button" aria-haspopup="dialog" aria-controls="history-exam"><span class="history-icon" data-icon="flag" aria-hidden="true"></span><span>Abrir ensayo tipo prueba</span></button>
   </div>
 </section>
 <details class="history-explorer unit-recap-videos" id="unit-recap-videos">
@@ -1190,6 +1293,46 @@ Apache License
 </article>
 </div>
 </main>
+<dialog id="history-exam" aria-labelledby="history-exam-title">
+  <div class="history-exam-shell">
+    <header class="history-exam-header">
+      <div>
+        <p class="kicker"><span class="history-icon" data-icon="flag" aria-hidden="true"></span> Historia · Unidad 3</p>
+        <h2 id="history-exam-title">Ensayo tipo prueba</h2>
+      </div>
+      <button class="nav-button" id="history-exam-close" type="button">Volver al cuadernillo</button>
+    </header>
+    <p class="history-exam-warning" id="history-exam-storage-note" role="status" hidden>El navegador no pudo guardar el avance. Puedes continuar en esta pestaña.</p>
+    <div id="history-exam-question">
+      <p class="history-exam-muted" id="history-exam-instructions">Elige una alternativa por pregunta. Las soluciones aparecen al entregar.</p>
+      <div class="history-exam-card">
+        <label for="history-exam-progress" id="history-exam-progress-label" role="status"></label>
+        <progress id="history-exam-progress" max="15" value="0"></progress>
+        <p class="history-exam-topic" id="history-exam-topic"></p>
+        <h3 id="history-exam-prompt" tabindex="-1"></h3>
+        <div class="history-exam-options" id="history-exam-options" role="group" aria-labelledby="history-exam-prompt"></div>
+        <div class="history-exam-review" id="history-exam-explanation" hidden></div>
+        <p class="history-exam-warning" id="history-exam-submit-note" role="status" hidden></p>
+      </div>
+      <nav class="history-exam-actions" aria-label="Navegación del ensayo">
+        <button class="nav-button" id="history-exam-prev" type="button">Anterior</button>
+        <button class="nav-button next" id="history-exam-next" type="button">Siguiente</button>
+        <button class="nav-button" id="history-exam-submit" type="button">Entregar y corregir</button>
+        <button class="nav-button" id="history-exam-back-to-score" type="button" hidden>Ver resultado</button>
+      </nav>
+    </div>
+    <section class="history-exam-card" id="history-exam-results" aria-labelledby="history-exam-result-title" hidden>
+      <h3 id="history-exam-result-title" tabindex="-1">Resultado del ensayo</h3>
+      <p class="history-exam-score" id="history-exam-score"></p>
+      <p class="history-exam-muted" id="history-exam-score-note"></p>
+      <ul class="history-exam-score-list" id="history-exam-score-list" aria-label="Aciertos por tema"></ul>
+      <div class="history-exam-actions">
+        <button class="nav-button next" id="history-exam-review" type="button">Revisar respuestas</button>
+        <button class="nav-button" id="history-exam-retry" type="button">Iniciar otro intento</button>
+      </div>
+    </section>
+  </div>
+</dialog>
 <noscript><p>Activa JavaScript en el navegador para abrir las actividades.</p></noscript>
 <script>
 "use strict";
@@ -1357,7 +1500,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Piensa en la época, el papel de la razón y qué reformas querían.",
-                "rubric": "Mi respuesta ubica la corriente en el siglo XVIII, explica el papel de la razón y nombra tres principios.",
                 "fields": [],
                 "label": "",
                 "why": "Corriente de pensamiento europea del siglo XVIII que propuso usar la razón para alcanzar el conocimiento y la felicidad. Principios: razón, libertad, igualdad, soberanía popular, secularización, tolerancia, separación de poderes (bastan tres).",
@@ -1639,7 +1781,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Piensa en un lugar de conversación y en un medio impreso.",
-                "rubric": "Mencioné dos espacios o medios de difusión.",
                 "fields": [],
                 "label": "",
                 "why": "Cafeterías, salones literarios, logias masónicas, cultura impresa (libros, periódicos, la Enciclopedia).",
@@ -1999,7 +2140,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Distingue un ejemplo de organización política y un gasto de Francia.",
-                "rubric": "Expliqué cómo inspiró ideas y cómo contribuyó a la deuda francesa.",
                 "fields": [],
                 "label": "",
                 "why": "Fue un ejemplo de que las ideas ilustradas se podían aplicar (un pueblo se liberó de un rey y creó una república con Constitución). Y aumentó la deuda de Francia, que financió esa guerra, lo que agravó la crisis fiscal.",
@@ -2020,7 +2160,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Usa la cadena crisis fiscal → Estados Generales → demandas del tercer estado.",
-                "rubric": "Expliqué cómo se conectan al menos dos causas en una misma cadena.",
                 "fields": [],
                 "label": "",
                 "why": "Ejemplo: la crisis fiscal obligó a convocar los Estados Generales; ahí el tercer estado, influido por la Ilustración, exigió más poder. Las causas económicas, políticas y culturales se potenciaron.",
@@ -2041,7 +2180,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Piensa qué simbolizaba la prisión y quién la atacó.",
-                "rubric": "Mencioné el simbolismo del poder real y la acción popular del 14 de julio de 1789.",
                 "fields": [],
                 "label": "",
                 "why": "Porque el pueblo atacó un símbolo del poder absoluto del rey y fue el momento en que la protesta se volvió acción popular abierta.",
@@ -2295,7 +2433,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Relaciona gobierno, derechos, tributos e ideas con los cuatro ámbitos.",
-                "rubric": "Di una consecuencia política, una social, una económica y una cultural.",
                 "fields": [],
                 "label": "",
                 "why": "Ejemplos: político, fin del absolutismo y soberanía popular; social, fin de los privilegios e igualdad ante la ley; económico, fin de los tributos feudales y fortalecimiento de la burguesía; cultural, secularización y difusión de la Ilustración.",
@@ -2316,7 +2453,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Piensa en el origen del poder, los derechos y la Constitución.",
-                "rubric": "Expliqué dos principios y cómo cambiaron la idea de ciudadanía o de gobierno.",
                 "fields": [],
                 "label": "",
                 "why": "El poder pasa a venir del pueblo; se reconocen derechos de las personas (Declaración de 1789); se divide el poder con una Constitución; todos son ciudadanos iguales ante la ley.",
@@ -2557,7 +2693,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Comienza por lo que ocurrió en España en 1808.",
-                "rubric": "Expliqué la crisis de la monarquía, la formación de juntas y por qué afectó a varios territorios a la vez.",
                 "fields": [],
                 "label": "",
                 "why": "Porque todas compartieron el mismo detonante: la invasión de Napoleón a España (1808) y la captura de Fernando VII, que dejó un vacío de poder. Además había causas comunes: monopolio comercial, exclusión de los criollos e ideas ilustradas.",
@@ -2578,7 +2713,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Busca un ejemplo de poder, uno de comercio, uno de jerarquía social y uno de ideas.",
-                "rubric": "Incluí las cuatro categorías con un factor concreto en cada una.",
                 "fields": [],
                 "label": "",
                 "why": "Político: vacío de poder por la captura del rey; exclusión de los criollos de los cargos. Económico: monopolio comercial y alza de impuestos. Social: criollos con menos poder que los peninsulares. Cultural: ideas ilustradas, ejemplo de EE.UU., Francia y Haití, identidad americana.",
@@ -2694,7 +2828,6 @@ const units = [
               {
                 "kind": "written",
                 "hint": "Incluye Estado, comercio, élites y símbolos o identidad.",
-                "rubric": "Diferencié al menos una consecuencia de cada ámbito.",
                 "fields": [],
                 "label": "",
                 "why": "Político: Estado independiente y república con Constituciones. Económico: libertad de comercio y gastos de la guerra. Social: gobiernan las élites criollas, persisten las desigualdades, se abole la esclavitud. Cultural: símbolos nacionales e identidad chilena.",
@@ -3828,7 +3961,7 @@ function showExercise(unit,lesson,study) {
   byId("reading").open = Boolean(exercise.excerpt);
   textBlock("excerpt",exercise.excerpt);
   renderExerciseTable(exercise.table);
-  text("check",task.kind === "written" ? "Comparar mi respuesta" : "Corregir");
+  text("check",task.kind === "written" ? "Evaluar mi respuesta" : "Corregir");
   text("reference-text",exercise.reference);
   byId("reference").hidden = !exercise.reference;
   byId("reference").open = false;
@@ -3849,7 +3982,7 @@ function showExercise(unit,lesson,study) {
   if (!Array.isArray(state.drafts[key])) state.drafts[key] = [];
   const draft = state.drafts[key];
   let check;
-  if (task.kind === "written") check = writtenBuilder(inputs,task,draft);
+  if (task.kind === "written") check = writtenBuilder(inputs,draft,exercise.id);
   else if (task.kind === "order") check = orderBuilder(inputs,task,draft);
   else if (task.kind === "boxBuild" || task.kind === "pointBuild") check = graphBuilder(inputs,task,draft);
   else if (task.kind === "circuit") check = circuitBuilder(inputs,task,draft);
@@ -3917,13 +4050,13 @@ function showExercise(unit,lesson,study) {
   renderBookmark();
   byId("hint").onclick = () => setFeedback("Pista. " + task.hint,true);
   checkAnswer = () => {
-    const {passed,total,message} = check();
+    const {passed,total,message,feedback} = check();
     if (message) {setFeedback(message,true);return;}
     if (passed === total) {
       state.solved[exercise.id + ":" + caseIndex] = true;
       save();
       renderProgress(unit);
-      setFeedback(task.kind === "written" ? "Respuesta revisada. Puedes avanzar." : "Correcto. Puedes revisar el razonamiento en la solución explicada.");
+      setFeedback(feedback || "Correcto. Puedes revisar el razonamiento en la solución explicada.");
       updateAction();
     } else {
       const count = total > 1 ? passed + " de " + total + " partes correctas. " : "Revisa tu respuesta. ";
@@ -3967,37 +4100,154 @@ function renderExerciseTable(rows) {
   });
   area.append(table);
 }
-function writtenBuilder(parent,task,draft) {
-  const wrapper = document.createElement("label");
-  wrapper.className = "field";
-  const name = document.createElement("span");
-  name.textContent = "Tu respuesta";
+const writtenReview = (() => {
+  const normalize = value => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const clauses = value => normalize(value).replace(/\bee\s*\.?\s*uu\b\.?/g, "estados unidos").split(/[.!?;\n]+|\b(?:pero|sin embargo|en cambio)\b/)
+    .map(part => part.trim()).filter(part => part && !/\bno\s+(?:(?:se\s+)?(?:fue|fueron|era|eran|hubo|existio|aumento|agravo|provoco|causo|inspiro|contribuyo|elimino|eliminaron|abolio|abolieron|formo|formaron|reconocio|difundio))\b/.test(part));
+  const has = pattern => parts => parts.some(part => pattern.test(part));
+  const together = (...patterns) => has({test: part => patterns.every(pattern => pattern.test(part))});
+  const either = (...checks) => parts => checks.some(check => check(parts));
+  const listIdeas = (label, count, ideas) => Array.from({length:count}, (_, i) =>
+    [label + " " + (i + 1), parts => ideas.filter(idea => idea(parts)).length > i]);
+  const causal = /\b(?:por eso|porque|debido a|a causa de|por lo que|de modo que|hizo que|llevo a|llevaron a|provoco|provocaron|genero|generaron|agravo|agravaron|aumento|aumentaron|empeoro|empeoraron|obligo|obligaron|impulso|impulsaron|reforzo|contribuyo|desato|desataron|motivo|motivo a)\b/;
+  const fiscal = /\b(?:crisis fiscal|crisis financiera|deud\w*|deficit|bancarrota|falta de dinero|arcas vacias)\b/;
+  const shortages = /\b(?:malas cosechas|escasez|hambre|alza del pan|precio del pan|pan caro)\b/;
+  const estates = /\b(?:tercer estado|estados generales|asamblea nacional|privilegios|nobleza|desigualdad|impuestos)\b/;
+  const enlightenment = /\b(?:ilustracion|ilustrad\w*|ideas de libertad|ideas de igualdad)\b/;
+  const ideas = [
+    has(/\blibertad(?:es)?\b(?!\s+(?:religiosa|de (?:culto|conciencia)))/), has(/\bigualdad\b/), has(/\btolerancia\b/),
+    has(/\b(?:soberania (?:popular|nacional)|voluntad general|poder (?:del pueblo|reside en el pueblo))\b/),
+    has(/\b(?:separacion|division|separar|dividir)\b.{0,28}\b(?:poderes|poder)\b/),
+    has(/\b(?:secularizacion|libertad religiosa|libertad de culto|libertad de conciencia)\b/),
+    has(/\b(?:razon|pensamiento critico|razonamiento)\b/)
+  ];
+  const media = [
+    /\b(?:cafes?|cafeterias?)\b/, /\bsalon(?:es)?\b/, /\blogias?\b/,
+    /\b(?:libros?|obras impresas)\b/, /\b(?:periodicos?|prensa|gacetas?|revistas?)\b/,
+    /\benciclopedia\b/, /\b(?:folletos?|panfletos?)\b/
+  ].map(has);
+  const modern = [
+    has(/\b(?:soberania (?:popular|nacional)|poder (?:reside|radica|viene|emana|surge|proviene) (?:del|de la|en el|en la) (?:pueblo|nacion)|pueblo (?:ejerce|legitima|otorga) el poder)\b/),
+    has(/\b(?:declaracion (?:de (?:los )?derechos|de 1789)|(?:reconoc\w*|garantiz\w*|proclam\w*)\s+(?:los )?derechos|igualdad ante la ley|iguales ante la ley|ciudadan\w* con derechos)\b/),
+    either(together(/\bconstituci\w*\b/, /\b(?:limit\w*|regul\w*|sujet\w*|restring\w*|control\w*)\b/),
+      has(/\b(?:separacion|division|separar|dividir)\b.{0,28}\bpoderes\b/))
+  ];
+  const commerce = /\b(?:comerc\w*|econom\w*|impuest\w*|gastos|deuda)\b/;
+  const socialGroups = /\b(?:crioll\w*|peninsular\w*|esclav\w*|desigualdad\w*|elites?)\b/;
+  const pairs = [[fiscal,estates],[shortages,estates],[enlightenment,estates],[fiscal,shortages],[enlightenment,fiscal]];
+  const factors = [fiscal,shortages,estates,enlightenment].map(has);
+  const twoFactors = parts => factors.filter(check => check(parts)).length >= 2;
+  const related = parts => pairs.some(pair => together(...pair,causal)(parts)) || parts.some((part,index) =>
+    index > 0 && /^(?:por eso|por lo que|como consecuencia|esto (?:provoco|agravo|llevo))\b/.test(part) &&
+    pairs.some(([a,b]) => (a.test(parts[index-1]) && b.test(part)) || (b.test(parts[index-1]) && a.test(part))));
+  const rules = {
+    "h3-1": [
+      ["Ubicación en el siglo XVIII", has(/\b(?:siglo (?:xviii|18|dieciocho)|(?:mil )?setecientos|17\d{2})\b/)],
+      ["Uso de la razón para comprender o cuestionar", together(/\b(?:razon|razonamiento|pensamiento critico)\b/, /\b(?:usar|uso|cuestion\w*|critic\w*|analiz\w*|comprend\w*|conoc\w*|explic\w*|examin\w*|pensar|guiar|entend\w*)\b/)],
+      ...listIdeas("Principio distinto",3,ideas)
+    ],
+    "h3-5": listIdeas("Medio o espacio distinto",2,media),
+    "h3-8": [
+      ["Presenta a Estados Unidos como ejemplo político", has(/\b(?:ejemplo|modelo|inspiro|inspiraron|demostro|mostro|mostraron|posible|se podia)\b/)],
+      ["Explica qué idea se llevó a la práctica", has(/\b(?:republica|constitucion|derechos|libertad|consentimiento|soberania popular|ideas ilustradas|limitar al rey|autogobierno)\b/)],
+      ["Identifica el apoyo de Francia a las colonias", together(/\bfranc(?:ia|es\w*)\b/, /\b(?:apoy\w*|ayud\w*|financi\w*|intervin\w*|participo|envio|gasto|gastaron)\b/, /\b(?:guerr\w*|colon\w*|independencia|estadounidenses|estados unidos|americanos|rebel\w*)\b/)],
+      ["Relaciona la participación con la deuda o crisis fiscal", either(together(fiscal, /\b(?:apoy\w*|ayud\w*|financi\w*|guerr\w*|gastos?|intervencion)\b/, /\b(?:aumento|aumentaron|agravo|agravaron|increment\w*|empeor\w*|dejo|sumo|endeud\w*|causo|contribuyo)\b/),
+        parts => parts.some((part,i) => i > 0 && /^(?:eso|esto|ese gasto|por eso|asi)\b/.test(part) && fiscal.test(part) && /\b(?:apoy\w*|ayud\w*|financi\w*|guerr\w*|gasto)\b/.test(parts[i-1])))]
+    ],
+    "h3-9": [
+      ["Identifica una causa histórica concreta", parts => factors.some(check => check(parts))],
+      ["Incluye otro factor de un ámbito distinto", twoFactors],
+      ["Explica cómo se conectaron los factores", related]
+    ],
+    "h3-10": [
+      ["Identifica la Bastilla como símbolo del poder real", together(/\b(?:simbol\w*|represent\w*|emblema|fortaleza|prision|carcel)\b/, /\b(?:rey|monarquia|absolutismo|poder real|poder absoluto)\b/)],
+      ["Identifica la participación popular", together(/\b(?:pueblo|poblacion|parisinos|multitud|ciudadanos|manifestantes|gente|tercer estado)\b/, /\b(?:tom\w*|atac\w*|asalt\w*|moviliz\w*|levant\w*|actu\w*|rebel\w*)\b/)],
+      ["Explica el significado del inicio o la ruptura", has(/\b(?:inicio simbolico|comienzo simbolico|marc\w* (?:el )?(?:inicio|comienzo|ruptura)|punto de inflexion|paso (?:de |a )?(?:la protesta|la accion)|de la protesta a|desafio abierto|levantamiento popular|accion popular|desafi\w* (?:al rey|a la monarquia|al poder real))\b/)]
+    ],
+    "h3-13": [
+      ["Política · Un cambio en el gobierno o la autoridad", has(/\b(?:fin del absolutismo|fin de la monarquia|republica|soberania (?:popular|nacional)|constitucion|limit\w* (?:el )?poder del rey|separacion de poderes)\b/)],
+      ["Sociedad · Un cambio en los derechos o privilegios", has(/\b(?:igualdad ante la ley|iguales ante la ley|fin de (?:los )?privilegios|abol\w* (?:los )?privilegios|fin de (?:los )?estamentos|fin de la sociedad estamental)\b/)],
+      ["Economía · Un cambio en cargas, trabajo o comercio", has(/\b(?:(?:fin|elimin\w*|suprim\w*|abol\w*|supresion) (?:de |de los |los )?(?:tributos|cargas|impuestos|derechos) (?:feudales|senoriales)|(?:fortalec\w*|ascen\w*) (?:de )?(?:la )?burguesia|libertad economica|libre comercio|fin de los gremios|abol\w* (?:los )?gremios)\b/)],
+      ["Cultura · Difusión de ideas o secularización", either(has(/\b(?:secularizacion|laiciz\w*|seculariz\w*)\b/),together(/\b(?:difund\w*|difusion|expand\w*|expansion|extend\w*|circul\w*)\b/, /\b(?:ideas|ilustracion|derechos|ciudadania|libertad|igualdad)\b/))]
+    ],
+    "h3-14": listIdeas("Argumento distinto sobre ciudadanía o gobierno",2,modern),
+    "h3-16": [
+      ["Detonante · Invasión napoleónica o crisis del rey español", has(/\b(?:napoleon\w*|invasion francesa|invasion a espana|invasion de espana|fernando vii|fernando 7|crisis de la monarquia espanola)\b/)],
+      ["Efecto · Vacío de autoridad en la monarquía", has(/\b(?:vacio de (?:poder|autoridad)|crisis de (?:poder|autoridad|legitimidad)|rey cautivo|sin (?:rey|autoridad|gobernante)|quien (?:podia |debia )?gobernar|captur\w* (?:del rey|a fernando)|cautiverio)\b/)],
+      ["Respuesta · Formación de juntas o gobierno local", has(/\b(?:juntas?(?: de gobierno| locales?| americanas?)?|gobiern\w* local\w*|autogobiern\w*)\b/)],
+      ["Simultaneidad · Qué compartían los territorios", has(/\b(?:varios territorios|distintos territorios|varias colonias|distintas colonias|colonias americanas|varios paises|al mismo tiempo|misma crisis|mismo detonante|causa comun|crisis comun|misma situacion|en paralelo|casi simultane\w*|fechas cercanas|todo el continente)\b/)]
+    ],
+    "h3-17": [
+      ["Política · Crisis de autoridad o demanda de participación", has(/\b(?:vacio de poder|crisis de (?:autoridad|poder|la corona|la monarquia)|crisis (?:politica |de poder )?en espana|cautiverio|captur\w* (?:del rey|a fernando)|napoleon\w*|fernando vii|participacion politica|acceso a (?:los )?cargos|crioll\w* (?:querian|exigian) (?:mas )?cargos)\b/)],
+      ["Economía · Restricciones que generaron descontento", has(/\b(?:monopolio comercial|monopolio espa\w*|restric\w* (?:al comercio|comerciales)|trabas (?:al comercio|comerciales)|(?:alza|subida|aumento|cobro) de (?:los )?impuestos|solo podian comerciar con espana|control del comercio)\b/)],
+      ["Sociedad · Desigualdad entre grupos coloniales", together(/\b(?:crioll\w*|peninsular\w*)\b/, /\b(?:desigualdad|discrimin\w*|exclus\w*|exclu\w*|privilegi\w*|jerarquia|menos poder|menor poder|trato desigual|preferencia|margin\w*)\b/)],
+      ["Cultura · Influencia de ideas o ejemplos", has(/\b(?:ilustracion|ilustrad\w*|identidad (?:americana|criolla|local)|ejemplo (?:de |del )?(?:estados unidos|francia|haiti)|revolucion francesa|independencia (?:de estados unidos|estadounidense|de haiti))\b/)]
+    ],
+    "h3-20": [
+      ["Política · Formación de un Estado soberano o republicano", has(/\b(?:estado (?:independiente|soberano|republicano)|republica|gobierno propio|soberania (?:de chile|nacional)|constituci\w*)\b/)],
+      ["Economía · Apertura comercial o gastos de guerra", either(has(/\b(?:libertad (?:de comercio|comercial)|libre comercio|apertura del comercio|apertura comercial|fin del monopolio|gastos de (?:la )?guerra|costos de (?:la )?guerra|crisis economica)\b/),together(commerce, /\b(?:abr\w*|abri\w*|apertur\w*|endeud\w*)\b/))],
+      ["Sociedad · Poder criollo, desigualdades o abolición", either(together(socialGroups, /\b(?:persist\w*|sigu\w*|mantu\w*|continu\w*|gan\w*|gobern\w*|domina\w*|al poder|asum\w*|abol\w*|elimin\w*|fin)\b/),has(/\babolicion de la esclavitud\b/))],
+      ["Cultura · Identidad, prensa o símbolos nacionales", has(/\b(?:identidad (?:chilena|nacional)|simbolos? (?:patrios?|nacionales?)|bandera|escudo nacional|prensa (?:nacional|patriota)|periodicos?|aurora de chile)\b/)]
+    ]
+  };
+  return (id, value) => {
+    const parts = clauses(value);
+    return rules[id].map(([label, check]) => ({label, found:check(parts)}));
+  };
+})();
+
+function writtenBuilder(parent,draft,id) {
+  const wrapper = historyElement("label","field");
   const response = document.createElement("textarea");
   response.rows = 4;
   response.value = draft[0] || "";
-  response.addEventListener("input",() => { draft[0] = response.value; queueSave(); });
-  wrapper.append(name,response);
+  wrapper.append(historyElement("span","","Tu respuesta"),response);
 
-  const rubric = document.createElement("label");
-  rubric.className = "rubric";
-  rubric.hidden = true;
-  const reviewed = document.createElement("input");
-  reviewed.type = "checkbox";
-  rubric.append(reviewed,document.createTextNode(task.rubric));
-  parent.append(wrapper,rubric);
+  const review = historyElement("section","written-review");
+  review.setAttribute("aria-label","Revisión de la respuesta");
+  review.hidden = true;
+  parent.append(wrapper,review);
+
+  function evaluate() {
+    const criteria = writtenReview(id,response.value);
+    const detected = criteria.filter(item => item.found).length;
+    const score = Math.max(1,Math.round(detected * 100 / criteria.length));
+    const result = historyElement("p","written-score",score + " / 100 · Completitud estimada");
+    const summary = historyElement("p","",detected + " de " + criteria.length + " ideas detectadas. Si explicaste una idea con otras palabras, puedes contrastarla con la solución.");
+    const results = document.createElement("ul");
+    for (const {label,found} of criteria) {
+      const item = historyElement("li",found ? "written-found" : "");
+      item.append(historyElement("strong","",found ? "Detectado" : "Por verificar"),document.createTextNode(label));
+      results.append(item);
+    }
+    review.replaceChildren(result,summary,results);
+    review.hidden = false;
+    text("check","Volver a evaluar");
+    return score;
+  }
+
+  response.addEventListener("input",() => {
+    draft[0] = response.value;
+    draft[1] = false;
+    if (!review.hidden) setFeedback("Texto actualizado. Vuelve a evaluarlo para ver el puntaje.");
+    review.hidden = true;
+    text("check","Evaluar mi respuesta");
+    queueSave();
+  });
+
+  if (draft[1] === true && response.value.trim()) evaluate();
+
   return () => {
     if (!response.value.trim()) {
       response.focus();
-      return {message:"Escribe tu respuesta y luego compárala con la pauta."};
+      return {message:"Escribe tu respuesta antes de evaluarla."};
     }
-    if (rubric.hidden) {
-      byId("solution").open = true;
-      text("check","Marcar como revisada");
-      rubric.hidden = false;
-      return {message:"Compara tu texto con el modelo y revisa el criterio. Puedes corregir tu respuesta antes de marcarla."};
-    }
-    if (!reviewed.checked) return {message:"Marca el criterio cuando tu respuesta lo cumpla."};
-    return {passed:1,total:1};
+    const score = evaluate();
+    draft[1] = true;
+    const feedback = score === 100
+      ? "Detecté todas las ideas de la pauta. Puedes revisar la solución explicada."
+      : "Revisa las ideas marcadas por verificar. Puedes editar tu respuesta y volver a evaluarla.";
+    return {passed:1,total:1,feedback};
   };
 }
 
@@ -4249,6 +4499,447 @@ if (location.protocol === "file:") {
 
 toggleFocus();
 render();
+</script>
+<script>
+(() => {
+  "use strict";
+
+  const topics = ["Antiguo Régimen e Ilustración", "Revolución Francesa", "Independencias iberoamericanas y de Chile"];
+  const questions = [
+    {
+      "topic": 0,
+      "prompt": "Un autor del siglo XVIII sostiene que las leyes y las creencias deben discutirse con argumentos públicos, aunque sean antiguas o cuenten con el respaldo del rey. ¿Qué principio ilustrado expresa mejor esa postura?",
+      "options": [
+        "La libertad de conciencia consiste en que cada estamento conserva sus propias leyes.",
+        "El progreso requiere que el monarca use la ciencia y conserve el derecho exclusivo a decidir.",
+        "La tolerancia consiste en que la autoridad elija qué opiniones se pueden discutir.",
+        "La razón permite examinar las tradiciones y pedir argumentos a quienes ejercen la autoridad.",
+        "La igualdad consiste en que el Estado imponga una misma creencia para evitar divisiones.",
+        "El consentimiento se presume cuando una forma de gobierno se ha mantenido durante generaciones."
+      ],
+      "answer": 3,
+      "steps": [
+        "Identifica qué criterio usa el autor para aceptar una ley o una creencia. Pide argumentos que se puedan discutir.",
+        "Relaciona ese criterio con la Ilustración. La razón permite someter a examen prácticas que antes se justificaban por tradición o autoridad."
+      ]
+    },
+    {
+      "topic": 0,
+      "prompt": "Un historiador encuentra cuatro indicios sobre la Francia anterior a 1789. ¿Qué combinación caracteriza al Antiguo Régimen en política, sociedad, economía y cultura?",
+      "options": [
+        "Rey limitado por una Constitución, sociedad estamental, tributos feudales e influencia de la Iglesia en la educación.",
+        "Rey con poder concentrado, sociedad estamental, economía principalmente agraria con tributos feudales e Iglesia influyente en la educación.",
+        "Rey con poder concentrado, igualdad legal entre estamentos, economía agraria e influencia de la Iglesia en la cultura.",
+        "Rey con poder concentrado, sociedad estamental, libre comercio generalizado y enseñanza secular como regla.",
+        "Rey subordinado a una asamblea elegida, estamentos privilegiados, economía principalmente industrial e Iglesia influyente en la educación.",
+        "Rey con poder concentrado, sociedad organizada por clases sin privilegios jurídicos, economía agraria y educación bajo fuerte influencia religiosa."
+      ],
+      "answer": 1,
+      "steps": [
+        "Empieza por el poder y los derechos. El rey concentraba autoridad y el clero y la nobleza disfrutaban de privilegios legales.",
+        "Comprueba los otros dos ámbitos. La producción era sobre todo agraria, existían cargas feudales y la Iglesia tenía gran influencia cultural y educativa."
+      ]
+    },
+    {
+      "topic": 0,
+      "prompt": "Una reforma imaginaria responde a cuatro críticas ilustradas. ¿Qué conjunto une correctamente cada crítica con su propuesta?",
+      "options": [
+        "Concentración del poder → soberano reformista con poder ilimitado. Privilegios → igualdad ante la ley. Trabas comerciales → libertad económica. Intolerancia → debate y tolerancia.",
+        "Concentración del poder → separación de poderes. Privilegios → mejor acceso a los estamentos privilegiados. Trabas comerciales → libertad económica. Intolerancia → debate y tolerancia.",
+        "Concentración del poder → separación de poderes. Privilegios → igualdad ante la ley. Trabas comerciales → monopolio en manos del Estado. Intolerancia → debate y tolerancia.",
+        "Concentración del poder → separación de poderes. Privilegios → igualdad ante la ley. Trabas comerciales → libertad económica. Intolerancia → creencia oficial impuesta.",
+        "Concentración del poder → autoridad hereditaria. Privilegios → igualdad ante la ley. Trabas comerciales → más controles de la corona. Intolerancia → censura de opiniones en conflicto.",
+        "Concentración del poder → separación de poderes. Privilegios → igualdad ante la ley. Trabas comerciales → libertad económica. Intolerancia → razonamiento crítico y tolerancia."
+      ],
+      "answer": 5,
+      "steps": [
+        "En política y sociedad, las reformas debían limitar el poder concentrado y acabar con las diferencias legales por nacimiento.",
+        "En economía y cultura, identifica la relación entre la crítica y la respuesta. Las trabas motivaron la defensa de la libertad económica y la intolerancia, la defensa del examen crítico y la tolerancia."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "Considera tres antecedentes de la Revolución Francesa. I. Los privilegios de la nobleza se mantuvieron por generaciones. II. Las malas cosechas encarecieron el pan en los años previos. III. Luis XVI reunió a los Estados Generales en mayo de 1789. ¿Cómo se clasifican por duración?",
+      "options": [
+        "I. Coyuntura · II. Estructura · III. Acontecimiento.",
+        "I. Estructura · II. Acontecimiento · III. Coyuntura.",
+        "I. Estructura · II. Coyuntura · III. Acontecimiento.",
+        "I. Acontecimiento · II. Coyuntura · III. Estructura.",
+        "I. Coyuntura · II. Acontecimiento · III. Estructura.",
+        "I. Acontecimiento · II. Estructura · III. Coyuntura."
+      ],
+      "answer": 2,
+      "steps": [
+        "Ordena los antecedentes por cuánto duraron. Los privilegios persistieron durante generaciones y la crisis de cosechas se concentró en unos años.",
+        "La reunión de los Estados Generales ocurrió en un momento preciso. Es un acontecimiento que abrió una disputa política en medio de tensiones acumuladas."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "Cuatro indicios ayudan a explicar el estallido francés. I. Los privilegiados tenían ventajas por pertenecer a un estamento. II. Se disputó si se votaría por estamento o por diputado. III. Subió el precio del pan. IV. Circularon escritos sobre igualdad y libertad. ¿Cuál es el ámbito predominante de cada uno, en orden?",
+      "options": [
+        "I. Social · II. Político · III. Económico · IV. Cultural.",
+        "I. Político · II. Social · III. Económico · IV. Cultural.",
+        "I. Social · II. Cultural · III. Económico · IV. Político.",
+        "I. Económico · II. Político · III. Social · IV. Cultural.",
+        "I. Social · II. Político · III. Cultural · IV. Económico.",
+        "I. Cultural · II. Económico · III. Político · IV. Social."
+      ],
+      "answer": 0,
+      "steps": [
+        "Distingue las causas según lo que describen. Los privilegios nacían de la posición de los grupos y la forma de votar decidía cómo se repartía el poder.",
+        "Observa las otras dos pistas. El precio del pan afectaba la economía familiar y la circulación de textos difundía ideas."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "¿Qué explicación identifica dos efectos distintos de la independencia de Estados Unidos sobre la Revolución Francesa y relaciona cada uno con la crisis de Francia?",
+      "options": [
+        "Las ideas de las colonias influyeron en Francia y el éxito militar alivió la deuda de la monarquía francesa.",
+        "La guerra aumentó la deuda francesa y el nuevo gobierno estadounidense sirvió de ejemplo para conservar el absolutismo.",
+        "Francia obtuvo ingresos decisivos de la guerra y los colonos mostraron que era posible gobernar con una Constitución.",
+        "Estados Unidos difundió ideas de derechos y la crisis fiscal francesa empezó cuando la nueva república restringió el comercio con Francia.",
+        "El nuevo gobierno mostró que era posible organizar el poder sobre derechos y consentimiento, mientras el gasto militar francés agravó la deuda.",
+        "La corona francesa contrajo más deuda y el ejemplo de las colonias influyó principalmente porque mantuvo el poder político en una corona hereditaria."
+      ],
+      "answer": 4,
+      "steps": [
+        "Separa el ejemplo político del costo de la guerra. La experiencia estadounidense mostró una manera de llevar a la práctica ideas sobre derechos y consentimiento.",
+        "Relaciona la intervención francesa con sus finanzas. Sostener la guerra añadió gastos a una monarquía que ya tenía deudas."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "En un documento de 1791 todavía aparece un rey con atribuciones fijadas por una Constitución. Un documento de 1792 registra la abolición de la monarquía. ¿Qué secuencia explica ambos documentos y el sistema que los precedió?",
+      "options": [
+        "Monarquía constitucional → república → monarquía absoluta.",
+        "Monarquía absoluta → monarquía constitucional → república.",
+        "Monarquía absoluta → república → monarquía constitucional.",
+        "República → monarquía absoluta → monarquía constitucional.",
+        "Monarquía absoluta → Directorio → monarquía constitucional.",
+        "Monarquía absoluta → monarquía constitucional → monarquía absoluta."
+      ],
+      "answer": 1,
+      "steps": [
+        "Distingue la situación del rey. Antes de la Revolución concentraba autoridad, y en 1791 conservó su cargo con atribuciones limitadas por la Constitución.",
+        "En 1792 la Convención abolió la monarquía. Con la desaparición del cargo de rey, Francia pasó a ser una república."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "Un compañero anota «Francia proclamó la república en 1792 y se convirtió en Directorio en 1795, así que en 1795 dejó de ser república». ¿Qué ajuste hace su línea de tiempo más precisa?",
+      "options": [
+        "La Convención estableció una monarquía constitucional en 1792. La primera república empezó con el Directorio.",
+        "El Directorio gobernó antes de 1792 y la república comenzó cuando terminó el Terror.",
+        "La república terminó en 1793 al ejecutarse a Luis XVI. El Directorio gobernó en nombre de un nuevo monarca.",
+        "El Directorio gobernó dentro de la república. El golpe de 1799 terminó con ese gobierno e inició el Consulado.",
+        "La república comenzó con la Constitución de 1791. El Directorio recuperó la organización política de esa misma Constitución.",
+        "El Directorio precedió a la Convención y se mantuvo en el poder hasta que empezó el Imperio en 1804."
+      ],
+      "answer": 3,
+      "steps": [
+        "Distingue un sistema político de una forma de organizar su gobierno. El Directorio reorganizó el poder ejecutivo de la república en 1795.",
+        "Ubica el cambio siguiente. El golpe de 1799 terminó con el Directorio y dio paso al Consulado."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "¿Qué balance reconoce consecuencias de la Revolución Francesa en los cuatro ámbitos, sin confundir los ideales proclamados con su aplicación?",
+      "options": [
+        "Política: gobierno constitucional. Sociedad: sufragio igual para mujeres y hombres. Economía: fin de tributos feudales. Cultura: difusión de ideas de derechos.",
+        "Política: soberanía nacional. Sociedad: igualdad jurídica. Economía: ampliación de los tributos señoriales. Cultura: circulación de ideas ilustradas.",
+        "Política: república. Sociedad: conservación de los privilegios legales de los estamentos. Economía: fin de tributos feudales. Cultura: debate sobre libertades.",
+        "Política: derecho divino del rey. Sociedad: igualdad ante la ley. Economía: fin de tributos feudales. Cultura: difusión de ideas de ciudadanía.",
+        "Política: límites constitucionales. Sociedad: fin de los privilegios estamentales. Economía: abolición de los tributos feudales. Cultura: prohibición de difundir ideas ilustradas.",
+        "Política: soberanía nacional. Sociedad: igualdad legal con exclusiones. Economía: fin de tributos feudales. Cultura: difusión de ideas de ciudadanía."
+      ],
+      "answer": 5,
+      "steps": [
+        "Identifica el cambio de poder y el económico. Ganaron espacio la soberanía nacional y las constituciones, y se eliminaron cargas feudales.",
+        "Separa la igualdad afirmada de la participación efectiva. La igualdad ante la ley y la difusión de ideas de derechos convivieron con exclusiones, entre ellas la de las mujeres del sufragio nacional."
+      ]
+    },
+    {
+      "topic": 1,
+      "prompt": "En 1789, una declaración francesa afirmó derechos e igualdad ante la ley. En 1791, Olympe de Gouges denunció que las mujeres seguían excluidas de la ciudadanía política. ¿Qué permiten concluir juntas ambas fuentes sobre la política moderna?",
+      "options": [
+        "El legado político principal fue el sufragio universal porque los derechos proclamados ya se aplicaban de forma igualitaria.",
+        "El cuestionamiento de De Gouges demuestra que las declaraciones de derechos tenían un sentido cultural sin consecuencias políticas.",
+        "La Revolución afirmó derechos y límites al poder. También abrió el debate sobre quién podía ejercer esos derechos.",
+        "La política moderna surgió de los gobiernos que eliminaron el voto y distribuyeron el poder según el nacimiento.",
+        "Las dos fuentes defienden reservar los derechos políticos a quienes ya participaban en las instituciones.",
+        "La vigencia del legado depende de que Francia mantuviera de forma continua el mismo régimen desde 1789."
+      ],
+      "answer": 2,
+      "steps": [
+        "Lee ambas fuentes juntas. La primera proclama derechos y la segunda cuestiona a quiénes se reconocen en la práctica.",
+        "Vincula esa discusión con la política moderna. Las ideas de ciudadanía, derechos y límites al poder también dieron argumentos para exigir ampliar la participación."
+      ]
+    },
+    {
+      "topic": 2,
+      "prompt": "En 1810 se formaron juntas en Santiago y Buenos Aires. Ambas surgieron mientras Fernando VII estaba cautivo y varias juntas americanas decían gobernar en nombre del rey. ¿Qué explica mejor que los procesos se desarrollaran en paralelo?",
+      "options": [
+        "Las juntas fueron creadas para ejecutar una instrucción de Fernando VII que fijaba la fecha de separación de España.",
+        "Los grupos que controlaban las juntas habían acordado un calendario para que todo el continente se independizara en 1810.",
+        "La corona española había concedido a sus colonias la plena autonomía antes de la invasión de Napoleón.",
+        "El proceso chileno se inició al consolidarse su independencia y luego sirvió de punto de partida para las juntas de 1810.",
+        "La crisis española abrió una disputa común por la autoridad. Surgieron juntas en paralelo y cada territorio siguió su propio camino.",
+        "Las juntas surgieron después del retorno de Fernando VII para evitar que se reorganizara la monarquía española."
+      ],
+      "answer": 4,
+      "steps": [
+        "Empieza por la causa compartida. La invasión napoleónica y el cautiverio de Fernando VII pusieron en cuestión quién podía gobernar en su ausencia.",
+        "Relaciona la crisis con las respuestas locales. Distintos territorios formaron juntas en fechas cercanas, y varias comenzaron reclamando actuar en nombre del rey."
+      ]
+    },
+    {
+      "topic": 2,
+      "prompt": "Tras la invasión napoleónica, en el mundo español se formaron juntas y la corte portuguesa se trasladó a Río de Janeiro. Brasil declaró su independencia en 1822 bajo Pedro. ¿Qué aporta este contraste a la idea de simultaneidad iberoamericana?",
+      "options": [
+        "Ambas coronas entraron en crisis en años cercanos. El traslado de la corte a Río dio a Brasil una trayectoria distinta.",
+        "La formación de juntas explica tanto la separación de Chile como la de Brasil porque en ambos territorios el rey legítimo estuvo cautivo.",
+        "El traslado de la corte portuguesa equivalió a la independencia inmediata de Brasil, como ocurrió al instalarse la Primera Junta chilena.",
+        "Brasil y Chile declararon su independencia el mismo año y luego organizaron el mismo tipo de gobierno.",
+        "Las diferencias entre Brasil e Hispanoamérica demuestran que sus procesos pertenecieron a períodos históricos diferentes.",
+        "Pedro tomó el poder después de la abdicación de Fernando VII y extendió a Brasil el modelo republicano de las juntas."
+      ],
+      "answer": 0,
+      "steps": [
+        "Busca el vínculo común. Las invasiones napoleónicas desestabilizaron a las monarquías ibéricas en un período cercano.",
+        "Compara las respuestas. La corte portuguesa se instaló en Río y el caso brasileño siguió su propia trayectoria hasta 1822. Simultaneidad permite que los procesos se superpongan y tengan desarrollos distintos."
+      ]
+    },
+    {
+      "topic": 2,
+      "prompt": "¿Cuál ficha explica las causas de la independencia de Chile con un antecedente bien ubicado en cada ámbito?",
+      "options": [
+        "Político: cautiverio del rey. Social: mayor acceso de los criollos a los cargos altos que los peninsulares. Económico: restricciones comerciales. Cultural: difusión de ideas ilustradas.",
+        "Político: formación del Estado republicano. Social: desigualdad entre criollos y peninsulares. Económico: monopolio colonial. Cultural: influencia de la Ilustración.",
+        "Político: disputa por la autoridad. Social: abolición definitiva de la esclavitud en 1823. Económico: restricciones comerciales. Cultural: ejemplos de otras revoluciones.",
+        "Político: crisis de autoridad. Social: desigualdad entre criollos y peninsulares. Económico: monopolio comercial. Cultural: ideas ilustradas.",
+        "Político: crisis de la corona española. Social: desigualdad de poder entre criollos y peninsulares. Económico: apertura del comercio aprobada por la Junta. Cultural: difusión de ideas ilustradas.",
+        "Político: disputa por los cargos. Social: predominio peninsular en puestos altos. Económico: monopolio comercial. Cultural: rechazo de las ideas de derechos y soberanía."
+      ],
+      "answer": 3,
+      "steps": [
+        "Busca factores que ya podían generar presión antes de la ruptura. La crisis de la corona y la desigualdad entre criollos y peninsulares ayudan a explicar el descontento.",
+        "Completa los otros ámbitos. El control del comercio afectaba intereses económicos y la circulación de ideas y ejemplos ofrecía nuevas maneras de imaginar el gobierno."
+      ]
+    },
+    {
+      "topic": 2,
+      "prompt": "Al evaluar la independencia de Chile, ¿qué balance distingue mejor las consecuencias políticas, económicas, sociales y culturales?",
+      "options": [
+        "Política: Estado soberano. Economía: continuidad del monopolio español. Sociedad: persistencia de desigualdades. Cultura: desarrollo de prensa y símbolos patrios.",
+        "Política: Estado republicano. Economía: apertura comercial. Sociedad: desaparición inmediata de las desigualdades. Cultura: formación de referentes nacionales.",
+        "Política: Estado republicano. Economía: apertura comercial y gastos de guerra. Sociedad: poder criollo y desigualdad persistente. Cultura: prensa y símbolos nacionales.",
+        "Política: continuidad de la subordinación a España. Economía: apertura comercial. Sociedad: poder de las élites criollas. Cultura: aparición de referentes nacionales.",
+        "Política: Estado republicano. Economía: apertura sin costos fiscales asociados a la guerra. Sociedad: persistencia de desigualdades. Cultura: difusión de símbolos patrios.",
+        "Política: Estado soberano. Economía: apertura comercial y gastos de guerra. Sociedad: continuidad de la esclavitud como institución legal después de 1823. Cultura: desarrollo de prensa y símbolos patrios."
+      ],
+      "answer": 2,
+      "steps": [
+        "Distingue cambios institucionales y económicos. Chile organizó un Estado soberano y republicano, abrió su comercio y enfrentó gastos derivados de la guerra.",
+        "Reconoce qué cambió y qué persistió en la sociedad y en la cultura. Las élites criollas ganaron poder y siguió habiendo desigualdades, mientras la prensa y los símbolos ofrecieron referencias para una identidad nacional."
+      ]
+    },
+    {
+      "topic": 2,
+      "prompt": "Imagina que tienes que explicar por qué la Primera Junta de 1810 y la declaración de 1818 representan decisiones políticas distintas. ¿Cuál explicación conecta mejor causa, decisión y consecuencia?",
+      "options": [
+        "La crisis permitió gobernar localmente en 1810, aún en nombre de Fernando VII. La declaración de 1818 afirmó la separación de España.",
+        "La Junta de 1810 afirmó la soberanía de Chile. En 1818 se reconoció nuevamente a Fernando VII para obtener su respaldo internacional.",
+        "Ambas decisiones surgieron de la crisis de 1808. En 1810 y en 1818 se afirmó por igual que Chile era un Estado soberano separado de España.",
+        "La Junta de 1810 se separó de España. En 1818 se confirmó esa decisión, sin cambiar la relación política con la corona.",
+        "La Junta de 1810 asumió por orden de Fernando VII. En 1818 Chile obtuvo permiso de la corona para administrar el territorio.",
+        "En 1810 la Junta se constituyó como república. En 1818 se aceptó la autoridad de Fernando VII mediante una Constitución chilena."
+      ],
+      "answer": 0,
+      "steps": [
+        "Identifica la razón de la Junta. La crisis de la corona planteó quién debía gobernar mientras el rey estaba cautivo, y la Junta asumió el gobierno local en su nombre.",
+        "Lee qué cambió en 1818. La proclamación afirmó la separación política de España y la decisión de sostener un Estado soberano."
+      ]
+    }
+  ];
+  const exam = byId("history-exam");
+  const field = name => byId("history-exam-" + name);
+  const entry = field("open");
+  const submit = field("submit");
+  const prompt = field("prompt");
+  const storage = "emilio-ensayo-historia-u3-1";
+  const choiceIsValid = (value, question) => Number.isInteger(value) && value >= 0 && value < question.options.length;
+  const newAttempt = () => ({index:0, answers:questions.map(() => null), submitted:false});
+  let attempt = newAttempt();
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(storage) || "null");
+    if (Array.isArray(saved?.answers) && saved.answers.length === questions.length) {
+      attempt = {
+        index:bounded(saved.index, questions.length),
+        answers:questions.map((question, index) => choiceIsValid(saved.answers[index], question) ? saved.answers[index] : null),
+        submitted:saved.submitted === true
+      };
+    }
+  } catch {}
+
+  const numberAnswered = () => attempt.answers.filter(answer => answer !== null).length;
+  const isCorrect = (question, index) => attempt.answers[index] === question.answer;
+
+  function saveAttempt() {
+    try {
+      localStorage.setItem(storage, JSON.stringify(attempt));
+    } catch {
+      field("storage-note").hidden = false;
+    }
+  }
+
+  function updateEntry() {
+    const label = attempt.submitted ? "Ver resultado del ensayo" :
+      numberAnswered() || attempt.index ? "Retomar ensayo" : "Abrir ensayo tipo prueba";
+    entry.querySelector("span:last-child").textContent = label;
+  }
+
+  function updateProgress() {
+    const answered = numberAnswered();
+    field("progress").value = answered;
+    field("progress-label").textContent = answered + " de " + questions.length + " respondidas";
+  }
+
+  function clearSubmitNotice() {
+    field("submit-note").hidden = true;
+    submit.textContent = "Entregar y corregir";
+  }
+
+  function renderQuestion() {
+    const index = attempt.index;
+    const question = questions[index];
+    const selected = attempt.answers[index];
+    const reviewing = attempt.submitted;
+    field("question").hidden = false;
+    field("results").hidden = true;
+    field("instructions").textContent = reviewing
+      ? "Revisa la alternativa esperada y los dos pasos de la explicación."
+      : "Elige una alternativa por pregunta. Las soluciones aparecen al entregar.";
+    updateProgress();
+    field("topic").textContent = "Pregunta " + (index + 1) + " de " + questions.length + " · " + topics[question.topic];
+    prompt.textContent = question.prompt;
+
+    const options = question.options.map((option, optionIndex) => {
+      const row = historyElement("label", "history-exam-option");
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "history-exam-choice";
+      radio.checked = selected === optionIndex;
+      radio.disabled = reviewing;
+      const letter = historyElement("strong", "", "ABCDEF"[optionIndex] + ".");
+      const label = historyElement("span", "", option);
+      if (reviewing && optionIndex === question.answer) {
+        row.dataset.result = "correct";
+        label.append(historyElement("span", "history-exam-option-note", radio.checked ? "Tu respuesta es correcta" : "Respuesta correcta"));
+      } else if (reviewing && radio.checked) {
+        row.dataset.result = "incorrect";
+        label.append(historyElement("span", "history-exam-option-note", "Tu respuesta"));
+      }
+      radio.addEventListener("change", () => {
+        if (attempt.submitted || !radio.checked) return;
+        attempt.answers[index] = optionIndex;
+        saveAttempt();
+        updateProgress();
+        clearSubmitNotice();
+      });
+      row.append(radio, letter, label);
+      return row;
+    });
+    field("options").replaceChildren(...options);
+
+    const explanation = field("explanation");
+    explanation.replaceChildren();
+    explanation.hidden = !reviewing;
+    if (reviewing) {
+      const steps = document.createElement("ol");
+      steps.append(...question.steps.map(step => historyElement("li", "", step)));
+      explanation.append(historyElement("strong", "", selected === null ? "Sin responder · solución en dos pasos" : "Solución en dos pasos"), steps);
+    }
+
+    field("prev").disabled = index === 0;
+    field("next").hidden = index === questions.length - 1;
+    submit.hidden = reviewing;
+    submit.classList.toggle("next", index === questions.length - 1);
+    field("back-to-score").hidden = !reviewing;
+    clearSubmitNotice();
+    exam.scrollTop = 0;
+    prompt.focus({preventScroll:true});
+  }
+
+  function showResults() {
+    const correct = questions.filter(isCorrect).length;
+    const unanswered = questions.length - numberAnswered();
+    field("question").hidden = true;
+    field("results").hidden = false;
+    field("score").textContent = correct + " de " + questions.length + " puntos · " + Math.round(correct / questions.length * 100) + " %";
+    field("score-note").textContent = unanswered
+      ? "Quedaron " + unanswered + (unanswered === 1 ? " pregunta sin responder." : " preguntas sin responder.")
+      : "Respondidas las " + questions.length + " preguntas.";
+    const scores = topics.map((topic, topicIndex) => {
+      const items = questions.filter(question => question.topic === topicIndex).length;
+      const points = questions.filter((question, index) => question.topic === topicIndex && isCorrect(question, index)).length;
+      const row = document.createElement("li");
+      row.append(historyElement("span", "", topic), historyElement("strong", "", points + " de " + items));
+      return row;
+    });
+    field("score-list").replaceChildren(...scores);
+    exam.scrollTop = 0;
+    field("result-title").focus({preventScroll:true});
+  }
+
+  function goTo(index) {
+    attempt.index = bounded(index, questions.length);
+    saveAttempt();
+    renderQuestion();
+  }
+
+  entry.addEventListener("click", () => {
+    byId("unit-recap-videos").open = false;
+    exam.showModal();
+    if (attempt.submitted) showResults();
+    else renderQuestion();
+  });
+  field("close").addEventListener("click", () => exam.close());
+  exam.addEventListener("close", () => {
+    updateEntry();
+    entry.focus({preventScroll:true});
+  });
+  field("prev").addEventListener("click", () => goTo(attempt.index - 1));
+  field("next").addEventListener("click", () => goTo(attempt.index + 1));
+  submit.addEventListener("click", () => {
+    if (attempt.submitted) return;
+    const remaining = questions.length - numberAnswered();
+    const notice = field("submit-note");
+    if (remaining && notice.hidden) {
+      notice.textContent = remaining === 1
+        ? "Queda una pregunta sin responder. Puedes volver a revisarla o confirmar la entrega."
+        : "Quedan " + remaining + " preguntas sin responder. Puedes volver a revisarlas o confirmar la entrega.";
+      notice.hidden = false;
+      submit.textContent = "Confirmar entrega";
+      return;
+    }
+    attempt.submitted = true;
+    attempt.index = 0;
+    saveAttempt();
+    showResults();
+  });
+  field("review").addEventListener("click", renderQuestion);
+  field("back-to-score").addEventListener("click", showResults);
+  field("retry").addEventListener("click", () => {
+    if (!window.confirm("¿Empezar de nuevo? Se reemplazarán las respuestas y el resultado de este intento.")) return;
+    attempt = newAttempt();
+    saveAttempt();
+    renderQuestion();
+  });
+  field("progress").max = questions.length;
+  updateEntry();
+})();
 </script>
 </body>
 </html>
